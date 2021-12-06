@@ -1,6 +1,6 @@
 # yandex_intensive
 
-Dribbble API: https://developer.dribbble.com/v2/user/<br>
+Dribbble API: https://covid19api.com<br>
 Dribble UI: https://dribbble.com/shots/16389516-Covid-19-Prevent-and-Guidance-Mobile-App-Design<br>
 
 State managment & DI: https://riverpod.dev/<br>

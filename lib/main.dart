@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Yandex Intensive Cribbble',
+      title: 'Yandex Intensive Covid',
       initialRoute: HomeScreen.route,
       routes: {
         HomeScreen.route: (_) => HomeScreen(),

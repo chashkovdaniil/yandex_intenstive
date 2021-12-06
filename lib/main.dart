@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/feeds/presentation/feeds_page.dart';
+import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Yandex Intensive Cribbble',
-      initialRoute: FeedsPage.route,
+      initialRoute: HomeScreen.route,
       routes: {
-        FeedsPage.route: (_) => FeedsPage(),
+        HomeScreen.route: (_) => HomeScreen(),
       },
     );
   }

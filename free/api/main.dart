@@ -151,7 +151,8 @@ class CovidWorld
 	Map<String, CovidCountry> _countries = Map<String, CovidCountry>();
 	late CovidReport          _total;
 
-	CovidWorld(List<Map<String, dynamic>> responses)
+	// CovidWorld(List<Map<String, dynamic>> responses)
+	CovidWorld(List<dynamic> responses)
 	{
 		// Собираем все записи по одной стране в одно
 		//    iso       stats
@@ -167,7 +168,7 @@ class CovidWorld
 		for (String iso in cnts.keys)
 			_countries[iso] = CovidCountry(cnts[iso]!);
 
-		_total = CovidReport.sum(List.from(_countries.values));
+		_total = CovidReport.sum(List.from(_countries.values.map((x) => x.total)));
 	}
 
 	Iterable<String> get countries           => _countries.keys;
@@ -196,10 +197,12 @@ class CovidApi
 		try
 		{
 			var data = (await Dio().get(
-				_api + _reports, queryParameters: { 'date': date }
+				_api + _reports,
+				queryParameters:
+					date != '' ? { 'date': date } : null
 			)).data;
 
-			var world = CovidWorld(data);
+			var world = CovidWorld(data['data']);
 			_world[date] = world;
 			return world;
 		}
@@ -225,9 +228,31 @@ class CovidApi
 
 
 
-void main()
+void main() async
 {
-	print("Пока не тестировал. Что щас начнётся...");
+	CovidWorld world = await CovidApi().getOneDay();
+
+	var print_region = ([country = null, province = null])
+	{
+		if (country == null)
+			print('World\n${world.total.toString()}');
+		else if (province == null)
+			print('$country\n${world.country(country!)!.total.toString()}');
+		else
+			print('$country, $province\n${world.country(country!)!.province(province!).toString()}');
+		print('');
+	};
+
+	print('count of countries: ${world.countries.length}');
+	print_region();
+	print_region('RUS');
+	print_region('RUS', 'Adygea Republic');
+	print_region('ALB');
+	print_region('USA');
+	print_region('BRA');
+	print_region('IDN');
+	print_region('PER', 'Ucayali');
+
 	return;
 }
 

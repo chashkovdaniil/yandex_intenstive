@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:dio/dio.dart';
 
 
@@ -7,7 +8,7 @@ class Region
 	String  name;     // Название в удобочитаемом виде
 	String? province; // null — значит, по всей стране
 
-	Region(this.iso, this.name);
+	Region(this.iso, this.name, [this.province = null]);
 
 	@override
 	String toString() =>
@@ -20,9 +21,9 @@ class CovidReport
 	 * Статистика по коронавирусу на момент времени в определённом месте.
 	 * Без приставки diff — за всё время, иначе с прошлого раза (за день)
 	 */
-	late String  last_update; // '1970-01-01 04:00:00'
-	late String  date;        // '1970-01-01'
-	Region?      region;      // null — значит, по всему миру
+	late String last_update; // '1970-01-01 04:00:00'
+	late String date;        // '1970-01-01'
+	Region?     region;      // null — значит, по всему миру
 
 	// Подтверждено случаев заболевания
 	late int confirmed;
@@ -44,7 +45,7 @@ class CovidReport
 	late num fatality_rate;
 
 
-	CovidReport(Map<String, dynamic> map, {this.region = null})
+	CovidReport(Map<String, dynamic> map, [this.region = null])
 	{
 		confirmed      = map['confirmed'];
 		confirmed_diff = map['confirmed_diff'];
@@ -57,6 +58,26 @@ class CovidReport
 		fatality_rate  = map['fatality_rate'];
 		last_update    = map['last_update'];
 		date           = map['date'];
+	}
+
+	CovidReport.sum(List<CovidReport> items, [this.region = null])
+	{
+		var sum = (a, b) => a + b;
+
+		confirmed      = items.map((x) => x.confirmed)      .fold(0, (a, b) => a + b);
+		confirmed_diff = items.map((x) => x.confirmed_diff) .fold(0, (a, b) => a + b);
+		deaths         = items.map((x) => x.deaths)         .fold(0, (a, b) => a + b);
+		deaths_diff    = items.map((x) => x.deaths_diff)    .fold(0, (a, b) => a + b);
+		recovered      = items.map((x) => x.recovered)      .fold(0, (a, b) => a + b);
+		recovered_diff = items.map((x) => x.recovered_diff) .fold(0, (a, b) => a + b);
+		active         = items.map((x) => x.active)         .fold(0, (a, b) => a + b);
+		active_diff    = items.map((x) => x.active_diff)    .fold(0, (a, b) => a + b);
+		date           = items[0].date;
+		last_update    = items.map((x) => x.last_update)
+			.reduce((a, b) => b.compareTo(a) > 0 ? b : a);
+		// TODO: точно так?
+		fatality_rate  = items.map((x) => x.fatality_rate * x.confirmed)
+			.fold(0, sum) / confirmed;
 	}
 
 	@override
@@ -79,15 +100,44 @@ class CovidReport
 	}
 }
 
+
+
 class CovidCountry
 {
-	//        province   stat
-	late Map<String, CovidReport> _provinces;
-	late CovidReport              _total;
+	//  province   stat
+	Map<String, CovidReport> _provinces = Map<String, CovidReport>();
+	late CovidReport         _total;
 
-	CovidCountry(List<Map<String, dynamic>> responses)
+	CovidCountry(List<Map<String, dynamic>> items)
 	{
-		throw UnimplementedError();
+		if (items.isEmpty)
+			throw FormatException('Список провинций не должен быть пустым');
+
+		var country = Region(
+			items[0]['region']['iso'],
+			items[0]['region']['name'],
+		);
+
+		if (items.length == 1)
+		{
+			if (items[0]['region']['province'] != '')
+				throw FormatException('Если у страны одна запись, провинций быть не должно');
+			_total = CovidReport(items[0], country);
+			return;
+		}
+
+		for (Map<String, dynamic> province in items)
+		{
+			// TODO: предусмотреть случай, если api вернёт бяку
+			var region = Region(
+				province['region']['iso']!,
+				province['region']['name']!,
+				province['region']['province']!
+			);
+			_provinces[region.province!] = CovidReport(province, region);
+		}
+
+		_total = CovidReport.sum(List.from(_provinces.values), country);
 	}
 
 	Iterable<String> get provinces            => _provinces.keys;
@@ -97,13 +147,27 @@ class CovidCountry
 
 class CovidWorld
 {
-	//         iso       stat
-	late Map<String, CovidCountry> _countries;
-	late CovidReport               _total;
+	//   iso       stat
+	Map<String, CovidCountry> _countries = Map<String, CovidCountry>();
+	late CovidReport          _total;
 
 	CovidWorld(List<Map<String, dynamic>> responses)
 	{
-		throw UnimplementedError();
+		// Собираем все записи по одной стране в одно
+		//    iso       stats
+		var cnts = Map<String, List<Map<String, dynamic>>>(); // countries
+		for (var item in responses)
+		{
+			String iso = item['region']['iso'];
+			if (!cnts.containsKey(iso))
+				cnts[iso] = <Map<String, dynamic>>[];
+			cnts[iso]!.add(item);
+		}
+
+		for (String iso in cnts.keys)
+			_countries[iso] = CovidCountry(cnts[iso]!);
+
+		_total = CovidReport.sum(List.from(_countries.values));
 	}
 
 	Iterable<String> get countries           => _countries.keys;
@@ -117,13 +181,33 @@ class CovidWorld
 // удобочитаемые объекты. Отдаёт их по запросам.
 class CovidApi
 {
-	static const _api     = 'https://covid-api.com/api';
-	static const _reports = '/reports';
+	static const      _api     = 'https://covid-api.com/api';
+	static const      _reports = '/reports';
 
-	// По умолчанию — сегодня
-	static Future<CovidWorld> getOneDay([String date = ''])
+	Map<String, CovidWorld> _world = Map<String, CovidWorld>();
+
+
+	// По умолчанию — сегодня; date: 1970-12-31
+	Future<CovidWorld> getOneDay([String date = '']) async
 	{
-		throw UnimplementedError();
+		if (_world.containsKey(date))
+			return Future.value(_world[date]!);
+
+		try
+		{
+			var data = (await Dio().get(
+				_api + _reports, queryParameters: { 'date': date }
+			)).data;
+
+			var world = CovidWorld(data);
+			_world[date] = world;
+			return world;
+		}
+		catch (e)
+		{
+			stderr.write(e);
+			return Future.error(e);
+		}
 	}
 
 	// Проблема: если использовать covid-api.com, то придётся сделать
@@ -143,6 +227,7 @@ class CovidApi
 
 void main()
 {
+	print("Пока не тестировал. Что щас начнётся...");
 	return;
 }
 

@@ -12,14 +12,14 @@ class CovidDatasource implements CovidDatasourceAbstruct
   Future<CovidReport> getWorld(
     [DateTime date = DateTime.now()]
   ) async
-    => _loadData(date) && _ram.getWorld(date);
+    => _loadData(date) ?? _ram.getWorld(date);
 
   @override
   Future<CovidReport> getCountry(
     String country,
     [DateTime date = DateTime.now()]
   ) async
-    => _loadData(date) && _ram.getCountry(country, date);
+    => _loadData(date) ?? _ram.getCountry(country, date);
 
   @override
   Future<CovidReport> getProvince(
@@ -27,7 +27,7 @@ class CovidDatasource implements CovidDatasourceAbstruct
     String province,
     [DateTime date = DateTime.now()]
   ) async
-    => _loadData(date) && _ram.getProvince(country, province, data);
+    => _loadData(date) ?? _ram.getProvince(country, province, data);
 
 
   @override
@@ -39,10 +39,14 @@ class CovidDatasource implements CovidDatasourceAbstruct
     => _loadData(DataTime.now()) && _ram.countryName(code);
 
 
-  bool _loadData(DateTime date)
+  @override
+  Future<bool> has([DateTime date = DateTime.now()]) async
+    => _loadData(date) ?? _ram.has(date);
+
+
+  _loadData(DateTime date) async
   {
     throw UnimplementedError();
-    return true;
   }
 
   get _exc =>

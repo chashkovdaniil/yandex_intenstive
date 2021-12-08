@@ -34,6 +34,12 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
   {
     throw UnimplementedError();
   }
+
+  @override
+  Future<bool> has([DateTime date = DateTime.now()]) async
+  {
+    throw UnimplementedError();
+  }
 }
 
 class CovidNotFoundException implements Exception

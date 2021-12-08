@@ -3,32 +3,50 @@
  */
 
 import 'covid_datasource.dart';
+import 'package:yandex_intensive/core/domain/entities/covid_help.dart';
 
 
 
 class RAMCovidDatasource implements CovidDatasource
 {
-  @override
-  Future<CovidReport> operator()([
-    DateTime date     = DateTime.now(),
-    String?  country  = null, // null — весь мир
-    String?  province = null, // null — вся страна
-  ]) async
-  {
-    throw UnimplementedError();
-  }
+  Map<DateTime, CovidWorld> _world;
+
 
   @override
-  Future<List<String>> countryCodes() async
-  {
-    throw UnimplementedError();
-  }
+  Future<CovidReport> getWorld(
+    [DateTime date = DateTime.now()]
+  ) async
+    => (_world[date] ?? _exc()).total;
 
   @override
-  Future<String>       countryName(String code) async
-  {
-    throw UnimplementedError();
-  }
+  Future<CovidReport> getCountry(
+    String country,
+    [DateTime date = DateTime.now()]
+  ) async
+    => ((_world[date] ?? _exc()).country(country) ?? _exc()).total;
+
+  @override
+  Future<CovidReport> getProvince(
+    String country,
+    String province,
+    [DateTime date = DateTime.now()]
+  ) async
+    => ((_world[date] ?? _exc()).country(country)
+      ?? _exc()).province(province) ?? _exc();
+
+  void push(DateTime date, CovidWorld world)
+    => _world[date] = world;
+
+
+  // service functions
+  _exc() =>
+    throw CovidNotFoundException(
+      'Not found covid in RAM'
+    );
+
+  _nonull(rep) =>
+      rep ?? _exc();
+
 }
 
 

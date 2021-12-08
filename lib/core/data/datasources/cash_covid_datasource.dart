@@ -9,26 +9,37 @@ import 'covid_datasource.dart';
 class CashCovidDatasource implements CovidDatasource
 {
   @override
-  Future<CovidReport> operator()([
-    DateTime date     = DateTime.now(),
-    String?  country  = null, // null — весь мир
-    String?  province = null, // null — вся страна
-  ]) async
+  Future<CovidReport> getWorld(
+    [DateTime date = DateTime.now()]
+  ) async
   {
     throw UnimplementedError();
   }
 
   @override
-  Future<List<String>> countryCodes() async
+  Future<CovidReport> getCountry(
+    String country,
+    [DateTime date = DateTime.now()]
+  ) async
   {
     throw UnimplementedError();
   }
 
   @override
-  Future<String>       countryName(String code) async
+  Future<CovidReport> getProvince(
+    String country,
+    String province,
+    [DateTime date = DateTime.now()]
+  ) async
   {
     throw UnimplementedError();
   }
+}
+
+class CovidNotFoundException implements Exception
+{
+  String cause;
+  CovidNotFoundException(this.cause);
 }
 
 

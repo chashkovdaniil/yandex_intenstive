@@ -3,11 +3,16 @@
  */
 
 import 'package:yandex_intensive/core/domain/entities/covid.dart';
+import 'package:yandex_intensive/core/domain/entities/covid_help.dart';
 
 
 
 abstract class CovidDatasourceAbstruct
 {
+  Future<CovidWorld> getAll(
+    [DateTime date = DateTime.now()]
+  ) async;
+
   Future<CovidReport> getWorld(
     [DateTime date = DateTime.now()]
   ) async;

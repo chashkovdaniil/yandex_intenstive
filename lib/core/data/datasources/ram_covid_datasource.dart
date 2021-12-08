@@ -14,6 +14,12 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct
 
 
   @override
+  Future<CovidWorld> getAll(
+    [DateTime date = DateTime.now()]
+  ) async
+    => _world[_d2s(date)] ?? _exc;
+
+  @override
   Future<CovidReport> getWorld(
     [DateTime date = DateTime.now()]
   ) async

@@ -9,6 +9,12 @@ class CovidDatasource implements CovidDatasourceAbstruct
   CashCovidDatasource _cash;
 
   @override
+  Future<CovidWorld> getAll(
+    [DateTime date = DateTime.now()]
+  ) async
+    => _loadData(date) ?? _ram.getAll(date);
+
+  @override
   Future<CovidReport> getWorld(
     [DateTime date = DateTime.now()]
   ) async
@@ -32,11 +38,11 @@ class CovidDatasource implements CovidDatasourceAbstruct
 
   @override
   Future<List<String>> countryCodes() async
-    => _loadData(DataTime.now()) && _ram.countryCodes();
+    => _loadData(DataTime.now()) ?? _ram.countryCodes();
 
   @override
   Future<String> countryName(String code) async
-    => _loadData(DataTime.now()) && _ram.countryName(code);
+    => _loadData(DataTime.now()) ?? _ram.countryName(code);
 
 
   @override

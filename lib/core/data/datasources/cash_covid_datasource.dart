@@ -9,6 +9,14 @@ import 'covid_datasource_abstruct.dart';
 class CashCovidDatasource implements CovidDatasourceAbstruct
 {
   @override
+  Future<CovidWorld> getAll(
+    [DateTime date = DateTime.now()]
+  ) async
+  {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<CovidReport> getWorld(
     [DateTime date = DateTime.now()]
   ) async

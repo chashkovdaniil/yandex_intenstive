@@ -2,11 +2,11 @@
  * Класс, который извлекает и загружает данные по ковиду в кеш
  */
 
-import 'covid_datasource.dart';
+import 'covid_datasource_abstruct.dart';
 
 
 
-class CashCovidDatasource implements CovidDatasource
+class CashCovidDatasource implements CovidDatasourceAbstruct
 {
   @override
   Future<CovidReport> getWorld(

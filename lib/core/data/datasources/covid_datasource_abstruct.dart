@@ -6,7 +6,7 @@ import 'package:yandex_intensive/core/domain/entities/covid.dart';
 
 
 
-abstract class CovidDatasource
+abstract class CovidDatasourceAbstruct
 {
   @override
   Future<CovidReport> getWorld(

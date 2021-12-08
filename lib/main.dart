@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
+import 'package:yandex_intensive/modules/education/symptom_check.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Yandex Intensive Covid',
-      initialRoute: HomeScreen.route,
-      routes: {
-        HomeScreen.route: (_) => HomeScreen(),
-      },
+      home: SymptomCheck(),
+      // initialRoute: HomeScreen.route,
+      // routes: {
+      //   HomeScreen.route: (_) => HomeScreen(),
+      // },
     );
   }
 }

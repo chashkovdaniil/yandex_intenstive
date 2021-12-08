@@ -5,7 +5,12 @@ import '../../../../core/domain/repositories/covid_repository.dart';
 
 part 'home_screen_state.freezed.dart';
 
-enum HomeScreenStateStatus { loading, failed, success }
+@freezed
+class HomeScreenStateStatus with _$HomeScreenStateStatus {
+  const factory HomeScreenStateStatus.success() = Success;
+  const factory HomeScreenStateStatus.failed() = Failed;
+  const factory HomeScreenStateStatus.loading() = Loading;
+}
 
 @freezed
 class HomeScreenState with _$HomeScreenState {
@@ -24,13 +29,13 @@ class HomeScreenProvider extends StateNotifier<HomeScreenState> {
     CovidRepository? covidRepository,
   })  : _covidRepository = covidRepository,
         super(
-          const HomeScreenState(status: HomeScreenStateStatus.loading),
+          const HomeScreenState(status: HomeScreenStateStatus.loading()),
         );
 
   Future<void> load() async {
     Future.delayed(const Duration(seconds: 3), () {
       state = state.copyWith(
-        status: HomeScreenStateStatus.success,
+        status: const HomeScreenStateStatus.success(),
         confirmedSpots: [
           [0, 63839023],
           [1, 83963772],

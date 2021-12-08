@@ -13,7 +13,6 @@ class RatioRecoveryChart extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -46,12 +45,12 @@ class RatioRecoveryChart extends StatelessWidget {
           footer: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildMarkChart(
+              MarkChart(
                 color: Colors.red,
                 title: 'Deaths',
                 value: deaths,
               ),
-              _buildMarkChart(
+              MarkChart(
                 color: Colors.green,
                 title: 'Recovered',
                 value: recovered,
@@ -62,13 +61,22 @@ class RatioRecoveryChart extends StatelessWidget {
       ],
     );
   }
+}
 
-  Widget _buildMarkChart({
-    required Color color,
-    required String title,
-    required int value,
-    // ignore: prefer_expression_function_bodies
-  }) {
+class MarkChart extends StatelessWidget {
+  const MarkChart({
+    Key? key,
+    required this.color,
+    required this.title,
+    required this.value,
+  }) : super(key: key);
+
+  final Color color;
+  final String title;
+  final int value;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Row(

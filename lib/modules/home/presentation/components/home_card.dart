@@ -8,7 +8,6 @@ class HomeCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(17),

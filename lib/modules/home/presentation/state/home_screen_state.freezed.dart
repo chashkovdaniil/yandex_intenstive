@@ -13,6 +13,341 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$HomeScreenStateStatusTearOff {
+  const _$HomeScreenStateStatusTearOff();
+
+  Success success() {
+    return const Success();
+  }
+
+  Failed failed() {
+    return const Failed();
+  }
+
+  Loading loading() {
+    return const Loading();
+  }
+}
+
+/// @nodoc
+const $HomeScreenStateStatus = _$HomeScreenStateStatusTearOff();
+
+/// @nodoc
+mixin _$HomeScreenStateStatus {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() success,
+    required TResult Function() failed,
+    required TResult Function() loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success value) success,
+    required TResult Function(Failed value) failed,
+    required TResult Function(Loading value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HomeScreenStateStatusCopyWith<$Res> {
+  factory $HomeScreenStateStatusCopyWith(HomeScreenStateStatus value,
+          $Res Function(HomeScreenStateStatus) then) =
+      _$HomeScreenStateStatusCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$HomeScreenStateStatusCopyWithImpl<$Res>
+    implements $HomeScreenStateStatusCopyWith<$Res> {
+  _$HomeScreenStateStatusCopyWithImpl(this._value, this._then);
+
+  final HomeScreenStateStatus _value;
+  // ignore: unused_field
+  final $Res Function(HomeScreenStateStatus) _then;
+}
+
+/// @nodoc
+abstract class $SuccessCopyWith<$Res> {
+  factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
+      _$SuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SuccessCopyWithImpl<$Res>
+    extends _$HomeScreenStateStatusCopyWithImpl<$Res>
+    implements $SuccessCopyWith<$Res> {
+  _$SuccessCopyWithImpl(Success _value, $Res Function(Success) _then)
+      : super(_value, (v) => _then(v as Success));
+
+  @override
+  Success get _value => super._value as Success;
+}
+
+/// @nodoc
+
+class _$Success implements Success {
+  const _$Success();
+
+  @override
+  String toString() {
+    return 'HomeScreenStateStatus.success()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Success);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() success,
+    required TResult Function() failed,
+    required TResult Function() loading,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success value) success,
+    required TResult Function(Failed value) failed,
+    required TResult Function(Loading value) loading,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Success implements HomeScreenStateStatus {
+  const factory Success() = _$Success;
+}
+
+/// @nodoc
+abstract class $FailedCopyWith<$Res> {
+  factory $FailedCopyWith(Failed value, $Res Function(Failed) then) =
+      _$FailedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FailedCopyWithImpl<$Res>
+    extends _$HomeScreenStateStatusCopyWithImpl<$Res>
+    implements $FailedCopyWith<$Res> {
+  _$FailedCopyWithImpl(Failed _value, $Res Function(Failed) _then)
+      : super(_value, (v) => _then(v as Failed));
+
+  @override
+  Failed get _value => super._value as Failed;
+}
+
+/// @nodoc
+
+class _$Failed implements Failed {
+  const _$Failed();
+
+  @override
+  String toString() {
+    return 'HomeScreenStateStatus.failed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Failed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() success,
+    required TResult Function() failed,
+    required TResult Function() loading,
+  }) {
+    return failed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success value) success,
+    required TResult Function(Failed value) failed,
+    required TResult Function(Loading value) loading,
+  }) {
+    return failed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Failed implements HomeScreenStateStatus {
+  const factory Failed() = _$Failed;
+}
+
+/// @nodoc
+abstract class $LoadingCopyWith<$Res> {
+  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
+      _$LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LoadingCopyWithImpl<$Res>
+    extends _$HomeScreenStateStatusCopyWithImpl<$Res>
+    implements $LoadingCopyWith<$Res> {
+  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
+      : super(_value, (v) => _then(v as Loading));
+
+  @override
+  Loading get _value => super._value as Loading;
+}
+
+/// @nodoc
+
+class _$Loading implements Loading {
+  const _$Loading();
+
+  @override
+  String toString() {
+    return 'HomeScreenStateStatus.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() success,
+    required TResult Function() failed,
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success value) success,
+    required TResult Function(Failed value) failed,
+    required TResult Function(Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading implements HomeScreenStateStatus {
+  const factory Loading() = _$Loading;
+}
+
+/// @nodoc
 class _$HomeScreenStateTearOff {
   const _$HomeScreenStateTearOff();
 
@@ -55,6 +390,8 @@ abstract class $HomeScreenStateCopyWith<$Res> {
       List<List<double>>? confirmedSpots,
       List<List<double>>? recoveredSpots,
       Map<String, Object>? testData});
+
+  $HomeScreenStateStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -92,6 +429,13 @@ class _$HomeScreenStateCopyWithImpl<$Res>
               as Map<String, Object>?,
     ));
   }
+
+  @override
+  $HomeScreenStateStatusCopyWith<$Res> get status {
+    return $HomeScreenStateStatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -106,6 +450,9 @@ abstract class _$HomeScreenStateCopyWith<$Res>
       List<List<double>>? confirmedSpots,
       List<List<double>>? recoveredSpots,
       Map<String, Object>? testData});
+
+  @override
+  $HomeScreenStateStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc

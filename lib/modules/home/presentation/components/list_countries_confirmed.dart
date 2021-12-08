@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ListCountriesConfirmed extends StatelessWidget {
+  final List<Map<String, Object>> testData;
+
   const ListCountriesConfirmed({
     Key? key,
     required this.testData,
   }) : super(key: key);
 
-  final List<Map<String, Object>> testData;
-
   @override
-  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Column(
       children: [

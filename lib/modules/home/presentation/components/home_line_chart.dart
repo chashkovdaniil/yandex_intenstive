@@ -7,7 +7,7 @@ class HomeLineChart extends StatelessWidget {
   final List<Color>? colors;
   final List<List<double>> spots;
 
-  const HomeLineChart({
+  HomeLineChart({
     Key? key,
     required this.title,
     required this.value,
@@ -15,10 +15,10 @@ class HomeLineChart extends StatelessWidget {
     this.colors,
   }) : super(key: key);
 
+  double maxValue = 0;
+
   @override
   Widget build(BuildContext context) {
-    // ignore: omit_local_variable_types
-    double maxValue = 0;
     for (final spot in spots) {
       maxValue = spot[1] > maxValue ? spot[1] : maxValue;
     }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/core/styles/app_theme.dart';
 
 class HomeCard extends StatelessWidget {
   final Widget child;
@@ -9,12 +8,13 @@ class HomeCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(17),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Color(0xffe4e4e4),
+          color: const Color(0xffe4e4e4),
         ),
         borderRadius: BorderRadius.circular(15),
       ),

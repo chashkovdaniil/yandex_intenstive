@@ -13,11 +13,12 @@ class RatioRecoveryChart extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          "Ratio of Recovery",
+          'Ratio of Recovery',
           style: Theme.of(context).textTheme.headline6,
         ),
         const SizedBox(height: 10),
@@ -38,21 +39,21 @@ class RatioRecoveryChart extends StatelessWidget {
             backgroundColor: Colors.transparent,
             circularStrokeCap: CircularStrokeCap.round,
             center: Text(
-              (recovered / confirmed * 100).toStringAsFixed(0) + "%",
+              (recovered / confirmed * 100).toStringAsFixed(0) + '%',
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
           footer: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              buildMarkChart(
+              _buildMarkChart(
                 color: Colors.red,
-                title: "Deaths",
+                title: 'Deaths',
                 value: deaths,
               ),
-              buildMarkChart(
+              _buildMarkChart(
                 color: Colors.green,
-                title: "Recovered",
+                title: 'Recovered',
                 value: recovered,
               ),
             ],
@@ -62,10 +63,11 @@ class RatioRecoveryChart extends StatelessWidget {
     );
   }
 
-  Widget buildMarkChart({
+  Widget _buildMarkChart({
     required Color color,
     required String title,
     required int value,
+    // ignore: prefer_expression_function_bodies
   }) {
     return Column(
       children: [
@@ -80,7 +82,7 @@ class RatioRecoveryChart extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Text("$value"),
+            Text('$value'),
           ],
         ),
         const SizedBox(height: 5),

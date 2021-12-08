@@ -1,59 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/home/presentation/components/home_card.dart';
-import 'package:yandex_intensive/modules/home/presentation/components/list_countries_confirmed.dart';
-import 'package:yandex_intensive/modules/home/presentation/components/ratio_recovered_chart.dart';
 
+import 'components/home_card.dart';
 import 'components/home_line_chart.dart';
+import 'components/list_countries_confirmed.dart';
+import 'components/ratio_recovered_chart.dart';
 
 class HomeScreen extends StatelessWidget {
   static const route = '/';
   HomeScreen({Key? key}) : super(key: key);
 
   final Map<String, Object> testData = {
-    "Global": {
-      "NewConfirmed": 100282,
-      "TotalConfirmed": 1162857,
-      "NewDeaths": 5658,
-      "TotalDeaths": 63263,
-      "NewRecovered": 15405,
-      "TotalRecovered": 230845
+    'Global': {
+      'NewConfirmed': 100282,
+      'TotalConfirmed': 1162857,
+      'NewDeaths': 5658,
+      'TotalDeaths': 63263,
+      'NewRecovered': 15405,
+      'TotalRecovered': 230845
     },
-    "Countries": [
+    'Countries': [
       {
-        "Country": "ALA Aland Islands",
-        "CountryCode": "AX",
-        "Slug": "ala-aland-islands",
-        "NewConfirmed": 0,
-        "TotalConfirmed": 0,
-        "NewDeaths": 0,
-        "TotalDeaths": 0,
-        "NewRecovered": 0,
-        "TotalRecovered": 0,
-        "Date": "2020-04-05T06:37:00Z"
+        'Country': 'ALA Aland Islands',
+        'CountryCode': 'AX',
+        'Slug': 'ala-aland-islands',
+        'NewConfirmed': 0,
+        'TotalConfirmed': 0,
+        'NewDeaths': 0,
+        'TotalDeaths': 0,
+        'NewRecovered': 0,
+        'TotalRecovered': 0,
+        'Date': '2020-04-05T06:37:00Z'
       },
       {
-        "Country": "Afghanistan",
-        "CountryCode": "AF",
-        "Slug": "afghanistan",
-        "NewConfirmed": 18,
-        "TotalConfirmed": 299,
-        "NewDeaths": 1,
-        "TotalDeaths": 7,
-        "NewRecovered": 0,
-        "TotalRecovered": 10,
-        "Date": "2020-04-05T06:37:00Z"
+        'Country': 'Afghanistan',
+        'CountryCode': 'AF',
+        'Slug': 'afghanistan',
+        'NewConfirmed': 18,
+        'TotalConfirmed': 299,
+        'NewDeaths': 1,
+        'TotalDeaths': 7,
+        'NewRecovered': 0,
+        'TotalRecovered': 10,
+        'Date': '2020-04-05T06:37:00Z'
       },
       {
-        "Country": "Albania",
-        "CountryCode": "AL",
-        "Slug": "albania",
-        "NewConfirmed": 29,
-        "TotalConfirmed": 333,
-        "NewDeaths": 3,
-        "TotalDeaths": 20,
-        "NewRecovered": 10,
-        "TotalRecovered": 99,
-        "Date": "2020-04-05T06:37:00Z"
+        'Country': 'Albania',
+        'CountryCode': 'AL',
+        'Slug': 'albania',
+        'NewConfirmed': 29,
+        'TotalConfirmed': 333,
+        'NewDeaths': 3,
+        'TotalDeaths': 20,
+        'NewRecovered': 10,
+        'TotalRecovered': 99,
+        'Date': '2020-04-05T06:37:00Z'
       },
     ],
   };
@@ -87,6 +87,7 @@ class HomeScreen extends StatelessWidget {
   ];
 
   @override
+  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -103,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                   child: HomeLineChart(
                     title: 'Confirmed',
                     value: 123456,
-                    colors: [Colors.orangeAccent],
+                    colors: const [Colors.orangeAccent],
                     spots: confirmedSpots,
                   ),
                 ),
@@ -111,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                   child: HomeLineChart(
                     title: 'Recovered',
                     value: 123456,
-                    colors: [Colors.greenAccent],
+                    colors: const [Colors.greenAccent],
                     spots: recoveredSpots,
                   ),
                 ),
@@ -119,7 +120,7 @@ class HomeScreen extends StatelessWidget {
                   child: HomeLineChart(
                     title: 'Deaths',
                     value: 123456,
-                    colors: [Colors.redAccent],
+                    colors: const [Colors.redAccent],
                     spots: confirmedSpots,
                   ),
                 ),
@@ -127,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Fatality rate'),
+                      const Text('Fatality rate'),
                       Text(
                         '0,7%',
                         style: Theme.of(context).textTheme.headline3,
@@ -138,8 +139,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SliverToBoxAdapter(
-              child: const SizedBox(height: 25),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 25),
             ),
             SliverToBoxAdapter(
               child: HomeCard(
@@ -153,13 +154,15 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: const SizedBox(height: 25),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 25),
             ),
             SliverToBoxAdapter(
               child: HomeCard(
                 child: ListCountriesConfirmed(
-                  testData: testData['Countries'] as List<Map<String, Object>>,
+                  testData: List<Map<String, Object>>.from(
+                    testData['Countries'] as Iterable<dynamic>,
+                  ),
                 ),
               ),
             ),

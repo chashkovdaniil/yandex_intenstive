@@ -5,21 +5,23 @@ class HomeLineChart extends StatelessWidget {
   final String title;
   final int value;
   final List<Color>? colors;
-  final List<List<double>>? spots;
-  HomeLineChart({
+  final List<List<double>> spots;
+
+  const HomeLineChart({
     Key? key,
     required this.title,
     required this.value,
+    required this.spots,
     this.colors,
-    this.spots,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: omit_local_variable_types
     double maxValue = 0;
-    spots!.forEach(
-      (element) => maxValue = element[1] > maxValue ? element[1] : maxValue,
-    );
+    for (final spot in spots) {
+      maxValue = spot[1] > maxValue ? spot[1] : maxValue;
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +29,7 @@ class HomeLineChart extends StatelessWidget {
         Text(title),
         const SizedBox(height: 10),
         Text(
-          "$value",
+          '$value',
           style: Theme.of(context).textTheme.headline5,
         ),
         Expanded(
@@ -51,7 +53,7 @@ class HomeLineChart extends StatelessWidget {
               ),
               lineBarsData: [
                 LineChartBarData(
-                  spots: spots?.map((e) => FlSpot(e[0], e[1])).toList(),
+                  spots: spots.map((e) => FlSpot(e[0], e[1])).toList(),
                   colors: colors,
                   isCurved: true,
                   barWidth: 5,

@@ -9,12 +9,13 @@ class ListCountriesConfirmed extends StatelessWidget {
   final List<Map<String, Object>> testData;
 
   @override
+  // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          title: Text("Country"),
-          trailing: Text("Confirmed"),
+        const ListTile(
+          title: Text('Country'),
+          trailing: Text('Confirmed'),
         ),
         ...List.generate(
           testData.length,

@@ -34,6 +34,19 @@ class RAMCovidDatasource implements CovidDatasource
     => ((_world[date] ?? _exc()).country(country)
       ?? _exc()).province(province) ?? _exc();
 
+
+  @override
+  Future<List<String>> countryCodes() async
+    => _world.isEmpty ?
+      throw CovidNotFoundException("Can't return countries without any data") :
+      List.from(_world[_world.keys.first]!.countries);
+
+  @override
+  Future<String> countryName(String code) async
+    => _world.isEmpty ? 
+      throw CovidNotFoundException("Can't return countries without any data") :
+      (_world[_world.keys.first]!.country(code) ?? _exc()).total.region.name;
+
   void push(DateTime date, CovidWorld world)
     => _world[date] = world;
 
@@ -43,10 +56,6 @@ class RAMCovidDatasource implements CovidDatasource
     throw CovidNotFoundException(
       'Not found covid in RAM'
     );
-
-  _nonull(rep) =>
-      rep ?? _exc();
-
 }
 
 

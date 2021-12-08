@@ -12,6 +12,10 @@ class RatioRecoveryChart extends StatelessWidget {
     required this.confirmed,
   }) : super(key: key);
 
+  String get percentRecovered {
+    return (recovered / confirmed * 100).toStringAsFixed(0);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,7 +42,7 @@ class RatioRecoveryChart extends StatelessWidget {
             backgroundColor: Colors.transparent,
             circularStrokeCap: CircularStrokeCap.round,
             center: Text(
-              (recovered / confirmed * 100).toStringAsFixed(0) + '%',
+              '$percentRecovered%',
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
@@ -64,16 +68,16 @@ class RatioRecoveryChart extends StatelessWidget {
 }
 
 class MarkChart extends StatelessWidget {
+  final Color color;
+  final String title;
+  final int value;
+
   const MarkChart({
     Key? key,
     required this.color,
     required this.title,
     required this.value,
   }) : super(key: key);
-
-  final Color color;
-  final String title;
-  final int value;
 
   @override
   Widget build(BuildContext context) {

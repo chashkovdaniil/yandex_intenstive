@@ -7,7 +7,7 @@ class HomeLineChart extends StatelessWidget {
   final List<Color>? colors;
   final List<List<double>> spots;
 
-  HomeLineChart({
+  const HomeLineChart({
     Key? key,
     required this.title,
     required this.value,
@@ -15,14 +15,16 @@ class HomeLineChart extends StatelessWidget {
     this.colors,
   }) : super(key: key);
 
-  double maxValue = 0;
+  double get maxValue {
+    var maxVal = 0.0;
+    for (final spot in spots) {
+      maxVal = spot[1] > maxVal ? spot[1] : maxVal;
+    }
+    return maxVal;
+  }
 
   @override
   Widget build(BuildContext context) {
-    for (final spot in spots) {
-      maxValue = spot[1] > maxValue ? spot[1] : maxValue;
-    }
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -29,19 +29,16 @@ class OnboardingPage extends StatelessWidget {
         ),
         Expanded(
             flex: 12279,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                    title,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(23, 23, 37, 1),
-                      fontSize: 28,
-                      fontFamily: "SF Pro Display"
-                    )
-                ),
-              ],
+            child: Align(
+              child: Text(
+                  title,
+                  style: const TextStyle(
+                    color: Color.fromRGBO(23, 23, 37, 1),
+                    fontSize: 28,
+                    fontFamily: "SF Pro Display"
+                  )
+              ),
+              alignment: Alignment.bottomCenter,
             )
         ),
         Expanded(

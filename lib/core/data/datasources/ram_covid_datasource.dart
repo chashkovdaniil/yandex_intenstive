@@ -4,45 +4,46 @@
 
 import 'covid_datasource_abstruct.dart';
 import 'package:sprintf/sprintf.dart';
-import 'package:yandex_intensive/core/domain/entities/covid_help.dart';
+import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/covid_help.dart';
 
 
 
 class RAMCovidDatasource implements CovidDatasourceAbstruct
 {
-  Map<String, CovidWorld> _world;
+  Map<String, CovidWorld> _world = Map<String, CovidWorld>();
 
 
   @override
   Future<CovidWorld> getAll(
-    [DateTime date = DateTime.now()]
+    DateTime date
   ) async
     => _world[_d2s(date)] ?? _exc;
 
   @override
   Future<CovidReport> getWorld(
-    [DateTime date = DateTime.now()]
+    DateTime date
   ) async
     => (_world[_d2s(date)] ?? _exc).total;
 
   @override
   Future<CovidReport> getCountry(
+    DateTime date,
     String country,
-    [DateTime date = DateTime.now()]
   ) async
     => ((_world[_d2s(date)] ?? _exc).country(country) ?? _exc).total;
 
   @override
   Future<CovidReport> getProvince(
+    DateTime date,
     String country,
     String province,
-    [DateTime date = DateTime.now()]
   ) async
     => ((_world[_d2s(date)] ?? _exc).country(country)
       ?? _exc).province(province) ?? _exc;
 
   @override
-  Future<bool> has([DateTime date = DateTime.now()]) async
+  Future<bool> has(DateTime date) async
     => _world.containsKey(_d2s(date));
 
   @override

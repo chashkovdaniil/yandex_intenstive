@@ -3,27 +3,28 @@
  */
 
 import 'package:dio/dio.dart';
-import 'package:yandex_intensive/core/domain/entities/covid.dart';
-import 'package:yandex_intensive/core/domain/entities/covid_help.dart';
+import 'package:sprintf/sprintf.dart';
+import 'covid_datasource_abstruct.dart';
+import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/covid_help.dart';
 
 
 
 class CovidNetworkTaker
 {
-  static const api = 'https://covid-api.com/api/reports';
-  final Dio    dio = Dio(BaseOptions(baseUrl: _api));
+  static const _api = 'https://covid-api.com/api/reports';
+  final Dio    _dio = Dio();
 
-  Future<CovidWorld> getOneDay([DateTime date = DateTime.now()]) async
+  Future<CovidWorld> getOneDay(DateTime date) async
   {
     try
     {
+      var sdate = sprintf("%04i-%02i-%02i", [date.year, date.month, date.day]);
       return CovidWorld(
-        (await _dio.get('',
-          queryParameters: date != '' ? { 'date': date } : null
-        )).data['data']
+        (await _dio.get(_api, queryParameters: { 'date': sdate })).data['data']
       );
     }
-    catch (e)
+    on Exception catch(e)
     {
       throw CovidNotFoundException("Can't take covid data from network: ${e}");
     }

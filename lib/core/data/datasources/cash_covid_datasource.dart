@@ -3,6 +3,8 @@
  */
 
 import 'covid_datasource_abstruct.dart';
+import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/covid_help.dart';
 
 
 
@@ -10,7 +12,7 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
 {
   @override
   Future<CovidWorld> getAll(
-    [DateTime date = DateTime.now()]
+    DateTime date
   ) async
   {
     throw UnimplementedError();
@@ -18,7 +20,7 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
 
   @override
   Future<CovidReport> getWorld(
-    [DateTime date = DateTime.now()]
+    DateTime date
   ) async
   {
     throw UnimplementedError();
@@ -26,8 +28,8 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
 
   @override
   Future<CovidReport> getCountry(
+    DateTime date,
     String country,
-    [DateTime date = DateTime.now()]
   ) async
   {
     throw UnimplementedError();
@@ -35,16 +37,30 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
 
   @override
   Future<CovidReport> getProvince(
+    DateTime date,
     String country,
     String province,
-    [DateTime date = DateTime.now()]
   ) async
   {
     throw UnimplementedError();
   }
 
+
   @override
-  Future<bool> has([DateTime date = DateTime.now()]) async
+  Future<List<String>> countryCodes()
+  {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> countryName(String code)
+  {
+    throw UnimplementedError();
+  }
+
+
+  @override
+  Future<bool> has(DateTime date) async
   {
     throw UnimplementedError();
   }
@@ -53,12 +69,6 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
   {
     throw UnimplementedError();
   }
-}
-
-class CovidNotFoundException implements Exception
-{
-  String cause;
-  CovidNotFoundException(this.cause);
 }
 
 

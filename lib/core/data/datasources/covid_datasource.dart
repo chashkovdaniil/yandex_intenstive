@@ -1,69 +1,100 @@
+/*
+ * Основной класс, который вбирает все остальные CovidDatasource-классы
+ */
+
 import 'cash_covid_datasource.dart';
 import 'covid_datasource_abstruct.dart';
 import 'covid_network_taker.dart';
 import 'ram_covid_datasource.dart';
 
+import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/covid_help.dart';
+
+
 
 class CovidDatasource implements CovidDatasourceAbstruct
 {
-  RAMCovidDatasource  _ram;
-  CashCovidDatasource _cash;
-  CovidNetworkTaker   _net;
+  RAMCovidDatasource  _ram  = RAMCovidDatasource();
+  CashCovidDatasource _cash = CashCovidDatasource();
+  CovidNetworkTaker   _net  = CovidNetworkTaker();
 
   @override
   Future<CovidWorld> getAll(
-    [DateTime date = DateTime.now()]
+    DateTime date
   ) async
-    => _loadData(date) ?? _ram.getAll(date);
+  {
+    await _loadData(date);
+    return _ram.getAll(date);
+  }
 
   @override
   Future<CovidReport> getWorld(
-    [DateTime date = DateTime.now()]
-    => _loadData(date) ?? _ram.getWorld(date);
+    DateTime date
+  ) async
+  {
+     await _loadData(date);
+     return _ram.getWorld(date);
+  }
 
   @override
   Future<CovidReport> getCountry(
+    DateTime date,
     String country,
-    [DateTime date = DateTime.now()]
   ) async
-    => _loadData(date) ?? _ram.getCountry(country, date);
+  {
+    await _loadData(date);
+    return _ram.getCountry(date, country);
+  }
 
   @override
   Future<CovidReport> getProvince(
+    DateTime date,
     String country,
     String province,
-    [DateTime date = DateTime.now()]
   ) async
-    => _loadData(date) ?? _ram.getProvince(country, province, data);
+  {
+    await _loadData(date);
+    return _ram.getProvince(date, country, province);
+  }
 
 
   @override
   Future<List<String>> countryCodes() async
-    => _loadData(DataTime.now()) ?? _ram.countryCodes();
+  {
+    await _loadData(DateTime.now());
+    return _ram.countryCodes();
+  }
 
   @override
   Future<String> countryName(String code) async
-    => _loadData(DataTime.now()) ?? _ram.countryName(code);
+  {
+    await _loadData(DateTime.now());
+    return _ram.countryName(code);
+  }
 
 
   @override
-  Future<bool> has([DateTime date = DateTime.now()]) async
-    => _loadData(date) ?? _ram.has(date);
-
-
-  _loadData(DateTime date) async
+  Future<bool> has(DateTime date) async
   {
-    if (_ram.has(date))
+    try
+    {
+      await _loadData(date);
+      return _ram.has(date);
+    }
+    catch (e)
+    {
+      return false;
+    }
+  }
+
+
+  Future<void> _loadData(DateTime date) async
+  {
+    if (await _ram.has(date))
       return;
     
-    if (_cash.has(date))
-    {
-      _ram.push(date, _cash.getAll(date));
-      return;
-    }
-
-    CovidWorld world = _net.getOneDay(date);
-    _cash.push(date, world);
+    CovidWorld world = await _net.getOneDay(date);
+    // _cash.push(date, world);
     _ram.push(date, world);
   }
 

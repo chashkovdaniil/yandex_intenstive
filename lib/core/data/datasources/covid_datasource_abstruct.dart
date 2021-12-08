@@ -2,36 +2,42 @@
  * Абстрактный класс, с помощью которого можно получить данные по ковиду
  */
 
-import 'package:yandex_intensive/core/domain/entities/covid.dart';
-import 'package:yandex_intensive/core/domain/entities/covid_help.dart';
+import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/covid_help.dart';
 
 
 
 abstract class CovidDatasourceAbstruct
 {
   Future<CovidWorld> getAll(
-    [DateTime date = DateTime.now()]
-  ) async;
+    DateTime date
+  );
 
   Future<CovidReport> getWorld(
-    [DateTime date = DateTime.now()]
-  ) async;
+    DateTime date
+  );
 
   Future<CovidReport> getCountry(
+    DateTime date,
     String country,
-    [DateTime date = DateTime.now()]
-  ) async;
+  );
 
   Future<CovidReport> getProvince(
+    DateTime date,
     String country,
     String province,
-    [DateTime date = DateTime.now()]
-  ) async;
+  );
 
-  Future<bool> has([DateTime date = DateTime.now()]) async;
+  Future<bool> has(DateTime date);
 
-  Future<List<String>> countryCodes() async;
-  Future<String>       countryName(String code) async;
+  Future<List<String>> countryCodes();
+  Future<String>       countryName(String code);
+}
+
+class CovidNotFoundException implements Exception
+{
+  String cause;
+  CovidNotFoundException(this.cause);
 }
 
 

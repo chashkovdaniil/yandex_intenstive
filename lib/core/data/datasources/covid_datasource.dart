@@ -1,12 +1,14 @@
-import 'covid_datasource_abstruct.dart';
-import 'ram_covid_datasource.dart';
 import 'cash_covid_datasource.dart';
+import 'covid_datasource_abstruct.dart';
+import 'covid_network_taker.dart';
+import 'ram_covid_datasource.dart';
 
 
 class CovidDatasource implements CovidDatasourceAbstruct
 {
   RAMCovidDatasource  _ram;
   CashCovidDatasource _cash;
+  CovidNetworkTaker   _net;
 
   @override
   Future<CovidWorld> getAll(
@@ -17,7 +19,6 @@ class CovidDatasource implements CovidDatasourceAbstruct
   @override
   Future<CovidReport> getWorld(
     [DateTime date = DateTime.now()]
-  ) async
     => _loadData(date) ?? _ram.getWorld(date);
 
   @override
@@ -52,7 +53,18 @@ class CovidDatasource implements CovidDatasourceAbstruct
 
   _loadData(DateTime date) async
   {
-    throw UnimplementedError();
+    if (_ram.has(date))
+      return;
+    
+    if (_cash.has(date))
+    {
+      _ram.push(date, _cash.getAll(date));
+      return;
+    }
+
+    CovidWorld world = _net.getOneDay(date);
+    _cash.push(date, world);
+    _ram.push(date, world);
   }
 
   get _exc =>

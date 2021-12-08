@@ -48,6 +48,11 @@ class CashCovidDatasource implements CovidDatasourceAbstruct
   {
     throw UnimplementedError();
   }
+
+  void push(DateTime date, CovidWorld world)
+  {
+    throw UnimplementedError();
+  }
 }
 
 class CovidNotFoundException implements Exception

@@ -45,11 +45,17 @@ class NamedIcon extends StatelessWidget
   {
     return Row(
       children: [
-        Image.asset(_icon, width: 30.0, height: 30.0),
+        Image.asset(_icon, width: 40.0, height: 40.0),
         const SizedBox(width: 7.0),
         Padding(
           padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-          child: Text(_title, style: Theme.of(context).textTheme.headline5),
+          child: Text(
+              _title,
+              style: Theme.of(context).textTheme.headline5!.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 25.0,
+              ),
+          ),
         ),
       ],
     );
@@ -68,7 +74,7 @@ class SymptomCheckNamedIconTray extends StatelessWidget
       children: const [
         NamedIcon('Cold', 'assets/images/cold@3x.png'),
         NamedIcon('Flu',  'assets/images/flu@3x.png'),
-        NamedIcon('Cold', 'assets/images/covid@3x.png'),
+        NamedIcon('COVID-19', 'assets/images/covid@3x.png'),
       ],
     );
   }
@@ -78,9 +84,9 @@ class SymptomCheckNamedIconTray extends StatelessWidget
 
 class SymptomColumn extends StatelessWidget
 {
-  static const _iconWidth  = 30.0;
-  static const _iconHeight = 30.0;
-  static const _space      = 40.0;
+  static const _iconWidth  = 35.0;
+  static const _iconHeight = 35.0;
+  static const _space      = 25.0;
 
   static const _data       = [
     [ 1, 1, 3, 'Shortness of breath'     ],

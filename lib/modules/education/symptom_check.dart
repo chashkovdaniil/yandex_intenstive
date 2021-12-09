@@ -39,7 +39,7 @@ class SymptomCheck extends StatelessWidget
 
 
 /*
- * Иконка с подписью
+ * Иконка с подписью; можно настраивать размер эконки и стиль текста
  */
 class NamedIcon extends StatelessWidget
 {
@@ -83,6 +83,9 @@ class NamedIcon extends StatelessWidget
 
 }
 
+/*
+ * Три иконки Cold, Flu, COVID-19
+ */
 class SymptomCheckNamedIconTray extends StatelessWidget
 {
   static const   _iconWidth  = 40.0;
@@ -129,6 +132,10 @@ class SymptomCheckNamedIconTray extends StatelessWidget
 
 
 
+/*
+ * Основная информация на страничке. Показывает, для каких болезней,
+ * какие симптомы более характерны
+ */
 class SymptomColumn extends StatelessWidget
 {
   static const _iconWidth  = 35.0;
@@ -159,47 +166,43 @@ class SymptomColumn extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    var children = <Widget>[];
-    children.addAll([_line(context, null), const Divider()]);
-    for (var item in _data)
-    {
-      children.addAll([ _line(context, item), const Divider()]);
-    }
-    return Column(children: children);
-  }
-
-  Widget _line(BuildContext context, List<dynamic>? items)
-  {
     Widget icon(asset)
       => Padding(
         padding: const EdgeInsets.only(right: _space),
         child: Image.asset(
-            'assets/images/$asset',
-            width: _iconWidth,
-            height: _iconHeight,
+          'assets/images/$asset',
+          width: _iconWidth,
+          height: _iconHeight,
         ),
       );
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
-      child: Row(
-        children: items == null ?
-          [
-            icon('cold_dark.png'),
-            icon('flu_dark.png'),
-            icon('covid_dark.png'),
-          ] :
-          [
-            icon(_assets[items[0]]),
-            icon(_assets[items[1]]),
-            icon(_assets[items[2]]),
-            Text(
-                items[3],
-                style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 20.0),
-            ),
-          ],
-      ),
-    );
+    Widget line(List<dynamic>? items)
+      => Padding(
+        padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+        child: Row(
+          children: items == null ? [
+              icon('cold_dark.png'),
+              icon('flu_dark.png'),
+              icon('covid_dark.png'),
+            ] : [
+              icon(_assets[items[0]]),
+              icon(_assets[items[1]]),
+              icon(_assets[items[2]]),
+              Text(
+                  items[3],
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 20.0),
+              ),
+            ],
+        ),
+      );
+
+    var children = <Widget>[ line(null), const Divider() ];
+
+    for (final item in _data) {
+      children.addAll([ line(item), const Divider()]);
+    }
+
+    return Column(children: children);
   }
 }
 

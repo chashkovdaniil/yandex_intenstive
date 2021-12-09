@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/modules/assets/assets.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -14,13 +15,9 @@ class SplashScreen extends StatelessWidget {
         Expanded(
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: Image.asset(
-              'assets/splash_screen.png',
-              height: 179.68,
-              width: 176.48,
-            ),
+            child: Assets.splashScreenImage,
           ),
-          flex: 35543
+          flex: 3
         ),
         const Expanded(
           child: Align(
@@ -32,9 +29,8 @@ class SplashScreen extends StatelessWidget {
                 color: Color.fromRGBO(255, 100, 124, 1)
               ),
             ),
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.center,
           ),
-          flex: 6757
         ),
         const Expanded(
           child: Align(
@@ -51,7 +47,7 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
           ),
-          flex: 38900,
+          flex: 3,
         ),
       ],
     );

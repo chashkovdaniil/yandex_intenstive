@@ -182,8 +182,9 @@ class CovidWorld
 // удобочитаемые объекты. Отдаёт их по запросам.
 class CovidApi
 {
-	static const            _api   = 'https://covid-api.com/api/reports';
-	Dio                     _dio   = Dio(BaseOptions(baseUrl: _api));
+	static const      _api     = 'https://covid-api.com/api';
+	static const      _reports = '/reports';
+
 	Map<String, CovidWorld> _world = Map<String, CovidWorld>();
 
 
@@ -195,8 +196,8 @@ class CovidApi
 
 		try
 		{
-			var data = (await _dio.get(
-				'',
+			var data = (await Dio().get(
+				_api + _reports,
 				queryParameters:
 					date != '' ? { 'date': date } : null
 			)).data;

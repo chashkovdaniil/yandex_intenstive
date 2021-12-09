@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
+import 'alert_notification_dialog.dart';
 
 class CountryDetailsCard extends StatelessWidget {
   // TODO: add CountryModel field to get it from MapScreen
@@ -57,14 +58,24 @@ class CountryDetailsCard extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    const Align(
+                    Align(
                       alignment: Alignment.topRight,
                       child: Padding(
-                        padding: EdgeInsets.only(top: 12, right: 16),
-                        child: Icon(
-                          CupertinoIcons.bell,
-                          color: primary,
-                          size: 24,
+                        padding: const EdgeInsets.only(top: 12, right: 16),
+                        child: IconButton(
+                          icon: const Icon(
+                            CupertinoIcons.bell,
+                            color: primary,
+                            size: 24,
+                          ),
+                          onPressed: () => showAlertDialog(
+                            context: context,
+                            title: 'Enable notification',
+                            content:
+                                'Enable notification so you can always be up to date with new information.',
+                            cancelActionText: 'Later',
+                            defaultActionText: 'Enable now',
+                          ),
                         ),
                       ),
                     ),

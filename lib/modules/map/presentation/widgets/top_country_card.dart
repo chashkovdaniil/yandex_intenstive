@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:yandex_intensive/configs/constants.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/allert_notification_dialog.dart';
 
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../screens/country_details_screen.dart';
+import 'alert_notification_dialog.dart';
 import 'on_tap_opacity.dart';
 
 class TopCountryCard extends StatefulWidget {
@@ -108,20 +108,31 @@ class _TopCountryCardState extends State<TopCountryCard> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 12, right: 12.0),
+                    padding: const EdgeInsets.only(top: 12, right: 12.0),
                     child: OnTapOpacityContainer(
                       //TODO: what this button is for lmao ??
                       onTap: () => showAlertDialog(
+                        context: context,
+                        title: 'Enable notification',
+                        content:
+                            'Enable notification so you can always be up to date with new information.',
+                        cancelActionText: 'Later',
+                        defaultActionText: 'Enable now',
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          CupertinoIcons.bell,
+                          color: grey,
+                          size: 20,
+                        ),
+                        onPressed: () => showAlertDialog(
                           context: context,
-                          title: "Enable notification",
+                          title: 'Enable notification',
                           content:
-                              "Enable notification so you can always be up to date with new information.",
-                          cancelActionText: "Later",
-                          defaultActionText: "Enable now"),
-                      child: const Icon(
-                        CupertinoIcons.bell,
-                        color: grey,
-                        size: 20,
+                              'Enable notification so you can always be up to date with new information.',
+                          cancelActionText: 'Later',
+                          defaultActionText: 'Enable now',
+                        ),
                       ),
                     ),
                   ),

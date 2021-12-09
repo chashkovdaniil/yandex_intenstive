@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/text_styles.dart';
+import '../../../../configs/text_styles.dart';
 
 import 'on_tap_opacity.dart';
 
@@ -12,15 +12,21 @@ class MapScreenAppBar extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12),
+  Widget build(BuildContext context) => Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border(
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.08),
+                spreadRadius: 5,
+                blurRadius: 3,
+                offset: const Offset(0.0, 0.75),
+            ),
+          ],
+        border: const Border(
           bottom: BorderSide(
-            width: 1,
             color: Color(0xFFE5E5E5),
           ),
         ),
@@ -30,8 +36,8 @@ class MapScreenAppBar extends StatelessWidget {
         children: [
           Align(
             child: OnTapOpacityContainer(
-              padding: EdgeInsets.all(8),
-              onTap: () {},
+              padding: const EdgeInsets.all(8),
+              onTap: () { Navigator.maybePop(context);},
               child: showBackButton
                   ? RichText(
                       text: TextSpan(
@@ -46,17 +52,17 @@ class MapScreenAppBar extends StatelessWidget {
                         ],
                       ),
                     )
-                  : Text(''),
+                  : const Text(''),
             ),
             alignment: Alignment.centerLeft,
           ),
           Text(
             title!,
-            style: TextStyles.titleMap
+            style: TextStyles.titleMap,
           ),
           Align(
             child: OnTapOpacityContainer(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 onTap: () {},
                 child: RichText(
                   text: TextSpan(
@@ -70,11 +76,11 @@ class MapScreenAppBar extends StatelessWidget {
                       ),
                     ],
                   ),
-                )),
+                ),
+            ),
             alignment: Alignment.centerRight,
           ),
         ],
       ),
     );
-  }
 }

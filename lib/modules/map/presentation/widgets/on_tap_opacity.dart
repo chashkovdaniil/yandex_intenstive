@@ -8,8 +8,6 @@ class OnTapOpacityContainer extends StatefulWidget {
   final GestureTapCallback onTap;
   final EdgeInsets padding;
 
-  bool get enabled => onTap != null;
-
   const OnTapOpacityContainer({
     Key? key,
     this.duration = const Duration(milliseconds: 200),
@@ -28,15 +26,13 @@ class _OnTapOpacityContainerState extends State<OnTapOpacityContainer> {
   var _isTapped = false;
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
+  Widget build(BuildContext context) => GestureDetector(
       behavior: HitTestBehavior.opaque,
       onVerticalDragDown: (_) => _onTap(),
       onVerticalDragEnd: (_) => _onUntap(),
-      onVerticalDragCancel: () => _onUntap(),
-      // onHorizontalDragEnd: (_) => _onUntap(),
+      onVerticalDragCancel: _onUntap,
       onTapDown: (_) => _onTap(),
-      onTapCancel: () => _onUntap(),
+      onTapCancel: _onUntap,
       onTapUp: (_) => _onUntap(),
       onTap: widget.onTap,
       child: Container(
@@ -49,19 +45,20 @@ class _OnTapOpacityContainerState extends State<OnTapOpacityContainer> {
         ),
       ),
     );
-  }
 
   _onTap() {
-    if (!_isTapped)
+    if (!_isTapped) {
       setState(() {
         _isTapped = true;
       });
+    }
   }
 
   _onUntap() {
-    if (_isTapped)
+    if (_isTapped) {
       setState(() {
         _isTapped = false;
       });
+    }
   }
 }

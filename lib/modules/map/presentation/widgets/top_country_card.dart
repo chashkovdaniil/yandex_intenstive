@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:yandex_intensive/configs/constants.dart';
+import 'package:yandex_intensive/modules/map/presentation/widgets/allert_notification_dialog.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
@@ -104,14 +105,24 @@ class _TopCountryCardState extends State<TopCountryCard> {
                   ),
                 ),
                 const Spacer(),
-                const Align(
+                Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
                     padding: EdgeInsets.only(top: 12, right: 12.0),
-                    child: Icon(
-                      CupertinoIcons.bell,
-                      color: grey,
-                      size: 20,
+                    child: OnTapOpacityContainer(
+                      //TODO: what this button is for lmao ??
+                      onTap: () => showAlertDialog(
+                          context: context,
+                          title: "Enable notification",
+                          content:
+                              "Enable notification so you can always be up to date with new information.",
+                          cancelActionText: "Later",
+                          defaultActionText: "Enable now"),
+                      child: const Icon(
+                        CupertinoIcons.bell,
+                        color: grey,
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),

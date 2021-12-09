@@ -10,9 +10,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Yandex Intensive Covid',
-      home: SymptomCheck(),
+      home: Scaffold(
+        body: SymptomCheck(),
+      ),
       // initialRoute: HomeScreen.route,
       // routes: {
       //   HomeScreen.route: (_) => HomeScreen(),

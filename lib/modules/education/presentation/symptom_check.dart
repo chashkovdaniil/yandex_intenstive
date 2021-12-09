@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../../core/styles/app_theme.dart';
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
+
 
 
 /*
@@ -24,43 +26,41 @@ class SymptomCheck extends StatelessWidget
 
   @override
   Widget build(BuildContext context)
-    => Container(
+    => SingleChildScrollView(
       padding: const EdgeInsets.all(20.0),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Symptom Check',
-              style: Theme.of(context).textTheme.headline3,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            'Symptom Check',
+            style: AppTheme.educationHeader1,
+          ),
+          SizedBox(height: 20.0),
+          Text(
+            'Check you symptoms for',
+            style: AppTheme.educationSubtitleLight,
+          ),
+          SizedBox(height: 10.0),
+          NamedIconTray(
+            _diseaseLegendData,
+            NamedIconConfig(35.0, 35.0, AppTheme.educationSubtitleBold),
+          ),
+          SizedBox(height: 30.0),
+          _SymptomColumn(),
+          SizedBox(height: 30.0),
+          Text(
+            'Legend',
+            style: AppTheme.educationSubtitle,
+          ),
+          SizedBox(height: 10.0),
+          NamedIconTray(
+            _rarityLegendData,
+            NamedIconConfig(
+              30.0, 30.0,
+              AppTheme.educationUsualLight,
             ),
-            const SizedBox(height: 20.0),
-            Text(
-              'Check you symptoms for',
-              style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 22.0),
-            ),
-            const SizedBox(height: 10.0),
-            const NamedIconTray(
-              _diseaseLegendData,
-              NamedIconConfig(35.0, 35.0),
-            ),
-            const SizedBox(height: 30.0),
-            const _SymptomColumn(),
-            const SizedBox(height: 30.0),
-            Text(
-              'Legend',
-              style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 22.0),
-            ),
-            const SizedBox(height: 10.0),
-            NamedIconTray(
-              _rarityLegendData,
-              NamedIconConfig(
-                30.0, 30.0,
-                Theme.of(context).textTheme.headline6!.copyWith(fontSize: 22.0),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
 }
@@ -159,7 +159,7 @@ class _SymptomColumnLine extends StatelessWidget
           _SymptomColumnIcon(_SymptomColumn._assets[items[2]]),
           Text(
             items[3],
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 19.0),
+            style: AppTheme.educationUsualLight
           ),
         ],
       ),

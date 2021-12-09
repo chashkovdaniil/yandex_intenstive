@@ -8,16 +8,18 @@ import '../widgets/map.dart';
 import '../widgets/rest_list.dart';
 import '../widgets/top_list.dart';
 
-class MapScreen extends StatefulWidget {
-  static const route = '/map';
+class MapPage extends StatefulWidget {
+  static Route route() => CupertinoPageRoute(
+        builder: (context) => const MapPage(),
+      );
 
-  const MapScreen({Key? key}) : super(key: key);
+  const MapPage({Key? key}) : super(key: key);
 
   @override
-  _MapScreenState createState() => _MapScreenState();
+  _MapPageState createState() => _MapPageState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(
@@ -30,6 +32,7 @@ class _MapScreenState extends State<MapScreen> {
               ),
               Expanded(
                 child: SingleChildScrollView(
+                  key: const Key('ListViewKey'),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [

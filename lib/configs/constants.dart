@@ -263,8 +263,10 @@ class MockData {
 
   static MapZoomPanBehavior get zoomPanBehavior => MapZoomPanBehavior(
         focalLatLng: const MapLatLng(27.1751, 78.0421),
-        zoomLevel: 1.8,
+        zoomLevel: 3,
+        showToolbar: true,
         toolbarSettings: const MapToolbarSettings(
+          position: MapToolbarPosition.topLeft,
           iconColor: Colors.red,
           itemBackgroundColor: Colors.green,
           itemHoverColor: Colors.blue,

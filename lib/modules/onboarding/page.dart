@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/modules/config/config.dart';
 
 class OnboardingPage extends StatelessWidget {
-  final String assetsUrl;
+  final Image image;
   final String title;
   final String description;
 
   const OnboardingPage({
-    required this.assetsUrl,
+    required this.image,
     required this.title,
-    required this.description
+    required this.description,
   });
 
   @override
@@ -17,44 +18,36 @@ class OnboardingPage extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-            flex: 44273,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset(
-                assetsUrl,
-                height: 260.8,
-                width: 260.8,
-              ),
-            ),
-        ),
-        Expanded(
-            flex: 12279,
-            child: Align(
-              child: Text(
-                  title,
-                  style: const TextStyle(
-                    color: Color.fromRGBO(23, 23, 37, 1),
-                    fontSize: 28,
-                    fontFamily: "SF Pro Display"
-                  )
-              ),
-              alignment: Alignment.bottomCenter,
-            )
-        ),
-        Expanded(
-          flex: 10169,
+          flex: 4,
           child: Padding(
-            padding: const EdgeInsets.only(top: 13.69, left: 25, right: 25),
+            padding: const EdgeInsets.only(top: 100.0),
+            child: image,
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 47),
+            child: Text(
+              title,
+              style: TextStyles.titleTextStyle,
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 1.69,
+              left: 25,
+              right: 25,
+            ),
             child: Text(
               description,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Color.fromRGBO(153, 153, 153, 1),
-                fontSize: 16,
-                fontFamily: "SF Pro Display"
-              )
+              style: TextStyles.descriptionTextStyle,
             ),
-          )
+          ),
         ),
       ],
     );

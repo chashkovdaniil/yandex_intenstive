@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:yandex_intensive/modules/config/config.dart';
 
 class OnboardingPagePoint extends StatelessWidget {
   final bool _isActive;
@@ -10,13 +11,15 @@ class OnboardingPagePoint extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          height: 8,
-          width: 8,
-          decoration: BoxDecoration(
-            color: _isActive ? Color.fromRGBO(255, 100, 124, 1) : Color.fromRGBO(228, 228, 228, 1),
-            shape: BoxShape.circle
-          ),
+        duration: const Duration(milliseconds: 200),
+        height: 8,
+        width: 8,
+        decoration: BoxDecoration(
+          color: _isActive
+              ? OnboardingColors.activePointColor
+              : OnboardingColors.notActivePointColor,
+          shape: BoxShape.circle,
+        ),
       ),
     );
   }

@@ -6,14 +6,14 @@ class OnboardingButton extends StatelessWidget {
 
   const OnboardingButton({
     required this.child,
-    required this.onTap
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: child
+      child: child,
     );
   }
 }

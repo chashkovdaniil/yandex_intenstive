@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
 
 class MapScreenCard extends StatelessWidget {
@@ -22,10 +23,10 @@ class MapScreenCard extends StatelessWidget {
           width: double.infinity,
           height: height,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: Colors.grey.withOpacity(0.3),
+              color: grey.withOpacity(0.3),
             ),
           ),
           child: Padding(

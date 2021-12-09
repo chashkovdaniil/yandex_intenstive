@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:yandex_intensive/configs/constants.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
@@ -38,10 +39,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
             width: MediaQuery.of(context).size.width,
             height: 80,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Colors.grey.withOpacity(0.3),
+                color: grey.withOpacity(0.3),
               ),
             ),
             child: Row(
@@ -82,7 +83,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         child: SizedBox(
                           width: 150,
                           child: Text(
-                            'Affected - ${widget.affectedValue}',
+                            S.mapTopAffected + widget.affectedValue,
                             textAlign: TextAlign.start,
                             style: TextStyles.infoCountry,
                           ),
@@ -93,7 +94,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         child: SizedBox(
                           width: 150,
                           child: Text(
-                            'Recovered - ${widget.recoveredValue}',
+                            S.mapTopRecovered + widget.recoveredValue,
                             textAlign: TextAlign.start,
                             style: TextStyles.infoCountry,
                           ),

@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
 
+import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
 
 class CountryDetailsCard extends StatelessWidget {
+  // TODO: add CountryModel field to get it from MapScreen
   const CountryDetailsCard({
     Key? key,
   }) : super(key: key);
@@ -16,10 +18,10 @@ class CountryDetailsCard extends StatelessWidget {
           width: double.infinity,
           height: 240,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: Colors.grey.withOpacity(0.3),
+              color: grey.withOpacity(0.3),
             ),
           ),
           child: Padding(
@@ -47,7 +49,8 @@ class CountryDetailsCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 12, left: 16),
                         child: Text(
-                          "China",
+                          // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
+                          'China',
                           textAlign: TextAlign.start,
                           style: TextStyles.titleCountryDetails,
                         ),
@@ -73,11 +76,11 @@ class CountryDetailsCard extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 80,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: white,
                     border: Border(
                       bottom: BorderSide(
-                        color: Color(0xFFE5E5E5),
+                        color: grey.withOpacity(0.3),
                       ),
                     ),
                   ),
@@ -89,7 +92,8 @@ class CountryDetailsCard extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "80,174",
+                            // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
+                            '80,174',
                             textAlign: TextAlign.start,
                             style: TextStyles.infectedValue,
                           ),
@@ -101,7 +105,8 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '1,478 Infected cases reported',
+                              // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
+                              '1,478' + S.countryStatisticsInfectedCases,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -125,7 +130,7 @@ class CountryDetailsCard extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "2,915",
+                            '2,915',
                             textAlign: TextAlign.start,
                             style: TextStyles.deathValue,
                           ),
@@ -137,7 +142,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '550 Death cases reported',
+                              '550' + S.countryStatisticsDeathCases,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

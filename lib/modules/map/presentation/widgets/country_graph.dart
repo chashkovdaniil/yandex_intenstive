@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import 'line_chart.dart';
 
 class CountryGraph extends StatelessWidget {
@@ -28,8 +29,8 @@ class CountryGraph extends StatelessWidget {
                 const SizedBox(
                   width: 12,
                 ),
-                const Text(
-                  'Death',
+                Text(
+                  S.countryStatisticsDeath,
                 ),
                 const SizedBox(
                   width: 20,
@@ -45,8 +46,8 @@ class CountryGraph extends StatelessWidget {
                 const SizedBox(
                   width: 12,
                 ),
-                const Text(
-                  'Affected',
+                Text(
+                  S.countryStatisticsAffected,
                 ),
               ],
             ),

@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Something wrong is here
+/// in progress
 class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -17,8 +19,8 @@ class CurvePainter extends CustomPainter {
       ..lineTo(0, size.height - r)
       ..quadraticBezierTo(0 + r - sqrt(2) / 2 * r,
           size.height - r + sqrt(2) / 2 * r, r, size.height)
-      // lower semicircle
-      // instead of r use can use another koef
+    // lower semicircle
+      // instead of r use can use another koeff
       ..lineTo(R + r - sqrt(R * R - size.height * size.height), size.height)
       ..quadraticBezierTo(r + R, R + r,
           r + R + sqrt(R * R - size.height * size.height), size.height)
@@ -28,8 +30,8 @@ class CurvePainter extends CustomPainter {
       ..lineTo(size.width, r - size.height)
       ..quadraticBezierTo(size.width - r + sqrt(2) / 2 * r,
           r - size.height - sqrt(2) / 2 * r, size.width - r, -size.height)
-      // upper semicircle
-      // instead of r use can use another koef
+    // upper semicircle
+      // instead of r use can use another koeff
       ..lineTo(R + r + sqrt(R * R - size.height * size.height), -size.height)
       ..quadraticBezierTo(r + R, -R - r,
           r + R - sqrt(R * R - size.height * size.height), -size.height)

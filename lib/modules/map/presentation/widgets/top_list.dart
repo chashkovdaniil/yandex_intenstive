@@ -9,17 +9,6 @@ class TopList extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          // SizedBox(
-          //   height: 0,
-          // ),
-          // Container(
-          //   width: 300,
-          //   height: 30,
-          //   color: Colors.white,
-          //   child: CustomPaint(
-          //     painter: CurvePainter(),
-          //   ),
-          // ),
           ...MockData.topCountryList,
         ],
       );

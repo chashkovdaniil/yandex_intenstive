@@ -27,24 +27,24 @@ class _OnTapOpacityContainerState extends State<OnTapOpacityContainer> {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onVerticalDragDown: (_) => _onTap(),
-      onVerticalDragEnd: (_) => _onUntap(),
-      onVerticalDragCancel: _onUntap,
-      onTapDown: (_) => _onTap(),
-      onTapCancel: _onUntap,
-      onTapUp: (_) => _onUntap(),
-      onTap: widget.onTap,
-      child: Container(
-        padding: widget.padding,
-        child: AnimatedOpacity(
-          curve: widget.curve ?? Curves.decelerate,
-          opacity: _isTapped ? widget.onTapOpacity : 1,
-          duration: _isTapped ? Duration.zero : widget.duration,
-          child: widget.child,
+        behavior: HitTestBehavior.opaque,
+        onVerticalDragDown: (_) => _onTap(),
+        onVerticalDragEnd: (_) => _onUntap(),
+        onVerticalDragCancel: _onUntap,
+        onTapDown: (_) => _onTap(),
+        onTapCancel: _onUntap,
+        onTapUp: (_) => _onUntap(),
+        onTap: widget.onTap,
+        child: Container(
+          padding: widget.padding,
+          child: AnimatedOpacity(
+            curve: widget.curve ?? Curves.decelerate,
+            opacity: _isTapped ? widget.onTapOpacity : 1,
+            duration: _isTapped ? Duration.zero : widget.duration,
+            child: widget.child,
+          ),
         ),
-      ),
-    );
+      );
 
   _onTap() {
     if (!_isTapped) {

@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/constants.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/card.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/country_details.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/country_graph.dart';
 
+import '../../../../configs/constants.dart';
 import '../widgets/app_bar.dart';
+import '../widgets/card.dart';
+import '../widgets/country_details.dart';
+import '../widgets/country_graph.dart';
 
 class CountryDetailsScreen extends StatefulWidget {
+  // TODO: add CountryModel field to get it from MapScreen
   static Route route() => CupertinoPageRoute(
         builder: (context) => const CountryDetailsScreen(),
       );
@@ -25,35 +26,33 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    var country = 'China';
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            MapScreenAppBar(
-              title: '$country - statistics',
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const CountryDetailsCard(),
-                const SizedBox(
-                  height: 16,
-                ),
-                MapScreenCard(
-                  height: 350,
-                  title: S.mapTop,
-                  content: const CountryGraph(),
-                ),
-              ],
-            ),
-          ],
+  Widget build(BuildContext context) => SafeArea(
+        child: Scaffold(
+          body: Column(
+            children: [
+              MapScreenAppBar(
+                // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
+                title: 'Country' + S.countryStatisticsTitle,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const CountryDetailsCard(),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  MapScreenCard(
+                    height: 350,
+                    title: S.countryStatisticsGraphTitle,
+                    content: const CountryGraph(),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

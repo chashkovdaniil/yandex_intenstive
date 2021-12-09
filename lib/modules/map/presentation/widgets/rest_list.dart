@@ -18,7 +18,7 @@ class RestList extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'List of all Affected Countries',
+                  S.mapRest,
                   textAlign: TextAlign.start,
                   style: TextStyles.infoCountry,
                 ),

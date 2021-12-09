@@ -1,5 +1,5 @@
-class Model {
-  const Model(this.country, this.density);
+class MapModel {
+  const MapModel(this.country, this.density);
 
   final String country;
   final double density;

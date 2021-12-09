@@ -26,8 +26,8 @@ class MapChart extends StatelessWidget {
                 const SizedBox(
                   width: 12,
                 ),
-                const Text(
-                  'Most Affected',
+                Text(
+                  S.mapAreasMost,
                 ),
                 const SizedBox(
                   width: 20,
@@ -40,18 +40,18 @@ class MapChart extends StatelessWidget {
                 const SizedBox(
                   width: 12,
                 ),
-                const Text(
-                  'Less Affected',
+                Text(
+                  S.mapAreasLess,
                 ),
               ],
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Colors.grey.withOpacity(0.3),
+                color: grey.withOpacity(0.3),
               ),
             ),
             child: ClipRRect(

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/assets/assets.dart';
+import 'package:yandex_intensive/modules/config/config.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -17,17 +17,13 @@ class SplashScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Assets.splashScreenImage,
           ),
-          flex: 3
+          flex: 3,
         ),
         const Expanded(
           child: Align(
             child: Text(
-              "covstats",
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: "SF Pro Display",
-                color: Color.fromRGBO(255, 100, 124, 1)
-              ),
+              SplashScreenTitles.splashScreenTitle,
+              style: TextStyles.splashScreenTitleTextStyle,
             ),
             alignment: Alignment.center,
           ),
@@ -38,12 +34,8 @@ class SplashScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(bottom: 55),
               child: Text(
-                "Yandex intensive on Flutter in Sirius, 2021",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black,
-                  fontFamily: "SF Pro Display"
-                )
+                SplashScreenTitles.splashScreenBottomText,
+                style: TextStyles.splashScreenBottomTextStyle,
               ),
             ),
           ),

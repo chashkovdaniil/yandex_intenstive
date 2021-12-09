@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'components/named_icon.dart';
+import 'components/named_icon_tray.dart';
 
 
 /*
@@ -23,21 +24,7 @@ class SymptomCheck extends StatelessWidget
 
   @override
   Widget build(BuildContext context)
-  {
-    Widget iconTray(data, config)
-      => Padding(
-        padding: const EdgeInsets.only(
-          left: 5.0, right:  5.0,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.from(data.map(
-                (item) => NamedIcon(item, config),
-          ),),
-        ),
-      );
-
-    return Container(
+    => Container(
       padding: const EdgeInsets.all(20.0),
       child: SingleChildScrollView(
         child: Column(
@@ -53,16 +40,19 @@ class SymptomCheck extends StatelessWidget
               style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 22.0),
             ),
             const SizedBox(height: 10.0),
-            iconTray(_diseaseLegendData, const NamedIconConfig(35.0, 35.0)),
+            const NamedIconTray(
+              _diseaseLegendData,
+              NamedIconConfig(35.0, 35.0),
+            ),
             const SizedBox(height: 30.0),
-            const SymptomColumn(),
+            const _SymptomColumn(),
             const SizedBox(height: 30.0),
             Text(
               'Legend',
               style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 22.0),
             ),
             const SizedBox(height: 10.0),
-            iconTray(
+            NamedIconTray(
               _rarityLegendData,
               NamedIconConfig(
                 30.0, 30.0,
@@ -73,55 +63,6 @@ class SymptomCheck extends StatelessWidget
         ),
       ),
     );
-  }
-}
-
-
-
-/*
- * Иконка с подписью; можно настраивать размер эконки и стиль текста
- */
-class NamedIcon extends StatelessWidget
-{
-  final NamedIconData   data;
-  final NamedIconConfig config;
-
-  @override
-  Widget build(BuildContext context)
-  {
-    return Row(
-      children: [
-        Image.asset(data.asset, width: config.width, height: config.height),
-        const SizedBox(width: 7.0),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-          child: Text(
-              data.title,
-              style: config.style ?? Theme.of(context).textTheme.headline5,
-          ),
-        ),
-      ],
-    );
-  }
-
-  const NamedIcon(this.data, this.config, {Key? key}): super(key: key);
-}
-
-class NamedIconData
-{
-  final String title;
-  final String asset;
-
-  const NamedIconData(this.title, this.asset);
-}
-
-class NamedIconConfig
-{
-  final double     width;
-  final double     height;
-  final TextStyle? style;
-
-  const NamedIconConfig(this.width, this.height, [this.style]);
 }
 
 
@@ -130,7 +71,7 @@ class NamedIconConfig
  * Основная информация на страничке. Показывает, для каких болезней,
  * какие симптомы более характерны
  */
-class SymptomColumn extends StatelessWidget
+class _SymptomColumn extends StatelessWidget
 {
   static const _iconWidth   = 35.0;
   static const _iconHeight  = 35.0;
@@ -159,7 +100,7 @@ class SymptomColumn extends StatelessWidget
 
 
 
-  const SymptomColumn({Key? key}): super(key: key);
+  const _SymptomColumn({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context)
@@ -192,11 +133,11 @@ class _SymptomColumnIcon extends StatelessWidget
   @override
   Widget build(BuildContext context)
     => Padding(
-      padding: const EdgeInsets.only(right: SymptomColumn._space),
+      padding: const EdgeInsets.only(right: _SymptomColumn._space),
       child: Image.asset(
         asset,
-        width:  SymptomColumn._iconWidth,
-        height: SymptomColumn._iconHeight,
+        width:  _SymptomColumn._iconWidth,
+        height: _SymptomColumn._iconHeight,
       ),
     );
 }
@@ -210,12 +151,12 @@ class _SymptomColumnLine extends StatelessWidget
   @override
   Widget build(BuildContext context)
     => Padding(
-      padding: SymptomColumn._linePadding,
+      padding: _SymptomColumn._linePadding,
       child: Row(
         children: [
-          _SymptomColumnIcon(SymptomColumn._assets[items[0]]),
-          _SymptomColumnIcon(SymptomColumn._assets[items[1]]),
-          _SymptomColumnIcon(SymptomColumn._assets[items[2]]),
+          _SymptomColumnIcon(_SymptomColumn._assets[items[0]]),
+          _SymptomColumnIcon(_SymptomColumn._assets[items[1]]),
+          _SymptomColumnIcon(_SymptomColumn._assets[items[2]]),
           Text(
             items[3],
             style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 19.0),

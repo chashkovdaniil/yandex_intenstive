@@ -1,12 +1,10 @@
-/*
- * Класс, который получает данные о ковиде из сети и сразу же их возвращает
- */
+import 'covid_datasource_abstruct.dart';
+import '../../api/app_exceptions.dart';
+import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/covid_help.dart';
 
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
-import 'covid_datasource_abstruct.dart';
-import '../../domain/entities/covid_report.dart';
-import '../../domain/entities/covid_help.dart';
 
 
 
@@ -20,9 +18,8 @@ class CovidNetworkTaker
     try
     {
       var sdate = sprintf("%04i-%02i-%02i", [date.year, date.month, date.day]);
-      return CovidWorld(
-        (await _dio.get(_api, queryParameters: { 'date': sdate })).data['data']
-      );
+      var data  = await _dio.get(_api, queryParameters: { 'date': sdate });
+      return CovidWorld(data.data['data']);
     }
     on Exception catch(e)
     {

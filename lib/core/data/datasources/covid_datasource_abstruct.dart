@@ -1,7 +1,3 @@
-/*
- * Абстрактный класс, с помощью которого можно получить данные по ковиду
- */
-
 import '../../domain/entities/covid_report.dart';
 import '../../domain/entities/covid_help.dart';
 
@@ -31,13 +27,7 @@ abstract class CovidDatasourceAbstruct
   Future<bool> has(DateTime date);
 
   Future<List<String>> countryCodes();
-  Future<String>       countryName(String code);
-}
-
-class CovidNotFoundException implements Exception
-{
-  String cause;
-  CovidNotFoundException(this.cause);
+  Future<String> countryName(String code);
 }
 
 

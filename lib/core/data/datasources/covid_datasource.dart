@@ -2,6 +2,7 @@
  * Основной класс, который вбирает все остальные CovidDatasource-классы
  */
 
+import '../../api/app_exceptions.dart';
 import 'cash_covid_datasource.dart';
 import 'covid_datasource_abstruct.dart';
 import 'covid_network_taker.dart';

@@ -1,11 +1,9 @@
-/*
- * Класс, хранящий данные по ковиду во время выполнения программы
- */
-
 import 'covid_datasource_abstruct.dart';
-import 'package:sprintf/sprintf.dart';
-import '../../domain/entities/covid_report.dart';
+import '../../api/app_exceptions.dart';
 import '../../domain/entities/covid_help.dart';
+import '../../domain/entities/covid_report.dart';
+
+import 'package:sprintf/sprintf.dart';
 
 
 
@@ -18,20 +16,20 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct
   Future<CovidWorld> getAll(
     DateTime date
   ) async
-    => _world[_d2s(date)] ?? _exc;
+    => _world[data2str(date)] ?? _exc;
 
   @override
   Future<CovidReport> getWorld(
     DateTime date
   ) async
-    => (_world[_d2s(date)] ?? _exc).total;
+    => (_world[data2str(date)] ?? _exc).total;
 
   @override
   Future<CovidReport> getCountry(
     DateTime date,
     String country,
   ) async
-    => ((_world[_d2s(date)] ?? _exc).country(country) ?? _exc).total;
+    => ((_world[data2str(date)] ?? _exc).country(country) ?? _exc).total;
 
   @override
   Future<CovidReport> getProvince(
@@ -39,12 +37,12 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct
     String country,
     String province,
   ) async
-    => ((_world[_d2s(date)] ?? _exc).country(country)
+    => ((_world[data2str(date)] ?? _exc).country(country)
       ?? _exc).province(province) ?? _exc;
 
   @override
   Future<bool> has(DateTime date) async
-    => _world.containsKey(_d2s(date));
+    => _world.containsKey(data2str(date));
 
   @override
   Future<List<String>> countryCodes() async
@@ -60,13 +58,12 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct
 
 
   void push(DateTime date, CovidWorld world)
-    => _world[_d2s(date)] = world;
+    => _world[data2str(date)] = world;
 
 
-  // service functions
   get _exc => throw CovidNotFoundException('Not found covid in RAM');
 
-  static String _d2s(DateTime date)
+  static String data2str(DateTime date)
       => sprintf("%04i-%02i-%02i", [date.year, date.month, date.day]);
 }
 

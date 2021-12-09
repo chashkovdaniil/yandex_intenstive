@@ -7,9 +7,34 @@ import 'package:flutter/material.dart';
  */
 class SymptomCheck extends StatelessWidget
 {
+  static const _diseaseLegendData = [
+    NamedIconData('Cold',     'assets/images/cold@3x.png'),
+    NamedIconData('Flu',      'assets/images/flu@3x.png'),
+    NamedIconData('COVID-19', 'assets/images/covid@3x.png'),
+  ];
+
+  static const _rarityLegendData = [
+    NamedIconData('Common',    'assets/images/common.png'),
+    NamedIconData('Sometimes', 'assets/images/sometimes.png'),
+    NamedIconData('Rare',      'assets/images/rare.png'),
+  ];
+
   @override
   Widget build(BuildContext context)
   {
+    Widget iconTray(data, config)
+      => Padding(
+        padding: const EdgeInsets.only(
+          left: 5.0, right:  5.0,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: List.from(data.map(
+                (item) => NamedIcon(item, config),
+          ),),
+        ),
+      );
+
     return Container(
       padding: const EdgeInsets.all(20.0),
       child: SingleChildScrollView(
@@ -18,7 +43,7 @@ class SymptomCheck extends StatelessWidget
           children: [
             Text(
               'Symptom Check',
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.headline3,
             ),
             const SizedBox(height: 20.0),
             Text(
@@ -26,12 +51,25 @@ class SymptomCheck extends StatelessWidget
               style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 22.0),
             ),
             const SizedBox(height: 10.0),
-            SymptomCheckNamedIconTray(),
+            iconTray(_diseaseLegendData, const NamedIconConfig(35.0, 35.0)),
             const SizedBox(height: 30.0),
             SymptomColumn(),
+            const SizedBox(height: 30.0),
+            Text(
+              'Legend',
+              style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 22.0),
+            ),
+            const SizedBox(height: 10.0),
+            iconTray(
+              _rarityLegendData,
+              NamedIconConfig(
+                30.0, 30.0,
+                Theme.of(context).textTheme.headline6!.copyWith(fontSize: 22.0),
+              )
+            ),
           ],
         ),
-      )
+      ),
     );
   }
 }
@@ -43,91 +81,45 @@ class SymptomCheck extends StatelessWidget
  */
 class NamedIcon extends StatelessWidget
 {
-  final String     _title;
-  final String     _icon;
-  late  double     _width;
-  late  double     _height;
-  late  TextStyle? _textStyle;
+  final NamedIconData   data;
+  final NamedIconConfig config;
 
   @override
   Widget build(BuildContext context)
   {
     return Row(
       children: [
-        Image.asset(_icon, width: _width, height: _height),
+        Image.asset(data.asset, width: config.width, height: config.height),
         const SizedBox(width: 7.0),
         Padding(
           padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
           child: Text(
-              _title,
-              style: _textStyle ?? Theme.of(context).textTheme.headline5
+              data.title,
+              style: config.style ?? Theme.of(context).textTheme.headline5,
           ),
         ),
       ],
     );
   }
 
-  NamedIcon(
-      this._title,
-      this._icon, {
-        required double width,
-        required double height,
-        TextStyle?      textStyle,
-      }
-  )
-  {
-    _width = width;
-    _height = height;
-    _textStyle = textStyle;
-  }
-
+  NamedIcon(this.data, this.config);
 }
 
-/*
- * Три иконки Cold, Flu, COVID-19
- */
-class SymptomCheckNamedIconTray extends StatelessWidget
+class NamedIconData
 {
-  static const   _iconWidth  = 40.0;
-  static const   _iconHeight = 40.0;
+  final String title;
+  final String asset;
 
+  const NamedIconData(this.title, this.asset);
+}
 
-  @override
-  Widget build(BuildContext context)
-  {
-    var style = Theme.of(context)
-      .textTheme.headline5!.copyWith(
-        fontWeight: FontWeight.bold,
-        fontSize: 25.0,
-      );
+class NamedIconConfig
+{
+  final double     width;
+  final double     height;
+  final TextStyle? style;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        NamedIcon(
-          'Cold',
-          'assets/images/cold@3x.png',
-          width:     _iconWidth,
-          height:    _iconHeight,
-          textStyle: style,
-        ),
-        NamedIcon(
-          'Flu',
-          'assets/images/flu@3x.png',
-          width:     _iconWidth,
-          height:    _iconHeight,
-          textStyle: style,
-        ),
-        NamedIcon(
-          'COVID-19',
-          'assets/images/covid@3x.png',
-          width:     _iconWidth,
-          height:    _iconHeight,
-          textStyle: style,
-        ),
-      ],
-    );
-  }
+  const NamedIconConfig(this.width, this.height, [this.style]);
 }
 
 
@@ -190,7 +182,7 @@ class SymptomColumn extends StatelessWidget
               icon(_assets[items[2]]),
               Text(
                   items[3],
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 20.0),
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 19.0),
               ),
             ],
         ),

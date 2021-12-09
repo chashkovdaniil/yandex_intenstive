@@ -19,6 +19,8 @@ class SymptomCheck extends StatelessWidget
     NamedIconData('Rare',      'assets/images/rare.png'),
   ];
 
+  const SymptomCheck({Key? key}): super(key: key);
+
   @override
   Widget build(BuildContext context)
   {
@@ -53,7 +55,7 @@ class SymptomCheck extends StatelessWidget
             const SizedBox(height: 10.0),
             iconTray(_diseaseLegendData, const NamedIconConfig(35.0, 35.0)),
             const SizedBox(height: 30.0),
-            SymptomColumn(),
+            const SymptomColumn(),
             const SizedBox(height: 30.0),
             Text(
               'Legend',
@@ -65,7 +67,7 @@ class SymptomCheck extends StatelessWidget
               NamedIconConfig(
                 30.0, 30.0,
                 Theme.of(context).textTheme.headline6!.copyWith(fontSize: 22.0),
-              )
+              ),
             ),
           ],
         ),
@@ -102,7 +104,7 @@ class NamedIcon extends StatelessWidget
     );
   }
 
-  NamedIcon(this.data, this.config);
+  const NamedIcon(this.data, this.config, {Key? key}): super(key: key);
 }
 
 class NamedIconData
@@ -130,11 +132,12 @@ class NamedIconConfig
  */
 class SymptomColumn extends StatelessWidget
 {
-  static const _iconWidth  = 35.0;
-  static const _iconHeight = 35.0;
-  static const _space      = 25.0;
+  static const _iconWidth   = 35.0;
+  static const _iconHeight  = 35.0;
+  static const _space       = 25.0;
+  static const _linePadding = EdgeInsets.only(top: 4.0, bottom: 4.0);
 
-  static const _data       = [
+  static const _data = [
     [ 1, 1, 3, 'Shortness of breath'     ],
     [ 1, 3, 3, 'Fever'                   ],
     [ 2, 3, 3, 'Cough, chest discomfort' ],
@@ -148,54 +151,78 @@ class SymptomColumn extends StatelessWidget
   ];
 
   static const _assets = [
-    'never.png',
-    'rare.png',
-    'sometimes.png',
-    'common.png',
+    'assets/images/never.png',
+    'assets/images/rare.png',
+    'assets/images/sometimes.png',
+    'assets/images/common.png',
   ];
 
 
+
+  const SymptomColumn({Key? key}): super(key: key);
+
   @override
   Widget build(BuildContext context)
-  {
-    Widget icon(asset)
-      => Padding(
-        padding: const EdgeInsets.only(right: _space),
-        child: Image.asset(
-          'assets/images/$asset',
-          width: _iconWidth,
-          height: _iconHeight,
-        ),
-      );
-
-    Widget line(List<dynamic>? items)
-      => Padding(
-        padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
-        child: Row(
-          children: items == null ? [
-              icon('cold_dark.png'),
-              icon('flu_dark.png'),
-              icon('covid_dark.png'),
-            ] : [
-              icon(_assets[items[0]]),
-              icon(_assets[items[1]]),
-              icon(_assets[items[2]]),
-              Text(
-                  items[3],
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 19.0),
-              ),
+    => Column(
+      children: [
+        Padding(
+          padding: _linePadding,
+          child: Row(
+            children: const [
+              _SymptomColumnIcon('assets/images/cold_dark.png'),
+              _SymptomColumnIcon('assets/images/flu_dark.png'),
+              _SymptomColumnIcon('assets/images/covid_dark.png'),
             ],
+          ),
         ),
-      );
+        const Divider(),
+        ..._data
+          .map( (item) => [ _SymptomColumnLine(item), const Divider()] )
+          .reduce( (a, b) { a.addAll(b); return a; } ),
+      ],
+    );
+}
 
-    var children = <Widget>[ line(null), const Divider() ];
+class _SymptomColumnIcon extends StatelessWidget
+{
+  final String asset;
 
-    for (final item in _data) {
-      children.addAll([ line(item), const Divider()]);
-    }
+  const _SymptomColumnIcon(this.asset, {Key? key}) : super(key: key);
 
-    return Column(children: children);
-  }
+  @override
+  Widget build(BuildContext context)
+    => Padding(
+      padding: const EdgeInsets.only(right: SymptomColumn._space),
+      child: Image.asset(
+        asset,
+        width:  SymptomColumn._iconWidth,
+        height: SymptomColumn._iconHeight,
+      ),
+    );
+}
+
+class _SymptomColumnLine extends StatelessWidget
+{
+  final List<dynamic> items;
+
+  const _SymptomColumnLine(this.items, {Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context)
+    => Padding(
+      padding: SymptomColumn._linePadding,
+      child: Row(
+        children: [
+          _SymptomColumnIcon(SymptomColumn._assets[items[0]]),
+          _SymptomColumnIcon(SymptomColumn._assets[items[1]]),
+          _SymptomColumnIcon(SymptomColumn._assets[items[2]]),
+          Text(
+            items[3],
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 19.0),
+          ),
+        ],
+      ),
+    );
 }
 
 

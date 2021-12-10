@@ -25,26 +25,26 @@ class _$CovidReportTearOff {
       required int confirmed,
       required int deaths,
       required int recovered,
-      required int confirmedDiff,
-      required int deathsDiff,
-      required int recoveredDiff,
-      required String lastUpdate,
+      required int confirmed_diff,
+      required int deaths_diff,
+      required int recovered_diff,
+      required String last_update,
       required int active,
-      required int activeDiff,
-      required double fatalityRate,
+      required int active_diff,
+      required double fatality_rate,
       required Region region}) {
     return _CovidReport(
       date: date,
       confirmed: confirmed,
       deaths: deaths,
       recovered: recovered,
-      confirmedDiff: confirmedDiff,
-      deathsDiff: deathsDiff,
-      recoveredDiff: recoveredDiff,
-      lastUpdate: lastUpdate,
+      confirmed_diff: confirmed_diff,
+      deaths_diff: deaths_diff,
+      recovered_diff: recovered_diff,
+      last_update: last_update,
       active: active,
-      activeDiff: activeDiff,
-      fatalityRate: fatalityRate,
+      active_diff: active_diff,
+      fatality_rate: fatality_rate,
       region: region,
     );
   }
@@ -63,13 +63,13 @@ mixin _$CovidReport {
   int get confirmed => throw _privateConstructorUsedError;
   int get deaths => throw _privateConstructorUsedError;
   int get recovered => throw _privateConstructorUsedError;
-  int get confirmedDiff => throw _privateConstructorUsedError;
-  int get deathsDiff => throw _privateConstructorUsedError;
-  int get recoveredDiff => throw _privateConstructorUsedError;
-  String get lastUpdate => throw _privateConstructorUsedError;
+  int get confirmed_diff => throw _privateConstructorUsedError;
+  int get deaths_diff => throw _privateConstructorUsedError;
+  int get recovered_diff => throw _privateConstructorUsedError;
+  String get last_update => throw _privateConstructorUsedError;
   int get active => throw _privateConstructorUsedError;
-  int get activeDiff => throw _privateConstructorUsedError;
-  double get fatalityRate => throw _privateConstructorUsedError;
+  int get active_diff => throw _privateConstructorUsedError;
+  double get fatality_rate => throw _privateConstructorUsedError;
   Region get region => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -88,13 +88,13 @@ abstract class $CovidReportCopyWith<$Res> {
       int confirmed,
       int deaths,
       int recovered,
-      int confirmedDiff,
-      int deathsDiff,
-      int recoveredDiff,
-      String lastUpdate,
+      int confirmed_diff,
+      int deaths_diff,
+      int recovered_diff,
+      String last_update,
       int active,
-      int activeDiff,
-      double fatalityRate,
+      int active_diff,
+      double fatality_rate,
       Region region});
 
   $RegionCopyWith<$Res> get region;
@@ -114,13 +114,13 @@ class _$CovidReportCopyWithImpl<$Res> implements $CovidReportCopyWith<$Res> {
     Object? confirmed = freezed,
     Object? deaths = freezed,
     Object? recovered = freezed,
-    Object? confirmedDiff = freezed,
-    Object? deathsDiff = freezed,
-    Object? recoveredDiff = freezed,
-    Object? lastUpdate = freezed,
+    Object? confirmed_diff = freezed,
+    Object? deaths_diff = freezed,
+    Object? recovered_diff = freezed,
+    Object? last_update = freezed,
     Object? active = freezed,
-    Object? activeDiff = freezed,
-    Object? fatalityRate = freezed,
+    Object? active_diff = freezed,
+    Object? fatality_rate = freezed,
     Object? region = freezed,
   }) {
     return _then(_value.copyWith(
@@ -140,33 +140,33 @@ class _$CovidReportCopyWithImpl<$Res> implements $CovidReportCopyWith<$Res> {
           ? _value.recovered
           : recovered // ignore: cast_nullable_to_non_nullable
               as int,
-      confirmedDiff: confirmedDiff == freezed
-          ? _value.confirmedDiff
-          : confirmedDiff // ignore: cast_nullable_to_non_nullable
+      confirmed_diff: confirmed_diff == freezed
+          ? _value.confirmed_diff
+          : confirmed_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      deathsDiff: deathsDiff == freezed
-          ? _value.deathsDiff
-          : deathsDiff // ignore: cast_nullable_to_non_nullable
+      deaths_diff: deaths_diff == freezed
+          ? _value.deaths_diff
+          : deaths_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      recoveredDiff: recoveredDiff == freezed
-          ? _value.recoveredDiff
-          : recoveredDiff // ignore: cast_nullable_to_non_nullable
+      recovered_diff: recovered_diff == freezed
+          ? _value.recovered_diff
+          : recovered_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      lastUpdate: lastUpdate == freezed
-          ? _value.lastUpdate
-          : lastUpdate // ignore: cast_nullable_to_non_nullable
+      last_update: last_update == freezed
+          ? _value.last_update
+          : last_update // ignore: cast_nullable_to_non_nullable
               as String,
       active: active == freezed
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
               as int,
-      activeDiff: activeDiff == freezed
-          ? _value.activeDiff
-          : activeDiff // ignore: cast_nullable_to_non_nullable
+      active_diff: active_diff == freezed
+          ? _value.active_diff
+          : active_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      fatalityRate: fatalityRate == freezed
-          ? _value.fatalityRate
-          : fatalityRate // ignore: cast_nullable_to_non_nullable
+      fatality_rate: fatality_rate == freezed
+          ? _value.fatality_rate
+          : fatality_rate // ignore: cast_nullable_to_non_nullable
               as double,
       region: region == freezed
           ? _value.region
@@ -195,13 +195,13 @@ abstract class _$CovidReportCopyWith<$Res>
       int confirmed,
       int deaths,
       int recovered,
-      int confirmedDiff,
-      int deathsDiff,
-      int recoveredDiff,
-      String lastUpdate,
+      int confirmed_diff,
+      int deaths_diff,
+      int recovered_diff,
+      String last_update,
       int active,
-      int activeDiff,
-      double fatalityRate,
+      int active_diff,
+      double fatality_rate,
       Region region});
 
   @override
@@ -224,13 +224,13 @@ class __$CovidReportCopyWithImpl<$Res> extends _$CovidReportCopyWithImpl<$Res>
     Object? confirmed = freezed,
     Object? deaths = freezed,
     Object? recovered = freezed,
-    Object? confirmedDiff = freezed,
-    Object? deathsDiff = freezed,
-    Object? recoveredDiff = freezed,
-    Object? lastUpdate = freezed,
+    Object? confirmed_diff = freezed,
+    Object? deaths_diff = freezed,
+    Object? recovered_diff = freezed,
+    Object? last_update = freezed,
     Object? active = freezed,
-    Object? activeDiff = freezed,
-    Object? fatalityRate = freezed,
+    Object? active_diff = freezed,
+    Object? fatality_rate = freezed,
     Object? region = freezed,
   }) {
     return _then(_CovidReport(
@@ -250,33 +250,33 @@ class __$CovidReportCopyWithImpl<$Res> extends _$CovidReportCopyWithImpl<$Res>
           ? _value.recovered
           : recovered // ignore: cast_nullable_to_non_nullable
               as int,
-      confirmedDiff: confirmedDiff == freezed
-          ? _value.confirmedDiff
-          : confirmedDiff // ignore: cast_nullable_to_non_nullable
+      confirmed_diff: confirmed_diff == freezed
+          ? _value.confirmed_diff
+          : confirmed_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      deathsDiff: deathsDiff == freezed
-          ? _value.deathsDiff
-          : deathsDiff // ignore: cast_nullable_to_non_nullable
+      deaths_diff: deaths_diff == freezed
+          ? _value.deaths_diff
+          : deaths_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      recoveredDiff: recoveredDiff == freezed
-          ? _value.recoveredDiff
-          : recoveredDiff // ignore: cast_nullable_to_non_nullable
+      recovered_diff: recovered_diff == freezed
+          ? _value.recovered_diff
+          : recovered_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      lastUpdate: lastUpdate == freezed
-          ? _value.lastUpdate
-          : lastUpdate // ignore: cast_nullable_to_non_nullable
+      last_update: last_update == freezed
+          ? _value.last_update
+          : last_update // ignore: cast_nullable_to_non_nullable
               as String,
       active: active == freezed
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
               as int,
-      activeDiff: activeDiff == freezed
-          ? _value.activeDiff
-          : activeDiff // ignore: cast_nullable_to_non_nullable
+      active_diff: active_diff == freezed
+          ? _value.active_diff
+          : active_diff // ignore: cast_nullable_to_non_nullable
               as int,
-      fatalityRate: fatalityRate == freezed
-          ? _value.fatalityRate
-          : fatalityRate // ignore: cast_nullable_to_non_nullable
+      fatality_rate: fatality_rate == freezed
+          ? _value.fatality_rate
+          : fatality_rate // ignore: cast_nullable_to_non_nullable
               as double,
       region: region == freezed
           ? _value.region
@@ -294,13 +294,13 @@ class _$_CovidReport implements _CovidReport {
       required this.confirmed,
       required this.deaths,
       required this.recovered,
-      required this.confirmedDiff,
-      required this.deathsDiff,
-      required this.recoveredDiff,
-      required this.lastUpdate,
+      required this.confirmed_diff,
+      required this.deaths_diff,
+      required this.recovered_diff,
+      required this.last_update,
       required this.active,
-      required this.activeDiff,
-      required this.fatalityRate,
+      required this.active_diff,
+      required this.fatality_rate,
       required this.region});
 
   factory _$_CovidReport.fromJson(Map<String, dynamic> json) =>
@@ -315,25 +315,25 @@ class _$_CovidReport implements _CovidReport {
   @override
   final int recovered;
   @override
-  final int confirmedDiff;
+  final int confirmed_diff;
   @override
-  final int deathsDiff;
+  final int deaths_diff;
   @override
-  final int recoveredDiff;
+  final int recovered_diff;
   @override
-  final String lastUpdate;
+  final String last_update;
   @override
   final int active;
   @override
-  final int activeDiff;
+  final int active_diff;
   @override
-  final double fatalityRate;
+  final double fatality_rate;
   @override
   final Region region;
 
   @override
   String toString() {
-    return 'CovidReport(date: $date, confirmed: $confirmed, deaths: $deaths, recovered: $recovered, confirmedDiff: $confirmedDiff, deathsDiff: $deathsDiff, recoveredDiff: $recoveredDiff, lastUpdate: $lastUpdate, active: $active, activeDiff: $activeDiff, fatalityRate: $fatalityRate, region: $region)';
+    return 'CovidReport(date: $date, confirmed: $confirmed, deaths: $deaths, recovered: $recovered, confirmed_diff: $confirmed_diff, deaths_diff: $deaths_diff, recovered_diff: $recovered_diff, last_update: $last_update, active: $active, active_diff: $active_diff, fatality_rate: $fatality_rate, region: $region)';
   }
 
   @override
@@ -350,26 +350,26 @@ class _$_CovidReport implements _CovidReport {
             (identical(other.recovered, recovered) ||
                 const DeepCollectionEquality()
                     .equals(other.recovered, recovered)) &&
-            (identical(other.confirmedDiff, confirmedDiff) ||
+            (identical(other.confirmed_diff, confirmed_diff) ||
                 const DeepCollectionEquality()
-                    .equals(other.confirmedDiff, confirmedDiff)) &&
-            (identical(other.deathsDiff, deathsDiff) ||
+                    .equals(other.confirmed_diff, confirmed_diff)) &&
+            (identical(other.deaths_diff, deaths_diff) ||
                 const DeepCollectionEquality()
-                    .equals(other.deathsDiff, deathsDiff)) &&
-            (identical(other.recoveredDiff, recoveredDiff) ||
+                    .equals(other.deaths_diff, deaths_diff)) &&
+            (identical(other.recovered_diff, recovered_diff) ||
                 const DeepCollectionEquality()
-                    .equals(other.recoveredDiff, recoveredDiff)) &&
-            (identical(other.lastUpdate, lastUpdate) ||
+                    .equals(other.recovered_diff, recovered_diff)) &&
+            (identical(other.last_update, last_update) ||
                 const DeepCollectionEquality()
-                    .equals(other.lastUpdate, lastUpdate)) &&
+                    .equals(other.last_update, last_update)) &&
             (identical(other.active, active) ||
                 const DeepCollectionEquality().equals(other.active, active)) &&
-            (identical(other.activeDiff, activeDiff) ||
+            (identical(other.active_diff, active_diff) ||
                 const DeepCollectionEquality()
-                    .equals(other.activeDiff, activeDiff)) &&
-            (identical(other.fatalityRate, fatalityRate) ||
+                    .equals(other.active_diff, active_diff)) &&
+            (identical(other.fatality_rate, fatality_rate) ||
                 const DeepCollectionEquality()
-                    .equals(other.fatalityRate, fatalityRate)) &&
+                    .equals(other.fatality_rate, fatality_rate)) &&
             (identical(other.region, region) ||
                 const DeepCollectionEquality().equals(other.region, region)));
   }
@@ -381,13 +381,13 @@ class _$_CovidReport implements _CovidReport {
       const DeepCollectionEquality().hash(confirmed) ^
       const DeepCollectionEquality().hash(deaths) ^
       const DeepCollectionEquality().hash(recovered) ^
-      const DeepCollectionEquality().hash(confirmedDiff) ^
-      const DeepCollectionEquality().hash(deathsDiff) ^
-      const DeepCollectionEquality().hash(recoveredDiff) ^
-      const DeepCollectionEquality().hash(lastUpdate) ^
+      const DeepCollectionEquality().hash(confirmed_diff) ^
+      const DeepCollectionEquality().hash(deaths_diff) ^
+      const DeepCollectionEquality().hash(recovered_diff) ^
+      const DeepCollectionEquality().hash(last_update) ^
       const DeepCollectionEquality().hash(active) ^
-      const DeepCollectionEquality().hash(activeDiff) ^
-      const DeepCollectionEquality().hash(fatalityRate) ^
+      const DeepCollectionEquality().hash(active_diff) ^
+      const DeepCollectionEquality().hash(fatality_rate) ^
       const DeepCollectionEquality().hash(region);
 
   @JsonKey(ignore: true)
@@ -407,13 +407,13 @@ abstract class _CovidReport implements CovidReport {
       required int confirmed,
       required int deaths,
       required int recovered,
-      required int confirmedDiff,
-      required int deathsDiff,
-      required int recoveredDiff,
-      required String lastUpdate,
+      required int confirmed_diff,
+      required int deaths_diff,
+      required int recovered_diff,
+      required String last_update,
       required int active,
-      required int activeDiff,
-      required double fatalityRate,
+      required int active_diff,
+      required double fatality_rate,
       required Region region}) = _$_CovidReport;
 
   factory _CovidReport.fromJson(Map<String, dynamic> json) =
@@ -428,19 +428,19 @@ abstract class _CovidReport implements CovidReport {
   @override
   int get recovered => throw _privateConstructorUsedError;
   @override
-  int get confirmedDiff => throw _privateConstructorUsedError;
+  int get confirmed_diff => throw _privateConstructorUsedError;
   @override
-  int get deathsDiff => throw _privateConstructorUsedError;
+  int get deaths_diff => throw _privateConstructorUsedError;
   @override
-  int get recoveredDiff => throw _privateConstructorUsedError;
+  int get recovered_diff => throw _privateConstructorUsedError;
   @override
-  String get lastUpdate => throw _privateConstructorUsedError;
+  String get last_update => throw _privateConstructorUsedError;
   @override
   int get active => throw _privateConstructorUsedError;
   @override
-  int get activeDiff => throw _privateConstructorUsedError;
+  int get active_diff => throw _privateConstructorUsedError;
   @override
-  double get fatalityRate => throw _privateConstructorUsedError;
+  double get fatality_rate => throw _privateConstructorUsedError;
   @override
   Region get region => throw _privateConstructorUsedError;
   @override

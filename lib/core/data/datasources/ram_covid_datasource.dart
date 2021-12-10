@@ -39,17 +39,17 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct {
 
   @override
   Future<List<String>> countryCodes() async => _world.isEmpty
-      ? throw CovidNotFoundException("Can't return countries without any data")
+      ? throw const CovidNotFoundException("Can't return countries without any data")
       : List.from(_world[_world.keys.first]!.countries.keys);
 
   @override
   Future<String> countryName(String code) async => _world.isEmpty
-      ? throw CovidNotFoundException("Can't return countries without any data")
+      ? throw const CovidNotFoundException("Can't return countries without any data")
       : (_world[_world.keys.first]!.countries[code] ?? _exc).total.region.name;
 
   void push(DateTime date, CovidWorld world) => _world[dateToStr(date)] = world;
 
-  get _exc => throw CovidNotFoundException('Not found covid in RAM');
+  get _exc => throw const CovidNotFoundException('Not found covid in RAM');
 
   static String dateToStr(DateTime date) =>
       sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);

@@ -10,13 +10,13 @@ class CovidReport with _$CovidReport {
     required int confirmed,
     required int deaths,
     required int recovered,
-    required int confirmedDiff,
-    required int deathsDiff,
-    required int recoveredDiff,
-    required String lastUpdate,
+    required int confirmed_diff,
+    required int deaths_diff,
+    required int recovered_diff,
+    required String last_update,
     required int active,
-    required int activeDiff,
-    required double fatalityRate,
+    required int active_diff,
+    required double fatality_rate,
     required Region region,
   }) = _CovidReport;
 
@@ -26,21 +26,21 @@ class CovidReport with _$CovidReport {
   factory CovidReport.fromProvinces(List<CovidReport> provinces) => CovidReport(
         date: provinces[0].date,
         confirmed: provinces.map((x) => x.confirmed).fold(0, (a, b) => a + b),
-        confirmedDiff:
-            provinces.map((x) => x.confirmedDiff).fold(0, (a, b) => a + b),
+        confirmed_diff:
+            provinces.map((x) => x.confirmed_diff).fold(0, (a, b) => a + b),
         deaths: provinces.map((x) => x.deaths).fold(0, (a, b) => a + b),
-        deathsDiff: provinces.map((x) => x.deathsDiff).fold(0, (a, b) => a + b),
+        deaths_diff: provinces.map((x) => x.deaths_diff).fold(0, (a, b) => a + b),
         recovered: provinces.map((x) => x.recovered).fold(0, (a, b) => a + b),
-        recoveredDiff:
-            provinces.map((x) => x.recoveredDiff).fold(0, (a, b) => a + b),
+        recovered_diff:
+            provinces.map((x) => x.recovered_diff).fold(0, (a, b) => a + b),
         active: provinces.map((x) => x.active).fold(0, (a, b) => a + b),
-        activeDiff: provinces.map((x) => x.activeDiff).fold(0, (a, b) => a + b),
-        lastUpdate: provinces
-            .map((x) => x.lastUpdate)
+        active_diff: provinces.map((x) => x.active_diff).fold(0, (a, b) => a + b),
+        last_update: provinces
+            .map((x) => x.last_update)
             .reduce((a, b) => b.compareTo(a) > 0 ? b : a),
         // TODO: точно так?
-        fatalityRate: provinces
-                .map((x) => x.fatalityRate * x.confirmed)
+        fatality_rate: provinces
+                .map((x) => x.fatality_rate * x.confirmed)
                 .fold(0.0, (double a, double b) => a + b) /
             provinces.map((x) => x.confirmed).fold(0, (a, b) => a + b),
         region: Region(

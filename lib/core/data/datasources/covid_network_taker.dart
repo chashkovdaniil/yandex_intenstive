@@ -16,6 +16,7 @@ class CovidNetworkTaker {
       return DataRaw.fromJson(json.data);
     }
     on Exception catch(e) {
+      print("network exception");
       throw CovidNotFoundException("Can't take covid data from network: $e");
     }
   }

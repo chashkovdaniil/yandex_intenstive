@@ -22,7 +22,7 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct {
     DateTime date,
     String country,
   ) async =>
-      ((_world[dateToStr(date)] ?? _exc).country(country) ?? _exc).total;
+      ((_world[dateToStr(date)] ?? _exc).countries[country] ?? _exc).total;
 
   @override
   Future<CovidReport> getProvince(
@@ -30,8 +30,8 @@ class RAMCovidDatasource implements CovidDatasourceAbstruct {
     String country,
     String province,
   ) async =>
-      ((_world[dateToStr(date)] ?? _exc).country(country) ?? _exc)
-          .province(province) ??
+      ((_world[dateToStr(date)] ?? _exc).countries[country] ?? _exc)
+          .provinces[province] ??
       _exc;
 
   @override

@@ -21,30 +21,42 @@ class _$CovidReportTearOff {
   const _$CovidReportTearOff();
 
   _CovidReport call(
-      {required String date,
-      required int confirmed,
-      required int deaths,
-      required int recovered,
-      required int confirmed_diff,
-      required int deaths_diff,
-      required int recovered_diff,
-      required String last_update,
-      required int active,
-      required int active_diff,
-      required double fatality_rate,
-      required Region region}) {
+      {@JsonKey(name: 'date', defaultValue: '')
+          String date = '',
+      @JsonKey(name: 'confirmed', defaultValue: 0)
+          int confirmed = 0,
+      @JsonKey(name: 'deaths', defaultValue: 0)
+          int deaths = 0,
+      @JsonKey(name: 'recovered', defaultValue: 0)
+          int recovered = 0,
+      @JsonKey(name: 'confirme_diff', defaultValue: 0)
+          int confirmedDiff = 0,
+      @JsonKey(name: 'deaths_diff', defaultValue: 0)
+          int deathsDiff = 0,
+      @JsonKey(name: 'recovered_diff', defaultValue: 0)
+          int recoveredDiff = 0,
+      @JsonKey(name: 'last_update', defaultValue: '')
+          String lastUpdate = '',
+      @JsonKey(name: 'active', defaultValue: 0)
+          int active = 0,
+      @JsonKey(name: 'active_diff', defaultValue: 0)
+          int activeDiff = 0,
+      @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+          double fatalityRate = 0.0,
+      @JsonKey(name: 'region')
+          required Region region}) {
     return _CovidReport(
       date: date,
       confirmed: confirmed,
       deaths: deaths,
       recovered: recovered,
-      confirmed_diff: confirmed_diff,
-      deaths_diff: deaths_diff,
-      recovered_diff: recovered_diff,
-      last_update: last_update,
+      confirmedDiff: confirmedDiff,
+      deathsDiff: deathsDiff,
+      recoveredDiff: recoveredDiff,
+      lastUpdate: lastUpdate,
       active: active,
-      active_diff: active_diff,
-      fatality_rate: fatality_rate,
+      activeDiff: activeDiff,
+      fatalityRate: fatalityRate,
       region: region,
     );
   }
@@ -59,17 +71,29 @@ const $CovidReport = _$CovidReportTearOff();
 
 /// @nodoc
 mixin _$CovidReport {
+  @JsonKey(name: 'date', defaultValue: '')
   String get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'confirmed', defaultValue: 0)
   int get confirmed => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deaths', defaultValue: 0)
   int get deaths => throw _privateConstructorUsedError;
+  @JsonKey(name: 'recovered', defaultValue: 0)
   int get recovered => throw _privateConstructorUsedError;
-  int get confirmed_diff => throw _privateConstructorUsedError;
-  int get deaths_diff => throw _privateConstructorUsedError;
-  int get recovered_diff => throw _privateConstructorUsedError;
-  String get last_update => throw _privateConstructorUsedError;
+  @JsonKey(name: 'confirme_diff', defaultValue: 0)
+  int get confirmedDiff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deaths_diff', defaultValue: 0)
+  int get deathsDiff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'recovered_diff', defaultValue: 0)
+  int get recoveredDiff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_update', defaultValue: '')
+  String get lastUpdate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'active', defaultValue: 0)
   int get active => throw _privateConstructorUsedError;
-  int get active_diff => throw _privateConstructorUsedError;
-  double get fatality_rate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'active_diff', defaultValue: 0)
+  int get activeDiff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+  double get fatalityRate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'region')
   Region get region => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -84,18 +108,18 @@ abstract class $CovidReportCopyWith<$Res> {
           CovidReport value, $Res Function(CovidReport) then) =
       _$CovidReportCopyWithImpl<$Res>;
   $Res call(
-      {String date,
-      int confirmed,
-      int deaths,
-      int recovered,
-      int confirmed_diff,
-      int deaths_diff,
-      int recovered_diff,
-      String last_update,
-      int active,
-      int active_diff,
-      double fatality_rate,
-      Region region});
+      {@JsonKey(name: 'date', defaultValue: '') String date,
+      @JsonKey(name: 'confirmed', defaultValue: 0) int confirmed,
+      @JsonKey(name: 'deaths', defaultValue: 0) int deaths,
+      @JsonKey(name: 'recovered', defaultValue: 0) int recovered,
+      @JsonKey(name: 'confirme_diff', defaultValue: 0) int confirmedDiff,
+      @JsonKey(name: 'deaths_diff', defaultValue: 0) int deathsDiff,
+      @JsonKey(name: 'recovered_diff', defaultValue: 0) int recoveredDiff,
+      @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,
+      @JsonKey(name: 'active', defaultValue: 0) int active,
+      @JsonKey(name: 'active_diff', defaultValue: 0) int activeDiff,
+      @JsonKey(name: 'fatality_rate', defaultValue: 0.0) double fatalityRate,
+      @JsonKey(name: 'region') Region region});
 
   $RegionCopyWith<$Res> get region;
 }
@@ -114,13 +138,13 @@ class _$CovidReportCopyWithImpl<$Res> implements $CovidReportCopyWith<$Res> {
     Object? confirmed = freezed,
     Object? deaths = freezed,
     Object? recovered = freezed,
-    Object? confirmed_diff = freezed,
-    Object? deaths_diff = freezed,
-    Object? recovered_diff = freezed,
-    Object? last_update = freezed,
+    Object? confirmedDiff = freezed,
+    Object? deathsDiff = freezed,
+    Object? recoveredDiff = freezed,
+    Object? lastUpdate = freezed,
     Object? active = freezed,
-    Object? active_diff = freezed,
-    Object? fatality_rate = freezed,
+    Object? activeDiff = freezed,
+    Object? fatalityRate = freezed,
     Object? region = freezed,
   }) {
     return _then(_value.copyWith(
@@ -140,33 +164,33 @@ class _$CovidReportCopyWithImpl<$Res> implements $CovidReportCopyWith<$Res> {
           ? _value.recovered
           : recovered // ignore: cast_nullable_to_non_nullable
               as int,
-      confirmed_diff: confirmed_diff == freezed
-          ? _value.confirmed_diff
-          : confirmed_diff // ignore: cast_nullable_to_non_nullable
+      confirmedDiff: confirmedDiff == freezed
+          ? _value.confirmedDiff
+          : confirmedDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      deaths_diff: deaths_diff == freezed
-          ? _value.deaths_diff
-          : deaths_diff // ignore: cast_nullable_to_non_nullable
+      deathsDiff: deathsDiff == freezed
+          ? _value.deathsDiff
+          : deathsDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      recovered_diff: recovered_diff == freezed
-          ? _value.recovered_diff
-          : recovered_diff // ignore: cast_nullable_to_non_nullable
+      recoveredDiff: recoveredDiff == freezed
+          ? _value.recoveredDiff
+          : recoveredDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      last_update: last_update == freezed
-          ? _value.last_update
-          : last_update // ignore: cast_nullable_to_non_nullable
+      lastUpdate: lastUpdate == freezed
+          ? _value.lastUpdate
+          : lastUpdate // ignore: cast_nullable_to_non_nullable
               as String,
       active: active == freezed
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
               as int,
-      active_diff: active_diff == freezed
-          ? _value.active_diff
-          : active_diff // ignore: cast_nullable_to_non_nullable
+      activeDiff: activeDiff == freezed
+          ? _value.activeDiff
+          : activeDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      fatality_rate: fatality_rate == freezed
-          ? _value.fatality_rate
-          : fatality_rate // ignore: cast_nullable_to_non_nullable
+      fatalityRate: fatalityRate == freezed
+          ? _value.fatalityRate
+          : fatalityRate // ignore: cast_nullable_to_non_nullable
               as double,
       region: region == freezed
           ? _value.region
@@ -191,18 +215,18 @@ abstract class _$CovidReportCopyWith<$Res>
       __$CovidReportCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String date,
-      int confirmed,
-      int deaths,
-      int recovered,
-      int confirmed_diff,
-      int deaths_diff,
-      int recovered_diff,
-      String last_update,
-      int active,
-      int active_diff,
-      double fatality_rate,
-      Region region});
+      {@JsonKey(name: 'date', defaultValue: '') String date,
+      @JsonKey(name: 'confirmed', defaultValue: 0) int confirmed,
+      @JsonKey(name: 'deaths', defaultValue: 0) int deaths,
+      @JsonKey(name: 'recovered', defaultValue: 0) int recovered,
+      @JsonKey(name: 'confirme_diff', defaultValue: 0) int confirmedDiff,
+      @JsonKey(name: 'deaths_diff', defaultValue: 0) int deathsDiff,
+      @JsonKey(name: 'recovered_diff', defaultValue: 0) int recoveredDiff,
+      @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,
+      @JsonKey(name: 'active', defaultValue: 0) int active,
+      @JsonKey(name: 'active_diff', defaultValue: 0) int activeDiff,
+      @JsonKey(name: 'fatality_rate', defaultValue: 0.0) double fatalityRate,
+      @JsonKey(name: 'region') Region region});
 
   @override
   $RegionCopyWith<$Res> get region;
@@ -224,13 +248,13 @@ class __$CovidReportCopyWithImpl<$Res> extends _$CovidReportCopyWithImpl<$Res>
     Object? confirmed = freezed,
     Object? deaths = freezed,
     Object? recovered = freezed,
-    Object? confirmed_diff = freezed,
-    Object? deaths_diff = freezed,
-    Object? recovered_diff = freezed,
-    Object? last_update = freezed,
+    Object? confirmedDiff = freezed,
+    Object? deathsDiff = freezed,
+    Object? recoveredDiff = freezed,
+    Object? lastUpdate = freezed,
     Object? active = freezed,
-    Object? active_diff = freezed,
-    Object? fatality_rate = freezed,
+    Object? activeDiff = freezed,
+    Object? fatalityRate = freezed,
     Object? region = freezed,
   }) {
     return _then(_CovidReport(
@@ -250,33 +274,33 @@ class __$CovidReportCopyWithImpl<$Res> extends _$CovidReportCopyWithImpl<$Res>
           ? _value.recovered
           : recovered // ignore: cast_nullable_to_non_nullable
               as int,
-      confirmed_diff: confirmed_diff == freezed
-          ? _value.confirmed_diff
-          : confirmed_diff // ignore: cast_nullable_to_non_nullable
+      confirmedDiff: confirmedDiff == freezed
+          ? _value.confirmedDiff
+          : confirmedDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      deaths_diff: deaths_diff == freezed
-          ? _value.deaths_diff
-          : deaths_diff // ignore: cast_nullable_to_non_nullable
+      deathsDiff: deathsDiff == freezed
+          ? _value.deathsDiff
+          : deathsDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      recovered_diff: recovered_diff == freezed
-          ? _value.recovered_diff
-          : recovered_diff // ignore: cast_nullable_to_non_nullable
+      recoveredDiff: recoveredDiff == freezed
+          ? _value.recoveredDiff
+          : recoveredDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      last_update: last_update == freezed
-          ? _value.last_update
-          : last_update // ignore: cast_nullable_to_non_nullable
+      lastUpdate: lastUpdate == freezed
+          ? _value.lastUpdate
+          : lastUpdate // ignore: cast_nullable_to_non_nullable
               as String,
       active: active == freezed
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
               as int,
-      active_diff: active_diff == freezed
-          ? _value.active_diff
-          : active_diff // ignore: cast_nullable_to_non_nullable
+      activeDiff: activeDiff == freezed
+          ? _value.activeDiff
+          : activeDiff // ignore: cast_nullable_to_non_nullable
               as int,
-      fatality_rate: fatality_rate == freezed
-          ? _value.fatality_rate
-          : fatality_rate // ignore: cast_nullable_to_non_nullable
+      fatalityRate: fatalityRate == freezed
+          ? _value.fatalityRate
+          : fatalityRate // ignore: cast_nullable_to_non_nullable
               as double,
       region: region == freezed
           ? _value.region
@@ -289,51 +313,75 @@ class __$CovidReportCopyWithImpl<$Res> extends _$CovidReportCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CovidReport implements _CovidReport {
-  _$_CovidReport(
-      {required this.date,
-      required this.confirmed,
-      required this.deaths,
-      required this.recovered,
-      required this.confirmed_diff,
-      required this.deaths_diff,
-      required this.recovered_diff,
-      required this.last_update,
-      required this.active,
-      required this.active_diff,
-      required this.fatality_rate,
-      required this.region});
+  const _$_CovidReport(
+      {@JsonKey(name: 'date', defaultValue: '')
+          this.date = '',
+      @JsonKey(name: 'confirmed', defaultValue: 0)
+          this.confirmed = 0,
+      @JsonKey(name: 'deaths', defaultValue: 0)
+          this.deaths = 0,
+      @JsonKey(name: 'recovered', defaultValue: 0)
+          this.recovered = 0,
+      @JsonKey(name: 'confirme_diff', defaultValue: 0)
+          this.confirmedDiff = 0,
+      @JsonKey(name: 'deaths_diff', defaultValue: 0)
+          this.deathsDiff = 0,
+      @JsonKey(name: 'recovered_diff', defaultValue: 0)
+          this.recoveredDiff = 0,
+      @JsonKey(name: 'last_update', defaultValue: '')
+          this.lastUpdate = '',
+      @JsonKey(name: 'active', defaultValue: 0)
+          this.active = 0,
+      @JsonKey(name: 'active_diff', defaultValue: 0)
+          this.activeDiff = 0,
+      @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+          this.fatalityRate = 0.0,
+      @JsonKey(name: 'region')
+          required this.region});
 
   factory _$_CovidReport.fromJson(Map<String, dynamic> json) =>
       _$_$_CovidReportFromJson(json);
 
   @override
+  @JsonKey(name: 'date', defaultValue: '')
   final String date;
   @override
+  @JsonKey(name: 'confirmed', defaultValue: 0)
   final int confirmed;
   @override
+  @JsonKey(name: 'deaths', defaultValue: 0)
   final int deaths;
   @override
+  @JsonKey(name: 'recovered', defaultValue: 0)
   final int recovered;
   @override
-  final int confirmed_diff;
+  @JsonKey(name: 'confirme_diff', defaultValue: 0)
+  final int confirmedDiff;
   @override
-  final int deaths_diff;
+  @JsonKey(name: 'deaths_diff', defaultValue: 0)
+  final int deathsDiff;
   @override
-  final int recovered_diff;
+  @JsonKey(name: 'recovered_diff', defaultValue: 0)
+  final int recoveredDiff;
   @override
-  final String last_update;
+  @JsonKey(name: 'last_update', defaultValue: '')
+  final String lastUpdate;
   @override
+  @JsonKey(name: 'active', defaultValue: 0)
   final int active;
   @override
-  final int active_diff;
+  @JsonKey(name: 'active_diff', defaultValue: 0)
+  final int activeDiff;
   @override
-  final double fatality_rate;
+  @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+  final double fatalityRate;
   @override
+  @JsonKey(name: 'region')
   final Region region;
 
   @override
   String toString() {
-    return 'CovidReport(date: $date, confirmed: $confirmed, deaths: $deaths, recovered: $recovered, confirmed_diff: $confirmed_diff, deaths_diff: $deaths_diff, recovered_diff: $recovered_diff, last_update: $last_update, active: $active, active_diff: $active_diff, fatality_rate: $fatality_rate, region: $region)';
+    return 'CovidReport(date: $date, confirmed: $confirmed, deaths: $deaths, recovered: $recovered, confirmedDiff: $confirmedDiff, deathsDiff: $deathsDiff, recoveredDiff: $recoveredDiff, lastUpdate: $lastUpdate, active: $active, activeDiff: $activeDiff, fatalityRate: $fatalityRate, region: $region)';
   }
 
   @override
@@ -350,26 +398,26 @@ class _$_CovidReport implements _CovidReport {
             (identical(other.recovered, recovered) ||
                 const DeepCollectionEquality()
                     .equals(other.recovered, recovered)) &&
-            (identical(other.confirmed_diff, confirmed_diff) ||
+            (identical(other.confirmedDiff, confirmedDiff) ||
                 const DeepCollectionEquality()
-                    .equals(other.confirmed_diff, confirmed_diff)) &&
-            (identical(other.deaths_diff, deaths_diff) ||
+                    .equals(other.confirmedDiff, confirmedDiff)) &&
+            (identical(other.deathsDiff, deathsDiff) ||
                 const DeepCollectionEquality()
-                    .equals(other.deaths_diff, deaths_diff)) &&
-            (identical(other.recovered_diff, recovered_diff) ||
+                    .equals(other.deathsDiff, deathsDiff)) &&
+            (identical(other.recoveredDiff, recoveredDiff) ||
                 const DeepCollectionEquality()
-                    .equals(other.recovered_diff, recovered_diff)) &&
-            (identical(other.last_update, last_update) ||
+                    .equals(other.recoveredDiff, recoveredDiff)) &&
+            (identical(other.lastUpdate, lastUpdate) ||
                 const DeepCollectionEquality()
-                    .equals(other.last_update, last_update)) &&
+                    .equals(other.lastUpdate, lastUpdate)) &&
             (identical(other.active, active) ||
                 const DeepCollectionEquality().equals(other.active, active)) &&
-            (identical(other.active_diff, active_diff) ||
+            (identical(other.activeDiff, activeDiff) ||
                 const DeepCollectionEquality()
-                    .equals(other.active_diff, active_diff)) &&
-            (identical(other.fatality_rate, fatality_rate) ||
+                    .equals(other.activeDiff, activeDiff)) &&
+            (identical(other.fatalityRate, fatalityRate) ||
                 const DeepCollectionEquality()
-                    .equals(other.fatality_rate, fatality_rate)) &&
+                    .equals(other.fatalityRate, fatalityRate)) &&
             (identical(other.region, region) ||
                 const DeepCollectionEquality().equals(other.region, region)));
   }
@@ -381,13 +429,13 @@ class _$_CovidReport implements _CovidReport {
       const DeepCollectionEquality().hash(confirmed) ^
       const DeepCollectionEquality().hash(deaths) ^
       const DeepCollectionEquality().hash(recovered) ^
-      const DeepCollectionEquality().hash(confirmed_diff) ^
-      const DeepCollectionEquality().hash(deaths_diff) ^
-      const DeepCollectionEquality().hash(recovered_diff) ^
-      const DeepCollectionEquality().hash(last_update) ^
+      const DeepCollectionEquality().hash(confirmedDiff) ^
+      const DeepCollectionEquality().hash(deathsDiff) ^
+      const DeepCollectionEquality().hash(recoveredDiff) ^
+      const DeepCollectionEquality().hash(lastUpdate) ^
       const DeepCollectionEquality().hash(active) ^
-      const DeepCollectionEquality().hash(active_diff) ^
-      const DeepCollectionEquality().hash(fatality_rate) ^
+      const DeepCollectionEquality().hash(activeDiff) ^
+      const DeepCollectionEquality().hash(fatalityRate) ^
       const DeepCollectionEquality().hash(region);
 
   @JsonKey(ignore: true)
@@ -402,46 +450,58 @@ class _$_CovidReport implements _CovidReport {
 }
 
 abstract class _CovidReport implements CovidReport {
-  factory _CovidReport(
-      {required String date,
-      required int confirmed,
-      required int deaths,
-      required int recovered,
-      required int confirmed_diff,
-      required int deaths_diff,
-      required int recovered_diff,
-      required String last_update,
-      required int active,
-      required int active_diff,
-      required double fatality_rate,
-      required Region region}) = _$_CovidReport;
+  const factory _CovidReport(
+      {@JsonKey(name: 'date', defaultValue: '') String date,
+      @JsonKey(name: 'confirmed', defaultValue: 0) int confirmed,
+      @JsonKey(name: 'deaths', defaultValue: 0) int deaths,
+      @JsonKey(name: 'recovered', defaultValue: 0) int recovered,
+      @JsonKey(name: 'confirme_diff', defaultValue: 0) int confirmedDiff,
+      @JsonKey(name: 'deaths_diff', defaultValue: 0) int deathsDiff,
+      @JsonKey(name: 'recovered_diff', defaultValue: 0) int recoveredDiff,
+      @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,
+      @JsonKey(name: 'active', defaultValue: 0) int active,
+      @JsonKey(name: 'active_diff', defaultValue: 0) int activeDiff,
+      @JsonKey(name: 'fatality_rate', defaultValue: 0.0) double fatalityRate,
+      @JsonKey(name: 'region') required Region region}) = _$_CovidReport;
 
   factory _CovidReport.fromJson(Map<String, dynamic> json) =
       _$_CovidReport.fromJson;
 
   @override
+  @JsonKey(name: 'date', defaultValue: '')
   String get date => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'confirmed', defaultValue: 0)
   int get confirmed => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'deaths', defaultValue: 0)
   int get deaths => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'recovered', defaultValue: 0)
   int get recovered => throw _privateConstructorUsedError;
   @override
-  int get confirmed_diff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'confirme_diff', defaultValue: 0)
+  int get confirmedDiff => throw _privateConstructorUsedError;
   @override
-  int get deaths_diff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deaths_diff', defaultValue: 0)
+  int get deathsDiff => throw _privateConstructorUsedError;
   @override
-  int get recovered_diff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'recovered_diff', defaultValue: 0)
+  int get recoveredDiff => throw _privateConstructorUsedError;
   @override
-  String get last_update => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_update', defaultValue: '')
+  String get lastUpdate => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'active', defaultValue: 0)
   int get active => throw _privateConstructorUsedError;
   @override
-  int get active_diff => throw _privateConstructorUsedError;
+  @JsonKey(name: 'active_diff', defaultValue: 0)
+  int get activeDiff => throw _privateConstructorUsedError;
   @override
-  double get fatality_rate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+  double get fatalityRate => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'region')
   Region get region => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -458,11 +518,11 @@ class _$RegionTearOff {
   const _$RegionTearOff();
 
   _Region call(
-      {required String iso,
-      required String name,
-      required String province,
-      required String lat,
-      required String long}) {
+      {@JsonKey(defaultValue: '') String iso = '',
+      @JsonKey(defaultValue: '') String name = '',
+      @JsonKey(defaultValue: '') String province = '',
+      @JsonKey(defaultValue: '') String lat = '',
+      @JsonKey(defaultValue: '') String long = ''}) {
     return _Region(
       iso: iso,
       name: name,
@@ -482,10 +542,15 @@ const $Region = _$RegionTearOff();
 
 /// @nodoc
 mixin _$Region {
+  @JsonKey(defaultValue: '')
   String get iso => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
   String get province => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
   String get lat => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
   String get long => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -498,7 +563,11 @@ abstract class $RegionCopyWith<$Res> {
   factory $RegionCopyWith(Region value, $Res Function(Region) then) =
       _$RegionCopyWithImpl<$Res>;
   $Res call(
-      {String iso, String name, String province, String lat, String long});
+      {@JsonKey(defaultValue: '') String iso,
+      @JsonKey(defaultValue: '') String name,
+      @JsonKey(defaultValue: '') String province,
+      @JsonKey(defaultValue: '') String lat,
+      @JsonKey(defaultValue: '') String long});
 }
 
 /// @nodoc
@@ -548,7 +617,11 @@ abstract class _$RegionCopyWith<$Res> implements $RegionCopyWith<$Res> {
       __$RegionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String iso, String name, String province, String lat, String long});
+      {@JsonKey(defaultValue: '') String iso,
+      @JsonKey(defaultValue: '') String name,
+      @JsonKey(defaultValue: '') String province,
+      @JsonKey(defaultValue: '') String lat,
+      @JsonKey(defaultValue: '') String long});
 }
 
 /// @nodoc
@@ -596,25 +669,30 @@ class __$RegionCopyWithImpl<$Res> extends _$RegionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Region implements _Region {
-  _$_Region(
-      {required this.iso,
-      required this.name,
-      required this.province,
-      required this.lat,
-      required this.long});
+  const _$_Region(
+      {@JsonKey(defaultValue: '') this.iso = '',
+      @JsonKey(defaultValue: '') this.name = '',
+      @JsonKey(defaultValue: '') this.province = '',
+      @JsonKey(defaultValue: '') this.lat = '',
+      @JsonKey(defaultValue: '') this.long = ''});
 
   factory _$_Region.fromJson(Map<String, dynamic> json) =>
       _$_$_RegionFromJson(json);
 
   @override
+  @JsonKey(defaultValue: '')
   final String iso;
   @override
+  @JsonKey(defaultValue: '')
   final String name;
   @override
+  @JsonKey(defaultValue: '')
   final String province;
   @override
+  @JsonKey(defaultValue: '')
   final String lat;
   @override
+  @JsonKey(defaultValue: '')
   final String long;
 
   @override
@@ -660,24 +738,29 @@ class _$_Region implements _Region {
 }
 
 abstract class _Region implements Region {
-  factory _Region(
-      {required String iso,
-      required String name,
-      required String province,
-      required String lat,
-      required String long}) = _$_Region;
+  const factory _Region(
+      {@JsonKey(defaultValue: '') String iso,
+      @JsonKey(defaultValue: '') String name,
+      @JsonKey(defaultValue: '') String province,
+      @JsonKey(defaultValue: '') String lat,
+      @JsonKey(defaultValue: '') String long}) = _$_Region;
 
   factory _Region.fromJson(Map<String, dynamic> json) = _$_Region.fromJson;
 
   @override
+  @JsonKey(defaultValue: '')
   String get iso => throw _privateConstructorUsedError;
   @override
+  @JsonKey(defaultValue: '')
   String get name => throw _privateConstructorUsedError;
   @override
+  @JsonKey(defaultValue: '')
   String get province => throw _privateConstructorUsedError;
   @override
+  @JsonKey(defaultValue: '')
   String get lat => throw _privateConstructorUsedError;
   @override
+  @JsonKey(defaultValue: '')
   String get long => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

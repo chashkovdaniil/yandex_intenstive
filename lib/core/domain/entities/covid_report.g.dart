@@ -8,17 +8,17 @@ part of 'covid_report.dart';
 
 _$_CovidReport _$_$_CovidReportFromJson(Map<String, dynamic> json) {
   return _$_CovidReport(
-    date: json['date'] as String,
-    confirmed: json['confirmed'] as int,
-    deaths: json['deaths'] as int,
-    recovered: json['recovered'] as int,
-    confirmed_diff: json['confirmed_diff'] as int,
-    deaths_diff: json['deaths_diff'] as int,
-    recovered_diff: json['recovered_diff'] as int,
-    last_update: json['last_update'] as String,
-    active: json['active'] as int,
-    active_diff: json['active_diff'] as int,
-    fatality_rate: (json['fatality_rate'] as num).toDouble(),
+    date: json['date'] as String? ?? '',
+    confirmed: json['confirmed'] as int? ?? 0,
+    deaths: json['deaths'] as int? ?? 0,
+    recovered: json['recovered'] as int? ?? 0,
+    confirmedDiff: json['confirme_diff'] as int? ?? 0,
+    deathsDiff: json['deaths_diff'] as int? ?? 0,
+    recoveredDiff: json['recovered_diff'] as int? ?? 0,
+    lastUpdate: json['last_update'] as String? ?? '',
+    active: json['active'] as int? ?? 0,
+    activeDiff: json['active_diff'] as int? ?? 0,
+    fatalityRate: (json['fatality_rate'] as num?)?.toDouble() ?? 0.0,
     region: Region.fromJson(json['region'] as Map<String, dynamic>),
   );
 }
@@ -29,23 +29,23 @@ Map<String, dynamic> _$_$_CovidReportToJson(_$_CovidReport instance) =>
       'confirmed': instance.confirmed,
       'deaths': instance.deaths,
       'recovered': instance.recovered,
-      'confirmed_diff': instance.confirmed_diff,
-      'deaths_diff': instance.deaths_diff,
-      'recovered_diff': instance.recovered_diff,
-      'last_update': instance.last_update,
+      'confirme_diff': instance.confirmedDiff,
+      'deaths_diff': instance.deathsDiff,
+      'recovered_diff': instance.recoveredDiff,
+      'last_update': instance.lastUpdate,
       'active': instance.active,
-      'active_diff': instance.active_diff,
-      'fatality_rate': instance.fatality_rate,
+      'active_diff': instance.activeDiff,
+      'fatality_rate': instance.fatalityRate,
       'region': instance.region,
     };
 
 _$_Region _$_$_RegionFromJson(Map<String, dynamic> json) {
   return _$_Region(
-    iso: json['iso'] as String,
-    name: json['name'] as String,
-    province: json['province'] as String,
-    lat: json['lat'] as String,
-    long: json['long'] as String,
+    iso: json['iso'] as String? ?? '',
+    name: json['name'] as String? ?? '',
+    province: json['province'] as String? ?? '',
+    lat: json['lat'] as String? ?? '',
+    long: json['long'] as String? ?? '',
   );
 }
 

@@ -40,7 +40,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
             color: Colors.white,
             border: Border(
               bottom: BorderSide(
-                color: grey.withOpacity(0.3),
+                color: AppColors.grey.withOpacity(0.3),
               ),
             ),
           ),
@@ -106,7 +106,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
                   padding: EdgeInsets.only(top: 22, right: 12.0),
                   child: Icon(
                     CupertinoIcons.arrow_up,
-                    color: primary,
+                    color: AppColors.primary,
                     size: 20,
                   ),
                 ),

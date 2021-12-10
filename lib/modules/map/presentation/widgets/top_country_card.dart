@@ -39,10 +39,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
             width: MediaQuery.of(context).size.width,
             height: 80,
             decoration: BoxDecoration(
-              color: white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: grey.withOpacity(0.3),
+                color: AppColors.grey.withOpacity(0.3),
               ),
             ),
             child: Row(
@@ -56,7 +56,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     animationDuration: 800,
                     circularStrokeCap: CircularStrokeCap.round,
                     lineWidth: 7.0,
-                    backgroundColor: secondary,
+                    backgroundColor: AppColors.secondary,
                     percent: widget.countryProgress,
                     center: Text(
                       '${(widget.countryProgress * 100).toStringAsFixed(0)}%',
@@ -122,7 +122,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       child: IconButton(
                         icon: const Icon(
                           CupertinoIcons.bell,
-                          color: grey,
+                          color: AppColors.grey,
                           size: 20,
                         ),
                         onPressed: () => showAlertDialog(

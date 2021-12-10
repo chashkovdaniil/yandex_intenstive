@@ -20,7 +20,7 @@ class MapScreenAppBar extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: grey.withOpacity(0.08),
+              color: AppColors.grey.withOpacity(0.08),
               spreadRadius: 5,
               blurRadius: 3,
               offset: const Offset(0.0, 0.75),
@@ -28,7 +28,7 @@ class MapScreenAppBar extends StatelessWidget {
           ],
           border: Border(
             bottom: BorderSide(
-              color: grey.withOpacity(0.3),
+              color: AppColors.grey.withOpacity(0.3),
             ),
           ),
         ),
@@ -73,7 +73,7 @@ class MapScreenAppBar extends StatelessWidget {
                       WidgetSpan(
                         child: Icon(
                           CupertinoIcons.person,
-                          color: black.withOpacity(0.4),
+                          color: AppColors.black.withOpacity(0.4),
                           size: 22,
                         ),
                       ),

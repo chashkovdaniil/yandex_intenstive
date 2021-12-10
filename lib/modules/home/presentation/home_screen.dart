@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/modules/home/presentation/components/animation_numbers_text.dart';
+import 'components/animation_numbers_text.dart';
 
 import 'components/home_card.dart';
 import 'components/home_line_chart.dart';
@@ -27,7 +25,6 @@ class HomeScreen extends HookConsumerWidget {
     useEffect(
       () {
         ref.read(_homeScreenProvider.notifier).load();
-        print('load');
       },
       const [],
     );
@@ -35,8 +32,7 @@ class HomeScreen extends HookConsumerWidget {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          await ref.read(_homeScreenProvider.notifier).load();
-          print('refresh');
+          ref.read(_homeScreenProvider.notifier).load();
         },
         triggerMode: RefreshIndicatorTriggerMode.anywhere,
         child: homeScreemStatus.when(
@@ -52,7 +48,7 @@ class HomeScreen extends HookConsumerWidget {
                 child: Text('Error'),
               ),
               ElevatedButton(
-                onPressed: ref.read(_homeScreenProvider.notifier).load,
+                onPressed: () => ref.read(_homeScreenProvider.notifier).load(),
                 child: const Text('Обновить'),
               )
             ],
@@ -79,13 +75,6 @@ class HomeScreenSuccessState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // if (confirmedSpots == null || recoveredSpots == null || testData == null) {
-    //   return const Scaffold(
-    //     body: Center(
-    //       child: CircularProgressIndicator(),
-    //     ),
-    //   );
-    // }
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),

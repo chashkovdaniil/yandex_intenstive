@@ -10,8 +10,8 @@ class RatioRecoveryChart extends StatelessWidget {
   final int confirmed;
 
   /// Duration in milliseconds
-  final int animationDuration = 1000;
-  final Curve animationCurve = Curves.easeInCubic;
+  final int _animationDuration = 1000;
+  final Curve _animationCurve = Curves.easeInCubic;
 
   const RatioRecoveryChart({
     Key? key,
@@ -37,8 +37,8 @@ class RatioRecoveryChart extends StatelessWidget {
           radius: 155.0,
           lineWidth: 10.0,
           animation: true,
-          animationDuration: animationDuration,
-          curve: animationCurve,
+          animationDuration: _animationDuration,
+          curve: _animationCurve,
           percent: deaths / confirmed,
           circularStrokeCap: CircularStrokeCap.round,
           progressColor: Colors.red,
@@ -49,12 +49,12 @@ class RatioRecoveryChart extends StatelessWidget {
             progressColor: Colors.green,
             lineWidth: 8.0,
             animation: true,
-            animationDuration: animationDuration,
-            curve: animationCurve,
+            animationDuration: _animationDuration,
+            curve: _animationCurve,
             backgroundColor: Colors.transparent,
             circularStrokeCap: CircularStrokeCap.round,
             center: AnimatedNumbersText(
-              duration: Duration(milliseconds: animationDuration),
+              duration: Duration(milliseconds: _animationDuration),
               additionText: '%',
               from: 0,
               to: percentRecovered,

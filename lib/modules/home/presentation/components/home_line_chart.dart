@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/home/presentation/components/animation_numbers_text.dart';
+import 'animation_numbers_text.dart';
 
 class HomeLineChart extends StatefulWidget {
   final String title;
@@ -101,6 +101,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
 
   @override
   void initState() {
+    super.initState();
     _isStart = !widget.showAnimation;
     if (!_isStart) {
       Future.delayed(const Duration(milliseconds: 10), () {
@@ -108,7 +109,6 @@ class _HomeLineChartState extends State<HomeLineChart> {
         setState(() {});
       });
     }
-    super.initState();
   }
 
   @override

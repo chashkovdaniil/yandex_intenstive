@@ -33,8 +33,8 @@ extension AppExceptionsExt on AppExceptions {
 }
 
 class CovidNotFoundException implements Exception {
-  String cause;
-  CovidNotFoundException(this.cause);
+  final String cause;
+  const CovidNotFoundException(this.cause);
 
   @override
   String toString()

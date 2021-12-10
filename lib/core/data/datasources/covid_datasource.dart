@@ -1,6 +1,7 @@
 import '../../api/app_exceptions.dart';
 import '../../domain/entities/covid_help.dart';
 import '../../domain/entities/covid_report.dart';
+import '../../domain/entities/data_raw.dart';
 
 import 'cash_covid_datasource.dart';
 import 'covid_datasource_abstruct.dart';
@@ -90,7 +91,7 @@ class CovidDatasource implements CovidDatasourceAbstruct
     if (await _ram.has(date))
       return;
     
-    CovidWorld world = await _net.getOneDay(date);
+    var world = CovidWorld(await _net.getOneDay(date));
     // _cash.push(date, world);
     _ram.push(date, world);
   }

@@ -20,7 +20,7 @@ class HomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final homeScreemStatus = ref.watch(_homeScreenProvider).status;
+    final homeScreenStatus = ref.watch(_homeScreenProvider).status;
 
     useEffect(
       () {

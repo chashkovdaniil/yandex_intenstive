@@ -3,9 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'modules/home/presentation/home_screen.dart';
 
 void main() {
-  runApp(ProviderScope(
-    child: MyApp(),
-  ));
+  runApp(MyApp());
+  // runApp(ProviderScope(
+  //   child: MyApp(),
+  // ));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,12 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Yandex Intensive Covid',
-      initialRoute: HomeScreen.route,
-      routes: {
-        HomeScreen.route: (_) => HomeScreen(),
-      },
+      home: Scaffold(body: Text("Hello")),
+      // initialRoute: HomeScreen.route,
+      // routes: {
+      //   HomeScreen.route: (_) => HomeScreen(),
+      // },
     );
   }
 }

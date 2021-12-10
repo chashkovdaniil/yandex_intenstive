@@ -39,6 +39,8 @@ dependencies:
   flutter_riverpod: ^1.0.2
   hooks_riverpod: ^1.0.2
   flutter_hooks: ^0.18.1
+  sprintf: ^6.0.0
+  path: ^1.8.0
 
 dev_dependencies:
   flutter_test:

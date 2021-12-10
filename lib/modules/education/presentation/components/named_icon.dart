@@ -1,8 +1,3 @@
-/*
- * Иконка, рядом с которой находится текст; можно
- * задать размер иконки, и стиль текста
- */
-
 import 'package:flutter/material.dart';
 
 
@@ -24,10 +19,6 @@ class NamedIconConfig
   const NamedIconConfig(this.width, this.height, [this.style]);
 }
 
-/*
- * Класс представляет из себя иконку, рядом с
- * которой находится поясняющий текст.
- */
 class NamedIcon extends StatelessWidget
 {
   final NamedIconData   data;

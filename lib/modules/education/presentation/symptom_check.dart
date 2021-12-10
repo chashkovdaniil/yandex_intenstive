@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/styles/app_theme.dart';
+
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
 
@@ -68,8 +70,8 @@ class SymptomCheck extends StatelessWidget
 
 
 /*
- * Основная информация на страничке. Показывает, для каких болезней,
- * какие симптомы более характерны
+ * Основная информация на страничке. Показывает,
+ * для каких болезней, какие симптомы более характерны
  */
 class _SymptomColumn extends StatelessWidget
 {

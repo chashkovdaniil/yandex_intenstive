@@ -1,15 +1,11 @@
-/*
- * Основной класс, который вбирает все остальные CovidDatasource-классы
- */
-
 import '../../api/app_exceptions.dart';
+import '../../domain/entities/covid_help.dart';
+import '../../domain/entities/covid_report.dart';
+
 import 'cash_covid_datasource.dart';
 import 'covid_datasource_abstruct.dart';
 import 'covid_network_taker.dart';
 import 'ram_covid_datasource.dart';
-
-import '../../domain/entities/covid_report.dart';
-import '../../domain/entities/covid_help.dart';
 
 
 

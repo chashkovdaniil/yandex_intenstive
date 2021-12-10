@@ -1,10 +1,7 @@
-/*
- * Класс, который извлекает и загружает данные по ковиду в кеш
- */
-
-import 'covid_datasource_abstruct.dart';
 import '../../domain/entities/covid_report.dart';
 import '../../domain/entities/covid_help.dart';
+
+import 'covid_datasource_abstruct.dart';
 
 
 

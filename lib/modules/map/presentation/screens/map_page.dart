@@ -9,7 +9,6 @@ import '../widgets/rest_list.dart';
 import '../widgets/top_list.dart';
 
 class MapPage extends StatefulWidget {
-  static const route = '/';
 
   const MapPage({Key? key}) : super(key: key);
 

@@ -10,7 +10,6 @@ import 'alert_notification_dialog.dart';
 import 'on_tap_opacity.dart';
 
 class TopCountryCard extends StatefulWidget {
-  static const route = '/map';
   final String countryTitle;
   final String affectedValue;
   final String recoveredValue;

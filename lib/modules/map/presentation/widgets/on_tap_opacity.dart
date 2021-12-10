@@ -28,9 +28,6 @@ class _OnTapOpacityContainerState extends State<OnTapOpacityContainer> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onVerticalDragDown: (_) => _onTap(),
-        onVerticalDragEnd: (_) => _onUntap(),
-        onVerticalDragCancel: _onUntap,
         onTapDown: (_) => _onTap(),
         onTapCancel: _onUntap,
         onTapUp: (_) => _onUntap(),

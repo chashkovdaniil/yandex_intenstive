@@ -8,7 +8,6 @@ import '../screens/country_details_screen.dart';
 import 'on_tap_opacity.dart';
 
 class RestCountryCard extends StatefulWidget {
-  static const route = '/map';
   final String countryTitle;
   final String affectedValue;
   final String recoveredValue;

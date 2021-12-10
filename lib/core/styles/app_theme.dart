@@ -10,6 +10,11 @@ class AppTheme
     color: Colors.black,
   );
 
+  static const educationSubtitle = TextStyle(
+    fontSize: 22.0,
+    color: Colors.black,
+  );
+
   static const educationSubtitleLight = TextStyle(
     fontSize: 22.0,
     color: Colors.black54,
@@ -21,13 +26,13 @@ class AppTheme
     color: Colors.black,
   );
 
-  static const educationSubtitle = TextStyle(
-    fontSize: 22.0,
-    color: Colors.black,
-  );
-
   static const educationUsualLight = TextStyle(
     fontSize: 20.0,
+    color: Colors.black54,
+  );
+
+  static const educationSmallLight = TextStyle(
+    fontSize: 18.0,
     color: Colors.black54,
   );
 }

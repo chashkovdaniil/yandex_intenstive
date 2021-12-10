@@ -1,11 +1,11 @@
-import '../../domain/entities/covid_report.dart';
 import '../../domain/entities/covid_help.dart';
+import '../../domain/entities/covid_report.dart';
 
-import 'covid_datasource_abstruct.dart';
+import 'covid_datasource.dart';
 
 
 
-class CashCovidDatasource implements CovidDatasourceAbstruct
+class CashCovidDatasource implements CovidDatasource
 {
   @override
   Future<CovidWorld> getAll(

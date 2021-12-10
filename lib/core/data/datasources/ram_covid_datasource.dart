@@ -4,9 +4,9 @@ import '../../domain/entities/covid_report.dart';
 
 import 'package:sprintf/sprintf.dart';
 
-import 'covid_datasource_abstruct.dart';
+import 'covid_datasource.dart';
 
-class RAMCovidDatasource implements CovidDatasourceAbstruct {
+class RAMCovidDatasource implements CovidDatasource {
   final Map<String, CovidWorld> _world = <String, CovidWorld>{};
 
   @override

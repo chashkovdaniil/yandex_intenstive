@@ -1,33 +1,27 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-class CovidReport {
-  CovidReport({
-    required this.date,
-    required this.confirmed,
-    required this.deaths,
-    required this.recovered,
-    required this.confirmedDiff,
-    required this.deathsDiff,
-    required this.recoveredDiff,
-    required this.lastUpdate,
-    required this.active,
-    required this.activeDiff,
-    required this.fatalityRate,
-    required this.region,
-  });
+part 'covid_report.freezed.dart';
+part 'covid_report.g.dart';
 
-  final String date;
-  final int confirmed;
-  final int deaths;
-  final int recovered;
-  final int confirmedDiff;
-  final int deathsDiff;
-  final int recoveredDiff;
-  final String lastUpdate;
-  final int active;
-  final int activeDiff;
-  final double fatalityRate;
-  final Region region;
+@freezed
+class CovidReport with _$CovidReport {
+  factory CovidReport({
+    required String date,
+    required int confirmed,
+    required int deaths,
+    required int recovered,
+    required int confirmedDiff,
+    required int deathsDiff,
+    required int recoveredDiff,
+    required String lastUpdate,
+    required int active,
+    required int activeDiff,
+    required double fatalityRate,
+    required Region region,
+  }) = _CovidReport;
+
+  factory CovidReport.fromJson(Map<String, dynamic> json)
+    => _$CovidReportFromJson(json);
 
   factory CovidReport.fromProvinces(List<CovidReport> provinces) => CovidReport(
         date: provinces[0].date,
@@ -57,66 +51,18 @@ class CovidReport {
           long: '',
         ),
       );
-
-  factory CovidReport.fromJson(Map<String, dynamic> json) => CovidReport(
-        date: json['date'],
-        confirmed: json['confirmed'],
-        deaths: json['deaths'],
-        recovered: json['recovered'],
-        confirmedDiff: json['confirmed_diff'],
-        deathsDiff: json['deaths_diff'],
-        recoveredDiff: json['recovered_diff'],
-        lastUpdate: json['last_update'],
-        active: json['active'],
-        activeDiff: json['active_diff'],
-        fatalityRate: json['fatality_rate'].toDouble(),
-        region: Region.fromJson(json['region']),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'date': date,
-        'confirmed': confirmed,
-        'deaths': deaths,
-        'recovered': recovered,
-        'confirmed_diff': confirmedDiff,
-        'deaths_diff': deathsDiff,
-        'recovered_diff': recoveredDiff,
-        'last_update': lastUpdate,
-        'active': active,
-        'active_diff': activeDiff,
-        'fatality_rate': fatalityRate,
-        'region': region.toJson(),
-      };
 }
 
-class Region {
-  Region({
-    required this.iso,
-    required this.name,
-    required this.province,
-    required this.lat,
-    required this.long,
-  });
+@freezed
+class Region with _$Region {
+  factory Region({
+    required String iso,
+    required String name,
+    required String province,
+    required String lat,
+    required String long,
+  }) = _Region;
 
-  final String iso;
-  final String name;
-  final String province;
-  final String lat;
-  final String long;
-
-  factory Region.fromJson(Map<String, dynamic> json) => Region(
-        iso: json['iso'],
-        name: json['name'],
-        province: json['province'],
-        lat: json['lat'],
-        long: json['long'],
-      );
-
-  Map<String, String> toJson() => {
-        'iso': iso,
-        'name': name,
-        'province': province,
-        'lat': lat,
-        'long': long,
-      };
+  factory Region.fromJson(Map<String, dynamic> json) =>
+    _$RegionFromJson(json);
 }

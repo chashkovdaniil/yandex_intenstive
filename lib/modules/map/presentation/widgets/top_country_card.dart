@@ -84,7 +84,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         child: SizedBox(
                           width: 150,
                           child: Text(
-                            S.mapTopAffected + widget.affectedValue,
+                            StringValues.mapTopAffected + widget.affectedValue,
                             textAlign: TextAlign.start,
                             style: TextStyles.infoCountry,
                           ),
@@ -95,7 +95,8 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         child: SizedBox(
                           width: 150,
                           child: Text(
-                            S.mapTopRecovered + widget.recoveredValue,
+                            StringValues.mapTopRecovered +
+                                widget.recoveredValue,
                             textAlign: TextAlign.start,
                             style: TextStyles.infoCountry,
                           ),

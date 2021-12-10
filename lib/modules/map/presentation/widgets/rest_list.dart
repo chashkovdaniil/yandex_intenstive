@@ -18,7 +18,7 @@ class RestList extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  S.mapRest,
+                  StringValues.mapRest,
                   textAlign: TextAlign.start,
                   style: TextStyles.infoCountry,
                 ),

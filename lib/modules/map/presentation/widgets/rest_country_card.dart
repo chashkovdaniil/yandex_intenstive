@@ -81,7 +81,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
                       child: SizedBox(
                         width: 200,
                         child: Text(
-                          '562' + S.countryStatisticsDeathCases,
+                          '562' + StringValues.countryStatisticsDeathCases,
                           textAlign: TextAlign.start,
                           style: TextStyles.infoCountry,
                         ),

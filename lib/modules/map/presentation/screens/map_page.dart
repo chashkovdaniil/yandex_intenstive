@@ -9,9 +9,7 @@ import '../widgets/rest_list.dart';
 import '../widgets/top_list.dart';
 
 class MapPage extends StatefulWidget {
-  static Route route() => CupertinoPageRoute(
-        builder: (context) => const MapPage(),
-      );
+  static const route = '/';
 
   const MapPage({Key? key}) : super(key: key);
 
@@ -28,7 +26,7 @@ class _MapPageState extends State<MapPage> {
             children: [
               MapScreenAppBar(
                 showBackButton: false,
-                title: S.mapTitle,
+                title: StringValues.mapTitle,
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -41,7 +39,7 @@ class _MapPageState extends State<MapPage> {
                       ),
                       MapScreenCard(
                         height: 410,
-                        title: S.mapAreas,
+                        title: StringValues.mapAreas,
                         content: const MapChart(),
                       ),
                       const SizedBox(
@@ -49,7 +47,7 @@ class _MapPageState extends State<MapPage> {
                       ),
                       MapScreenCard(
                         height: 350,
-                        title: S.mapTop,
+                        title: StringValues.mapTop,
                         content: const TopList(),
                       ),
                       const SizedBox(
@@ -57,7 +55,7 @@ class _MapPageState extends State<MapPage> {
                       ),
                       MapScreenCard(
                         height: 680,
-                        title: S.mapRest,
+                        title: StringValues.mapRest,
                         content: const RestList(),
                       ),
                       const SizedBox(

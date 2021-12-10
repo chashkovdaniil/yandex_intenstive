@@ -32,7 +32,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
             children: [
               MapScreenAppBar(
                 // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                title: 'Country' + S.countryStatisticsTitle,
+                title: 'Country' + StringValues.countryStatisticsTitle,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -46,7 +46,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
                   ),
                   MapScreenCard(
                     height: 350,
-                    title: S.countryStatisticsGraphTitle,
+                    title: StringValues.countryStatisticsGraphTitle,
                     content: const CountryGraph(),
                   ),
                 ],

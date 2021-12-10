@@ -117,7 +117,8 @@ class CountryDetailsCard extends StatelessWidget {
                             alignment: Alignment.topLeft,
                             child: Text(
                               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                              '1,478' + S.countryStatisticsInfectedCases,
+                              '1,478' +
+                                  StringValues.countryStatisticsInfectedCases,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -153,7 +154,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '550' + S.countryStatisticsDeathCases,
+                              '550' + StringValues.countryStatisticsDeathCases,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

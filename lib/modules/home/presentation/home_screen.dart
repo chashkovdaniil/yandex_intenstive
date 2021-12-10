@@ -20,13 +20,13 @@ class HomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final homeScreemStatus = ref.watch(_homeScreenProvider).status;
+    final homeScreenStatus = ref.watch(_homeScreenProvider).status;
 
     useEffect(() {
       ref.read(_homeScreenProvider.notifier).load();
-    }, [homeScreemStatus]);
+    }, [homeScreenStatus]);
 
-    return homeScreemStatus.when(
+    return homeScreenStatus.when(
       success: () => HomeScreenSuccessState(
         confirmedSpots: ref.watch(_homeScreenProvider).confirmedSpots!,
         recoveredSpots: ref.watch(_homeScreenProvider).recoveredSpots!,

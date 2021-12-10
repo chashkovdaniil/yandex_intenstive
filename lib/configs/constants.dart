@@ -6,7 +6,7 @@ import '../modules/map/presentation/widgets/rest_country_card.dart';
 import '../modules/map/presentation/widgets/top_country_card.dart';
 import 'colors.dart';
 
-class S {
+class StringValues {
   static String get mapTitle => 'World Wide map';
 
   static String get mapAreas => 'COVID - 19 Affected Areas';

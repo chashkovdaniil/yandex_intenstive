@@ -27,7 +27,7 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  S.mapAreasMost,
+                  StringValues.mapAreasMost,
                 ),
                 const SizedBox(
                   width: 20,
@@ -41,7 +41,7 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  S.mapAreasLess,
+                  StringValues.mapAreasLess,
                 ),
               ],
             ),

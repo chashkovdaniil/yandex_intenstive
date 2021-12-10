@@ -30,7 +30,7 @@ class CountryGraph extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  S.countryStatisticsDeath,
+                  StringValues.countryStatisticsDeath,
                 ),
                 const SizedBox(
                   width: 20,
@@ -47,7 +47,7 @@ class CountryGraph extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  S.countryStatisticsAffected,
+                  StringValues.countryStatisticsAffected,
                 ),
               ],
             ),

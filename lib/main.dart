@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'modules/home/presentation/home_screen.dart';
+
+import 'core/styles/app_theme.dart';
+import 'modules/map/presentation/screens/map_page.dart';
 
 void main() {
   runApp(ProviderScope(
@@ -14,10 +16,11 @@ class MyApp extends StatelessWidget {
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: AppTheme.appTheme(),
       title: 'Yandex Intensive Covid',
-      initialRoute: HomeScreen.route,
+      initialRoute: MapPage.route,
       routes: {
-        HomeScreen.route: (_) => HomeScreen(),
+        MapPage.route: (_) => const MapPage(),
       },
     );
   }

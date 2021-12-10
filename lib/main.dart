@@ -4,9 +4,7 @@ import 'modules/education/presentation/components/prevention_item.dart';
 // import 'modules/home/presentation/home_screen.dart';
 
 void main() {
-  runApp(ProviderScope(
-    child: MyApp(),
-  ),);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,9 +16,11 @@ class MyApp extends StatelessWidget {
       title: 'Yandex Intensive Covid',
       home: Scaffold(
         body: PreventionItem(
-          icon: 'flu.png',
-          title: 'Title',
-          tip: 'long, long, long, long, long, long, long, long, long, long',
+          icon: 'assets/images/clean_hands.svg',
+          width: 100.0,
+          height: 100.0,
+          title: 'Clean your hands often',
+          tip: 'Wash hands often with soap\nand water for at least 20s',
         ),
       ),
       // initialRoute: HomeScreen.route,

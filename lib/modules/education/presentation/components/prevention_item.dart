@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import '../../../core/styles/app_theme.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:path/path.dart' as path;
+import '../../../../core/styles/app_theme.dart';
 
 
 class PreventionItem extends StatelessWidget {
   final String icon;
+  final double width;
+  final double height;
   final String title;
   final String tip;
 
   const PreventionItem({
     required this.icon,
+    required this.width,
+    required this.height,
     required this.title,
     required this.tip,
     Key? key,
@@ -17,10 +23,14 @@ class PreventionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context)
     => Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(icon),
-        const SizedBox(width: 5.0),
+         path.extension(icon) == '.svg' ?
+          SvgPicture.asset(icon, width: width, height: height) :
+          Image.asset(icon, width: width, height: height),
+        const SizedBox(width: 15.0),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(title, style: AppTheme.educationSubtitleBold),
             const SizedBox(height: 7.0),
@@ -31,7 +41,7 @@ class PreventionItem extends StatelessWidget {
             ),
           ],
         )
-      ]
+      ],
     );
 }
 

@@ -29,40 +29,43 @@ class _MapPageState extends State<MapPage> {
                 title: StringValues.mapTitle,
               ),
               Expanded(
-                child: SingleChildScrollView(
-                  key: const Key('ListViewKey'),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      MapScreenCard(
+                child: CustomScrollView(
+                  controller: ScrollController(),
+                  slivers: [
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: 20),
+                    ),
+                    SliverToBoxAdapter(
+                      child: MapScreenCard(
                         height: 410,
                         title: StringValues.mapAreas,
                         content: const MapChart(),
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      MapScreenCard(
+                    ),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: 16),
+                    ),
+                    SliverToBoxAdapter(
+                      child: MapScreenCard(
                         height: 350,
                         title: StringValues.mapTop,
                         content: const TopList(),
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      MapScreenCard(
+                    ),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: 16),
+                    ),
+                    SliverToBoxAdapter(
+                      child: MapScreenCard(
                         height: 680,
                         title: StringValues.mapRest,
                         content: const RestList(),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: 20),
+                    ),
+                  ],
                 ),
               ),
             ],

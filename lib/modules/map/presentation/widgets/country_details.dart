@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
-import 'alert_notification_dialog.dart';
+import '../../../general/navigation_views.dart';
 
 class CountryDetailsCard extends StatelessWidget {
   // TODO: add CountryModel field to get it from MapScreen

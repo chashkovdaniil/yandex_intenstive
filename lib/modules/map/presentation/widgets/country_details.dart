@@ -19,10 +19,10 @@ class CountryDetailsCard extends StatelessWidget {
           width: double.infinity,
           height: 240,
           decoration: BoxDecoration(
-            color: white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: grey.withOpacity(0.3),
+              color: AppColors.grey.withOpacity(0.3),
             ),
           ),
           child: Padding(
@@ -65,7 +65,7 @@ class CountryDetailsCard extends StatelessWidget {
                         child: IconButton(
                           icon: const Icon(
                             CupertinoIcons.bell,
-                            color: primary,
+                            color: AppColors.primary,
                             size: 24,
                           ),
                           onPressed: () => showAlertDialog(
@@ -88,10 +88,10 @@ class CountryDetailsCard extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: white,
+                    color: AppColors.white,
                     border: Border(
                       bottom: BorderSide(
-                        color: grey.withOpacity(0.3),
+                        color: AppColors.grey.withOpacity(0.3),
                       ),
                     ),
                   ),

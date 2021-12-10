@@ -22,7 +22,7 @@ class CountryGraph extends StatelessWidget {
                   height: 12,
                   width: 12,
                   decoration: BoxDecoration(
-                    color: primary,
+                    color: AppColors.primary,
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
@@ -39,7 +39,7 @@ class CountryGraph extends StatelessWidget {
                   height: 12,
                   width: 12,
                   decoration: BoxDecoration(
-                    color: green,
+                    color: AppColors.green,
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),

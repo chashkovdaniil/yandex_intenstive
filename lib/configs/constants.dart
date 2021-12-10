@@ -230,35 +230,35 @@ class MockData {
         shapeColorMappers: [
           const MapColorMapper(
             from: -1,
-              to: 100,
-              color: affected1,
-            ),
-            const MapColorMapper(
-              from: 101,
-              to: 200,
-              color: affected2,
-            ),
-            const MapColorMapper(
-              from: 201,
-              to: 300,
-              color: affected3,
-            ),
-            const MapColorMapper(
-              from: 301,
-              to: 400,
-              color: affected4,
-            ),
-            const MapColorMapper(
-              from: 401,
-              to: 500,
-              color: affected5,
-            ),
-            const MapColorMapper(
-              from: 501,
-              to: 600,
-              color: affected6,
-            ),
-          ],
+            to: 100,
+            color: AppColors.affected1,
+          ),
+          const MapColorMapper(
+            from: 101,
+            to: 200,
+            color: AppColors.affected2,
+          ),
+          const MapColorMapper(
+            from: 201,
+            to: 300,
+            color: AppColors.affected3,
+          ),
+          const MapColorMapper(
+            from: 301,
+            to: 400,
+            color: AppColors.affected4,
+          ),
+          const MapColorMapper(
+            from: 401,
+            to: 500,
+            color: AppColors.affected5,
+          ),
+          const MapColorMapper(
+            from: 501,
+            to: 600,
+            color: AppColors.affected6,
+          ),
+        ],
       );
 
   static MapZoomPanBehavior get zoomPanBehavior => MapZoomPanBehavior(
@@ -273,38 +273,36 @@ class MockData {
         ),
       );
 
-  static List<TopCountryCard> get topCountryList =>
-      <TopCountryCard>[
+  static List<TopCountryCard> get topCountryList => <TopCountryCard>[
         const TopCountryCard(
           countryTitle: "China",
           affectedValue: "81.05k",
           recoveredValue: "72.44k",
           countryProgress: 0.26,
-          countryProgressColor: primary,
+          countryProgressColor: AppColors.primary,
         ),
         const TopCountryCard(
           countryTitle: "Italy",
           affectedValue: "53.5k",
           recoveredValue: "6.07k",
           countryProgress: 0.17,
-          countryProgressColor: green,
+          countryProgressColor: AppColors.green,
         ),
         const TopCountryCard(
           countryTitle: "USA",
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
         ),
       ];
-  static List<RestCountryCard> get restCountryList =>
-      <RestCountryCard>[
+  static List<RestCountryCard> get restCountryList => <RestCountryCard>[
         const RestCountryCard(
           countryTitle: "China",
           affectedValue: "81.05k",
           recoveredValue: "72.44k",
           countryProgress: 0.26,
-          countryProgressColor: primary,
+          countryProgressColor: AppColors.primary,
           image: "fr",
         ),
         const RestCountryCard(
@@ -312,7 +310,7 @@ class MockData {
           affectedValue: "53.5k",
           recoveredValue: "6.07k",
           countryProgress: 0.17,
-          countryProgressColor: green,
+          countryProgressColor: AppColors.green,
           image: "kr",
         ),
         const RestCountryCard(
@@ -320,7 +318,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "sk",
         ),
         const RestCountryCard(
@@ -328,7 +326,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "cl",
         ),
         const RestCountryCard(
@@ -336,7 +334,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "nl",
         ),
         const RestCountryCard(
@@ -344,7 +342,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "be",
         ),
         const RestCountryCard(
@@ -352,7 +350,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "at",
         ),
         const RestCountryCard(
@@ -360,7 +358,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "no",
         ),
         const RestCountryCard(
@@ -368,7 +366,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "no",
         ),
         const RestCountryCard(
@@ -376,7 +374,7 @@ class MockData {
           affectedValue: "26.892",
           recoveredValue: "178",
           countryProgress: 0.09,
-          countryProgressColor: blue,
+          countryProgressColor: AppColors.blue,
           image: "by",
         ),
       ];

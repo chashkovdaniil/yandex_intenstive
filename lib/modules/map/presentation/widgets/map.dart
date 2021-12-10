@@ -21,7 +21,7 @@ class MapChart extends StatelessWidget {
                 Container(
                   height: 12,
                   width: 12,
-                  color: affected5,
+                  color: AppColors.affected5,
                 ),
                 const SizedBox(
                   width: 12,
@@ -35,7 +35,7 @@ class MapChart extends StatelessWidget {
                 Container(
                   height: 12,
                   width: 12,
-                  color: affected2,
+                  color: AppColors.affected2,
                 ),
                 const SizedBox(
                   width: 12,
@@ -48,10 +48,10 @@ class MapChart extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-              color: white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: grey.withOpacity(0.3),
+                color: AppColors.grey.withOpacity(0.3),
               ),
             ),
             child: ClipRRect(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'components/animation_numbers_text.dart';
 
+import 'components/animation_numbers_text.dart';
 import 'components/home_card.dart';
 import 'components/home_line_chart.dart';
 import 'components/list_countries_confirmed.dart';
@@ -29,36 +29,32 @@ class HomeScreen extends HookConsumerWidget {
       const [],
     );
 
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        body: RefreshIndicator(
-          onRefresh: () async {
-            await ref.read(_homeScreenProvider.notifier).load();
-          },
-          triggerMode: RefreshIndicatorTriggerMode.anywhere,
-          child: homeScreemStatus.when(
-            success: () => HomeScreenSuccessState(
-              confirmedSpots: ref.watch(_homeScreenProvider).confirmedSpots,
-              recoveredSpots: ref.watch(_homeScreenProvider).recoveredSpots,
-              testData: ref.watch(_homeScreenProvider).testData,
-            ),
-            failed: () => Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Center(
-                  child: Text('Error'),
-                ),
-                ElevatedButton(
-                  onPressed: () =>
-                      ref.read(_homeScreenProvider.notifier).load(),
-                  child: const Text('Обновить'),
-                )
-              ],
-            ),
-            loading: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
+    return Scaffold(
+      body: RefreshIndicator(
+        onRefresh: () async {
+          ref.read(_homeScreenProvider.notifier).load();
+        },
+        triggerMode: RefreshIndicatorTriggerMode.anywhere,
+        child: homeScreenStatus.when(
+          success: () => HomeScreenSuccessState(
+            confirmedSpots: ref.watch(_homeScreenProvider).confirmedSpots,
+            recoveredSpots: ref.watch(_homeScreenProvider).recoveredSpots,
+            testData: ref.watch(_homeScreenProvider).testData,
+          ),
+          failed: () => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Center(
+                child: Text('Error'),
+              ),
+              ElevatedButton(
+                onPressed: () => ref.read(_homeScreenProvider.notifier).load(),
+                child: const Text('Обновить'),
+              )
+            ],
+          ),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
           ),
         ),
       ),

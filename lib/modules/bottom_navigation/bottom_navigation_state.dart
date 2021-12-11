@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/colors.dart';
+import 'package:yandex_intensive/configs/text_styles.dart';
 
 import '../discovery/presentation/screens/discovery_screen.dart';
 import '../education/presentation/screens/education_screen.dart';
@@ -20,11 +22,12 @@ class BottomNavigationState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Flutter App'),
-      ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.grey,
+        selectedLabelStyle: TextStyles.selectedLabelStyle,
+        unselectedLabelStyle: TextStyles.unselectedLabelStyle,
         onTap: onTabTapped,
         currentIndex: _currentIndex,
         items: const [

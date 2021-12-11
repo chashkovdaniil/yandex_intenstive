@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yandex_intensive/configs/app_routes.dart';
-import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
-import 'modules/education/presentation/diagnosis.dart';
 
+import 'configs/app_routes.dart';
 import 'core/styles/app_theme.dart';
+import 'modules/education/presentation/diagnosis.dart';
+import 'modules/home/presentation/home_screen.dart';
 import 'modules/map/presentation/screens/map_page.dart';
 
 void main() {
-  runApp(//ProviderScope( child:
-     MyApp(),
-  );
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,8 +24,8 @@ class MyApp extends StatelessWidget {
         AppRoutes.mapPageScreen: (_) => const MapPage(),
         AppRoutes.homePageScreen: (_) => const HomeScreen(),
         AppRoutes.educationPageScreen: (_) => const Scaffold(
-          body: Diagnosis(),
-        )
+              body: DiagnosisPage(),
+            )
       },
     );
   }

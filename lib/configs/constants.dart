@@ -40,6 +40,25 @@ class StringValues {
   static String get countryStatisticsDeath => 'Death';
 
   static String get countryStatisticsAffected => 'Affected';
+
+
+  // Strings for education
+  static const String diagnosisDescription =
+      'If you feel some symptoms or you are thinking that you may'
+      'be infected. Please report your self so other people can'
+      'be aware that someone who is in isolation is nearby them.';
+
+  static const String diagnosisWarningCaps = 'COVSTATS';
+
+  static const String diagnosisWarning =
+      ' gives everyone the opportunity to report their symptoms'
+      'anonymously for the benefit of others';
+
+  static const String diagnosisHeader = 'Report my Status';
+
+  static const String diagnosisButtonText = 'Please report your status';
+
+  static const String diagnosisRussianPhoneNumber = '88002000112';
 }
 
 class MockData {

@@ -6,6 +6,10 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 void main() async {
+  // var _nds = await CovidNetworkDatasource().statsCountriesByDate(
+  //   date: DateTime.now().subtract(const Duration(days: 2)),
+  // );
+
   // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
   //   // Build our app and trigger a frame.
   //   await tester.pumpWidget(MyApp());

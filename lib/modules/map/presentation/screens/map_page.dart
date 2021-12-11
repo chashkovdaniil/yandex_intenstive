@@ -46,7 +46,7 @@ class _MapPageState extends State<MapPage> {
                     ),
                     SliverToBoxAdapter(
                       child: MapScreenCard(
-                        height: 350,
+                        height: 406,
                         title: StringValues.mapTop,
                         content: const TopList(),
                       ),

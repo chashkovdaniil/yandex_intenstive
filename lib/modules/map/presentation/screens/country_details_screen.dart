@@ -34,22 +34,28 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
                 // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
                 title: 'Country' + StringValues.countryStatisticsTitle,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const CountryDetailsCard(),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  MapScreenCard(
-                    height: 350,
-                    title: StringValues.countryStatisticsGraphTitle,
-                    content: const CountryGraph(),
-                  ),
-                ],
+              Expanded(
+                child: CustomScrollView(
+                  controller: ScrollController(),
+                  slivers: [
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: 20),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: CountryDetailsCard(),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(height: 16),
+                    ),
+                    SliverToBoxAdapter(
+                      child: MapScreenCard(
+                        height: 350,
+                        title: StringValues.countryStatisticsGraphTitle,
+                        content: const CountryGraph(),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

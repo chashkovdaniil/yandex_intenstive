@@ -1,5 +1,4 @@
 import '../../domain/entities/covid_help.dart';
-import '../../domain/entities/covid_report.dart';
 
 import 'covid_datasource.dart';
 import 'covid_storage.dart';

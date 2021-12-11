@@ -23,26 +23,26 @@ class _$CovidReportTearOff {
   _CovidReport call(
       {@JsonKey(name: 'date', defaultValue: '')
           String date = '',
-      @JsonKey(name: 'confirmed', defaultValue: 0)
-          int confirmed = 0,
-      @JsonKey(name: 'deaths', defaultValue: 0)
-          int deaths = 0,
-      @JsonKey(name: 'recovered', defaultValue: 0)
-          int recovered = 0,
-      @JsonKey(name: 'confirme_diff', defaultValue: 0)
-          int confirmedDiff = 0,
-      @JsonKey(name: 'deaths_diff', defaultValue: 0)
-          int deathsDiff = 0,
-      @JsonKey(name: 'recovered_diff', defaultValue: 0)
-          int recoveredDiff = 0,
+      @JsonKey(name: 'confirmed', defaultValue: -1)
+          int confirmed = -1,
+      @JsonKey(name: 'deaths', defaultValue: -1)
+          int deaths = -1,
+      @JsonKey(name: 'recovered', defaultValue: -1)
+          int recovered = -1,
+      @JsonKey(name: 'confirmed_diff', defaultValue: -1)
+          int confirmedDiff = -1,
+      @JsonKey(name: 'deaths_diff', defaultValue: -1)
+          int deathsDiff = -1,
+      @JsonKey(name: 'recovered_diff', defaultValue: -1)
+          int recoveredDiff = -1,
       @JsonKey(name: 'last_update', defaultValue: '')
           String lastUpdate = '',
-      @JsonKey(name: 'active', defaultValue: 0)
-          int active = 0,
-      @JsonKey(name: 'active_diff', defaultValue: 0)
-          int activeDiff = 0,
-      @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
-          double fatalityRate = 0.0,
+      @JsonKey(name: 'active', defaultValue: -1)
+          int active = -1,
+      @JsonKey(name: 'active_diff', defaultValue: -1)
+          int activeDiff = -1,
+      @JsonKey(name: 'fatality_rate', defaultValue: -1.0)
+          double fatalityRate = -1.0,
       @JsonKey(name: 'region')
           required Region region}) {
     return _CovidReport(
@@ -73,25 +73,25 @@ const $CovidReport = _$CovidReportTearOff();
 mixin _$CovidReport {
   @JsonKey(name: 'date', defaultValue: '')
   String get date => throw _privateConstructorUsedError;
-  @JsonKey(name: 'confirmed', defaultValue: 0)
+  @JsonKey(name: 'confirmed', defaultValue: -1)
   int get confirmed => throw _privateConstructorUsedError;
-  @JsonKey(name: 'deaths', defaultValue: 0)
+  @JsonKey(name: 'deaths', defaultValue: -1)
   int get deaths => throw _privateConstructorUsedError;
-  @JsonKey(name: 'recovered', defaultValue: 0)
+  @JsonKey(name: 'recovered', defaultValue: -1)
   int get recovered => throw _privateConstructorUsedError;
-  @JsonKey(name: 'confirme_diff', defaultValue: 0)
+  @JsonKey(name: 'confirmed_diff', defaultValue: -1)
   int get confirmedDiff => throw _privateConstructorUsedError;
-  @JsonKey(name: 'deaths_diff', defaultValue: 0)
+  @JsonKey(name: 'deaths_diff', defaultValue: -1)
   int get deathsDiff => throw _privateConstructorUsedError;
-  @JsonKey(name: 'recovered_diff', defaultValue: 0)
+  @JsonKey(name: 'recovered_diff', defaultValue: -1)
   int get recoveredDiff => throw _privateConstructorUsedError;
   @JsonKey(name: 'last_update', defaultValue: '')
   String get lastUpdate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'active', defaultValue: 0)
+  @JsonKey(name: 'active', defaultValue: -1)
   int get active => throw _privateConstructorUsedError;
-  @JsonKey(name: 'active_diff', defaultValue: 0)
+  @JsonKey(name: 'active_diff', defaultValue: -1)
   int get activeDiff => throw _privateConstructorUsedError;
-  @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+  @JsonKey(name: 'fatality_rate', defaultValue: -1.0)
   double get fatalityRate => throw _privateConstructorUsedError;
   @JsonKey(name: 'region')
   Region get region => throw _privateConstructorUsedError;
@@ -109,16 +109,16 @@ abstract class $CovidReportCopyWith<$Res> {
       _$CovidReportCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'date', defaultValue: '') String date,
-      @JsonKey(name: 'confirmed', defaultValue: 0) int confirmed,
-      @JsonKey(name: 'deaths', defaultValue: 0) int deaths,
-      @JsonKey(name: 'recovered', defaultValue: 0) int recovered,
-      @JsonKey(name: 'confirme_diff', defaultValue: 0) int confirmedDiff,
-      @JsonKey(name: 'deaths_diff', defaultValue: 0) int deathsDiff,
-      @JsonKey(name: 'recovered_diff', defaultValue: 0) int recoveredDiff,
+      @JsonKey(name: 'confirmed', defaultValue: -1) int confirmed,
+      @JsonKey(name: 'deaths', defaultValue: -1) int deaths,
+      @JsonKey(name: 'recovered', defaultValue: -1) int recovered,
+      @JsonKey(name: 'confirmed_diff', defaultValue: -1) int confirmedDiff,
+      @JsonKey(name: 'deaths_diff', defaultValue: -1) int deathsDiff,
+      @JsonKey(name: 'recovered_diff', defaultValue: -1) int recoveredDiff,
       @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,
-      @JsonKey(name: 'active', defaultValue: 0) int active,
-      @JsonKey(name: 'active_diff', defaultValue: 0) int activeDiff,
-      @JsonKey(name: 'fatality_rate', defaultValue: 0.0) double fatalityRate,
+      @JsonKey(name: 'active', defaultValue: -1) int active,
+      @JsonKey(name: 'active_diff', defaultValue: -1) int activeDiff,
+      @JsonKey(name: 'fatality_rate', defaultValue: -1.0) double fatalityRate,
       @JsonKey(name: 'region') Region region});
 
   $RegionCopyWith<$Res> get region;
@@ -216,16 +216,16 @@ abstract class _$CovidReportCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'date', defaultValue: '') String date,
-      @JsonKey(name: 'confirmed', defaultValue: 0) int confirmed,
-      @JsonKey(name: 'deaths', defaultValue: 0) int deaths,
-      @JsonKey(name: 'recovered', defaultValue: 0) int recovered,
-      @JsonKey(name: 'confirme_diff', defaultValue: 0) int confirmedDiff,
-      @JsonKey(name: 'deaths_diff', defaultValue: 0) int deathsDiff,
-      @JsonKey(name: 'recovered_diff', defaultValue: 0) int recoveredDiff,
+      @JsonKey(name: 'confirmed', defaultValue: -1) int confirmed,
+      @JsonKey(name: 'deaths', defaultValue: -1) int deaths,
+      @JsonKey(name: 'recovered', defaultValue: -1) int recovered,
+      @JsonKey(name: 'confirmed_diff', defaultValue: -1) int confirmedDiff,
+      @JsonKey(name: 'deaths_diff', defaultValue: -1) int deathsDiff,
+      @JsonKey(name: 'recovered_diff', defaultValue: -1) int recoveredDiff,
       @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,
-      @JsonKey(name: 'active', defaultValue: 0) int active,
-      @JsonKey(name: 'active_diff', defaultValue: 0) int activeDiff,
-      @JsonKey(name: 'fatality_rate', defaultValue: 0.0) double fatalityRate,
+      @JsonKey(name: 'active', defaultValue: -1) int active,
+      @JsonKey(name: 'active_diff', defaultValue: -1) int activeDiff,
+      @JsonKey(name: 'fatality_rate', defaultValue: -1.0) double fatalityRate,
       @JsonKey(name: 'region') Region region});
 
   @override
@@ -316,26 +316,26 @@ class _$_CovidReport implements _CovidReport {
   const _$_CovidReport(
       {@JsonKey(name: 'date', defaultValue: '')
           this.date = '',
-      @JsonKey(name: 'confirmed', defaultValue: 0)
-          this.confirmed = 0,
-      @JsonKey(name: 'deaths', defaultValue: 0)
-          this.deaths = 0,
-      @JsonKey(name: 'recovered', defaultValue: 0)
-          this.recovered = 0,
-      @JsonKey(name: 'confirme_diff', defaultValue: 0)
-          this.confirmedDiff = 0,
-      @JsonKey(name: 'deaths_diff', defaultValue: 0)
-          this.deathsDiff = 0,
-      @JsonKey(name: 'recovered_diff', defaultValue: 0)
-          this.recoveredDiff = 0,
+      @JsonKey(name: 'confirmed', defaultValue: -1)
+          this.confirmed = -1,
+      @JsonKey(name: 'deaths', defaultValue: -1)
+          this.deaths = -1,
+      @JsonKey(name: 'recovered', defaultValue: -1)
+          this.recovered = -1,
+      @JsonKey(name: 'confirmed_diff', defaultValue: -1)
+          this.confirmedDiff = -1,
+      @JsonKey(name: 'deaths_diff', defaultValue: -1)
+          this.deathsDiff = -1,
+      @JsonKey(name: 'recovered_diff', defaultValue: -1)
+          this.recoveredDiff = -1,
       @JsonKey(name: 'last_update', defaultValue: '')
           this.lastUpdate = '',
-      @JsonKey(name: 'active', defaultValue: 0)
-          this.active = 0,
-      @JsonKey(name: 'active_diff', defaultValue: 0)
-          this.activeDiff = 0,
-      @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
-          this.fatalityRate = 0.0,
+      @JsonKey(name: 'active', defaultValue: -1)
+          this.active = -1,
+      @JsonKey(name: 'active_diff', defaultValue: -1)
+          this.activeDiff = -1,
+      @JsonKey(name: 'fatality_rate', defaultValue: -1.0)
+          this.fatalityRate = -1.0,
       @JsonKey(name: 'region')
           required this.region});
 
@@ -346,34 +346,34 @@ class _$_CovidReport implements _CovidReport {
   @JsonKey(name: 'date', defaultValue: '')
   final String date;
   @override
-  @JsonKey(name: 'confirmed', defaultValue: 0)
+  @JsonKey(name: 'confirmed', defaultValue: -1)
   final int confirmed;
   @override
-  @JsonKey(name: 'deaths', defaultValue: 0)
+  @JsonKey(name: 'deaths', defaultValue: -1)
   final int deaths;
   @override
-  @JsonKey(name: 'recovered', defaultValue: 0)
+  @JsonKey(name: 'recovered', defaultValue: -1)
   final int recovered;
   @override
-  @JsonKey(name: 'confirme_diff', defaultValue: 0)
+  @JsonKey(name: 'confirmed_diff', defaultValue: -1)
   final int confirmedDiff;
   @override
-  @JsonKey(name: 'deaths_diff', defaultValue: 0)
+  @JsonKey(name: 'deaths_diff', defaultValue: -1)
   final int deathsDiff;
   @override
-  @JsonKey(name: 'recovered_diff', defaultValue: 0)
+  @JsonKey(name: 'recovered_diff', defaultValue: -1)
   final int recoveredDiff;
   @override
   @JsonKey(name: 'last_update', defaultValue: '')
   final String lastUpdate;
   @override
-  @JsonKey(name: 'active', defaultValue: 0)
+  @JsonKey(name: 'active', defaultValue: -1)
   final int active;
   @override
-  @JsonKey(name: 'active_diff', defaultValue: 0)
+  @JsonKey(name: 'active_diff', defaultValue: -1)
   final int activeDiff;
   @override
-  @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+  @JsonKey(name: 'fatality_rate', defaultValue: -1.0)
   final double fatalityRate;
   @override
   @JsonKey(name: 'region')
@@ -452,16 +452,16 @@ class _$_CovidReport implements _CovidReport {
 abstract class _CovidReport implements CovidReport {
   const factory _CovidReport(
       {@JsonKey(name: 'date', defaultValue: '') String date,
-      @JsonKey(name: 'confirmed', defaultValue: 0) int confirmed,
-      @JsonKey(name: 'deaths', defaultValue: 0) int deaths,
-      @JsonKey(name: 'recovered', defaultValue: 0) int recovered,
-      @JsonKey(name: 'confirme_diff', defaultValue: 0) int confirmedDiff,
-      @JsonKey(name: 'deaths_diff', defaultValue: 0) int deathsDiff,
-      @JsonKey(name: 'recovered_diff', defaultValue: 0) int recoveredDiff,
+      @JsonKey(name: 'confirmed', defaultValue: -1) int confirmed,
+      @JsonKey(name: 'deaths', defaultValue: -1) int deaths,
+      @JsonKey(name: 'recovered', defaultValue: -1) int recovered,
+      @JsonKey(name: 'confirmed_diff', defaultValue: -1) int confirmedDiff,
+      @JsonKey(name: 'deaths_diff', defaultValue: -1) int deathsDiff,
+      @JsonKey(name: 'recovered_diff', defaultValue: -1) int recoveredDiff,
       @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,
-      @JsonKey(name: 'active', defaultValue: 0) int active,
-      @JsonKey(name: 'active_diff', defaultValue: 0) int activeDiff,
-      @JsonKey(name: 'fatality_rate', defaultValue: 0.0) double fatalityRate,
+      @JsonKey(name: 'active', defaultValue: -1) int active,
+      @JsonKey(name: 'active_diff', defaultValue: -1) int activeDiff,
+      @JsonKey(name: 'fatality_rate', defaultValue: -1.0) double fatalityRate,
       @JsonKey(name: 'region') required Region region}) = _$_CovidReport;
 
   factory _CovidReport.fromJson(Map<String, dynamic> json) =
@@ -471,34 +471,34 @@ abstract class _CovidReport implements CovidReport {
   @JsonKey(name: 'date', defaultValue: '')
   String get date => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'confirmed', defaultValue: 0)
+  @JsonKey(name: 'confirmed', defaultValue: -1)
   int get confirmed => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'deaths', defaultValue: 0)
+  @JsonKey(name: 'deaths', defaultValue: -1)
   int get deaths => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'recovered', defaultValue: 0)
+  @JsonKey(name: 'recovered', defaultValue: -1)
   int get recovered => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'confirme_diff', defaultValue: 0)
+  @JsonKey(name: 'confirmed_diff', defaultValue: -1)
   int get confirmedDiff => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'deaths_diff', defaultValue: 0)
+  @JsonKey(name: 'deaths_diff', defaultValue: -1)
   int get deathsDiff => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'recovered_diff', defaultValue: 0)
+  @JsonKey(name: 'recovered_diff', defaultValue: -1)
   int get recoveredDiff => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'last_update', defaultValue: '')
   String get lastUpdate => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'active', defaultValue: 0)
+  @JsonKey(name: 'active', defaultValue: -1)
   int get active => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'active_diff', defaultValue: 0)
+  @JsonKey(name: 'active_diff', defaultValue: -1)
   int get activeDiff => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'fatality_rate', defaultValue: 0.0)
+  @JsonKey(name: 'fatality_rate', defaultValue: -1.0)
   double get fatalityRate => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'region')

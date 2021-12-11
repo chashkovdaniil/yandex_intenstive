@@ -10,7 +10,7 @@ class CovidReport with _$CovidReport {
    @Default(-1) @JsonKey(name: 'confirmed', defaultValue: -1) int confirmed,
    @Default(-1) @JsonKey(name: 'deaths', defaultValue: -1) int deaths,
    @Default(-1) @JsonKey(name: 'recovered', defaultValue: -1) int recovered,
-   @Default(-1) @JsonKey(name: 'confirme_diff', defaultValue: -1) int confirmedDiff,
+   @Default(-1) @JsonKey(name: 'confirmed_diff', defaultValue: -1) int confirmedDiff,
    @Default(-1) @JsonKey(name: 'deaths_diff', defaultValue: -1) int deathsDiff,
    @Default(-1) @JsonKey(name: 'recovered_diff', defaultValue: -1) int recoveredDiff,
    @Default('') @JsonKey(name: 'last_update', defaultValue: '') String lastUpdate,

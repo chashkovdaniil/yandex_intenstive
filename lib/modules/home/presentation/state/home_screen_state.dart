@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
 
@@ -33,9 +35,21 @@ class HomeScreenProvider extends StateNotifier<HomeScreenState> {
         );
 
   Future<void> load() async {
-    Future.delayed(const Duration(seconds: 3), () {
+    if ((state.confirmedSpots == null ||
+            state.recoveredSpots == null ||
+            state.testData == null ||
+            state.status == const HomeScreenStateStatus.failed()) &&
+        state.status != const HomeScreenStateStatus.loading()) {
+      state = state.copyWith(
+        status: const HomeScreenStateStatus.loading(),
+      );
+    }
+    await Future.delayed(const Duration(seconds: 0), () {
       state = state.copyWith(
         status: const HomeScreenStateStatus.success(),
+        // status: Random().nextBool()
+        //     ? const HomeScreenStateStatus.success()
+        //     : const HomeScreenStateStatus.failed(),
         confirmedSpots: [
           [0, 63839023],
           [1, 83963772],
@@ -56,13 +70,13 @@ class HomeScreenProvider extends StateNotifier<HomeScreenState> {
           [2, 103409401],
           [3, 114428986],
           [4, 129525492],
-          [5, 151801690],
+          [5, 100000000],
           [6, 171051485],
           [7, 182593657],
-          [8, 198291279],
+          [8, 0],
           [9, 218382706],
           [10, 234285671],
-          [11, 266448563]
+          [11, 200000000]
         ],
         testData: {
           'Global': {

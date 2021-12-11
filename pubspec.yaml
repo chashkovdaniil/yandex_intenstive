@@ -1,20 +1,9 @@
 name: yandex_intensive
 description: A new Flutter project.
 
-# The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
+
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
 environment:
@@ -23,26 +12,29 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.0
+  flutter_icons: ^1.1.0
+  page_transition: ^1.1.7+6
+  animated_bottom_navigation_bar: ^0.2.1
+  fl_chart: ^0.40.5
   percent_indicator: ^3.4.0
+  syncfusion_flutter_maps: ^19.3.57-beta
+  country_icons: ^2.0.2
   freezed: ^0.14.2
   build_runner: ^2.1.2
   json_serializable: ^4.1.4
-  fl_chart: ^0.40.5
-  flutter_lints: ^1.0.4
   dio: ^4.0.4
+  provider: ^6.0.1
   riverpod: ^1.0.2
   flutter_riverpod: ^1.0.2
   hooks_riverpod: ^1.0.2
   flutter_hooks: ^0.18.1
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  lints: ^1.0.1
+  flutter_lints: ^1.0.4
+  test: ^1.14.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,6 +53,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/pictures/
+    - world_map.json
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/colors.dart';
 
+import 'components/animation_numbers_text.dart';
 import 'components/home_card.dart';
 import 'components/home_line_chart.dart';
 import 'components/list_countries_confirmed.dart';
@@ -20,26 +21,42 @@ class HomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final homeScreemStatus = ref.watch(_homeScreenProvider).status;
+    final homeScreenStatus = ref.watch(_homeScreenProvider).status;
 
-    useEffect(() {
-      ref.read(_homeScreenProvider.notifier).load();
-    }, [homeScreemStatus]);
+    useEffect(
+      () {
+        ref.read(_homeScreenProvider.notifier).load();
+      },
+      const [],
+    );
 
-    return homeScreemStatus.when(
-      success: () => HomeScreenSuccessState(
-        confirmedSpots: ref.watch(_homeScreenProvider).confirmedSpots!,
-        recoveredSpots: ref.watch(_homeScreenProvider).recoveredSpots!,
-        testData: ref.watch(_homeScreenProvider).testData!,
-      ),
-      failed: () => const Scaffold(
-        body: Center(
-          child: Text('Error'),
-        ),
-      ),
-      loading: () => const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
+    return Scaffold(
+      body: RefreshIndicator(
+        onRefresh: () async {
+          ref.read(_homeScreenProvider.notifier).load();
+        },
+        triggerMode: RefreshIndicatorTriggerMode.anywhere,
+        child: homeScreenStatus.when(
+          success: () => HomeScreenSuccessState(
+            confirmedSpots: ref.watch(_homeScreenProvider).confirmedSpots,
+            recoveredSpots: ref.watch(_homeScreenProvider).recoveredSpots,
+            testData: ref.watch(_homeScreenProvider).testData,
+          ),
+          failed: () => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Center(
+                child: Text('Error'),
+              ),
+              ElevatedButton(
+                onPressed: () => ref.read(_homeScreenProvider.notifier).load(),
+                child: const Text('Обновить'),
+              )
+            ],
+          ),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       ),
     );
@@ -47,9 +64,9 @@ class HomeScreen extends HookConsumerWidget {
 }
 
 class HomeScreenSuccessState extends StatelessWidget {
-  final List<List<double>> confirmedSpots;
-  final List<List<double>> recoveredSpots;
-  final Map<String, Object> testData;
+  final List<List<double>>? confirmedSpots;
+  final List<List<double>>? recoveredSpots;
+  final Map<String, Object>? testData;
   const HomeScreenSuccessState({
     Key? key,
     required this.confirmedSpots,
@@ -59,84 +76,139 @@ class HomeScreenSuccessState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: CustomScrollView(
-          controller: ScrollController(),
-          slivers: [
-            SliverGrid.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 30,
-              crossAxisSpacing: 25,
-              children: [
-                HomeCard(
-                  child: HomeLineChart(
-                    title: 'Confirmed',
-                    value: 123456,
-                    colors: const [Colors.orangeAccent],
-                    spots: confirmedSpots,
-                  ),
-                ),
-                HomeCard(
-                  child: HomeLineChart(
-                    title: 'Recovered',
-                    value: 123456,
-                    colors: const [Colors.greenAccent],
-                    spots: recoveredSpots,
-                  ),
-                ),
-                HomeCard(
-                  child: HomeLineChart(
-                    title: 'Deaths',
-                    value: 123456,
-                    colors: const [Colors.redAccent],
-                    spots: confirmedSpots,
-                  ),
-                ),
-                HomeCard(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text('Fatality rate'),
-                      Text(
-                        '0,7%',
-                        style: Theme.of(context).textTheme.headline3,
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: CustomScrollView(
+              controller: ScrollController(),
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverAppBar(
+                  backgroundColor: Colors.white,
+                  elevation: 0,
+                  floating: true,
+                  flexibleSpace: TextField(
+                    toolbarOptions: const ToolbarOptions(
+                      copy: true,
+                      paste: true,
+                      cut: true,
+                      selectAll: true,
+                    ),
+                    textInputAction: TextInputAction.search,
+                    decoration: InputDecoration(
+                      // suffixIcon: IconButton(
+                      //   onPressed: () {},
+                      //   icon: const Icon(Icons.close),
+                      // ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 20),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: const BorderSide(
+                          color: AppColors.grey,
+                        ),
                       ),
-                      const SizedBox.shrink(),
-                    ],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: const BorderSide(
+                          color: AppColors.grey,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: const BorderSide(
+                          color: AppColors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: 10),
+                ),
+                SliverGrid.count(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 30,
+                  crossAxisSpacing: 25,
+                  children: [
+                    HomeCard(
+                      child: HomeLineChart(
+                        title: 'Confirmed',
+                        value: 123456,
+                        colors: const [AppColors.orange],
+                        spots: confirmedSpots!,
+                        showAnimation: true,
+                      ),
+                    ),
+                    HomeCard(
+                      child: HomeLineChart(
+                        title: 'Recovered',
+                        value: 123456,
+                        colors: const [AppColors.green],
+                        showAnimation: true,
+                        spots: recoveredSpots!,
+                      ),
+                    ),
+                    HomeCard(
+                      child: HomeLineChart(
+                        title: 'Deaths',
+                        value: 123456,
+                        colors: const [AppColors.red],
+                        showAnimation: true,
+                        spots: confirmedSpots!,
+                      ),
+                    ),
+                    HomeCard(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('Fatality rate'),
+                          AnimatedNumbersText(
+                            additionText: '%',
+                            fractionDigits: 1,
+                            from: 0,
+                            to: 0.7,
+                            textStyle: Theme.of(context).textTheme.headline3,
+                          ),
+                          const SizedBox.shrink(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: 25),
+                ),
+                SliverToBoxAdapter(
+                  child: HomeCard(
+                    child: RatioRecoveryChart(
+                      deaths: (testData!['Global']
+                          as Map<String, Object>)['TotalDeaths'] as int,
+                      recovered: (testData!['Global']
+                          as Map<String, Object>)['TotalRecovered'] as int,
+                      confirmed: (testData!['Global']
+                          as Map<String, Object>)['TotalConfirmed'] as int,
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: 25),
+                ),
+                SliverToBoxAdapter(
+                  child: HomeCard(
+                    child: ListCountriesConfirmed(
+                      testData: List<Map<String, Object>>.from(
+                        testData!['Countries'] as Iterable<dynamic>,
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
-            const SliverToBoxAdapter(
-              child: SizedBox(height: 25),
-            ),
-            SliverToBoxAdapter(
-              child: HomeCard(
-                child: RatioRecoveryChart(
-                  deaths: (testData['Global']
-                      as Map<String, Object>)['TotalDeaths'] as int,
-                  recovered: (testData['Global']
-                      as Map<String, Object>)['TotalRecovered'] as int,
-                  confirmed: (testData['Global']
-                      as Map<String, Object>)['TotalConfirmed'] as int,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(height: 25),
-            ),
-            SliverToBoxAdapter(
-              child: HomeCard(
-                child: ListCountriesConfirmed(
-                  testData: List<Map<String, Object>>.from(
-                    testData['Countries'] as Iterable<dynamic>,
-                  ),
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

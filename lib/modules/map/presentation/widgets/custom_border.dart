@@ -9,7 +9,7 @@ class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = grey.withOpacity(0.3)
+      ..color = AppColors.grey.withOpacity(0.6)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 

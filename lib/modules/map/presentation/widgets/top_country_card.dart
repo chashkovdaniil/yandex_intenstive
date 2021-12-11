@@ -46,18 +46,18 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     padding: const EdgeInsets.only(left: 12, right: 6),
                     child: CircularPercentIndicator(
                       radius: 84.0,
-                      animateFromLastPercent: true,
-                      animation: true,
-                      animationDuration: 800,
-                      circularStrokeCap: CircularStrokeCap.round,
-                      lineWidth: 10.0,
-                      backgroundColor: secondary,
-                      percent: widget.countryProgress,
-                      center: Text(
-                        '${(widget.countryProgress * 100).toStringAsFixed(0)}%',
+                        animateFromLastPercent: true,
+                        animation: true,
+                        animationDuration: 800,
+                        circularStrokeCap: CircularStrokeCap.round,
+                        lineWidth: 10.0,
+                        backgroundColor: AppColors.grey.withOpacity(0.6),
+                        percent: widget.countryProgress,
+                        center: Text(
+                          '${(widget.countryProgress * 100).toStringAsFixed(0)}%',
+                        ),
+                        progressColor: widget.countryProgressColor,
                       ),
-                      progressColor: widget.countryProgressColor,
-                    ),
                   ),
                   Align(
                     alignment: Alignment.topLeft,
@@ -123,9 +123,9 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     child: IconButton(
                     icon: const Icon(
                       CupertinoIcons.bell,
-                      color: grey,
-                      size: 20,
-                    ),
+                        color: AppColors.grey,
+                        size: 20,
+                      ),
                     onPressed: () => showAlertDialog(
                       context: context,
                       title: 'Enable notification',

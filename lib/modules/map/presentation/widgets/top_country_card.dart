@@ -78,27 +78,21 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 12),
-                          child: SizedBox(
-                            width: 150,
-                            child: Text(
+                          child: Text(
                               StringValues.mapTopAffected +
                                   widget.affectedValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
-                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 12, bottom: 4.0),
-                          child: SizedBox(
-                            width: 150,
-                            child: Text(
+                          child: Text(
                               StringValues.mapTopRecovered +
                                   widget.recoveredValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
-                          ),
                         ),
                       ],
                     ),

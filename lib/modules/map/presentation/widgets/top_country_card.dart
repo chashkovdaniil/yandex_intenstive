@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:yandex_intensive/configs/constants.dart';
-import 'package:yandex_intensive/configs/text_styles.dart';
-import 'package:yandex_intensive/modules/general/navigation_views.dart';
 
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
+import '../../../../configs/text_styles.dart';
+import '../../../general/navigation_views.dart';
 import '../screens/country_details_screen.dart';
 import 'custom_border.dart';
 import 'on_tap_opacity.dart';
@@ -109,18 +109,18 @@ class _TopCountryCardState extends State<TopCountryCard> {
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding: const EdgeInsets.only(top: 0, right: 0),
-                child: OnTapOpacityContainer(
-                  //TODO: what this button is for lmao ??
-                  onTap: () => showAlertDialog(
-                    context: context,
-                    title: 'Enable notification',
-                    content:
-                        'Enable notification so you can always be up to date with new information.',
-                    cancelActionText: 'Later',
-                    defaultActionText: 'Enable now',
-                  ),
-                  child: IconButton(
+                padding: const EdgeInsets.only(),
+                  child: OnTapOpacityContainer(
+                    //TODO: what this button is for lmao ??
+                    onTap: () => showAlertDialog(
+                      context: context,
+                      title: 'Enable notification',
+                      content:
+                          'Enable notification so you can always be up to date with new information.',
+                      cancelActionText: 'Later',
+                      defaultActionText: 'Enable now',
+                    ),
+                    child: IconButton(
                     icon: const Icon(
                       CupertinoIcons.bell,
                       color: grey,
@@ -140,15 +140,16 @@ class _TopCountryCardState extends State<TopCountryCard> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 42),
-              child: SizedBox(
-                width: 400,
-                height: 40,
-                child: CustomPaint(
-                  painter: CurvePainter(),
+                child: SizedBox(
+                  width: 400,
+                  height: 40,
+                  child: CustomPaint(
+                    painter: CurvePainter(),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ));
+      );
 }

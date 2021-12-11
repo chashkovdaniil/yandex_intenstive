@@ -6,7 +6,6 @@ analyzer:
     - lib/**/models/*.g.dart
     - lib/**/models/**/*.freezed.dart
     - lib/**/models/**/*.g.dart
-    - lib/**/**/*.yx_strings.dart
   errors:
     invalid_annotation_target: ignore
     implementation_imports: ignore

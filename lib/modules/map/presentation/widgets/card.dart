@@ -23,10 +23,10 @@ class MapScreenCard extends StatelessWidget {
           width: double.infinity,
           height: height,
           decoration: BoxDecoration(
-            color: white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: grey.withOpacity(0.3),
+              color: AppColors.grey.withOpacity(0.3),
             ),
           ),
           child: Padding(

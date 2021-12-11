@@ -44,11 +44,12 @@ class HomeScreenProvider extends StateNotifier<HomeScreenState> {
         status: const HomeScreenStateStatus.loading(),
       );
     }
-    await Future.delayed(const Duration(seconds: 3), () {
+    await Future.delayed(const Duration(seconds: 0), () {
       state = state.copyWith(
-        status: Random().nextBool()
-            ? const HomeScreenStateStatus.success()
-            : const HomeScreenStateStatus.failed(),
+        status: const HomeScreenStateStatus.success(),
+        // status: Random().nextBool()
+        //     ? const HomeScreenStateStatus.success()
+        //     : const HomeScreenStateStatus.failed(),
         confirmedSpots: [
           [0, 63839023],
           [1, 83963772],

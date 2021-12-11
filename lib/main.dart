@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme.appTheme(),
       title: 'Yandex Intensive Covid',
-      initialRoute: AppRoutes.mapPageScreen,
+      initialRoute: AppRoutes.homePageScreen,
       routes: {
         AppRoutes.mapPageScreen: (_) => const MapPage(),
         AppRoutes.homePageScreen: (_) => const HomeScreen(),

@@ -1,24 +1,78 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../configs/constants.dart';
+import '../state/map_screen_state.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/card.dart';
 import '../widgets/map.dart';
 import '../widgets/rest_list.dart';
 import '../widgets/top_list.dart';
 
-class MapPage extends StatefulWidget {
+final _mapScreenProvider =
+    StateNotifierProvider<MapScreenProvider, MapScreenState>(
+  (ref) => MapScreenProvider(),
+);
 
-  const MapPage({Key? key}) : super(key: key);
+class MapScreen extends HookConsumerWidget {
+  const MapScreen({Key? key}) : super(key: key);
 
   @override
-  _MapPageState createState() => _MapPageState();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mapScreenStatus = ref.watch(_mapScreenProvider).status;
+
+    useEffect(
+      () {
+        ref.read(_mapScreenProvider.notifier).load();
+      },
+      const [],
+    );
+
+    return Scaffold(
+      body: RefreshIndicator(
+        onRefresh: () async {
+          ref.read(_mapScreenProvider.notifier).load();
+        },
+        triggerMode: RefreshIndicatorTriggerMode.anywhere,
+        child: mapScreenStatus.when(
+          success: () => MapScreenSuccessState(
+            testData: ref.watch(_mapScreenProvider).testData,
+          ),
+          failed: () => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Center(
+                child: Text('Error'),
+              ),
+              ElevatedButton(
+                onPressed: () => ref.read(_mapScreenProvider.notifier).load(),
+                child: const Text('Обновить'),
+              )
+            ],
+          ),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
-class _MapPageState extends State<MapPage> {
+class MapScreenSuccessState extends StatelessWidget {
+  final Map<String, Object>? testData;
+
+  const MapScreenSuccessState({
+    Key? key,
+    required this.testData,
+  }) : super(key: key);
+
   @override
-  Widget build(BuildContext context) => SafeArea(
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -70,5 +124,7 @@ class _MapPageState extends State<MapPage> {
             ],
           ),
         ),
-      );
+      ),
+    );
+  }
 }

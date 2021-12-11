@@ -1,6 +1,11 @@
+import '../../domain/entities/country_covid_entity.dart';
+import '../../domain/entities/covid_report.dart';
+
 abstract class CovidDatasource {
-  Future<String> summary();
-  Future<String> countries();
-  Future<String> dayOneCountry(String country);
-  Future<String> dayOneSummary();
+  Future<Map<String, CountryCovid>> statsCountriesByDate({DateTime? date});
+  Future<CovidReport> statsCountryByDate({
+    DateTime? date,
+    required String iso,
+  });
+  Future<CovidReport> statsTotalByDate({DateTime? date});
 }

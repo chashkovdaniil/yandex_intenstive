@@ -27,5 +27,4 @@ class AppColors {
   static const Color educationGray = Color(0xFF999999);
   static const Color educationBlackSubtitle = Color(0xFF151522);
   static const Color educationBlackHeader = Color(0xFF171725);
-  // static const Color education
 }

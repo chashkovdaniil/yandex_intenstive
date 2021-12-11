@@ -17,7 +17,7 @@ Future<dynamic> showAlertDialog({
         title: Text(title),
         content: Text(content),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text(defaultActionText),
             onPressed: () => Navigator.of(context).pop(true),
           ),

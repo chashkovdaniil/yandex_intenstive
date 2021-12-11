@@ -18,6 +18,7 @@ dependencies:
   animated_bottom_navigation_bar: ^0.2.1
   fl_chart: ^0.40.5
   percent_indicator: ^3.4.0
+  freezed_annotation: any
   syncfusion_flutter_maps: ^19.3.57-beta
   country_icons: ^2.0.2
   freezed: ^0.14.2
@@ -29,6 +30,9 @@ dependencies:
   flutter_riverpod: ^1.0.2
   hooks_riverpod: ^1.0.2
   flutter_hooks: ^0.18.1
+  sprintf: ^6.0.0
+  path: ^1.8.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

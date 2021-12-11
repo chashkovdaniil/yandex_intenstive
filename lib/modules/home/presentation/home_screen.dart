@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/configs/colors.dart';
+import '../../../configs/colors.dart';
 
 import 'components/animation_numbers_text.dart';
 import 'components/home_card.dart';

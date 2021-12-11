@@ -12,23 +12,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
-  flutter_icons: ^1.1.0
-  page_transition: ^1.1.7+6
   animated_bottom_navigation_bar: ^0.2.1
-  fl_chart: ^0.40.5
-  percent_indicator: ^3.4.0
-  syncfusion_flutter_maps: ^19.3.57-beta
-  country_icons: ^2.0.2
-  freezed: ^0.14.2
   build_runner: ^2.1.2
-  json_serializable: ^4.1.4
+  country_icons: ^2.0.2
+  cupertino_icons: ^1.0.0
   dio: ^4.0.4
+  flutter_hooks: ^0.18.1
+  flutter_icons: ^1.1.0
+  flutter_riverpod: ^1.0.2
+  fl_chart: ^0.40.5
+  freezed: ^0.14.2
+  freezed_annotation: any
+  hooks_riverpod: ^1.0.2
+  json_serializable: ^4.1.4
+  page_transition: ^1.1.7+6
+  path: ^1.8.0
+  percent_indicator: ^3.4.0
   provider: ^6.0.1
   riverpod: ^1.0.2
-  flutter_riverpod: ^1.0.2
-  hooks_riverpod: ^1.0.2
-  flutter_hooks: ^0.18.1
+  sprintf: ^6.0.0
+  syncfusion_flutter_maps: ^19.3.57-beta
   url_launcher: ^6.0.17
 dev_dependencies:
   flutter_test:

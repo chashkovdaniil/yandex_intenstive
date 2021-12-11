@@ -8,10 +8,16 @@ import 'modules/home/presentation/home_screen.dart';
 import 'modules/map/presentation/screens/map_page.dart';
 
 void main() {
-  runApp(ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   // ignore: prefer_expression_function_bodies
@@ -19,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme.appTheme(),
       title: 'Yandex Intensive Covid',
-      initialRoute: AppRoutes.educationPageScreen,
+      initialRoute: AppRoutes.homePageScreen,
       routes: {
         AppRoutes.mapPageScreen: (_) => const MapPage(),
         AppRoutes.homePageScreen: (_) => const HomeScreen(),

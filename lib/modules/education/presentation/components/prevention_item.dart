@@ -61,5 +61,3 @@ class PreventionItem extends StatelessWidget {
         ],
       );
 }
-
-// END

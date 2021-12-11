@@ -6,17 +6,15 @@ import '../../domain/entities/data_raw.dart';
 
 class CovidNetworkTaker {
   static const _api = 'https://covid-api.com/api/reports';
-  final Dio    _dio = Dio();
+  final Dio _dio = Dio();
 
   Future<DataRaw> getOneDay(DateTime date) async {
     try {
-      // TODO: обработать ошибку API
-      var sdate = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
-      var json  = await _dio.get(_api, queryParameters: { 'date': sdate });
+      // TODO: Добавить api в baseUrl (в первый раз почему-то не сработало)
+      var str = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
+      var json = await _dio.get(_api, queryParameters: {'date': str});
       return DataRaw.fromJson(json.data);
-    }
-    on Exception catch(e) {
-      print("network exception");
+    } on Exception catch (e) {
       throw CovidNotFoundException("Can't take covid data from network: $e");
     }
   }

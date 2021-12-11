@@ -37,10 +37,5 @@ class CovidNotFoundException implements Exception {
   const CovidNotFoundException(this.cause);
 
   @override
-  String toString()
-    => cause;
+  String toString() => cause;
 }
-
-
-
-// END

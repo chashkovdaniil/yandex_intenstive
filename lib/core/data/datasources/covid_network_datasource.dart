@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
-import 'package:yandex_intensive/core/domain/entities/covid_report.dart';
 
 // import 'package:yandex_intensive/core/domain/entities/country_entity.dart';
 
 import '../../api/app_exceptions.dart';
+import '../../domain/entities/country_covid_entity.dart';
+import '../../domain/entities/covid_report.dart';
 import '../dto/covid_report_dto.dart';
 import 'covid_datasource.dart';
 

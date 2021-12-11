@@ -1,7 +1,6 @@
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
-import 'package:yandex_intensive/core/domain/entities/covid_report.dart';
-import 'package:yandex_intensive/core/domain/repositories/covid_repository.dart';
-import 'package:yandex_intensive/core/domain/usecases/base_usecase.dart';
+import '../entities/covid_report.dart';
+import '../repositories/covid_repository.dart';
+import 'base_usecase.dart';
 
 class StatsCountriesByDate
     implements BaseParamsUsecase<CovidReport, StatsCountryByDateParams> {

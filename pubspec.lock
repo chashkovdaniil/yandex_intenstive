@@ -610,25 +610,21 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.17.10"
+    version: "1.17.12"
   test_api:
     dependency: transitive
     description:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "0.4.3"
-=======
-    version: "0.4.2"
   test_core:
     dependency: transitive
     description:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0"
->>>>>>> 5270bd40277169d9b985f2a4ab157c32c766a8ed
+    version: "0.4.2"
   timing:
     dependency: transitive
     description:
@@ -649,10 +645,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "2.1.1"
-=======
-    version: "2.1.0"
   vm_service:
     dependency: transitive
     description:
@@ -660,7 +653,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.5.0"
->>>>>>> 5270bd40277169d9b985f2a4ab157c32c766a8ed
   watcher:
     dependency: transitive
     description:

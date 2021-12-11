@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-
-
-class AppTheme
-{
+class AppTheme {
   static const educationHeader1 = TextStyle(
-    fontSize: 42.0,
+    fontSize: 34.0,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );
@@ -36,7 +33,5 @@ class AppTheme
     color: Colors.black54,
   );
 }
-
-
 
 // END

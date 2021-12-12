@@ -1,37 +1,40 @@
-import 'package:yandex_intensive/core/data/datasources/covid_datasource.dart';
-import 'package:yandex_intensive/core/domain/repositories/covid_repository.dart';
+import '../../domain/entities/country_covid_entity.dart';
+import '../../domain/entities/covid_report.dart';
+import '../../domain/repositories/covid_repository.dart';
+
+import '../datasources/covid_datasource.dart';
 
 class CovidRepositoryImpl implements CovidRepository {
-  final CovidDatasource _localDatasource;
-  final CovidDatasource _networkDatasource;
-
+  final CovidDatasource _covidCacheDatasource;
+  final CovidDatasource _covidNetworkDatasource;
   CovidRepositoryImpl({
-    required CovidDatasource localDatasource,
-    required CovidDatasource networkDatasource,
-  })  : _localDatasource = localDatasource,
-        _networkDatasource = networkDatasource;
+    required CovidDatasource covidCacheDatasource,
+    required CovidDatasource covidNetworkDatasource,
+  })  : _covidCacheDatasource = covidCacheDatasource,
+        _covidNetworkDatasource = covidNetworkDatasource;
 
-  @override
-  Future<String> countries() {
-    // TODO: implement countries
-    throw UnimplementedError();
+  CovidDatasource get _covidDatasource {
+    /// ToDo: проверка на соединение
+    return (true) ? _covidNetworkDatasource : _covidCacheDatasource;
   }
 
   @override
-  Future<String> dayOneCountry(String country) {
-    // TODO: implement dayOneCountry
-    throw UnimplementedError();
+  Future<Map<String, CountryCovid>> statsCountriesByDate({
+    DateTime? date,
+  }) {
+    return _covidDatasource.statsCountriesByDate(date: date);
   }
 
   @override
-  Future<String> dayOneSummary() {
-    // TODO: implement dayOneSummary
-    throw UnimplementedError();
+  Future<CovidReport> statsCountryByDate({
+    DateTime? date,
+    required String iso,
+  }) {
+    return _covidDatasource.statsCountryByDate(date: date, iso: iso);
   }
 
   @override
-  Future<String> summary() {
-    // TODO: implement summary
-    throw UnimplementedError();
+  Future<CovidReport> statsTotalByDate({DateTime? date}) {
+    return _covidDatasource.statsTotalByDate(date: date);
   }
 }

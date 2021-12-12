@@ -70,7 +70,7 @@ class MapScreenSuccessState extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).unfocus,
         child: Scaffold(
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -31,9 +31,7 @@ class MapScreen extends HookConsumerWidget {
 
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () async {
-          ref.read(_mapScreenProvider.notifier).load();
-        },
+        onRefresh: () => ref.read(_mapScreenProvider.notifier).load(),
         triggerMode: RefreshIndicatorTriggerMode.anywhere,
         child: mapScreenStatus.when(
           success: () => MapScreenSuccessState(

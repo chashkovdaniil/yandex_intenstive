@@ -8,15 +8,14 @@ import '../widgets/map.dart';
 import '../widgets/rest_list.dart';
 import '../widgets/top_list.dart';
 
-class MapPage extends StatefulWidget {
-
-  const MapPage({Key? key}) : super(key: key);
+class MapScreen extends StatefulWidget {
+  const MapScreen({Key? key}) : super(key: key);
 
   @override
-  _MapPageState createState() => _MapPageState();
+  _MapScreenState createState() => _MapScreenState();
 }
 
-class _MapPageState extends State<MapPage> {
+class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(

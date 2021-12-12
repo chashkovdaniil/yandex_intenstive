@@ -34,8 +34,11 @@ class TextStyles {
       );
 
   static TextStyle get deathValue => const TextStyle(
-        color: AppColors.primary,
-        fontWeight: FontWeight.w600,
-        fontSize: 28,
-      );
+      color: AppColors.primary, fontWeight: FontWeight.w600, fontSize: 28);
+
+  static TextStyle get selectedLabelStyle => const TextStyle(
+      color: AppColors.primary, fontWeight: FontWeight.w400, fontSize: 11);
+
+  static TextStyle get unselectedLabelStyle => const TextStyle(
+      color: AppColors.grey, fontWeight: FontWeight.w400, fontSize: 11);
 }

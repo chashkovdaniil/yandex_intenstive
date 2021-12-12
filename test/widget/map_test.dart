@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yandex_intensive/modules/map/presentation/screens/map_page.dart';
+import 'package:yandex_intensive/modules/map/presentation/screens/map_screen.dart';
 
 void main() {
   group('Map Page Widget Tests', () {
     testWidgets('Testing Scrolling', (tester) async {
-      await tester.pumpWidget(const MapPage());
+      await tester.pumpWidget(const MapScreen());
       // expect(find.text('COVID - 19 Affected Areas'), findsOneWidget);
       // await tester.fling(find.byType(ListView), const Offset(0, 100), 200);
       // await tester.pumpAndSettle();
@@ -16,7 +16,7 @@ void main() {
       await tester.pump();
     });
     testWidgets('Testing Scrolling Alternative Approach', (tester) async {
-      await tester.pumpWidget(const MapPage());
+      await tester.pumpWidget(const MapScreen());
       await tester.dragUntilVisible(
         find.text('COVID - 19 Affected Areas'), // what you want to find
         find.byKey(

@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'configs/app_routes.dart';
 import 'core/styles/app_theme.dart';
-import 'modules/home/presentation/home_screen.dart';
-import 'modules/map/presentation/screens/map_page.dart';
+import 'modules/bottom_navigation/bottom_navigation.dart';
+
 
 void main() {
   runApp(
@@ -24,11 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme.appTheme(),
       title: 'Yandex Intensive Covid',
-      initialRoute: AppRoutes.homePageScreen,
-      routes: {
-        AppRoutes.mapPageScreen: (_) => const MapPage(),
-        AppRoutes.homePageScreen: (_) => const HomeScreen(),
-      },
+      home: const BottomNavigation(),
     );
   }
 }

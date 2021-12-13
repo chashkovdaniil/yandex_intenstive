@@ -10,7 +10,7 @@ import 'modules/education/presentation/diagnosis.dart';
 import 'modules/home/presentation/home_screen.dart';
 
 import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
-import 'package:yandex_intensive/modules/education/presentation/symptom_check.dart';
+import 'package:yandex_intensive/modules/education/presentation/symptoms.dart';
 
 void main() {
   runApp(

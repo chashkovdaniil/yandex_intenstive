@@ -134,8 +134,22 @@ class StringValues {
       'Put distance between yourself and other people.',
     ],
   ];
-}
 
+  static const educationPreviewHeader =
+      'Coronavirus disease (COVID - 19) advice for the public';
+
+  static const educationPreviewDescriptionPreCaps =
+      'Stay aware of the latest information on the ';
+
+  static const educationPreviewDescriptionCaps = 'COVID-19 outbreak';
+
+  static const educationPreviewDescriptionPostCaps =
+      ', available on the WHO website and through your national and'
+      'local public health authority. Most people who become'
+      'infected experience mild illness and recover, but it can be'
+      'more severe for others. Take care of your health and protect'
+      'others by doing the following:';
+}
 
 class MockData {
   static List<MapModel> get mapData => const <MapModel>[

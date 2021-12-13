@@ -31,6 +31,12 @@ class AppTheme {
     fontWeight: FontWeight.w300,
   );
 
+  static const educationSubtitleInternalBold = TextStyle(
+    color: AppColors.educationGray,
+    fontSize: 22.0,
+    fontWeight: FontWeight.w700,
+  );
+
   static const educationSubtitleWhite = TextStyle(
     color: AppColors.white,
     fontSize: 22.0,

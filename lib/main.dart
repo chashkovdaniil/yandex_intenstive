@@ -7,6 +7,7 @@ import 'modules/bottom_navigation/bottom_navigation.dart';
 import 'modules/education/presentation/components/prevention_item.dart';
 import 'modules/education/presentation/prevention.dart';
 import 'modules/education/presentation/diagnosis.dart';
+import 'modules/education/presentation/components/education_preview.dart';
 import 'modules/home/presentation/home_screen.dart';
 
 import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         // AppRoutes.mapPageScreen: (_) => const MapPage(),
         AppRoutes.homePageScreen: (_) => const HomeScreen(),
         AppRoutes.educationPageScreen: (_) => const Scaffold(
-              body: DiagnosisPage(),
+              body: EducationPreview(),
             )
       },
     );

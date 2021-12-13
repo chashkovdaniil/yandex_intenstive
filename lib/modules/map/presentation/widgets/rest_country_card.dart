@@ -73,16 +73,17 @@ class _RestCountryCardState extends State<RestCountryCard> {
                         widget.countryTitle,
                         textAlign: TextAlign.start,
                         style: TextStyles.titleCountry,
+                        softWrap: true,
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 12),
                       child: SizedBox(
-                        width: 200,
                         child: Text(
                           '562' + StringValues.countryStatisticsDeathCases,
                           textAlign: TextAlign.start,
                           style: TextStyles.infoCountry,
+                          softWrap: true,
                         ),
                       ),
                     ),

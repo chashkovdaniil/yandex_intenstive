@@ -32,7 +32,7 @@ class StringValues {
   static String get countryStatisticsInfectedCases =>
       ' Infected cases reported';
 
-  static String get countryStatisticsDeathCases => ' Death cases reported';
+  static String get countryStatisticsDeathCases => ' Death cases';
 
   static String get countryStatisticsGraphTitle =>
       'Current affected and death people';

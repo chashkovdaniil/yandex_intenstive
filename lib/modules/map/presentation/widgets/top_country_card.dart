@@ -34,7 +34,8 @@ class _TopCountryCardState extends State<TopCountryCard> {
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.only(top: 16),
         child: OnTapOpacityContainer(
-          onTap: () => Navigator.of(context).push(CountryDetailsScreen.route()),
+          onTap: () =>
+              Navigator.of(context).pushNamed(CountryDetailsScreen.route),
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: 80,

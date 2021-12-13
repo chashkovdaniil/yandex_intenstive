@@ -33,6 +33,7 @@ dependencies:
   sprintf: ^6.0.0
   path: ^1.8.0
   flutter_portal: ^0.4.0
+  throttling: ^1.0.0
 
 dev_dependencies:
   flutter_test:

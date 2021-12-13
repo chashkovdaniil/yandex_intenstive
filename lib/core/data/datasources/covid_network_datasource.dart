@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:yandex_intensive/core/data/dto/country_dto.dart';
 
 // import 'package:yandex_intensive/core/domain/entities/country_entity.dart';
 
@@ -12,7 +13,8 @@ import 'covid_datasource.dart';
 class CovidNetworkDatasource implements CovidDatasource {
   static const _apiReports = 'https://covid-api.com/api/reports';
   static const _apiReportsTotal = 'https://covid-api.com/api/reports/total';
-  // final _countries = List<Country>.empty();
+  static const _apiCountries = 'https://covid-api.com/api/regions';
+
   final Dio _dio = Dio();
 
   @override
@@ -128,5 +130,15 @@ class CovidNetworkDatasource implements CovidDatasource {
     } catch (e) {
       throw CovidNotFoundException("Can't take covid data from network: $e");
     }
+  }
+
+  @override
+  Future<List<Country>> countries() async {
+    final response = await _dio.get(_apiCountries);
+    final dataRaw = response.data['data'] as List<dynamic>;
+    final countries = dataRaw.map((e) {
+      return Country.fromDto(CountryDto.fromJson(e as Map<String, dynamic>));
+    });
+    return countries.toList();
   }
 }

@@ -4,18 +4,20 @@ import '../../../../configs/colors.dart';
 class SearchField extends StatelessWidget {
   final bool enabled;
   final bool autofocus;
+  final Function(String)? onSubmitted;
+  final TextEditingController? _searchFieldController;
+  final FocusNode? _focusNode;
+
   const SearchField({
     Key? key,
     this.enabled = true,
     this.autofocus = false,
     TextEditingController? searchFieldController,
     FocusNode? focusNode,
+    this.onSubmitted,
   })  : _searchFieldController = searchFieldController,
         _focusNode = focusNode,
         super(key: key);
-
-  final TextEditingController? _searchFieldController;
-  final FocusNode? _focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class SearchField extends StatelessWidget {
         cut: true,
         selectAll: true,
       ),
+      onSubmitted: onSubmitted,
       textInputAction: TextInputAction.search,
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.search),

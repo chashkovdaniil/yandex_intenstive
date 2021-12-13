@@ -10,8 +10,7 @@ part of 'covid_report_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CovidReportDto _$CovidReportDtoFromJson(Map<String, dynamic> json) {
   return _CovidReportDto.fromJson(json);
@@ -129,58 +128,56 @@ class _$CovidReportDtoCopyWithImpl<$Res>
     Object? fatalityRate = freezed,
     Object? region = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-        date: date == freezed
-            ? _value.date
-            : date // ignore: cast_nullable_to_non_nullable
-                as String,
-        confirmed: confirmed == freezed
-            ? _value.confirmed
-            : confirmed // ignore: cast_nullable_to_non_nullable
-                as int,
-        deaths: deaths == freezed
-            ? _value.deaths
-            : deaths // ignore: cast_nullable_to_non_nullable
-                as int,
-        recovered: recovered == freezed
-            ? _value.recovered
-            : recovered // ignore: cast_nullable_to_non_nullable
-                as int,
-        confirmedDiff: confirmedDiff == freezed
-            ? _value.confirmedDiff
-            : confirmedDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        deathsDiff: deathsDiff == freezed
-            ? _value.deathsDiff
-            : deathsDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        recoveredDiff: recoveredDiff == freezed
-            ? _value.recoveredDiff
-            : recoveredDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        lastUpdate: lastUpdate == freezed
-            ? _value.lastUpdate
-            : lastUpdate // ignore: cast_nullable_to_non_nullable
-                as String,
-        active: active == freezed
-            ? _value.active
-            : active // ignore: cast_nullable_to_non_nullable
-                as int,
-        activeDiff: activeDiff == freezed
-            ? _value.activeDiff
-            : activeDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        fatalityRate: fatalityRate == freezed
-            ? _value.fatalityRate
-            : fatalityRate // ignore: cast_nullable_to_non_nullable
-                as double,
-        region: region == freezed
-            ? _value.region
-            : region // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>?,
-      ),
-    );
+    return _then(_value.copyWith(
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      confirmed: confirmed == freezed
+          ? _value.confirmed
+          : confirmed // ignore: cast_nullable_to_non_nullable
+              as int,
+      deaths: deaths == freezed
+          ? _value.deaths
+          : deaths // ignore: cast_nullable_to_non_nullable
+              as int,
+      recovered: recovered == freezed
+          ? _value.recovered
+          : recovered // ignore: cast_nullable_to_non_nullable
+              as int,
+      confirmedDiff: confirmedDiff == freezed
+          ? _value.confirmedDiff
+          : confirmedDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      deathsDiff: deathsDiff == freezed
+          ? _value.deathsDiff
+          : deathsDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      recoveredDiff: recoveredDiff == freezed
+          ? _value.recoveredDiff
+          : recoveredDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      lastUpdate: lastUpdate == freezed
+          ? _value.lastUpdate
+          : lastUpdate // ignore: cast_nullable_to_non_nullable
+              as String,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int,
+      activeDiff: activeDiff == freezed
+          ? _value.activeDiff
+          : activeDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      fatalityRate: fatalityRate == freezed
+          ? _value.fatalityRate
+          : fatalityRate // ignore: cast_nullable_to_non_nullable
+              as double,
+      region: region == freezed
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
   }
 }
 
@@ -232,58 +229,56 @@ class __$CovidReportDtoCopyWithImpl<$Res>
     Object? fatalityRate = freezed,
     Object? region = freezed,
   }) {
-    return _then(
-      _CovidReportDto(
-        date: date == freezed
-            ? _value.date
-            : date // ignore: cast_nullable_to_non_nullable
-                as String,
-        confirmed: confirmed == freezed
-            ? _value.confirmed
-            : confirmed // ignore: cast_nullable_to_non_nullable
-                as int,
-        deaths: deaths == freezed
-            ? _value.deaths
-            : deaths // ignore: cast_nullable_to_non_nullable
-                as int,
-        recovered: recovered == freezed
-            ? _value.recovered
-            : recovered // ignore: cast_nullable_to_non_nullable
-                as int,
-        confirmedDiff: confirmedDiff == freezed
-            ? _value.confirmedDiff
-            : confirmedDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        deathsDiff: deathsDiff == freezed
-            ? _value.deathsDiff
-            : deathsDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        recoveredDiff: recoveredDiff == freezed
-            ? _value.recoveredDiff
-            : recoveredDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        lastUpdate: lastUpdate == freezed
-            ? _value.lastUpdate
-            : lastUpdate // ignore: cast_nullable_to_non_nullable
-                as String,
-        active: active == freezed
-            ? _value.active
-            : active // ignore: cast_nullable_to_non_nullable
-                as int,
-        activeDiff: activeDiff == freezed
-            ? _value.activeDiff
-            : activeDiff // ignore: cast_nullable_to_non_nullable
-                as int,
-        fatalityRate: fatalityRate == freezed
-            ? _value.fatalityRate
-            : fatalityRate // ignore: cast_nullable_to_non_nullable
-                as double,
-        region: region == freezed
-            ? _value.region
-            : region // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>?,
-      ),
-    );
+    return _then(_CovidReportDto(
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      confirmed: confirmed == freezed
+          ? _value.confirmed
+          : confirmed // ignore: cast_nullable_to_non_nullable
+              as int,
+      deaths: deaths == freezed
+          ? _value.deaths
+          : deaths // ignore: cast_nullable_to_non_nullable
+              as int,
+      recovered: recovered == freezed
+          ? _value.recovered
+          : recovered // ignore: cast_nullable_to_non_nullable
+              as int,
+      confirmedDiff: confirmedDiff == freezed
+          ? _value.confirmedDiff
+          : confirmedDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      deathsDiff: deathsDiff == freezed
+          ? _value.deathsDiff
+          : deathsDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      recoveredDiff: recoveredDiff == freezed
+          ? _value.recoveredDiff
+          : recoveredDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      lastUpdate: lastUpdate == freezed
+          ? _value.lastUpdate
+          : lastUpdate // ignore: cast_nullable_to_non_nullable
+              as String,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int,
+      activeDiff: activeDiff == freezed
+          ? _value.activeDiff
+          : activeDiff // ignore: cast_nullable_to_non_nullable
+              as int,
+      fatalityRate: fatalityRate == freezed
+          ? _value.fatalityRate
+          : fatalityRate // ignore: cast_nullable_to_non_nullable
+              as double,
+      region: region == freezed
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
   }
 }
 

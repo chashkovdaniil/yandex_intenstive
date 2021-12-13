@@ -98,7 +98,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     ),
                     SliverToBoxAdapter(
                       child: MapScreenCard(
-                        height: 350,
+                        height: 406,
                         title: StringValues.mapTop,
                         content: const TopList(),
                       ),

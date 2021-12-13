@@ -1,19 +1,22 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// Something wrong is here
-/// in progress
+import '../../../../configs/colors.dart';
+
 class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Colors.green
+      ..color = AppColors.grey.withOpacity(0.6)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.0;
+      ..strokeWidth = 1.0;
 
     var r = size.height * 0.3;
     var R = size.height * 1.4;
+    var wShift = size.width * 0.01;
+
     var path = Path()
       ..lineTo(0, size.height - r)
       ..quadraticBezierTo(
@@ -23,12 +26,14 @@ class CurvePainter extends CustomPainter {
         size.height,
       )
       // lower semicircle
-      // instead of r use can use another koeff
-      ..lineTo(R + r - sqrt(R * R - size.height * size.height), size.height)
+      ..lineTo(
+        R + r - sqrt(R * R - size.height * size.height) + wShift,
+        size.height,
+      )
       ..quadraticBezierTo(
-        r + R,
+        r + R + wShift,
         R + r,
-        r + R + sqrt(R * R - size.height * size.height),
+        r + R + sqrt(R * R - size.height * size.height) + wShift,
         size.height,
       )
       ..lineTo(size.width - r, size.height)
@@ -46,12 +51,14 @@ class CurvePainter extends CustomPainter {
         -size.height,
       )
       // upper semicircle
-      // instead of r use can use another koeff
-      ..lineTo(R + r + sqrt(R * R - size.height * size.height), -size.height)
+      ..lineTo(
+        R + r + sqrt(R * R - size.height * size.height) + wShift,
+        -size.height,
+      )
       ..quadraticBezierTo(
-        r + R,
+        r + R + wShift,
         -R - r,
-        r + R - sqrt(R * R - size.height * size.height),
+        r + R - sqrt(R * R - size.height * size.height) + wShift,
         -size.height,
       )
       ..lineTo(r, -size.height)

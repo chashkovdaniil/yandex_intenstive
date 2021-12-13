@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/config/config.dart';
+import 'package:yandex_intensive/configs/constants.dart';
+import 'package:yandex_intensive/configs/text_styles.dart';
 import 'package:yandex_intensive/modules/onboarding/button.dart';
 
 class OnboardingRightButton extends StatelessWidget {
@@ -11,8 +12,8 @@ class OnboardingRightButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OnboardingButton(
       onTap: onPressed,
-      child: const Text(
-        OnboardingButtonTexts.nextText,
+      child: Text(
+        StringValues.onBoardingNextText,
         style: TextStyles.buttonTextStyle,
       ),
     );

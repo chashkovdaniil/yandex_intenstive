@@ -2,12 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/config/config.dart';
+
+import '../../configs/constants.dart';
+import '../../configs/text_styles.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       //Navigator.push(context, MaterialPageRoute(builder: (context) => next_page()));
     });
     return Column(
@@ -19,22 +23,21 @@ class SplashScreen extends StatelessWidget {
           ),
           flex: 3,
         ),
-        const Expanded(
+        Expanded(
           child: Align(
             child: Text(
-              SplashScreenTitles.splashScreenTitle,
+              StringValues.splashScreenTitle,
               style: TextStyles.splashScreenTitleTextStyle,
             ),
-            alignment: Alignment.center,
           ),
         ),
-        const Expanded(
+        Expanded(
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 55),
+              padding: const EdgeInsets.only(bottom: 55),
               child: Text(
-                SplashScreenTitles.splashScreenBottomText,
+                StringValues.splashScreenBottomText,
                 style: TextStyles.splashScreenBottomTextStyle,
               ),
             ),

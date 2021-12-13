@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/config/config.dart';
+import 'package:yandex_intensive/configs/constants.dart';
 import 'package:yandex_intensive/modules/onboarding/left_button.dart';
 import 'package:yandex_intensive/modules/onboarding/page.dart';
 import 'package:yandex_intensive/modules/onboarding/page_point.dart';
@@ -54,14 +54,14 @@ class _OnboardingState extends State<Onboarding> {
       Assets.onboardingImage3,
     ];
     final titles = [
-      OnboardingTitles.onboardingTitle1,
-      OnboardingTitles.onboardingTitle2,
-      OnboardingTitles.onboardingTitle3,
+      StringValues.onboardingTitle1,
+      StringValues.onboardingTitle2,
+      StringValues.onboardingTitle3,
     ];
     final descriptions = [
-      OnboardingDescriprions.onboardingDescription1,
-      OnboardingDescriprions.onboardingDescription2,
-      OnboardingDescriprions.onboardingDescription3,
+      StringValues.onboardingDescription1,
+      StringValues.onboardingDescription2,
+      StringValues.onboardingDescription3,
     ];
     return Scaffold(
       backgroundColor: _backgroundColor,

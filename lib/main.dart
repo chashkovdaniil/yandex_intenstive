@@ -5,6 +5,8 @@ import 'configs/app_routes.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
 
+import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
+import 'package:yandex_intensive/modules/education/presentation/symptom_check.dart';
 
 void main() {
   runApp(
@@ -21,10 +23,18 @@ class MyApp extends StatelessWidget {
   @override
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.appTheme(),
+    return const MaterialApp(
       title: 'Yandex Intensive Covid',
-      home: const BottomNavigation(),
+      home: Scaffold(
+        body: SingleChildScrollView(
+          padding: EdgeInsets.all(20.0),
+          child: SymptomCheck(),
+        ),
+      ),
+      // initialRoute: HomeScreen.route,
+      // routes: {
+      //   HomeScreen.route: (_) => HomeScreen(),
+      // },
     );
   }
 }

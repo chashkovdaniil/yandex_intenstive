@@ -7,7 +7,7 @@ class AppColors {
   static const Color secondary = Color(0xFFE4E4E4);
   static const Color black = Color(0xFF000000);
   static const Color grey = Color(0xFFE4E4E4);
-  static const Color white = Colors.white;
+  static const Color white = Color(0xFFFFFFFF);
   static const Color red = Color(0xffFF647C);
 
 // Colors for progress bars
@@ -22,4 +22,9 @@ class AppColors {
   static const Color affected4 = Color(0xFFFF7489);
   static const Color affected5 = Color(0xFFFF4F6A);
   static const Color affected6 = Color(0xFFFF2E4E);
+
+// Colors for education screen
+  static const Color educationGray = Color(0xFF999999);
+  static const Color educationBlackSubtitle = Color(0xFF151522);
+  static const Color educationBlackHeader = Color(0xFF171725);
 }

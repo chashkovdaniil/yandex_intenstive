@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Yandex Intensive Covid',
       home: Scaffold(
-        body: SymptomCheck(),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.all(20.0),
+          child: SymptomCheck(),
+        ),
       ),
       // initialRoute: HomeScreen.route,
       // routes: {

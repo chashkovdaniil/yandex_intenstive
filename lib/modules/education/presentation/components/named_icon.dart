@@ -1,32 +1,26 @@
 import 'package:flutter/material.dart';
 
-
-
-class NamedIconData
-{
+class NamedIconData {
   final String title;
   final String asset;
 
   const NamedIconData(this.title, this.asset);
 }
 
-class NamedIconConfig
-{
-  final double     width;
-  final double     height;
+class NamedIconConfig {
+  final double width;
+  final double height;
   final TextStyle? style;
 
   const NamedIconConfig(this.width, this.height, [this.style]);
 }
 
-class NamedIcon extends StatelessWidget
-{
-  final NamedIconData   data;
+class NamedIcon extends StatelessWidget {
+  final NamedIconData data;
   final NamedIconConfig config;
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Row(
       children: [
         Image.asset(data.asset, width: config.width, height: config.height),
@@ -42,9 +36,5 @@ class NamedIcon extends StatelessWidget
     );
   }
 
-  const NamedIcon(this.data, this.config, {Key? key}): super(key: key);
+  const NamedIcon(this.data, this.config, {Key? key}) : super(key: key);
 }
-
-
-
-// END

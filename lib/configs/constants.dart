@@ -52,4 +52,53 @@ class StringValues {
   static const String diagnosisButtonText = 'Please report your status';
 
   static const String diagnosisRussianPhoneNumber = '88002000112';
+
+  static const diseaseLegendData = [
+    ['Cold', 'assets/images/cold@3x.png'],
+    ['Flu', 'assets/images/flu@3x.png'],
+    ['COVID-19', 'assets/images/covid@3x.png'],
+  ];
+
+  static const symptomsHeader = 'Symptom Check';
+
+  static const symptomsSubtitle = 'Check you symptoms for';
+
+  static const symptomsLegendSubtitle = 'Legend';
+
+  static const symptomRarityLegendData = [
+    ['Common', 'assets/images/common.png'],
+    ['Sometimes', 'assets/images/sometimes.png'],
+    ['Rare', 'assets/images/rare.png'],
+  ];
+
+  /*
+   * Первые три слова в каждом списке обозначают редкость симпотомов и,
+   * соответственно, какую иконку следует рисовать; имена файлов самих
+   * иконок следует брать из symptomColumnAssets
+   */
+  static const symptomColumnData = [
+    ['rare', 'rare', 'common', 'Shortness of breath'],
+    ['rare', 'common', 'common', 'Fever'],
+    ['sometimes', 'common', 'common', 'Cough, chest discomfort'],
+    ['sometimes', 'common', 'never', 'Fatigue, weakness'],
+    ['rare', 'common', 'never', 'Aches'],
+    ['rare', 'common', 'never', 'Chills'],
+    ['rare', 'common', 'never', 'Headache'],
+    ['common', 'sometimes', 'never', 'Sore throat'],
+    ['common', 'sometimes', 'never', 'Sneezing'],
+    ['common', 'sometimes', 'never', 'Stuffy, runny nose'],
+  ];
+
+  static const symptomColumnAssets = {
+    'never': 'assets/images/never.png',
+    'rare': 'assets/images/rare.png',
+    'sometimes': 'assets/images/sometimes.png',
+    'common': 'assets/images/common.png',
+  };
+
+  static const symptomColumnLegendAssets = [
+    'assets/images/cold_dark.png',
+    'assets/images/flu_dark.png',
+    'assets/images/covid_dark.png',
+  ];
 }

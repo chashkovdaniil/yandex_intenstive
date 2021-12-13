@@ -10,6 +10,7 @@ import 'modules/education/presentation/diagnosis.dart';
 import 'modules/education/presentation/education_pager.dart';
 import 'modules/education/presentation/prevention.dart';
 import 'modules/education/presentation/symptoms.dart';
+import 'modules/education/presentation/screens/education_screen.dart';
 import 'modules/home/presentation/home_screen.dart';
 import 'modules/home/presentation/home_screen.dart';
 
@@ -34,12 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // AppRoutes.mapPageScreen: (_) => const MapPage(),
         AppRoutes.homePageScreen: (_) => const HomeScreen(),
-        AppRoutes.educationPageScreen: (_) => const Scaffold(
-              body: Padding(
-                padding: EdgeInsets.all(30.0),
-                child: EducationPager(),
-              ),
-            )
+        AppRoutes.educationPageScreen: (_) => const EducationScreen(),
       },
     );
   }

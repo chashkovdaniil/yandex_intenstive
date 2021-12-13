@@ -9,12 +9,14 @@ class SettingsItemCard extends StatelessWidget {
   final Widget content;
   final IconData? icon;
   final String title;
+  final Color? iconColor;
 
   const SettingsItemCard({
     Key? key,
     required this.content,
     required this.icon,
     required this.title,
+    required this.iconColor,
   }) : super(key: key);
 
   @override
@@ -31,14 +33,34 @@ class SettingsItemCard extends StatelessWidget {
               border: Border.all(
                 color: AppColors.grey.withOpacity(0.6),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.08),
+                  spreadRadius: 3,
+                  blurRadius: 3,
+                  offset: const Offset(0.0, 0.9),
+                ),
+              ],
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  Icon(
-                    icon,
-                    size: 26,
+                  Container(
+                    width: 46,
+                    height: 46,
+                    decoration: BoxDecoration(
+                      color: iconColor,
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: AppColors.grey.withOpacity(0.6),
+                      ),
+                    ),
+                    child: Icon(
+                      icon,
+                      color: AppColors.white,
+                      size: 26,
+                    ),
                   ),
                   const SizedBox(
                     width: 16,

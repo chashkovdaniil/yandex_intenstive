@@ -74,4 +74,10 @@ class TextStyles {
         fontWeight: FontWeight.w400,
         fontSize: 17,
       );
+
+  static TextStyle get titleSettingsScope => TextStyle(
+        color: Colors.black.withOpacity(0.6),
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
+      );
 }

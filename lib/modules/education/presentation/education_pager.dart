@@ -9,31 +9,18 @@ class EducationPager extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-    // const PreventionPage();
-      DefaultTabController(
-        initialIndex: 1,
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('TabBar Widget'),
-            bottom: const TabBar(
-              tabs: <Widget>[
-                Tab(text: 'Prevention'),
-                Tab(text: 'Symptoms'),
-                Tab(text: 'Diagnosis'),
-              ],
-            ),
-          ),
-          body: const Padding(
-            padding: EdgeInsets.only(top: 30.0),
-            child: TabBarView(
-              children: <Widget>[
-                PreventionPage(),
-                SymptomCheck(),
-                DiagnosisPage(),
-              ],
-            ),
-          ),
+      Padding(
+        padding: const EdgeInsets.only(top: 30.0),
+        child: PageView(
+          controller: PageController(initialPage: 0),
+          children: const [
+            // Text('Prevention'),
+            // Text('SymptomsPage'),
+            // Text('Diagnosis'),
+            PreventionPage(),
+            SymptomsPage(),
+            DiagnosisPage(),
+          ],
         ),
       );
 
@@ -57,7 +44,7 @@ class EducationPager extends StatelessWidget {
   //             Text('Second tab'),
   //             Text('Third tab'),
   //             // PreventionPage(),
-  //             // SymptomCheck(),
+  //             // SymptomsPage(),
   //             // DiagnosisPage(),
   //           ],
   //         )

@@ -6,7 +6,7 @@ import '../../../core/styles/app_theme.dart';
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
 
-class SymptomCheck extends StatelessWidget {
+class SymptomsPage extends StatelessWidget {
   static final _diseaseLegend = List<NamedIconData>.from(
     StringValues.diseaseLegendData.map(
       (item) => NamedIconData(item[0], item[1]),
@@ -19,7 +19,7 @@ class SymptomCheck extends StatelessWidget {
     ),
   );
 
-  const SymptomCheck({Key? key}) : super(key: key);
+  const SymptomsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Column(

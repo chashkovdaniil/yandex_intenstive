@@ -258,6 +258,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_portal:
+    dependency: "direct main"
+    description:
+      name: flutter_portal
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -625,6 +632,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
+<<<<<<< HEAD
+  throttling:
+    dependency: "direct main"
+    description:
+      name: throttling
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+=======
+>>>>>>> ee6a0fed517d0a10176e25dbc2c388aa3138cfdd
   timing:
     dependency: transitive
     description:
@@ -683,4 +700,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.14.0 <3.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=1.21.0"

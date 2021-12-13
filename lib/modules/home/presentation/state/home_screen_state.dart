@@ -34,7 +34,8 @@ class HomeScreenProvider extends StateNotifier<HomeScreenState> {
           const HomeScreenState(status: HomeScreenStateStatus.loading()),
         );
 
-  Future<void> load() async {
+  void load() {
+    // Вынести логику в usecase
     if ((state.confirmedSpots == null ||
             state.recoveredSpots == null ||
             state.testData == null ||
@@ -44,7 +45,7 @@ class HomeScreenProvider extends StateNotifier<HomeScreenState> {
         status: const HomeScreenStateStatus.loading(),
       );
     }
-    await Future.delayed(const Duration(seconds: 0), () {
+    Future.delayed(const Duration(seconds: 0), () {
       state = state.copyWith(
         status: const HomeScreenStateStatus.success(),
         // status: Random().nextBool()

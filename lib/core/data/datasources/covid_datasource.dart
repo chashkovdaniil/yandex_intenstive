@@ -8,4 +8,5 @@ abstract class CovidDatasource {
     required String iso,
   });
   Future<CovidReport> statsTotalByDate({DateTime? date});
+  Future<List<Country>> countries();
 }

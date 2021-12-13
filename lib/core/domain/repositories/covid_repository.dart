@@ -7,5 +7,6 @@ abstract class CovidRepository {
     DateTime? date,
     required String iso,
   });
+  Future<List<Country>> countries();
   Future<CovidReport> statsTotalByDate({DateTime? date});
 }

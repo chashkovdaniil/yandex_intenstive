@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portal/flutter_portal.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yandex_intensive/modules/map/presentation/screens/country_details_screen.dart';
 
 import 'configs/app_routes.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
+import 'modules/home/presentation/home_screen.dart';
+import 'modules/search/presentation/search_screen.dart';
 
 void main() {
   runApp(
@@ -20,10 +24,17 @@ class MyApp extends StatelessWidget {
   @override
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.appTheme(),
-      title: 'Yandex Intensive Covid',
-      home: const BottomNavigation(),
+    return Portal(
+      child: MaterialApp(
+        theme: AppTheme.light(),
+        title: 'Yandex Intensive Covid',
+        routes: {
+          '/': (_) => BottomNavigation(),
+          AppRoutes.searchScreenRoute: (_) => SearchScreen(),
+          AppRoutes.countryDetails: (_) => CountryDetailsScreen(),
+        },
+        // home: const BottomNavigation(),
+      ),
     );
   }
 }

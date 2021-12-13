@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_portal/flutter_portal.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/app_routes.dart';
+import 'package:yandex_intensive/modules/search/presentation/search_screen.dart';
+import 'package:yandex_intensive/modules/search/presentation/widgets/search_field.dart';
 import '../../../configs/colors.dart';
 
 import 'components/animation_numbers_text.dart';
@@ -63,7 +67,7 @@ class HomeScreen extends HookConsumerWidget {
   }
 }
 
-class HomeScreenSuccessState extends StatelessWidget {
+class HomeScreenSuccessState extends HookConsumerWidget {
   final List<List<double>>? confirmedSpots;
   final List<List<double>>? recoveredSpots;
   final Map<String, Object>? testData;
@@ -75,7 +79,7 @@ class HomeScreenSuccessState extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -90,40 +94,11 @@ class HomeScreenSuccessState extends StatelessWidget {
                   backgroundColor: Colors.white,
                   elevation: 0,
                   floating: true,
-                  flexibleSpace: TextField(
-                    toolbarOptions: const ToolbarOptions(
-                      copy: true,
-                      paste: true,
-                      cut: true,
-                      selectAll: true,
-                    ),
-                    textInputAction: TextInputAction.search,
-                    decoration: InputDecoration(
-                      // suffixIcon: IconButton(
-                      //   onPressed: () {},
-                      //   icon: const Icon(Icons.close),
-                      // ),
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 20),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                          color: AppColors.grey,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                          color: AppColors.grey,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                          color: AppColors.grey,
-                        ),
-                      ),
-                    ),
+                  flexibleSpace: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.searchScreenRoute);
+                    },
+                    child: const SearchField(enabled: false),
                   ),
                 ),
                 const SliverToBoxAdapter(

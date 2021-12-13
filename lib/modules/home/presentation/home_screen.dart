@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_portal/flutter_portal.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/app_routes.dart';
+import 'package:yandex_intensive/modules/search/presentation/search_screen.dart';
+import 'package:yandex_intensive/modules/search/presentation/widgets/search_field.dart';
 import '../../../configs/colors.dart';
 
 import 'components/animation_numbers_text.dart';
@@ -63,7 +67,7 @@ class HomeScreen extends HookConsumerWidget {
   }
 }
 
-class HomeScreenSuccessState extends StatelessWidget {
+class HomeScreenSuccessState extends HookConsumerWidget {
   final List<List<double>>? confirmedSpots;
   final List<List<double>>? recoveredSpots;
   final Map<String, Object>? testData;
@@ -75,7 +79,7 @@ class HomeScreenSuccessState extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -86,11 +90,16 @@ class HomeScreenSuccessState extends StatelessWidget {
               controller: ScrollController(),
               physics: const BouncingScrollPhysics(),
               slivers: [
-                const SliverAppBar(
+                SliverAppBar(
                   backgroundColor: Colors.white,
                   elevation: 0,
                   floating: true,
-                  flexibleSpace: SearchField(),
+                  flexibleSpace: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.searchScreenRoute);
+                    },
+                    child: const SearchField(enabled: false),
+                  ),
                 ),
                 const SliverToBoxAdapter(
                   child: SizedBox(height: 10),
@@ -176,151 +185,6 @@ class HomeScreenSuccessState extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class SearchField extends StatefulWidget {
-  const SearchField({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<SearchField> createState() => _SearchFieldState();
-}
-
-class _SearchFieldState extends State<SearchField> {
-  final _focusNode = FocusNode();
-  late final TextEditingController _searchFieldController;
-  OverlayEntry? _suggestsOverlay;
-
-  @override
-  void initState() {
-    super.initState();
-    _searchFieldController = TextEditingController();
-    _focusNode.addListener(() {
-      if (_focusNode.hasFocus) {
-        _suggestsOverlay = _createSuggestsOverlay();
-        Overlay.of(context)?.insert(_suggestsOverlay!);
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _suggestsOverlay?.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _onWillPop,
-      child: TextField(
-        controller: _searchFieldController,
-        focusNode: _focusNode,
-        toolbarOptions: const ToolbarOptions(
-          copy: true,
-          paste: true,
-          cut: true,
-          selectAll: true,
-        ),
-        textInputAction: TextInputAction.search,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: const BorderSide(
-              color: AppColors.grey,
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: const BorderSide(
-              color: AppColors.grey,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: const BorderSide(
-              color: AppColors.grey,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Future<bool> _onWillPop() async {
-    if (_suggestsOverlay != null) {
-      _defeatSuggestsOverlay();
-      return false;
-    }
-    return true;
-  }
-
-  OverlayEntry _createSuggestsOverlay() {
-    var renderBox = context.findRenderObject() as RenderBox;
-    var size = renderBox.size;
-    var sizeScreen = MediaQuery.of(context).size;
-    var offset = renderBox.localToGlobal(Offset.zero);
-    return OverlayEntry(
-      builder: (context) {
-        return SuggestsOverlay(
-          offset: offset,
-          size: size,
-          sizeScreen: sizeScreen,
-          textFieldController: _searchFieldController,
-        );
-      },
-    );
-  }
-
-  void _defeatSuggestsOverlay() {
-    _suggestsOverlay?.remove();
-    _suggestsOverlay = null;
-    _focusNode.unfocus();
-  }
-}
-
-class SuggestsOverlay extends StatelessWidget {
-  final Offset offset;
-  final Size size;
-  final Size sizeScreen;
-  final Duration duration;
-  final TextEditingController textFieldController;
-
-  const SuggestsOverlay({
-    Key? key,
-    required this.offset,
-    required this.size,
-    required this.sizeScreen,
-    this.duration = const Duration(
-      seconds: 1,
-    ),
-    required this.textFieldController,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      duration: duration,
-      tween: Tween(
-        begin: 0.0,
-        end: sizeScreen.height - size.height,
-      ),
-      builder: (context, value, child) {
-        return Positioned(
-          top: offset.dy + size.height,
-          width: sizeScreen.width,
-          height: value,
-          child: child!,
-        );
-      },
-      child: Container(
-        color: Colors.white,
-        child: Text(textFieldController.text),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_portal/flutter_portal.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yandex_intensive/configs/app_routes.dart';
 import 'package:yandex_intensive/modules/search/presentation/search_screen.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portal/flutter_portal.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yandex_intensive/modules/map/presentation/screens/country_details_screen.dart';
 
@@ -24,17 +23,15 @@ class MyApp extends StatelessWidget {
   @override
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
-    return Portal(
-      child: MaterialApp(
-        theme: AppTheme.light(),
-        title: 'Yandex Intensive Covid',
-        routes: {
-          '/': (_) => BottomNavigation(),
-          AppRoutes.searchScreenRoute: (_) => SearchScreen(),
-          AppRoutes.countryDetails: (_) => CountryDetailsScreen(),
-        },
-        // home: const BottomNavigation(),
-      ),
+    return MaterialApp(
+      theme: AppTheme.light(),
+      title: 'Yandex Intensive Covid',
+      routes: {
+        '/': (_) => BottomNavigation(),
+        AppRoutes.searchScreenRoute: (_) => SearchScreen(),
+        AppRoutes.countryDetails: (_) => CountryDetailsScreen(),
+      },
+      // home: const BottomNavigation(),
     );
   }
 }

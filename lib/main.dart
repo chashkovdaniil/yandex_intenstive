@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'configs/app_routes.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
+import 'modules/education/presentation/components/prevention_item.dart';
+import 'modules/education/presentation/prevention.dart';
+import 'modules/home/presentation/home_screen.dart';
 
 import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
 import 'package:yandex_intensive/modules/education/presentation/symptom_check.dart';
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Yandex Intensive Covid',
       home: Scaffold(
         body: SingleChildScrollView(

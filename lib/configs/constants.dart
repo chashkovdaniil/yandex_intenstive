@@ -108,6 +108,32 @@ class StringValues {
     'assets/images/flu_dark.png',
     'assets/images/covid_dark.png',
   ];
+
+  static const String preventionHeader =
+      'Basic protective measures against the new coronavirus';
+
+  static const preventionData = [
+    [
+      'assets/images/clean_hands.svg',
+      'Clean your hands often',
+      'Wash hands often with soap and water for at least 20s',
+    ],
+    [
+      'assets/images/wear_facemask.svg',
+      'Wear a facemask',
+      'You should wear facemask when you are around other people.',
+    ],
+    [
+      'assets/images/avoid_touching_face.svg',
+      'Avoid touching your face',
+      'Hands touch many surfaces and can pick up viruses.',
+    ],
+    [
+      'assets/images/avoid_close_contact.svg',
+      'Avoid close contact',
+      'Put distance between yourself and other people.',
+    ],
+  ];
 }
 
 

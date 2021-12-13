@@ -68,19 +68,16 @@ class SearchScreen extends HookConsumerWidget {
       ),
       body: stateScreen.status.when(
         success: () => ListView(
-          children: stateScreen.countries
-              .map(
-                (e) => ListTile(
-                  title: Text(e.name),
-                  onTap: () {
-                    ref.read(navigator).push(
-                          AppRoutes.countryDetails,
-                          arguments: CountryDetailsScreenArgs(country: e),
-                        );
-                  },
-                ),
-              )
-              .toList(),
+          children: stateScreen.countries.map((e) {
+            return ListTile(
+              title: Text(e.name),
+              onTap: () {
+                ref.read(navigator).openCountryDetails(
+                      CountryDetailsScreenArgs(country: e),
+                    );
+              },
+            );
+          }).toList(),
         ),
         loading: () => const Center(
           child: CircularProgressIndicator(),

@@ -1,16 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../configs/colors.dart';
-import '../../../../configs/text_styles.dart';
-import 'on_tap_opacity.dart';
+import '../../configs/colors.dart';
+import '../../configs/text_styles.dart';
+import '../map/presentation/widgets/on_tap_opacity.dart';
 
-class MapScreenAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget {
   final String? title;
   final bool showBackButton;
+  final bool showUserButton;
 
-  const MapScreenAppBar({Key? key, this.title, this.showBackButton = true})
-      : super(key: key);
+  const CustomAppBar({
+    Key? key,
+    this.title,
+    this.showBackButton = true,
+    this.showUserButton = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Container(
@@ -20,15 +25,15 @@ class MapScreenAppBar extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: AppColors.grey.withOpacity(0.08),
+              color: Colors.grey.withOpacity(0.08),
               spreadRadius: 5,
               blurRadius: 3,
-              offset: const Offset(0.0, 0.75),
+              offset: const Offset(0.0, 0.9),
             ),
           ],
           border: Border(
             bottom: BorderSide(
-              color: AppColors.grey.withOpacity(0.3),
+              color: AppColors.grey.withOpacity(0.6),
             ),
           ),
         ),
@@ -53,7 +58,6 @@ class MapScreenAppBar extends StatelessWidget {
                           ],
                         ),
                       )
-                    // TODO: this какой-то костыль ебаный мда
                     : const Text(''),
               ),
               alignment: Alignment.centerLeft,
@@ -67,19 +71,21 @@ class MapScreenAppBar extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 //TODO: what this button is for lmao ??
                 onTap: () {},
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      WidgetSpan(
-                        child: Icon(
-                          CupertinoIcons.person,
-                          color: AppColors.black.withOpacity(0.4),
-                          size: 22,
+                child: showUserButton
+                    ? RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(
+                                CupertinoIcons.person,
+                                color: AppColors.black.withOpacity(0.4),
+                                size: 22,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ),
+                      )
+                    : const Text(''),
               ),
               alignment: Alignment.centerRight,
             ),

@@ -4,14 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'configs/app_routes.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
-import 'modules/education/presentation/components/prevention_item.dart';
-import 'modules/education/presentation/prevention.dart';
-import 'modules/education/presentation/diagnosis.dart';
 import 'modules/education/presentation/components/education_preview.dart';
+import 'modules/education/presentation/components/prevention_item.dart';
+import 'modules/education/presentation/diagnosis.dart';
+import 'modules/education/presentation/education_pager.dart';
+import 'modules/education/presentation/prevention.dart';
+import 'modules/education/presentation/symptoms.dart';
 import 'modules/home/presentation/home_screen.dart';
-
-import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
-import 'package:yandex_intensive/modules/education/presentation/symptoms.dart';
+import 'modules/home/presentation/home_screen.dart';
 
 void main() {
   runApp(
@@ -35,7 +35,10 @@ class MyApp extends StatelessWidget {
         // AppRoutes.mapPageScreen: (_) => const MapPage(),
         AppRoutes.homePageScreen: (_) => const HomeScreen(),
         AppRoutes.educationPageScreen: (_) => const Scaffold(
-              body: EducationPreview(),
+              body: Padding(
+                padding: EdgeInsets.all(30.0),
+                child: EducationPager(),
+              ),
             )
       },
     );

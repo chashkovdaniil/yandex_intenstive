@@ -4,10 +4,11 @@ class OnboardingButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onTap;
 
-  const OnboardingButton({
+   const OnboardingButton({
+    Key? key,
     required this.child,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

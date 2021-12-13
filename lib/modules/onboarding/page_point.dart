@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:yandex_intensive/configs/colors.dart';
+
+import '../../configs/colors.dart';
 
 class OnboardingPagePoint extends StatelessWidget {
   final bool _isActive;
 
-  const OnboardingPagePoint(this._isActive);
+  const OnboardingPagePoint(this._isActive, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

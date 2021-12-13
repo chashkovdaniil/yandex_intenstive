@@ -2,12 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yandex_intensive/configs/colors.dart';
 import 'package:yandex_intensive/configs/text_styles.dart';
+import 'package:yandex_intensive/modules/settings/presentation%20/screens/settings_screen.dart';
 
-import '../discovery/presentation/screens/discovery_screen.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
-import '../news/presentation/screens/news_screen.dart';
 
 class BottomNavigationState extends State {
   int _currentIndex = 0;
@@ -15,8 +14,7 @@ class BottomNavigationState extends State {
     const HomeScreen(),
     const MapScreen(),
     const EducationScreen(),
-    const DiscoveryScreen(),
-    const NewsScreen(),
+    const SettingsScreen(),
   ];
 
   @override
@@ -44,12 +42,8 @@ class BottomNavigationState extends State {
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.location),
-            label: 'Discovery',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.book),
-            label: 'News',
+            icon: Icon(CupertinoIcons.settings),
+            label: 'Settings',
           ),
         ],
       ),

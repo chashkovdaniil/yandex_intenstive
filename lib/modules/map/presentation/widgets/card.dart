@@ -26,7 +26,7 @@ class MapScreenCard extends StatelessWidget {
             color: AppColors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: AppColors.grey.withOpacity(0.3),
+              color: AppColors.grey.withOpacity(0.6),
             ),
           ),
           child: Padding(

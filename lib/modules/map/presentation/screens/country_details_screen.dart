@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/constants.dart';
-import '../widgets/app_bar.dart';
+import '../../../general/app_bar.dart';
 import '../widgets/card.dart';
 import '../widgets/country_details.dart';
 import '../widgets/country_graph.dart';
@@ -30,7 +30,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
         child: Scaffold(
           body: Column(
             children: [
-              MapScreenAppBar(
+              CustomAppBar(
                 // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
                 title: 'Country' + StringValues.countryStatisticsTitle,
               ),

@@ -6,7 +6,10 @@ final navigator = Provider<AppNavigator>((ref) {
 });
 
 class AppNavigator {
-  final GlobalKey<NavigatorState> key = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> _key = GlobalKey<NavigatorState>();
+
+  get key => _key;
+
   push(String uri, {Object? arguments}) {
     Navigator.pushNamed(key.currentContext!, uri, arguments: arguments);
   }

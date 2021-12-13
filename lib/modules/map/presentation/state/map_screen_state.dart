@@ -27,8 +27,7 @@ class MapScreenProvider extends StateNotifier<MapScreenState> {
         );
 
   Future<void> load() async {
-    if ((state.testData == null ||
-            state.status == const MapScreenStateStatus.failed()) &&
+    if (state.status == const MapScreenStateStatus.failed() &&
         state.status != const MapScreenStateStatus.loading()) {
       state = state.copyWith(
         status: const MapScreenStateStatus.loading(),

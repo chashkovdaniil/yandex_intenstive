@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/config/config.dart';
-import 'package:yandex_intensive/modules/onboarding/left_button.dart';
-import 'package:yandex_intensive/modules/onboarding/page.dart';
-import 'package:yandex_intensive/modules/onboarding/page_point.dart';
-import 'package:yandex_intensive/modules/onboarding/right_button.dart';
+
+import '../../configs/constants.dart';
+import 'left_button.dart';
+import 'page.dart';
+import 'page_point.dart';
+import 'right_button.dart';
 
 const _backgroundColor = Colors.white;
 
 class Onboarding extends StatefulWidget {
+  const Onboarding({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _OnboardingState();
 }
@@ -54,14 +57,14 @@ class _OnboardingState extends State<Onboarding> {
       Assets.onboardingImage3,
     ];
     final titles = [
-      OnboardingTitles.onboardingTitle1,
-      OnboardingTitles.onboardingTitle2,
-      OnboardingTitles.onboardingTitle3,
+      StringValues.onboardingTitle1,
+      StringValues.onboardingTitle2,
+      StringValues.onboardingTitle3,
     ];
     final descriptions = [
-      OnboardingDescriprions.onboardingDescription1,
-      OnboardingDescriprions.onboardingDescription2,
-      OnboardingDescriprions.onboardingDescription3,
+      StringValues.onboardingDescription1,
+      StringValues.onboardingDescription2,
+      StringValues.onboardingDescription3,
     ];
     return Scaffold(
       backgroundColor: _backgroundColor,
@@ -89,7 +92,8 @@ class _OnboardingState extends State<Onboarding> {
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
                   child: OnboardingLeftButton(
-                      onPressed: () => _closePage(context)),
+                    onPressed: () => _closePage(context),
+                  ),
                 ),
                 const Spacer(),
                 for (var i = 0; i < _countPages; ++i)
@@ -98,7 +102,8 @@ class _OnboardingState extends State<Onboarding> {
                 Padding(
                   padding: const EdgeInsets.only(right: 25.0),
                   child: OnboardingRightButton(
-                      onPressed: () => _changePage(_currentPage + 1, context)),
+                    onPressed: () => _changePage(_currentPage + 1, context),
+                  ),
                 ),
               ],
             ),

@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:yandex_intensive/modules/config/config.dart';
+
+import '../../configs/colors.dart';
 
 class OnboardingPagePoint extends StatelessWidget {
   final bool _isActive;
 
-  const OnboardingPagePoint(this._isActive);
+  const OnboardingPagePoint(this._isActive, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,7 @@ class OnboardingPagePoint extends StatelessWidget {
         height: 8,
         width: 8,
         decoration: BoxDecoration(
-          color: _isActive
-              ? OnboardingColors.activePointColor
-              : OnboardingColors.notActivePointColor,
+          color: _isActive ? AppColors.primary : AppColors.grey,
           shape: BoxShape.circle,
         ),
       ),

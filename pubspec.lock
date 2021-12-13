@@ -632,6 +632,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
+<<<<<<< HEAD
   throttling:
     dependency: "direct main"
     description:
@@ -639,6 +640,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+=======
+>>>>>>> ee6a0fed517d0a10176e25dbc2c388aa3138cfdd
   timing:
     dependency: transitive
     description:

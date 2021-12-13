@@ -6,6 +6,7 @@ import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
 import 'modules/education/presentation/components/prevention_item.dart';
 import 'modules/education/presentation/prevention.dart';
+import 'modules/education/presentation/diagnosis.dart';
 import 'modules/home/presentation/home_screen.dart';
 
 import 'package:yandex_intensive/modules/home/presentation/home_screen.dart';
@@ -28,16 +29,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Yandex Intensive Covid',
-      home: Scaffold(
-        body: SingleChildScrollView(
-          padding: EdgeInsets.all(20.0),
-          child: SymptomCheck(),
-        ),
-      ),
-      // initialRoute: HomeScreen.route,
-      // routes: {
-      //   HomeScreen.route: (_) => HomeScreen(),
-      // },
+      initialRoute: AppRoutes.educationPageScreen,
+      routes: {
+        // AppRoutes.mapPageScreen: (_) => const MapPage(),
+        AppRoutes.homePageScreen: (_) => const HomeScreen(),
+        AppRoutes.educationPageScreen: (_) => const Scaffold(
+              body: DiagnosisPage(),
+            )
+      },
     );
   }
 }

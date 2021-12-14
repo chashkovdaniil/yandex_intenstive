@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yandex_intensive/configs/colors.dart';
 import 'package:yandex_intensive/configs/text_styles.dart';
+import 'package:yandex_intensive/modules/settings/presentation%20/widgets/item_notifications.dart';
 import 'package:yandex_intensive/modules/settings/presentation%20/widgets/item_theme.dart';
 import 'package:yandex_intensive/modules/settings/presentation%20/widgets/settings_card.dart';
 
@@ -49,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 10,
             ),
             const SettingsItemCard(
-              content: ItemTheme(),
+              content: ItemNotifications(),
               title: 'Notifications',
               icon: CupertinoIcons.bell,
               iconColor: AppColors.blue,

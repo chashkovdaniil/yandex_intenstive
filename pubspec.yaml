@@ -32,6 +32,7 @@ dependencies:
   flutter_hooks: ^0.18.1
   sprintf: ^6.0.0
   path: ^1.8.0
+  firebase_messaging: ^11.2.3
 
 dev_dependencies:
   flutter_test:

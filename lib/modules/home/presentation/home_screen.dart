@@ -24,6 +24,7 @@ class HomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('build HomeScreen');
     final homeScreenStatus = ref.watch(_homeScreenProvider).status;
 
     useEffect(
@@ -79,6 +80,8 @@ class HomeScreenSuccessState extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    final isHorizontalOrientation =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -104,7 +107,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                   child: SizedBox(height: 10),
                 ),
                 SliverGrid.count(
-                  crossAxisCount: 2,
+                  crossAxisCount: isHorizontalOrientation ? 4 : 2,
                   mainAxisSpacing: 30,
                   crossAxisSpacing: 25,
                   children: [

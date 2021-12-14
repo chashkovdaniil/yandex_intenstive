@@ -99,14 +99,14 @@ class CovidNetworkDatasource implements CovidDatasource {
 
   @override
   Future<CovidReport> statsCountryByDate({
-    required String iso,
+    required Country country,
     DateTime? date,
   }) async {
     try {
       date ??= DateTime.now();
       var str = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
-      var json = await _dio
-          .get(_apiReportsTotal, queryParameters: {'date': str, 'iso': iso});
+      var json = await _dio.get(_apiReportsTotal,
+          queryParameters: {'date': str, 'iso': country.code});
       var raw = json.data['data'] as Map<String, dynamic>;
       var dto = CovidReportDto.fromJson(raw);
 

@@ -5,7 +5,7 @@ abstract class CovidRepository {
   Future<Map<String, CountryCovid>> statsCountriesByDate({DateTime? date});
   Future<CovidReport> statsCountryByDate({
     DateTime? date,
-    required String iso,
+    required Country country,
   });
   Future<List<Country>> countries();
   Future<CovidReport> statsTotalByDate({DateTime? date});

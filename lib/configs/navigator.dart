@@ -19,7 +19,7 @@ class AppNavigationManager {
 
   BuildContext? get context => _navigator?.context;
 
-  openCountryDetails(
+  Future<dynamic>? openCountryDetails(
     CountryDetailsScreenArgs args,
   ) {
     return _navigator?.pushNamed(

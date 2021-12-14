@@ -7,7 +7,6 @@ import 'package:yandex_intensive/modules/settings/presentation%20/screens/settin
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
-
 class BottomNavigationState extends State {
   int _currentIndex = 0;
   final List _children = [

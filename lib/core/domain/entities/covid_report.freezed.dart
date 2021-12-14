@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, require_trailing_commas
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'covid_report.dart';
 
@@ -50,15 +51,25 @@ const $CovidReport = _$CovidReportTearOff();
 /// @nodoc
 mixin _$CovidReport {
   DateTime get date => throw _privateConstructorUsedError;
+
   int get confirmed => throw _privateConstructorUsedError;
+
   int get deaths => throw _privateConstructorUsedError;
+
   int get recovered => throw _privateConstructorUsedError;
+
   int get confirmedDiff => throw _privateConstructorUsedError;
+
   int get deathsDiff => throw _privateConstructorUsedError;
+
   int get recoveredDiff => throw _privateConstructorUsedError;
+
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
   int get active => throw _privateConstructorUsedError;
+
   int get activeDiff => throw _privateConstructorUsedError;
+
   double get fatalityRate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -71,6 +82,7 @@ abstract class $CovidReportCopyWith<$Res> {
   factory $CovidReportCopyWith(
           CovidReport value, $Res Function(CovidReport) then) =
       _$CovidReportCopyWithImpl<$Res>;
+
   $Res call(
       {DateTime date,
       int confirmed,
@@ -90,6 +102,7 @@ class _$CovidReportCopyWithImpl<$Res> implements $CovidReportCopyWith<$Res> {
   _$CovidReportCopyWithImpl(this._value, this._then);
 
   final CovidReport _value;
+
   // ignore: unused_field
   final $Res Function(CovidReport) _then;
 
@@ -162,6 +175,7 @@ abstract class _$CovidReportCopyWith<$Res>
   factory _$CovidReportCopyWith(
           _CovidReport value, $Res Function(_CovidReport) then) =
       __$CovidReportCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {DateTime date,
@@ -297,53 +311,41 @@ class _$_CovidReport implements _CovidReport {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CovidReport &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)) &&
-            (identical(other.confirmed, confirmed) ||
-                const DeepCollectionEquality()
-                    .equals(other.confirmed, confirmed)) &&
-            (identical(other.deaths, deaths) ||
-                const DeepCollectionEquality().equals(other.deaths, deaths)) &&
-            (identical(other.recovered, recovered) ||
-                const DeepCollectionEquality()
-                    .equals(other.recovered, recovered)) &&
-            (identical(other.confirmedDiff, confirmedDiff) ||
-                const DeepCollectionEquality()
-                    .equals(other.confirmedDiff, confirmedDiff)) &&
-            (identical(other.deathsDiff, deathsDiff) ||
-                const DeepCollectionEquality()
-                    .equals(other.deathsDiff, deathsDiff)) &&
-            (identical(other.recoveredDiff, recoveredDiff) ||
-                const DeepCollectionEquality()
-                    .equals(other.recoveredDiff, recoveredDiff)) &&
-            (identical(other.lastUpdate, lastUpdate) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastUpdate, lastUpdate)) &&
-            (identical(other.active, active) ||
-                const DeepCollectionEquality().equals(other.active, active)) &&
-            (identical(other.activeDiff, activeDiff) ||
-                const DeepCollectionEquality()
-                    .equals(other.activeDiff, activeDiff)) &&
-            (identical(other.fatalityRate, fatalityRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.fatalityRate, fatalityRate)));
+        (other.runtimeType == runtimeType &&
+            other is _CovidReport &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.confirmed, confirmed) &&
+            const DeepCollectionEquality().equals(other.deaths, deaths) &&
+            const DeepCollectionEquality().equals(other.recovered, recovered) &&
+            const DeepCollectionEquality()
+                .equals(other.confirmedDiff, confirmedDiff) &&
+            const DeepCollectionEquality()
+                .equals(other.deathsDiff, deathsDiff) &&
+            const DeepCollectionEquality()
+                .equals(other.recoveredDiff, recoveredDiff) &&
+            const DeepCollectionEquality()
+                .equals(other.lastUpdate, lastUpdate) &&
+            const DeepCollectionEquality().equals(other.active, active) &&
+            const DeepCollectionEquality()
+                .equals(other.activeDiff, activeDiff) &&
+            const DeepCollectionEquality()
+                .equals(other.fatalityRate, fatalityRate));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(confirmed) ^
-      const DeepCollectionEquality().hash(deaths) ^
-      const DeepCollectionEquality().hash(recovered) ^
-      const DeepCollectionEquality().hash(confirmedDiff) ^
-      const DeepCollectionEquality().hash(deathsDiff) ^
-      const DeepCollectionEquality().hash(recoveredDiff) ^
-      const DeepCollectionEquality().hash(lastUpdate) ^
-      const DeepCollectionEquality().hash(active) ^
-      const DeepCollectionEquality().hash(activeDiff) ^
-      const DeepCollectionEquality().hash(fatalityRate);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(confirmed),
+      const DeepCollectionEquality().hash(deaths),
+      const DeepCollectionEquality().hash(recovered),
+      const DeepCollectionEquality().hash(confirmedDiff),
+      const DeepCollectionEquality().hash(deathsDiff),
+      const DeepCollectionEquality().hash(recoveredDiff),
+      const DeepCollectionEquality().hash(lastUpdate),
+      const DeepCollectionEquality().hash(active),
+      const DeepCollectionEquality().hash(activeDiff),
+      const DeepCollectionEquality().hash(fatalityRate));
 
   @JsonKey(ignore: true)
   @override
@@ -366,27 +368,38 @@ abstract class _CovidReport implements CovidReport {
       required double fatalityRate}) = _$_CovidReport;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
+
   @override
-  int get confirmed => throw _privateConstructorUsedError;
+  int get confirmed;
+
   @override
-  int get deaths => throw _privateConstructorUsedError;
+  int get deaths;
+
   @override
-  int get recovered => throw _privateConstructorUsedError;
+  int get recovered;
+
   @override
-  int get confirmedDiff => throw _privateConstructorUsedError;
+  int get confirmedDiff;
+
   @override
-  int get deathsDiff => throw _privateConstructorUsedError;
+  int get deathsDiff;
+
   @override
-  int get recoveredDiff => throw _privateConstructorUsedError;
+  int get recoveredDiff;
+
   @override
-  DateTime get lastUpdate => throw _privateConstructorUsedError;
+  DateTime get lastUpdate;
+
   @override
-  int get active => throw _privateConstructorUsedError;
+  int get active;
+
   @override
-  int get activeDiff => throw _privateConstructorUsedError;
+  int get activeDiff;
+
   @override
-  double get fatalityRate => throw _privateConstructorUsedError;
+  double get fatalityRate;
+
   @override
   @JsonKey(ignore: true)
   _$CovidReportCopyWith<_CovidReport> get copyWith =>

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'map_screen_state.dart';
 
@@ -43,6 +44,14 @@ mixin _$MapScreenStateStatus {
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? success,
     TResult Function()? failed,
@@ -56,6 +65,14 @@ mixin _$MapScreenStateStatus {
     required TResult Function(Success value) success,
     required TResult Function(Failed value) failed,
     required TResult Function(Loading value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -116,7 +133,8 @@ class _$Success implements Success {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Success);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Success);
   }
 
   @override
@@ -130,6 +148,16 @@ class _$Success implements Success {
     required TResult Function() loading,
   }) {
     return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+  }) {
+    return success?.call();
   }
 
   @override
@@ -154,6 +182,16 @@ class _$Success implements Success {
     required TResult Function(Loading value) loading,
   }) {
     return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+  }) {
+    return success?.call(this);
   }
 
   @override
@@ -204,7 +242,8 @@ class _$Failed implements Failed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Failed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Failed);
   }
 
   @override
@@ -218,6 +257,16 @@ class _$Failed implements Failed {
     required TResult Function() loading,
   }) {
     return failed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+  }) {
+    return failed?.call();
   }
 
   @override
@@ -242,6 +291,16 @@ class _$Failed implements Failed {
     required TResult Function(Loading value) loading,
   }) {
     return failed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+  }) {
+    return failed?.call(this);
   }
 
   @override
@@ -292,7 +351,8 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Loading);
   }
 
   @override
@@ -306,6 +366,16 @@ class _$Loading implements Loading {
     required TResult Function() loading,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? success,
+    TResult Function()? failed,
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -330,6 +400,16 @@ class _$Loading implements Loading {
     required TResult Function(Loading value) loading,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success value)? success,
+    TResult Function(Failed value)? failed,
+    TResult Function(Loading value)? loading,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -485,19 +565,17 @@ class _$_MapScreenState implements _MapScreenState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MapScreenState &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.testData, testData) ||
-                const DeepCollectionEquality()
-                    .equals(other.testData, testData)));
+        (other.runtimeType == runtimeType &&
+            other is _MapScreenState &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.testData, testData));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(testData);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(testData));
 
   @JsonKey(ignore: true)
   @override
@@ -511,10 +589,10 @@ abstract class _MapScreenState implements MapScreenState {
       Map<String, Object>? testData}) = _$_MapScreenState;
 
   @override
-  MapScreenStateStatus get status => throw _privateConstructorUsedError;
+  MapScreenStateStatus get status;
 
   @override
-  Map<String, Object>? get testData => throw _privateConstructorUsedError;
+  Map<String, Object>? get testData;
 
   @override
   @JsonKey(ignore: true)

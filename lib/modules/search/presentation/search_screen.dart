@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yandex_intensive/configs/app_routes.dart';
+import 'package:yandex_intensive/configs/navigator.dart';
 import 'package:yandex_intensive/configs/providers.dart';
 import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
 import 'package:yandex_intensive/modules/search/domains/usecases/countries_usecase.dart';
@@ -67,20 +68,16 @@ class SearchScreen extends HookConsumerWidget {
       ),
       body: stateScreen.status.when(
         success: () => ListView(
-          children: stateScreen.countries
-              .map(
-                (e) => ListTile(
-                  title: Text(e.name),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.countryDetails,
-                      arguments: CountryDetailsScreenArgs(country: e),
+          children: stateScreen.countries.map((e) {
+            return ListTile(
+              title: Text(e.name),
+              onTap: () {
+                ref.read(navigator).openCountryDetails(
+                      CountryDetailsScreenArgs(country: e),
                     );
-                  },
-                ),
-              )
-              .toList(),
+              },
+            );
+          }).toList(),
         ),
         loading: () => const Center(
           child: CircularProgressIndicator(),

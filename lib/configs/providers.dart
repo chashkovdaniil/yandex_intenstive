@@ -1,13 +1,14 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:throttling/throttling.dart';
-import 'package:yandex_intensive/modules/search/domains/usecases/countries_by_name_usecase.dart';
-import 'package:yandex_intensive/modules/search/domains/usecases/countries_usecase.dart';
-import 'package:yandex_intensive/modules/search/presentation/search_screen_state.dart';
+
 import '../core/data/datasources/covid_cache_datasource.dart';
 import '../core/data/datasources/covid_datasource.dart';
 import '../core/data/datasources/covid_network_datasource.dart';
 import '../core/data/repositories/covid_repository_impl.dart';
 import '../core/domain/repositories/covid_repository.dart';
+import '../modules/search/domains/usecases/countries_by_name_usecase.dart';
+import '../modules/search/domains/usecases/countries_usecase.dart';
+import '../modules/search/presentation/search_screen_state.dart';
 
 final covidCacheDatasourceProvider = Provider<CovidDatasource>(
   (ref) => CovidCacheDatasource(),

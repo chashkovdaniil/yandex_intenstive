@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
-import 'package:yandex_intensive/configs/text_styles.dart';
+import '../../configs/colors.dart';
+import '../../configs/text_styles.dart';
 
 import '../discovery/presentation/screens/discovery_screen.dart';
 import '../education/presentation/screens/education_screen.dart';

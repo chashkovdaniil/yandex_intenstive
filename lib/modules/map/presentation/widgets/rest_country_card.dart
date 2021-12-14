@@ -103,7 +103,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
               const Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 22, right: 12.0),
+                  padding: EdgeInsets.only(top: 22, right: 8.0),
                   child: Icon(
                     CupertinoIcons.arrow_up,
                     color: AppColors.primary,

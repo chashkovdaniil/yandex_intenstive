@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
 
@@ -39,7 +39,7 @@ class DiagnosisPage extends StatelessWidget {
           const SizedBox(height: 20.0),
           ElevatedButton(
             style: AppTheme.educationButtonStyle,
-            onPressed: () => UrlLauncher.launch(
+            onPressed: () => url_launcher.launch(
               // TODO: а как же другие страны?
               'tel://${StringValues.diagnosisRussianPhoneNumber}',
             ),

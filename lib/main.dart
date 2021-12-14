@@ -9,8 +9,8 @@ import 'modules/education/presentation/components/prevention_item.dart';
 import 'modules/education/presentation/diagnosis.dart';
 import 'modules/education/presentation/education_pager.dart';
 import 'modules/education/presentation/prevention.dart';
-import 'modules/education/presentation/symptoms.dart';
 import 'modules/education/presentation/screens/education_screen.dart';
+import 'modules/education/presentation/symptoms.dart';
 import 'modules/home/presentation/home_screen.dart';
 import 'modules/home/presentation/home_screen.dart';
 

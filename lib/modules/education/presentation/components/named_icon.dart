@@ -10,31 +10,36 @@ class NamedIconData {
 class NamedIconConfig {
   final double width;
   final double height;
-  final TextStyle? style;
+  final TextStyle style;
+  final EdgeInsets textPadding;
 
-  const NamedIconConfig(this.width, this.height, [this.style]);
+  const NamedIconConfig({
+    required this.width,
+    required this.height,
+    required this.style,
+    required this.textPadding,
+  });
 }
 
 class NamedIcon extends StatelessWidget {
   final NamedIconData data;
   final NamedIconConfig config;
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset(data.asset, width: config.width, height: config.height),
-        const SizedBox(width: 7.0),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-          child: Text(
-            data.title,
-            style: config.style ?? Theme.of(context).textTheme.headline5,
-          ),
-        ),
-      ],
-    );
-  }
-
   const NamedIcon(this.data, this.config, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(data.asset, width: config.width, height: config.height),
+          const SizedBox(width: 2.0),
+          Padding(
+            padding: config.textPadding,
+            child: Text(
+              data.title,
+              style: config.style,
+            ),
+          ),
+        ],
+      );
 }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
 import 'components/prevention_item.dart';
 
 class PreventionPage extends StatelessWidget {
 
-  static const _iconWidth = 100.0;
-  static const _iconHeight = 100.0;
+  static const _iconWidth = 85.0;
+  static const _iconHeight = 85.0;
 
   const PreventionPage({Key? key}) : super(key: key);
 

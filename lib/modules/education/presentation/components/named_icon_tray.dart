@@ -9,12 +9,14 @@ class NamedIconTray extends StatelessWidget {
   const NamedIconTray(this.data, this.config, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.from(
-          data.map(
-            (item) => NamedIcon(item, config),
+  Widget build(BuildContext context) => SizedBox(width: double.infinity,
+    child: Wrap(
+          alignment: WrapAlignment.spaceAround,
+          children: List.from(
+            data.map(
+              (item) => NamedIcon(item, config),
+            ),
           ),
         ),
-      );
+  );
 }

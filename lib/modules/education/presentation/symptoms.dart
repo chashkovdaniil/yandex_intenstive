@@ -37,7 +37,12 @@ class SymptomsPage extends StatelessWidget {
           const SizedBox(height: 10.0),
           NamedIconTray(
             _diseaseLegend,
-            const NamedIconConfig(35.0, 35.0, AppTheme.educationSubtitleBold),
+            const NamedIconConfig(
+              width: 35.0,
+              height: 35.0,
+              style: AppTheme.educationSubtitleBold,
+              textPadding: EdgeInsets.only(top: 8.0),
+            ),
           ),
           const SizedBox(height: 30.0),
           const _SymptomColumn(),
@@ -50,9 +55,10 @@ class SymptomsPage extends StatelessWidget {
           NamedIconTray(
             _rarityLegend,
             const NamedIconConfig(
-              30.0,
-              30.0,
-              AppTheme.educationUsualLight,
+              width: 30.0,
+              height: 30.0,
+              style: AppTheme.educationSmallLight,
+              textPadding: EdgeInsets.only(top: 2.0),
             ),
           ),
         ],
@@ -64,10 +70,10 @@ class SymptomsPage extends StatelessWidget {
 * для каких болезней какие симптомы более характерны
  */
 class _SymptomColumn extends StatelessWidget {
-  static const _iconWidth = 35.0;
-  static const _iconHeight = 35.0;
-  static const _space = 15.0;
-  static const _linePadding = EdgeInsets.only(top: 4.0, bottom: 4.0);
+  static const _iconWidth = 30.0;
+  static const _iconHeight = 30.0;
+  static const _space = 12.0;
+  static const _linePadding = EdgeInsets.only(top: 3.0, bottom: 3.0);
 
   const _SymptomColumn({Key? key}) : super(key: key);
 
@@ -124,7 +130,13 @@ class _SymptomColumnLine extends StatelessWidget {
             _SymptomColumnIcon(StringValues.symptomColumnAssets[items[0]]!),
             _SymptomColumnIcon(StringValues.symptomColumnAssets[items[1]]!),
             _SymptomColumnIcon(StringValues.symptomColumnAssets[items[2]]!),
-            Text(items[3], style: AppTheme.educationUsualLight),
+            Expanded(
+              child: Text(
+                items[3],
+                style: AppTheme.educationSmallLight,
+                softWrap: true,
+              ),
+            ),
           ],
         ),
       );

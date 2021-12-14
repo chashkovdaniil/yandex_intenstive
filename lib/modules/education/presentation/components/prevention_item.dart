@@ -21,7 +21,6 @@ class PreventionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           path.extension(icon) == '.svg'
               ? SvgPicture.asset(
@@ -33,29 +32,23 @@ class PreventionItem extends StatelessWidget {
               : Image.asset(icon, width: width, height: height),
           const SizedBox(width: 20.0),
           Flexible(
-            child: SizedBox(
-              height: height,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    child: Text(
-                      title,
-                      style: AppTheme.educationSubtitle,
-                      softWrap: true,
-                    ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppTheme.educationSubtitle,
+                  softWrap: true,
+                ),
+                const SizedBox(height: 10.0),
+                SizedBox(
+                  child: Text(
+                    tip,
+                    style: AppTheme.educationSmallLight,
+                    softWrap: true,
                   ),
-                  const SizedBox(height: 10.0),
-                  SizedBox(
-                    child: Text(
-                      tip,
-                      style: AppTheme.educationSmallLight,
-                      softWrap: true,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

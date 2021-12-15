@@ -1,6 +1,6 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
+
 import '../../../../core/domain/entities/country_covid_entity.dart';
 
 part 'home_screen_state.freezed.dart';
@@ -8,7 +8,9 @@ part 'home_screen_state.freezed.dart';
 @freezed
 class HomeScreenStateStatus with _$HomeScreenStateStatus {
   const factory HomeScreenStateStatus.success() = Success;
+
   const factory HomeScreenStateStatus.failed() = Failed;
+
   const factory HomeScreenStateStatus.loading() = Loading;
 }
 

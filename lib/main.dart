@@ -15,7 +15,7 @@ import 'modules/splash_screen/splash_screen.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
-  print('Handling a background message: ${message.messageId}');
+  //print('Handling a background message: ${message.messageId}');
 }
 
 void main() async {
@@ -42,7 +42,7 @@ class MyApp extends HookConsumerWidget {
       initialRoute: AppRoutes.splashScreen,
       navigatorKey: ref.watch(appNavigationManagerProvider).key,
       routes: {
-        AppRoutes.bottomNavigation: (_) => BottomNavigation(),
+        AppRoutes.bottomNavigation: (_) => const BottomNavigation(),
         AppRoutes.splashScreen: (_) => const SplashScreen(),
         AppRoutes.onboardingScreen: (_) => Onboarding(),
         AppRoutes.searchScreenRoute: (_) => const SearchScreen(),

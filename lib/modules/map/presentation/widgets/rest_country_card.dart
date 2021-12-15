@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/app_routes.dart';
 
+import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';

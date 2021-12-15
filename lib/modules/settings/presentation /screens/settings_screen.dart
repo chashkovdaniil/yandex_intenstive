@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/settings/presentation%20/widgets/item_language.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/app_bar.dart';
 import '../widgets/general_settings_card.dart';
+import '../widgets/item_language.dart';
 import '../widgets/item_notifications.dart';
 import '../widgets/item_theme.dart';
 import '../widgets/personal_settings_card.dart';

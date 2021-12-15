@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../data/dto/country_dto.dart';
-
 import 'covid_report.dart';
 
 part 'country_covid_entity.g.dart';

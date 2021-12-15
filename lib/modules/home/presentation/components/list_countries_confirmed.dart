@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../configs/colors.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 

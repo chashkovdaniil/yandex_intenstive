@@ -36,32 +36,27 @@ class PushNotificationService {
       // Get.toNamed(NOTIFICATIOINS_ROUTE);
     });
     FirebaseMessaging.onMessage.listen((RemoteMessage? message) {
-      print(message);
-      var notification = message!.notification;
-      var android = message.notification?.android;
-      if (notification != null && android != null) {
-        flutterLocalNotificationsPlugin.show(
-          notification.hashCode,
-          notification.title,
-          notification.body,
-          NotificationDetails(
-            android: AndroidNotificationDetails(
-              channel.id,
-              channel.name,
-              icon: android.smallIcon,
-            ),
-          ),
-        );
-      }
+      print('Got a message whilst in the foreground!');
+      print('Message data: ${message?.data}');
     });
   }
   enableIOSNotifications() async {
-    await FirebaseMessaging.instance
-        .setForegroundNotificationPresentationOptions(
+    var messaging = FirebaseMessaging.instance;
+    await messaging.setForegroundNotificationPresentationOptions(
       alert: true,
       badge: true,
       sound: true,
     );
+    var settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+    print('User granted permission: ${settings.authorizationStatus}');
   }
   androidNotificationChannel() => const AndroidNotificationChannel(
         'high_importance_channel',

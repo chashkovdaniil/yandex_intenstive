@@ -19,7 +19,6 @@ class HomeCard extends StatelessWidget {
         color: Theme.of(context).colorScheme.surface,
         boxShadow: [
           BoxShadow(
-            spreadRadius: 0,
             blurRadius: 10,
             color: const Color(0xff000000).withOpacity(0.1),
           ),

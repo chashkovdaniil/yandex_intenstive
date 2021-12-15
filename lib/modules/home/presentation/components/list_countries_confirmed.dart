@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
+import '../../../../configs/colors.dart';
+import '../../../../core/domain/entities/country_covid_entity.dart';
 
 class ListCountriesConfirmed extends StatelessWidget {
   final List<CountryCovid> countriesCovid;

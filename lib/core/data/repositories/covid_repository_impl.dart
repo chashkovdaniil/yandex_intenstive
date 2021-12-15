@@ -1,10 +1,8 @@
-import 'package:yandex_intensive/core/api/internet_checker.dart';
-import 'package:yandex_intensive/core/data/datasources/covid_cache_datasource.dart';
-
+import '../../api/internet_checker.dart';
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
 import '../../domain/repositories/covid_repository.dart';
-
+import '../datasources/covid_cache_datasource.dart';
 import '../datasources/covid_datasource.dart';
 
 class CovidRepositoryImpl implements CovidRepository {

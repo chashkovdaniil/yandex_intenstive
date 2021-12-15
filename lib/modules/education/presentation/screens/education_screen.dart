@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/education_preview.dart';
-// import '../components/expandable_page_view.dart';
-import '../components/expandable_tab_bar_view.dart';
-import '../diagnosis.dart';
-// import '../education_pager.dart';
-import '../prevention.dart';
-import '../symptoms.dart';
+import '../components/education_tabs.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({Key? key}) : super(key: key);
@@ -22,27 +17,8 @@ class EducationScreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.all(20.0),
-                child: ExpandableTabBarView(
-                  children: [
-                    PreventionPage(),
-                    SymptomsPage(),
-                    DiagnosisPage(),
-                  ],
-                ),
+                child: EducationTabs(),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.all(20.0),
-              //   child: ConstrainedBox(
-              //     constraints: const BoxConstraints(maxHeight: 850.0),
-              //     child: const ExpandablePageView(
-              //       children: [
-              //         PreventionPage(),
-              //         SymptomsPage(),
-              //         DiagnosisPage(),
-              //       ],
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

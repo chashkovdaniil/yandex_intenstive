@@ -3,21 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../core/styles/app_theme.dart';
+import '../diagnosis.dart';
+import '../prevention.dart';
+import '../symptoms.dart';
 import 'size_reporting_widget.dart';
 
-class ExpandableTabBarView extends StatefulWidget {
-  final List<Widget> children;
-
-  const ExpandableTabBarView({
-    required this.children,
-    Key? key,
-  }) : super(key: key);
+class EducationTabs extends StatefulWidget {
+  const EducationTabs({Key? key}) : super(key: key);
 
   @override
-  _ExpandableTabBarViewState createState() => _ExpandableTabBarViewState();
+  _EducationTabsState createState() => _EducationTabsState();
 }
 
-class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
+class _EducationTabsState extends State<EducationTabs>
     with SingleTickerProviderStateMixin {
   late List<double> _heights;
   late TabController _controller;
@@ -27,7 +25,7 @@ class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
 
   @override
   void initState() {
-    _heights = List.filled(widget.children.length, 0.0);
+    _heights = List.filled(3, 0.0);
     super.initState();
     _controller = TabController(vsync: this, length: _heights.length)
       ..addListener(() {
@@ -66,7 +64,7 @@ class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
                       (item) => Tab(text: item),
                     )
                     .toList(),
-              )
+              ),
             ],
           ),
         ),
@@ -95,27 +93,34 @@ class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
     );
   }
 
-  List<Widget> get _children => widget.children
-      .asMap()
-      .map(
-        (index, child) => MapEntry(
-          index,
-          Align(
-            alignment: Alignment.topCenter,
-            child: OverflowBox(
-              alignment: Alignment.topLeft,
-              minHeight: 0.0,
-              maxHeight: double.infinity,
-              child: SizeReportingWidget(
-                onSizeChange: (size) => setState(
-                  () => _heights[index] = size.height,
+  List<Widget> get _children => const [
+        PreventionPage(),
+        SymptomsPage(),
+        DiagnosisPage(),
+      ]
+          .asMap()
+          .map(
+            (index, child) => MapEntry(
+              index,
+              Align(
+                alignment: Alignment.topCenter,
+                child: OverflowBox(
+                  alignment: Alignment.topLeft,
+                  minHeight: 0.0,
+                  maxHeight: double.infinity,
+                  child: SizeReportingWidget(
+                    onSizeChange: (size) => setState(
+                      () => _heights[index] = size.height,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 30.0),
+                      child: child,
+                    ),
+                  ),
                 ),
-                child: child,
               ),
             ),
-          ),
-        ),
-      )
-      .values
-      .toList();
+          )
+          .values
+          .toList();
 }

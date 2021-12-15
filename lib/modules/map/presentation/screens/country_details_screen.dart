@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
 
 import '../../../../configs/constants.dart';
-import '../widgets/app_bar.dart';
+import '../../../general/app_bar.dart';
+import '../helpers/country_details_screen_args.dart';
 import '../widgets/card.dart';
 import '../widgets/country_details.dart';
 import '../widgets/country_graph.dart';
 
 class CountryDetailsScreen extends StatefulWidget {
-  static const route = '/country-details';
   // TODO: add CountryModel field to get it from MapScreen
   // static Route route() => CupertinoPageRoute(
   //       builder: (context) => const CountryDetailsScreen(),
@@ -36,7 +35,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
       child: Scaffold(
         body: Column(
           children: [
-            MapScreenAppBar(
+            CustomAppBar(
               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
               title:
                   '${args.country.name}${StringValues.countryStatisticsTitle}',

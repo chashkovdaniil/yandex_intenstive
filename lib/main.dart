@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/configs/navigator.dart';
-import 'package:yandex_intensive/configs/providers.dart';
-import 'package:yandex_intensive/modules/map/presentation/screens/country_details_screen.dart';
 
 import 'configs/app_routes.dart';
+import 'configs/navigator.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
-import 'modules/home/presentation/home_screen.dart';
+import 'modules/general/push_notification_service.dart';
+import 'modules/map/presentation/screens/country_details_screen.dart';
 import 'modules/search/presentation/search_screen.dart';
 
-void main() {
+void main() async {
+  await PushNotificationService().setupInteractedMessage();
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -32,8 +32,8 @@ class MyApp extends HookConsumerWidget {
       navigatorKey: ref.watch(navigator).key,
       routes: {
         '/': (_) => BottomNavigation(),
-        AppRoutes.searchScreenRoute: (_) => SearchScreen(),
-        AppRoutes.countryDetails: (_) => CountryDetailsScreen(),
+        AppRoutes.searchScreenRoute: (_) => const SearchScreen(),
+        AppRoutes.countryDetails: (_) => const CountryDetailsScreen(),
       },
       // home: const BottomNavigation(),
     );

@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
-
-import '../discovery/presentation/screens/discovery_screen.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
-import '../news/presentation/screens/news_screen.dart';
+import '../settings/presentation%20/screens/settings_screen.dart';
 
 class BottomNavigationState extends State with SingleTickerProviderStateMixin {
   late final TabController _tabController;
@@ -15,8 +14,7 @@ class BottomNavigationState extends State with SingleTickerProviderStateMixin {
     const HomeScreen(),
     const MapScreen(),
     const EducationScreen(),
-    const DiscoveryScreen(),
-    const NewsScreen(),
+    const SettingsScreen(),
   ];
   @override
   void initState() {
@@ -55,12 +53,8 @@ class BottomNavigationState extends State with SingleTickerProviderStateMixin {
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.location),
+            icon: Icon(CupertinoIcons.settings),
             label: 'Discovery',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.book),
-            label: 'News',
           ),
         ],
       ),

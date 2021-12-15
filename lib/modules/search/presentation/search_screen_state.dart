@@ -1,9 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
-import 'package:yandex_intensive/configs/providers.dart';
-
-import 'package:yandex_intensive/core/domain/repositories/covid_repository.dart';
-import 'package:yandex_intensive/modules/search/domains/usecases/countries_usecase.dart';
 
 import '../../../core/domain/entities/country_covid_entity.dart';
 

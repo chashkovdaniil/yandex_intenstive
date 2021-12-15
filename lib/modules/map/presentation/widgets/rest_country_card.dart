@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/app_routes.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
-import '../screens/country_details_screen.dart';
 import 'on_tap_opacity.dart';
 
 class RestCountryCard extends StatefulWidget {
@@ -32,8 +32,7 @@ class RestCountryCard extends StatefulWidget {
 class _RestCountryCardState extends State<RestCountryCard> {
   @override
   Widget build(BuildContext context) => OnTapOpacityContainer(
-        onTap: () =>
-            Navigator.of(context).pushNamed(CountryDetailsScreen.route),
+    onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 60,

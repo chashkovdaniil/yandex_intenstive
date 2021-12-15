@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../components/education_preview.dart';
-import '../education_pager.dart';
+import '../components/expandable_page_view.dart';
+import '../diagnosis.dart';
+import '../prevention.dart';
+import '../symptoms.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({Key? key}) : super(key: key);
@@ -20,7 +23,13 @@ class EducationScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxHeight: 850.0),
-                  child: const EducationPager(),
+                  child: const ExpandablePageView(
+                    children: [
+                      PreventionPage(),
+                      SymptomsPage(),
+                      DiagnosisPage(),
+                    ],
+                  ),
                 ),
               ),
             ],

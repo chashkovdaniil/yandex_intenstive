@@ -15,7 +15,7 @@ class SizeReportingWidget extends StatefulWidget {
 }
 
 class _SizeReportingWidgetState extends State<SizeReportingWidget> {
-  late Size _oldSize;
+  Size _oldSize = const Size(0.0, 0.0);
 
   @override
   Widget build(BuildContext context) {

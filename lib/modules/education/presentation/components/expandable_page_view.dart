@@ -73,7 +73,7 @@ class _ExpandablePageViewState extends State<ExpandablePageView> {
               alignment: Alignment.topCenter,
               child: SizeReportingWidget(
                 onSizeChange: (size) => setState(
-                  () => _heights[index] = size.height ?? 0,
+                  () => _heights[index] = size.height,
                 ),
                 child: Align(child: child),
               )),

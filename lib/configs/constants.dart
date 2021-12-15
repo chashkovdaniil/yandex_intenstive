@@ -149,6 +149,12 @@ class StringValues {
       'infected experience mild illness and recover, but it can be'
       'more severe for others. Take care of your health and protect'
       'others by doing the following:';
+
+  static const educationPageTitles = [
+    'Prevention',
+    'Symptoms',
+    'Diagnosis',
+  ];
 }
 
 class MockData {

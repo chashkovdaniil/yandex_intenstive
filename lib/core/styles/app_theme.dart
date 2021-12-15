@@ -55,6 +55,12 @@ class AppTheme {
     fontWeight: FontWeight.w400,
   );
 
+  static const educationSmall = TextStyle(
+    color: AppColors.black,
+    fontSize: 18.0,
+    fontWeight: FontWeight.w400,
+  );
+
   static const educationSmallLight = TextStyle(
     color: AppColors.educationGray,
     fontSize: 18.0,

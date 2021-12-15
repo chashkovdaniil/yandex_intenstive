@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/constants.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
@@ -24,9 +25,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       child: Scaffold(
         body: Column(
           children: [
-            const CustomAppBar(
+            CustomAppBar(
               showBackButton: false,
-              title: 'Settings',
+              title: StringValues.settingsTitle,
               showUserButton: false,
             ),
             const SizedBox(
@@ -37,32 +38,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, bottom: 12, top: 20),
                 child: Text(
-                  'General',
+                  StringValues.settingsSubTitle1,
                   style: TextStyles.titleSettingsScope,
                 ),
               ),
             ),
-            const GeneralSettingsItemCard(
-              content: ItemLanguage(),
-              title: 'Language',
+            GeneralSettingsItemCard(
+              content: const ItemLanguage(),
+              title: StringValues.settingsItemLanguage,
               icon: CupertinoIcons.globe,
               iconColor: AppColors.green,
             ),
             const SizedBox(
               height: 10,
             ),
-            const GeneralSettingsItemCard(
-              content: ItemNotifications(),
-              title: 'Notifications',
+            GeneralSettingsItemCard(
+              content: const ItemNotifications(),
+              title: StringValues.settingsItemNotifications,
               icon: CupertinoIcons.bell,
               iconColor: AppColors.greenLight,
             ),
             const SizedBox(
               height: 10,
             ),
-            const GeneralSettingsItemCard(
-              content: ItemTheme(),
-              title: 'Dark mode',
+            GeneralSettingsItemCard(
+              content: const ItemTheme(),
+              title: StringValues.settingsItemDarkMode,
               icon: CupertinoIcons.moon,
               iconColor: AppColors.blue,
             ),
@@ -74,29 +75,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, bottom: 12, top: 20),
                 child: Text(
-                  'Personal',
+                  StringValues.settingsSubTitle2,
                   style: TextStyles.titleSettingsScope,
                 ),
               ),
             ),
-            const PersonalSettingsItemCard(
-              title: 'Donate',
+            PersonalSettingsItemCard(
+              title: StringValues.settingsItemDonate,
               icon: CupertinoIcons.bitcoin,
               iconColor: AppColors.orange,
             ),
             const SizedBox(
               height: 10,
             ),
-            const PersonalSettingsItemCard(
-              title: 'Help',
+            PersonalSettingsItemCard(
+              title: StringValues.settingsItemHelp,
               icon: CupertinoIcons.shield_lefthalf_fill,
               iconColor: AppColors.grey,
             ),
             const SizedBox(
               height: 10,
             ),
-            const PersonalSettingsItemCard(
-              title: 'Terms & Conditions',
+            PersonalSettingsItemCard(
+              title: StringValues.settingsItemTerms,
               icon: CupertinoIcons.archivebox,
               iconColor: AppColors.grey,
             ),

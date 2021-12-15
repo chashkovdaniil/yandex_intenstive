@@ -223,6 +223,24 @@ class StringValues {
   static String get countryDetailsAlertCancel => 'Later';
 
   static String get countryDetailsAlertDefault => 'Enable now';
+
+  static String get settingsTitle => 'Settings';
+
+  static String get settingsSubTitle1 => 'General';
+
+  static String get settingsSubTitle2 => 'Personal';
+
+  static String get settingsItemLanguage => 'Language';
+
+  static String get settingsItemNotifications => 'Notifications';
+
+  static String get settingsItemDarkMode => 'Dark Mode';
+
+  static String get settingsItemDonate => 'Donate';
+
+  static String get settingsItemHelp => 'Help';
+
+  static String get settingsItemTerms => 'Terms & Conditions';
 }
 
 class MockData {

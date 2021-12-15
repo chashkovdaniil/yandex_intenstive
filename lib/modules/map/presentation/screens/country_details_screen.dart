@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
 
 import '../../../../configs/constants.dart';
+import '../helpers/country_details_screen_args.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/card.dart';
 import '../widgets/country_details.dart';

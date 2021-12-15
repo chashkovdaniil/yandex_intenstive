@@ -10,6 +10,10 @@ class AppColors {
   static const Color white = Colors.white;
   static const Color red = Color(0xffFF647C);
 
+  // Colors for onboarding
+  static const Color onboaringTitle = Color(0xFF171725);
+  static const Color onboardingDescription = Color(0xFF999999);
+
 // Colors for progress bars
   static const Color green = Color(0xFF00C48C);
   static const Color blue = Color(0xFF6979F8);

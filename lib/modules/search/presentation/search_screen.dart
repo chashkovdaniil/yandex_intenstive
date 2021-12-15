@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/configs/app_routes.dart';
-import 'package:yandex_intensive/configs/navigator.dart';
-import 'package:yandex_intensive/configs/providers.dart';
-import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
-import 'package:yandex_intensive/modules/search/domains/usecases/countries_usecase.dart';
-import 'package:yandex_intensive/modules/search/presentation/search_screen_state.dart';
+import '../../../configs/navigator.dart';
+import '../../../configs/providers.dart';
+import '../../map/presentation/helpers/country_details_screen_args.dart';
+import 'search_screen_state.dart';
 
 import 'widgets/search_field.dart';
 

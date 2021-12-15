@@ -1,6 +1,5 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:throttling/throttling.dart';
-import 'package:yandex_intensive/modules/splash_screen/usecase.dart';
 
 import '../core/data/datasources/covid_cache_datasource.dart';
 import '../core/data/datasources/covid_datasource.dart';
@@ -12,6 +11,7 @@ import '../modules/onboarding/usecase.dart';
 import '../modules/search/domains/usecases/countries_by_name_usecase.dart';
 import '../modules/search/domains/usecases/countries_usecase.dart';
 import '../modules/search/presentation/search_screen_state.dart';
+import '../modules/splash_screen/usecase.dart';
 import 'navigator.dart';
 
 final covidCacheDatasourceProvider = Provider<CovidDatasource>(

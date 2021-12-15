@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/configs/app_routes.dart';
-import 'package:yandex_intensive/modules/search/presentation/search_screen.dart';
-import 'package:yandex_intensive/modules/search/presentation/widgets/search_field.dart';
-import '../../../configs/colors.dart';
 
+import '../../../configs/app_routes.dart';
+import '../../../configs/colors.dart';
+import '../../search/presentation/widgets/search_field.dart';
 import 'components/animation_numbers_text.dart';
 import 'components/home_card.dart';
 import 'components/home_line_chart.dart';

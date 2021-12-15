@@ -1,8 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yandex_intensive/configs/shared_preferences.dart';
 import '../../configs/app_routes.dart';
 import '../../configs/navigator.dart';
-
+import '../../configs/shared_preferences.dart';
 import '../../core/domain/providers/shared_prefs.dart';
 
 class SplashUseCase {
@@ -15,7 +13,7 @@ class SplashUseCase {
     await _sharedPrefs.init();
     await Future.delayed(const Duration(seconds: 3));
     final shouldOpenOnboarding =
-        true; //_sharedPrefs.getBool(SharedPreferences.shouldOpenOnboarding) ?? true;
+        _sharedPrefs.getBool(SharedPreferences.shouldOpenOnboarding) ?? true;
     _navigator.push(
       shouldOpenOnboarding
           ? AppRoutes.onboardingScreen

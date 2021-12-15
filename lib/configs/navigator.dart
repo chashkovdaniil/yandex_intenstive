@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod/riverpod.dart';
-import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
+import '../modules/map/presentation/helpers/country_details_screen_args.dart';
 
 import 'app_routes.dart';
 

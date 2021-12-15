@@ -1,4 +1,4 @@
-import 'package:yandex_intensive/modules/map/presentation/screens/country_details_screen.dart';
+import '../modules/map/presentation/screens/country_details_screen.dart';
 
 import '../modules/search/presentation/search_screen.dart';
 

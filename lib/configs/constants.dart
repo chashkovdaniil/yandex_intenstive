@@ -210,6 +210,19 @@ class StringValues {
   static String get homeScreenError => 'Error';
 
   static String get homeScreenRefresh => 'Refresh';
+
+  static String get mapScreenRefresh => 'Refresh';
+
+  static String get mapScreenError => 'Error';
+
+  static String get countryDetailsAlertTitle => 'Enable notification';
+
+  static String get countryDetailsAlertContent =>
+      'Enable notification so you can always be up to date with new information.';
+
+  static String get countryDetailsAlertCancel => 'Later';
+
+  static String get countryDetailsAlertDefault => 'Enable now';
 }
 
 class MockData {
@@ -465,6 +478,7 @@ class MockData {
           countryProgressColor: AppColors.blue,
         ),
       ];
+
   static List<RestCountryCard> get restCountryList => <RestCountryCard>[
         const RestCountryCard(
           countryTitle: 'China',

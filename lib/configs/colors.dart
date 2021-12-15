@@ -34,4 +34,10 @@ class AppColors {
   static const Color educationBlackSubtitle = Color(0xFF151522);
   static const Color educationBlackHeader = Color(0xFF171725);
   static const Color educationLightGreen = Color(0xFF99E7D1);
+
+  // Colors for country chart
+  static const Color countryChartLight1 = Color(0xff96FFE1);
+  static const Color countryChartDark1 = Color(0xff00C48C);
+  static const Color countryChartLight2 = Color(0xffFFCBD3);
+  static const Color countryChartDark2 = Color(0xffFF647C);
 }

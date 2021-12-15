@@ -40,12 +40,12 @@ class MapScreen extends HookConsumerWidget {
           failed: () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(
-                child: Text('Error'),
+              Center(
+                child: Text(StringValues.mapScreenError),
               ),
               ElevatedButton(
                 onPressed: () => ref.read(_mapScreenProvider.notifier).load(),
-                child: const Text('Обновить'),
+                child: Text(StringValues.mapScreenRefresh),
               )
             ],
           ),

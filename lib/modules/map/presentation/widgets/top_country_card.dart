@@ -110,11 +110,11 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     //TODO: what this button is for lmao ??
                     onTap: () => showAlertDialog(
                       context: context,
-                      title: 'Enable notification',
-                      content:
-                          'Enable notification so you can always be up to date with new information.',
-                      cancelActionText: 'Later',
-                      defaultActionText: 'Enable now',
+                      title: StringValues.countryDetailsAlertTitle,
+                      content: StringValues.countryDetailsAlertContent,
+                      cancelActionText: StringValues.countryDetailsAlertCancel,
+                      defaultActionText:
+                          StringValues.countryDetailsAlertDefault,
                     ),
                     child: IconButton(
                       icon: const Icon(
@@ -124,11 +124,12 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       ),
                       onPressed: () => showAlertDialog(
                         context: context,
-                        title: 'Enable notification',
-                        content:
-                            'Enable notification so you can always be up to date with new information.',
-                        cancelActionText: 'Later',
-                        defaultActionText: 'Enable now',
+                        title: StringValues.countryDetailsAlertTitle,
+                        content: StringValues.countryDetailsAlertContent,
+                        cancelActionText:
+                            StringValues.countryDetailsAlertCancel,
+                        defaultActionText:
+                            StringValues.countryDetailsAlertDefault,
                       ),
                     ),
                   ),

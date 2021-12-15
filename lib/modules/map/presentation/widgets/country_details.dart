@@ -78,11 +78,12 @@ class CountryDetailsCard extends StatelessWidget {
                           ),
                           onPressed: () => showAlertDialog(
                             context: context,
-                            title: 'Enable notification',
-                            content:
-                                'Enable notification so you can always be up to date with new information.',
-                            cancelActionText: 'Later',
-                            defaultActionText: 'Enable now',
+                            title: StringValues.countryDetailsAlertTitle,
+                            content: StringValues.countryDetailsAlertContent,
+                            cancelActionText:
+                                StringValues.countryDetailsAlertCancel,
+                            defaultActionText:
+                                StringValues.countryDetailsAlertDefault,
                           ),
                         ),
                       ),

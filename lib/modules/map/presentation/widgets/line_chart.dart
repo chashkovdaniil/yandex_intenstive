@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/colors.dart';
 
 class CurrentSituationGraph extends StatefulWidget {
   const CurrentSituationGraph({Key? key}) : super(key: key);
@@ -10,12 +11,12 @@ class CurrentSituationGraph extends StatefulWidget {
 
 class _CurrentSituationGraphState extends State<CurrentSituationGraph> {
   List<Color> gradientColors1 = [
-    const Color(0xff96FFE1),
-    const Color(0xff00C48C),
+    AppColors.countryChartLight1,
+    AppColors.countryChartDark1,
   ];
   List<Color> gradientColors2 = [
-    const Color(0xffFFCBD3),
-    const Color(0xffFF647C),
+    AppColors.countryChartLight2,
+    AppColors.countryChartDark2,
   ];
 
   @override

@@ -4,6 +4,7 @@ import 'package:syncfusion_flutter_maps/maps.dart';
 import '../modules/map/presentation/helpers/model.dart';
 import '../modules/map/presentation/widgets/rest_country_card.dart';
 import '../modules/map/presentation/widgets/top_country_card.dart';
+
 import 'colors.dart';
 
 class StringValues {
@@ -41,6 +42,120 @@ class StringValues {
 
   static String get countryStatisticsAffected => 'Affected';
 
+  // Strings for education
+  static const String diagnosisDescription =
+      'If you feel some symptoms or you are thinking that you may'
+      'be infected. Please report your self so other people can'
+      'be aware that someone who is in isolation is nearby them.';
+
+  static const String diagnosisWarningCaps = 'COVSTATS';
+
+  static const String diagnosisWarning =
+      ' gives everyone the opportunity to report their symptoms'
+      'anonymously for the benefit of others';
+
+  static const String diagnosisHeader = 'Report my Status';
+
+  static const String diagnosisButtonText = 'Please report your status';
+
+  static const String diagnosisRussianPhoneNumber = '88002000112';
+
+  static const diseaseLegendData = [
+    ['Cold', 'assets/images/cold@3x.png'],
+    ['Flu', 'assets/images/flu@3x.png'],
+    ['COVID-19', 'assets/images/covid@3x.png'],
+  ];
+
+  static const symptomsHeader = 'Symptom Check';
+
+  static const symptomsSubtitle = 'Check you symptoms for';
+
+  static const symptomsLegendSubtitle = 'Legend';
+
+  static const symptomRarityLegendData = [
+    ['Common', 'rare'],
+    ['Sometimes', 'sometimes'],
+    ['Rare', 'rare'],
+  ];
+
+  /*
+   * Первые три слова в каждом списке обозначают редкость симпотомов и,
+   * соответственно, какую иконку следует рисовать; имена файлов самих
+   * иконок следует брать из symptomColumnAssets
+   */
+  static const symptomColumnData = [
+    ['rare', 'rare', 'common', 'Shortness of breath'],
+    ['rare', 'common', 'common', 'Fever'],
+    ['sometimes', 'common', 'common', 'Cough, chest discomfort'],
+    ['sometimes', 'common', 'never', 'Fatigue, weakness'],
+    ['rare', 'common', 'never', 'Aches'],
+    ['rare', 'common', 'never', 'Chills'],
+    ['rare', 'common', 'never', 'Headache'],
+    ['common', 'sometimes', 'never', 'Sore throat'],
+    ['common', 'sometimes', 'never', 'Sneezing'],
+    ['common', 'sometimes', 'never', 'Stuffy, runny nose'],
+  ];
+
+  static const symptomColumnAssets = {
+    'never': 'assets/images/never.png',
+    'rare': 'assets/images/rare.png',
+    'sometimes': 'assets/images/sometimes.png',
+    'common': 'assets/images/common.png',
+  };
+
+  static const symptomColumnLegendAssets = [
+    'assets/images/cold_dark.png',
+    'assets/images/flu_dark.png',
+    'assets/images/covid_dark.png',
+  ];
+
+  static const String preventionHeader =
+      'Basic protective measures against the new coronavirus';
+
+  static const preventionData = [
+    [
+      'assets/images/clean_hands.svg',
+      'Clean your hands often',
+      'Wash hands often with soap and water for at least 20s',
+    ],
+    [
+      'assets/images/wear_facemask.svg',
+      'Wear a facemask',
+      'You should wear facemask when you are around other people.',
+    ],
+    [
+      'assets/images/avoid_touching_face.svg',
+      'Avoid touching your face',
+      'Hands touch many surfaces and can pick up viruses.',
+    ],
+    [
+      'assets/images/avoid_close_contact.svg',
+      'Avoid close contact',
+      'Put distance between yourself and other people.',
+    ],
+  ];
+
+  static const educationPreviewHeader =
+      'Coronavirus disease (COVID - 19) advice for the public';
+
+  static const educationPreviewDescriptionPreCaps =
+      'Stay aware of the latest information on the ';
+
+  static const educationPreviewDescriptionCaps = 'COVID-19 outbreak';
+
+  static const educationPreviewDescriptionPostCaps =
+      ', available on the WHO website and through your national and'
+      'local public health authority. Most people who become'
+      'infected experience mild illness and recover, but it can be'
+      'more severe for others. Take care of your health and protect'
+      'others by doing the following:';
+
+  static const educationPageTitles = [
+    'Prevention',
+    'Symptoms',
+    'Diagnosis',
+  ];
+
   static String get onboardingTitle1 => 'Fever';
 
   static String get onboardingTitle2 => 'Cough';
@@ -64,6 +179,7 @@ class StringValues {
 
   static String get splashScreenBottomText =>
       'Yandex intensive on Flutter in Sirius, 2021';
+
 }
 
 class MockData {

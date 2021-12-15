@@ -8,6 +8,15 @@ import 'configs/hive_settings.dart';
 import 'configs/navigator.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
+import 'modules/education/presentation/components/education_preview.dart';
+import 'modules/education/presentation/components/prevention_item.dart';
+import 'modules/education/presentation/diagnosis.dart';
+import 'modules/education/presentation/education_pager.dart';
+import 'modules/education/presentation/prevention.dart';
+import 'modules/education/presentation/screens/education_screen.dart';
+import 'modules/education/presentation/symptoms.dart';
+import 'modules/home/presentation/home_screen.dart';
+import 'modules/home/presentation/home_screen.dart';
 import 'modules/map/presentation/screens/country_details_screen.dart';
 import 'modules/onboarding/onboarding.dart';
 import 'modules/search/presentation/search_screen.dart';
@@ -17,6 +26,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   //print('Handling a background message: ${message.messageId}');
 }
+
 
 void main() async {
   await initHive();
@@ -47,6 +57,7 @@ class MyApp extends HookConsumerWidget {
         AppRoutes.onboardingScreen: (_) => Onboarding(),
         AppRoutes.searchScreenRoute: (_) => const SearchScreen(),
         AppRoutes.countryDetails: (_) => const CountryDetailsScreen(),
+        AppRoutes.educationPageScreen: (_) => const EducationScreen(),
       },
     );
   }

@@ -11,6 +11,7 @@ import 'modules/map/presentation/screens/country_details_screen.dart';
 import 'modules/search/presentation/search_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await PushNotificationService().setupInteractedMessage();
   runApp(
     const ProviderScope(

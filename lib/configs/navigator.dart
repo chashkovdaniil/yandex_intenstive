@@ -4,7 +4,7 @@ import 'package:yandex_intensive/modules/map/presentation/helpers/country_detail
 
 import 'app_routes.dart';
 
-final navigator = Provider<AppNavigationManager>((ref) {
+final appNavigationManagerProvider = Provider<AppNavigationManager>((ref) {
   return AppNavigationManager(key: GlobalKey<NavigatorState>());
 });
 

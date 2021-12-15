@@ -7,6 +7,12 @@ class AppRoutes {
 
   static String get homePageScreen => '/home-page';
 
+  static String get splashScreen => '/splash-screen';
+
+  static String get onboardingScreen => '/onboarding';
+
+  static String get bottomNavigation => '/';
+
   static String get searchScreenRoute => SearchScreen.route;
   static String get countryDetails => CountryDetailsScreen.route;
 }

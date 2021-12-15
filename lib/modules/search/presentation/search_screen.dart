@@ -72,7 +72,7 @@ class SearchScreen extends HookConsumerWidget {
             return ListTile(
               title: Text(e.name),
               onTap: () {
-                ref.read(navigator).openCountryDetails(
+                ref.read(appNavigationManagerProvider).openCountryDetails(
                       CountryDetailsScreenArgs(country: e),
                     );
               },

@@ -61,13 +61,13 @@ class TextStyles {
     fontWeight: FontWeight.w500,
   );
   static const titleTextStyle = TextStyle(
-    color: AppColors.primary,
+    color: AppColors.onboaringTitle,
     fontSize: 28,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w600,
   );
   static const descriptionTextStyle = TextStyle(
-    color: AppColors.grey,
+    color: AppColors.onboardingDescription,
     fontSize: 16,
     letterSpacing: 0.5,
     fontFamily: "SF Pro Display",

@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 
 class NamedIconData {
   final String title;
-  final String asset;
+  final Image image;
 
-  const NamedIconData(this.title, this.asset);
+  const NamedIconData(this.title, this.image);
 }
 
 class NamedIconConfig {
-  final double width;
-  final double height;
   final TextStyle style;
   final EdgeInsets textPadding;
 
   const NamedIconConfig({
-    required this.width,
-    required this.height,
     required this.style,
     required this.textPadding,
   });
@@ -31,7 +27,7 @@ class NamedIcon extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(data.asset, width: config.width, height: config.height),
+          data.image,
           const SizedBox(width: 2.0),
           Padding(
             padding: config.textPadding,

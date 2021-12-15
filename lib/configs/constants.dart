@@ -73,9 +73,9 @@ class StringValues {
   static const symptomsLegendSubtitle = 'Legend';
 
   static const symptomRarityLegendData = [
-    ['Common', 'assets/images/common.png'],
-    ['Sometimes', 'assets/images/sometimes.png'],
-    ['Rare', 'assets/images/rare.png'],
+    ['Common', 'rare'],
+    ['Sometimes', 'sometimes'],
+    ['Rare', 'rare'],
   ];
 
   /*

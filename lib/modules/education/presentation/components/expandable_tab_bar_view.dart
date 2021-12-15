@@ -28,7 +28,6 @@ class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
   @override
   void initState() {
     _heights = List.filled(widget.children.length, 0.0);
-    print("Length: ${widget.children.length}");
     super.initState();
     _controller = TabController(vsync: this, length: _heights.length)
       ..addListener(() {
@@ -83,7 +82,7 @@ class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
 
     return TweenAnimationBuilder<double>(
       curve: Curves.easeInOutCubic,
-      duration: const Duration(),
+      duration: const Duration(microseconds: 200),
       tween: Tween<double>(
         begin: _heights[0], // Почему от первой страницы?
         end: _currentHeight,
@@ -104,6 +103,7 @@ class _ExpandableTabBarViewState extends State<ExpandableTabBarView>
           Align(
             alignment: Alignment.topCenter,
             child: OverflowBox(
+              alignment: Alignment.topLeft,
               minHeight: 0.0,
               maxHeight: double.infinity,
               child: SizeReportingWidget(

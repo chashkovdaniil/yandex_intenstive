@@ -1,7 +1,3 @@
-import 'package:yandex_intensive/core/domain/repositories/covid_repository.dart';
-import 'package:yandex_intensive/core/domain/usecases/base_usecase.dart';
-import 'package:yandex_intensive/modules/search/presentation/search_screen_state.dart';
-
 import '../../../../core/domain/repositories/covid_repository.dart';
 import '../../../../core/domain/usecases/base_usecase.dart';
 import '../../presentation/search_screen_state.dart';

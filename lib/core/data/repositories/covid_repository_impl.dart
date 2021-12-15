@@ -14,7 +14,7 @@ class CovidRepositoryImpl implements CovidRepository {
 
   CovidDatasource get _covidDatasource {
     /// ToDo: проверка на соединение
-    return (true) ? _covidNetworkDatasource : _covidCacheDatasource;
+    return _covidNetworkDatasource;
   }
 
   @override

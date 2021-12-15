@@ -25,8 +25,10 @@ class CountriesByName extends BaseUsecase<void> {
     var countries = await _covidRepository.countries();
     _screenStateManager.setCountries(
       countries
-          .where((element) =>
-              element.name.toLowerCase().startsWith(name.toLowerCase()))
+          .where(
+            (element) =>
+                element.name.toLowerCase().startsWith(name.toLowerCase()),
+          )
           .toList(),
     );
   }

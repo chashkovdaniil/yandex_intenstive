@@ -7,7 +7,7 @@ class PushNotificationService {
   Future<void> setupInteractedMessage() async {
     await Firebase.initializeApp();
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      // Get.toNamed(NOTIFICATIOINS_ROUTE);
+      // Get.toNamed(NOTIFICATIONS_ROUTE);
       if (message.data['type'] == 'chat') {
         // Navigator.pushNamed(context, '/chat',
         //     arguments: ChatArguments(message));
@@ -31,17 +31,17 @@ class PushNotificationService {
       requestBadgePermission: false,
       requestAlertPermission: false,
     );
-    var initSetttings =
+    var initSettings =
         InitializationSettings(android: androidSettings, iOS: iOSSettings);
     flutterLocalNotificationsPlugin.initialize(
-      initSetttings,
+      initSettings,
       onSelectNotification: (message) async {
-        // Get.toNamed(NOTIFICATIOINS_ROUTE);
+        // Get.toNamed(NOTIFICATIONS_ROUTE);
       },
     );
     FirebaseMessaging.onMessage.listen((RemoteMessage? message) {
       // Get.find<HomeController>().getNotificationsNumber();
-      print(message);
+      // print(message);
       var notification = message!.notification;
       var android = message.notification?.android;
       if (notification != null && android != null) {
@@ -55,7 +55,6 @@ class PushNotificationService {
               channel.name,
               //channel.description,
               icon: android.smallIcon,
-              playSound: true,
             ),
           ),
         );

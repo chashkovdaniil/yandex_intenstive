@@ -14,7 +14,7 @@ class AppTheme {
           color: AppColors.primary,
         ),
       ),
-      inputDecorationTheme: InputDecorationTheme(
+      inputDecorationTheme: const InputDecorationTheme(
         iconColor: AppColors.primary,
       ),
       fontFamily: '.SF Pro Text',

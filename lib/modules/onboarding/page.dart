@@ -8,11 +8,12 @@ class OnboardingPage extends StatelessWidget {
   final String title;
   final String description;
 
-  const OnboardingPage({
+   const OnboardingPage({
+    Key? key,
     required this.image,
     required this.title,
     required this.description,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,6 @@ class OnboardingPage extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 1,
           child: Padding(
             padding: const EdgeInsets.only(top: 47),
             child: Text(
@@ -36,7 +36,6 @@ class OnboardingPage extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 1,
           child: Padding(
             padding: const EdgeInsets.only(
               top: 1.69,

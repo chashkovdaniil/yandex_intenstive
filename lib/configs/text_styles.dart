@@ -80,4 +80,10 @@ class TextStyles {
         fontWeight: FontWeight.w400,
         fontSize: 15,
       );
+
+  static TextStyle get settingsChangeLang => TextStyle(
+        color: Colors.black.withOpacity(0.6),
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
+      );
 }

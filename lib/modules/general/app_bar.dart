@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
-import '../map/presentation/widgets/on_tap_opacity.dart';
+import 'on_tap_opacity.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String? title;

@@ -7,8 +7,8 @@ import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/navigation_views.dart';
+import '../../../general/on_tap_opacity.dart';
 import 'custom_border.dart';
-import 'on_tap_opacity.dart';
 
 class TopCountryCard extends StatefulWidget {
   final String countryTitle;

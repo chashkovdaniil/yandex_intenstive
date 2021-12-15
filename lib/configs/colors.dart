@@ -13,7 +13,8 @@ class AppColors {
 // Colors for progress bars
   static const Color green = Color(0xFF00C48C);
   static const Color blue = Color(0xFF6979F8);
-  static const Color orange = Color(0xffF0CA01);
+  static const Color orange = Color(0xfff0ca01);
+  static const Color greenLight = Color(0xff8ed904);
 
 // Colors for map gradient
   static const Color affected1 = Color(0xFFFFF9FA);

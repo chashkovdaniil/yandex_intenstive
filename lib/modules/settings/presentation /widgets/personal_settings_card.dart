@@ -3,17 +3,15 @@ import 'package:flutter/material.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
-import '../../../map/presentation/widgets/on_tap_opacity.dart';
+import '../../../general/on_tap_opacity.dart';
 
-class SettingsItemCard extends StatelessWidget {
-  final Widget content;
+class PersonalSettingsItemCard extends StatelessWidget {
   final IconData? icon;
   final String title;
   final Color? iconColor;
 
-  const SettingsItemCard({
+  const PersonalSettingsItemCard({
     Key? key,
-    required this.content,
     required this.icon,
     required this.title,
     required this.iconColor,
@@ -69,8 +67,6 @@ class SettingsItemCard extends StatelessWidget {
                     title,
                     style: TextStyles.titleSettingsItem,
                   ),
-                  const Spacer(),
-                  content,
                 ],
               ),
             ),

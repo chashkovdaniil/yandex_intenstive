@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
-import 'package:yandex_intensive/configs/text_styles.dart';
-import 'package:yandex_intensive/modules/settings/presentation%20/widgets/item_notifications.dart';
-import 'package:yandex_intensive/modules/settings/presentation%20/widgets/item_theme.dart';
-import 'package:yandex_intensive/modules/settings/presentation%20/widgets/settings_card.dart';
+import 'package:yandex_intensive/modules/settings/presentation%20/widgets/item_language.dart';
 
+import '../../../../configs/colors.dart';
+import '../../../../configs/text_styles.dart';
 import '../../../general/app_bar.dart';
+import '../widgets/general_settings_card.dart';
+import '../widgets/item_notifications.dart';
+import '../widgets/item_theme.dart';
+import '../widgets/personal_settings_card.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -40,8 +42,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            const SettingsItemCard(
-              content: ItemTheme(),
+            const GeneralSettingsItemCard(
+              content: ItemLanguage(),
               title: 'Language',
               icon: CupertinoIcons.globe,
               iconColor: AppColors.green,
@@ -49,20 +51,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 10,
             ),
-            const SettingsItemCard(
+            const GeneralSettingsItemCard(
               content: ItemNotifications(),
               title: 'Notifications',
               icon: CupertinoIcons.bell,
-              iconColor: AppColors.blue,
+              iconColor: AppColors.greenLight,
             ),
             const SizedBox(
               height: 10,
             ),
-            const SettingsItemCard(
+            const GeneralSettingsItemCard(
               content: ItemTheme(),
               title: 'Dark mode',
               icon: CupertinoIcons.moon,
-              iconColor: AppColors.red,
+              iconColor: AppColors.blue,
             ),
             const SizedBox(
               height: 20,
@@ -77,8 +79,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            const SettingsItemCard(
-              content: ItemTheme(),
+            const PersonalSettingsItemCard(
               title: 'Donate',
               icon: CupertinoIcons.bitcoin,
               iconColor: AppColors.orange,
@@ -86,8 +87,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 10,
             ),
-            const SettingsItemCard(
-              content: ItemTheme(),
+            const PersonalSettingsItemCard(
               title: 'Help',
               icon: CupertinoIcons.shield_lefthalf_fill,
               iconColor: AppColors.grey,
@@ -95,8 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 10,
             ),
-            const SettingsItemCard(
-              content: ItemTheme(),
+            const PersonalSettingsItemCard(
               title: 'Terms & Conditions',
               icon: CupertinoIcons.archivebox,
               iconColor: AppColors.grey,

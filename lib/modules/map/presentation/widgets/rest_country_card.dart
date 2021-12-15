@@ -5,7 +5,7 @@ import 'package:yandex_intensive/configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
-import 'on_tap_opacity.dart';
+import '../../../general/on_tap_opacity.dart';
 
 class RestCountryCard extends StatefulWidget {
   final String countryTitle;

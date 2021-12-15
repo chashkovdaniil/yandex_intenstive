@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
 
@@ -21,19 +20,21 @@ class BottomNavigationState extends State
     const NewsScreen(),
   ];
   int _currentIndex = 0;
+
   @override
   void initState() {
     super.initState();
-    // _tabController = TabController(
-    //   length: _children.length,
-    //   vsync: this,
-    // );
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Scaffold(
-      body: _children[_currentIndex],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _children,
+      ), //_children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.grey,

@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:yandex_intensive/main.dart';
+import '../../../configs/hive_settings.dart';
 
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';

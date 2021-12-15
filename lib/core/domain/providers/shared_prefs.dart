@@ -43,8 +43,6 @@ class SharedPrefs {
 
   Future<bool> remove(String key) async => await _prefs.remove(key);
 
-  Future<bool> commit() async => await _prefs.commit();
-
   Future<bool> clear() => _prefs.clear();
 
   Future<void> reload() async => _prefs.reload();

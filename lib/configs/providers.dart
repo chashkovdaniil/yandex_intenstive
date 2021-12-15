@@ -7,6 +7,8 @@ import '../core/data/datasources/covid_network_datasource.dart';
 import '../core/data/repositories/covid_repository_impl.dart';
 import '../core/domain/providers/shared_prefs.dart';
 import '../core/domain/repositories/covid_repository.dart';
+import '../modules/home/presentation/state/home_screen_state.dart';
+import '../modules/home/usecases/home_stats_total.dart';
 import '../modules/onboarding/usecase.dart';
 import '../modules/search/domains/usecases/countries_by_name_usecase.dart';
 import '../modules/search/domains/usecases/countries_usecase.dart';
@@ -40,6 +42,16 @@ final countriesUsecaseProvider = Provider<Countries>((ref) {
   return Countries(
     covidRepository: ref.watch(covidRepositoryProvider),
     screenStateManager: ref.watch(searchScreenStateManagerProvider),
+  );
+});
+final homeScreenStateManagerProvider = Provider<HomeScreenManager>((ref) {
+  return HomeScreenManager();
+});
+
+final statsTotalUsecaseProvider = Provider<StatsTotal>((ref) {
+  return StatsTotal(
+    manager: ref.watch(homeScreenStateManagerProvider),
+    repository: ref.watch(covidRepositoryProvider),
   );
 });
 final countriesByNameUsecaseProvider =

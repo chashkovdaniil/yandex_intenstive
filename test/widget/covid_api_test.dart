@@ -32,4 +32,9 @@ void main() {
     );
     expect(result.active > 0, true);
   });
+
+  test('Get total', () async {
+    var result = await _api.statsTotal();
+    expect(result.isNotEmpty, true);
+  });
 }

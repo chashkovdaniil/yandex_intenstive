@@ -353,14 +353,28 @@ class _$HomeScreenStateTearOff {
 
   _HomeScreenState call(
       {required HomeScreenStateStatus status,
+      Map<String, CountryCovid>? countriesCovid,
       List<List<double>>? confirmedSpots,
       List<List<double>>? recoveredSpots,
-      Map<String, Object>? testData}) {
+      List<List<double>>? deathsSpots,
+      List<List<double>>? activeSpots,
+      int? deaths,
+      int? confirmed,
+      int? recovered,
+      int? active,
+      double? fatalityRate}) {
     return _HomeScreenState(
       status: status,
+      countriesCovid: countriesCovid,
       confirmedSpots: confirmedSpots,
       recoveredSpots: recoveredSpots,
-      testData: testData,
+      deathsSpots: deathsSpots,
+      activeSpots: activeSpots,
+      deaths: deaths,
+      confirmed: confirmed,
+      recovered: recovered,
+      active: active,
+      fatalityRate: fatalityRate,
     );
   }
 }
@@ -371,9 +385,17 @@ const $HomeScreenState = _$HomeScreenStateTearOff();
 /// @nodoc
 mixin _$HomeScreenState {
   HomeScreenStateStatus get status => throw _privateConstructorUsedError;
+  Map<String, CountryCovid>? get countriesCovid =>
+      throw _privateConstructorUsedError;
   List<List<double>>? get confirmedSpots => throw _privateConstructorUsedError;
   List<List<double>>? get recoveredSpots => throw _privateConstructorUsedError;
-  Map<String, Object>? get testData => throw _privateConstructorUsedError;
+  List<List<double>>? get deathsSpots => throw _privateConstructorUsedError;
+  List<List<double>>? get activeSpots => throw _privateConstructorUsedError;
+  int? get deaths => throw _privateConstructorUsedError;
+  int? get confirmed => throw _privateConstructorUsedError;
+  int? get recovered => throw _privateConstructorUsedError;
+  int? get active => throw _privateConstructorUsedError;
+  double? get fatalityRate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeScreenStateCopyWith<HomeScreenState> get copyWith =>
@@ -387,9 +409,16 @@ abstract class $HomeScreenStateCopyWith<$Res> {
       _$HomeScreenStateCopyWithImpl<$Res>;
   $Res call(
       {HomeScreenStateStatus status,
+      Map<String, CountryCovid>? countriesCovid,
       List<List<double>>? confirmedSpots,
       List<List<double>>? recoveredSpots,
-      Map<String, Object>? testData});
+      List<List<double>>? deathsSpots,
+      List<List<double>>? activeSpots,
+      int? deaths,
+      int? confirmed,
+      int? recovered,
+      int? active,
+      double? fatalityRate});
 
   $HomeScreenStateStatusCopyWith<$Res> get status;
 }
@@ -406,15 +435,26 @@ class _$HomeScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
+    Object? countriesCovid = freezed,
     Object? confirmedSpots = freezed,
     Object? recoveredSpots = freezed,
-    Object? testData = freezed,
+    Object? deathsSpots = freezed,
+    Object? activeSpots = freezed,
+    Object? deaths = freezed,
+    Object? confirmed = freezed,
+    Object? recovered = freezed,
+    Object? active = freezed,
+    Object? fatalityRate = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as HomeScreenStateStatus,
+      countriesCovid: countriesCovid == freezed
+          ? _value.countriesCovid
+          : countriesCovid // ignore: cast_nullable_to_non_nullable
+              as Map<String, CountryCovid>?,
       confirmedSpots: confirmedSpots == freezed
           ? _value.confirmedSpots
           : confirmedSpots // ignore: cast_nullable_to_non_nullable
@@ -423,10 +463,34 @@ class _$HomeScreenStateCopyWithImpl<$Res>
           ? _value.recoveredSpots
           : recoveredSpots // ignore: cast_nullable_to_non_nullable
               as List<List<double>>?,
-      testData: testData == freezed
-          ? _value.testData
-          : testData // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
+      deathsSpots: deathsSpots == freezed
+          ? _value.deathsSpots
+          : deathsSpots // ignore: cast_nullable_to_non_nullable
+              as List<List<double>>?,
+      activeSpots: activeSpots == freezed
+          ? _value.activeSpots
+          : activeSpots // ignore: cast_nullable_to_non_nullable
+              as List<List<double>>?,
+      deaths: deaths == freezed
+          ? _value.deaths
+          : deaths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      confirmed: confirmed == freezed
+          ? _value.confirmed
+          : confirmed // ignore: cast_nullable_to_non_nullable
+              as int?,
+      recovered: recovered == freezed
+          ? _value.recovered
+          : recovered // ignore: cast_nullable_to_non_nullable
+              as int?,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fatalityRate: fatalityRate == freezed
+          ? _value.fatalityRate
+          : fatalityRate // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 
@@ -447,9 +511,16 @@ abstract class _$HomeScreenStateCopyWith<$Res>
   @override
   $Res call(
       {HomeScreenStateStatus status,
+      Map<String, CountryCovid>? countriesCovid,
       List<List<double>>? confirmedSpots,
       List<List<double>>? recoveredSpots,
-      Map<String, Object>? testData});
+      List<List<double>>? deathsSpots,
+      List<List<double>>? activeSpots,
+      int? deaths,
+      int? confirmed,
+      int? recovered,
+      int? active,
+      double? fatalityRate});
 
   @override
   $HomeScreenStateStatusCopyWith<$Res> get status;
@@ -469,15 +540,26 @@ class __$HomeScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
+    Object? countriesCovid = freezed,
     Object? confirmedSpots = freezed,
     Object? recoveredSpots = freezed,
-    Object? testData = freezed,
+    Object? deathsSpots = freezed,
+    Object? activeSpots = freezed,
+    Object? deaths = freezed,
+    Object? confirmed = freezed,
+    Object? recovered = freezed,
+    Object? active = freezed,
+    Object? fatalityRate = freezed,
   }) {
     return _then(_HomeScreenState(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as HomeScreenStateStatus,
+      countriesCovid: countriesCovid == freezed
+          ? _value.countriesCovid
+          : countriesCovid // ignore: cast_nullable_to_non_nullable
+              as Map<String, CountryCovid>?,
       confirmedSpots: confirmedSpots == freezed
           ? _value.confirmedSpots
           : confirmedSpots // ignore: cast_nullable_to_non_nullable
@@ -486,10 +568,34 @@ class __$HomeScreenStateCopyWithImpl<$Res>
           ? _value.recoveredSpots
           : recoveredSpots // ignore: cast_nullable_to_non_nullable
               as List<List<double>>?,
-      testData: testData == freezed
-          ? _value.testData
-          : testData // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
+      deathsSpots: deathsSpots == freezed
+          ? _value.deathsSpots
+          : deathsSpots // ignore: cast_nullable_to_non_nullable
+              as List<List<double>>?,
+      activeSpots: activeSpots == freezed
+          ? _value.activeSpots
+          : activeSpots // ignore: cast_nullable_to_non_nullable
+              as List<List<double>>?,
+      deaths: deaths == freezed
+          ? _value.deaths
+          : deaths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      confirmed: confirmed == freezed
+          ? _value.confirmed
+          : confirmed // ignore: cast_nullable_to_non_nullable
+              as int?,
+      recovered: recovered == freezed
+          ? _value.recovered
+          : recovered // ignore: cast_nullable_to_non_nullable
+              as int?,
+      active: active == freezed
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fatalityRate: fatalityRate == freezed
+          ? _value.fatalityRate
+          : fatalityRate // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -499,22 +605,43 @@ class __$HomeScreenStateCopyWithImpl<$Res>
 class _$_HomeScreenState implements _HomeScreenState {
   const _$_HomeScreenState(
       {required this.status,
+      this.countriesCovid,
       this.confirmedSpots,
       this.recoveredSpots,
-      this.testData});
+      this.deathsSpots,
+      this.activeSpots,
+      this.deaths,
+      this.confirmed,
+      this.recovered,
+      this.active,
+      this.fatalityRate});
 
   @override
   final HomeScreenStateStatus status;
+  @override
+  final Map<String, CountryCovid>? countriesCovid;
   @override
   final List<List<double>>? confirmedSpots;
   @override
   final List<List<double>>? recoveredSpots;
   @override
-  final Map<String, Object>? testData;
+  final List<List<double>>? deathsSpots;
+  @override
+  final List<List<double>>? activeSpots;
+  @override
+  final int? deaths;
+  @override
+  final int? confirmed;
+  @override
+  final int? recovered;
+  @override
+  final int? active;
+  @override
+  final double? fatalityRate;
 
   @override
   String toString() {
-    return 'HomeScreenState(status: $status, confirmedSpots: $confirmedSpots, recoveredSpots: $recoveredSpots, testData: $testData)';
+    return 'HomeScreenState(status: $status, countriesCovid: $countriesCovid, confirmedSpots: $confirmedSpots, recoveredSpots: $recoveredSpots, deathsSpots: $deathsSpots, activeSpots: $activeSpots, deaths: $deaths, confirmed: $confirmed, recovered: $recovered, active: $active, fatalityRate: $fatalityRate)';
   }
 
   @override
@@ -523,24 +650,50 @@ class _$_HomeScreenState implements _HomeScreenState {
         (other is _HomeScreenState &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.countriesCovid, countriesCovid) ||
+                const DeepCollectionEquality()
+                    .equals(other.countriesCovid, countriesCovid)) &&
             (identical(other.confirmedSpots, confirmedSpots) ||
                 const DeepCollectionEquality()
                     .equals(other.confirmedSpots, confirmedSpots)) &&
             (identical(other.recoveredSpots, recoveredSpots) ||
                 const DeepCollectionEquality()
                     .equals(other.recoveredSpots, recoveredSpots)) &&
-            (identical(other.testData, testData) ||
+            (identical(other.deathsSpots, deathsSpots) ||
                 const DeepCollectionEquality()
-                    .equals(other.testData, testData)));
+                    .equals(other.deathsSpots, deathsSpots)) &&
+            (identical(other.activeSpots, activeSpots) ||
+                const DeepCollectionEquality()
+                    .equals(other.activeSpots, activeSpots)) &&
+            (identical(other.deaths, deaths) ||
+                const DeepCollectionEquality().equals(other.deaths, deaths)) &&
+            (identical(other.confirmed, confirmed) ||
+                const DeepCollectionEquality()
+                    .equals(other.confirmed, confirmed)) &&
+            (identical(other.recovered, recovered) ||
+                const DeepCollectionEquality()
+                    .equals(other.recovered, recovered)) &&
+            (identical(other.active, active) ||
+                const DeepCollectionEquality().equals(other.active, active)) &&
+            (identical(other.fatalityRate, fatalityRate) ||
+                const DeepCollectionEquality()
+                    .equals(other.fatalityRate, fatalityRate)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(countriesCovid) ^
       const DeepCollectionEquality().hash(confirmedSpots) ^
       const DeepCollectionEquality().hash(recoveredSpots) ^
-      const DeepCollectionEquality().hash(testData);
+      const DeepCollectionEquality().hash(deathsSpots) ^
+      const DeepCollectionEquality().hash(activeSpots) ^
+      const DeepCollectionEquality().hash(deaths) ^
+      const DeepCollectionEquality().hash(confirmed) ^
+      const DeepCollectionEquality().hash(recovered) ^
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(fatalityRate);
 
   @JsonKey(ignore: true)
   @override
@@ -551,18 +704,40 @@ class _$_HomeScreenState implements _HomeScreenState {
 abstract class _HomeScreenState implements HomeScreenState {
   const factory _HomeScreenState(
       {required HomeScreenStateStatus status,
+      Map<String, CountryCovid>? countriesCovid,
       List<List<double>>? confirmedSpots,
       List<List<double>>? recoveredSpots,
-      Map<String, Object>? testData}) = _$_HomeScreenState;
+      List<List<double>>? deathsSpots,
+      List<List<double>>? activeSpots,
+      int? deaths,
+      int? confirmed,
+      int? recovered,
+      int? active,
+      double? fatalityRate}) = _$_HomeScreenState;
 
   @override
   HomeScreenStateStatus get status => throw _privateConstructorUsedError;
+  @override
+  Map<String, CountryCovid>? get countriesCovid =>
+      throw _privateConstructorUsedError;
   @override
   List<List<double>>? get confirmedSpots => throw _privateConstructorUsedError;
   @override
   List<List<double>>? get recoveredSpots => throw _privateConstructorUsedError;
   @override
-  Map<String, Object>? get testData => throw _privateConstructorUsedError;
+  List<List<double>>? get deathsSpots => throw _privateConstructorUsedError;
+  @override
+  List<List<double>>? get activeSpots => throw _privateConstructorUsedError;
+  @override
+  int? get deaths => throw _privateConstructorUsedError;
+  @override
+  int? get confirmed => throw _privateConstructorUsedError;
+  @override
+  int? get recovered => throw _privateConstructorUsedError;
+  @override
+  int? get active => throw _privateConstructorUsedError;
+  @override
+  double? get fatalityRate => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$HomeScreenStateCopyWith<_HomeScreenState> get copyWith =>

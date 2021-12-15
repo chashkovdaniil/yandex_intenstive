@@ -9,4 +9,6 @@ abstract class CovidDatasource {
   });
   Future<CovidReport> statsTotalByDate({DateTime? date});
   Future<List<Country>> countries();
+  Future<List<CovidReport>> statsTotalByYear(int year);
+  Future<List<CovidReport>> statsTotal();
 }

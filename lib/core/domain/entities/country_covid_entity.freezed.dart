@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CountryTearOff {
   const _$CountryTearOff();
 
-  _Country call({required String code, required String name}) {
+  _Country call(
+      {@HiveField(0) required String code,
+      @HiveField(1) required String name}) {
     return _Country(
       code: code,
       name: name,
@@ -29,7 +31,9 @@ const $Country = _$CountryTearOff();
 
 /// @nodoc
 mixin _$Country {
+  @HiveField(0)
   String get code => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,7 +44,7 @@ mixin _$Country {
 abstract class $CountryCopyWith<$Res> {
   factory $CountryCopyWith(Country value, $Res Function(Country) then) =
       _$CountryCopyWithImpl<$Res>;
-  $Res call({String code, String name});
+  $Res call({@HiveField(0) String code, @HiveField(1) String name});
 }
 
 /// @nodoc
@@ -74,7 +78,7 @@ abstract class _$CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
   factory _$CountryCopyWith(_Country value, $Res Function(_Country) then) =
       __$CountryCopyWithImpl<$Res>;
   @override
-  $Res call({String code, String name});
+  $Res call({@HiveField(0) String code, @HiveField(1) String name});
 }
 
 /// @nodoc
@@ -106,12 +110,16 @@ class __$CountryCopyWithImpl<$Res> extends _$CountryCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 1, adapterName: 'CountryAdapter')
 class _$_Country implements _Country {
-  const _$_Country({required this.code, required this.name});
+  const _$_Country(
+      {@HiveField(0) required this.code, @HiveField(1) required this.name});
 
   @override
+  @HiveField(0)
   final String code;
   @override
+  @HiveField(1)
   final String name;
 
   @override
@@ -142,12 +150,15 @@ class _$_Country implements _Country {
 }
 
 abstract class _Country implements Country {
-  const factory _Country({required String code, required String name}) =
-      _$_Country;
+  const factory _Country(
+      {@HiveField(0) required String code,
+      @HiveField(1) required String name}) = _$_Country;
 
   @override
+  @HiveField(0)
   String get code => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -160,9 +171,9 @@ class _$CountryCovidTearOff {
   const _$CountryCovidTearOff();
 
   _CountryCovid call(
-      {required CovidReport covidReport,
-      required List<ProvinceCovid> provinces,
-      required Country country}) {
+      {@HiveField(0) required CovidReport covidReport,
+      @HiveField(1) required List<ProvinceCovid> provinces,
+      @HiveField(2) required Country country}) {
     return _CountryCovid(
       covidReport: covidReport,
       provinces: provinces,
@@ -176,8 +187,11 @@ const $CountryCovid = _$CountryCovidTearOff();
 
 /// @nodoc
 mixin _$CountryCovid {
+  @HiveField(0)
   CovidReport get covidReport => throw _privateConstructorUsedError;
+  @HiveField(1)
   List<ProvinceCovid> get provinces => throw _privateConstructorUsedError;
+  @HiveField(2)
   Country get country => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -191,9 +205,9 @@ abstract class $CountryCovidCopyWith<$Res> {
           CountryCovid value, $Res Function(CountryCovid) then) =
       _$CountryCovidCopyWithImpl<$Res>;
   $Res call(
-      {CovidReport covidReport,
-      List<ProvinceCovid> provinces,
-      Country country});
+      {@HiveField(0) CovidReport covidReport,
+      @HiveField(1) List<ProvinceCovid> provinces,
+      @HiveField(2) Country country});
 
   $CovidReportCopyWith<$Res> get covidReport;
   $CountryCopyWith<$Res> get country;
@@ -252,9 +266,9 @@ abstract class _$CountryCovidCopyWith<$Res>
       __$CountryCovidCopyWithImpl<$Res>;
   @override
   $Res call(
-      {CovidReport covidReport,
-      List<ProvinceCovid> provinces,
-      Country country});
+      {@HiveField(0) CovidReport covidReport,
+      @HiveField(1) List<ProvinceCovid> provinces,
+      @HiveField(2) Country country});
 
   @override
   $CovidReportCopyWith<$Res> get covidReport;
@@ -297,17 +311,21 @@ class __$CountryCovidCopyWithImpl<$Res> extends _$CountryCovidCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 2, adapterName: 'CountryCovidAdapter')
 class _$_CountryCovid implements _CountryCovid {
   _$_CountryCovid(
-      {required this.covidReport,
-      required this.provinces,
-      required this.country});
+      {@HiveField(0) required this.covidReport,
+      @HiveField(1) required this.provinces,
+      @HiveField(2) required this.country});
 
   @override
+  @HiveField(0)
   final CovidReport covidReport;
   @override
+  @HiveField(1)
   final List<ProvinceCovid> provinces;
   @override
+  @HiveField(2)
   final Country country;
 
   @override
@@ -344,15 +362,18 @@ class _$_CountryCovid implements _CountryCovid {
 
 abstract class _CountryCovid implements CountryCovid {
   factory _CountryCovid(
-      {required CovidReport covidReport,
-      required List<ProvinceCovid> provinces,
-      required Country country}) = _$_CountryCovid;
+      {@HiveField(0) required CovidReport covidReport,
+      @HiveField(1) required List<ProvinceCovid> provinces,
+      @HiveField(2) required Country country}) = _$_CountryCovid;
 
   @override
+  @HiveField(0)
   CovidReport get covidReport => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   List<ProvinceCovid> get provinces => throw _privateConstructorUsedError;
   @override
+  @HiveField(2)
   Country get country => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -365,7 +386,9 @@ class _$ProvinceTearOff {
   const _$ProvinceTearOff();
 
   _Province call(
-      {required String name, required double lat, required double long}) {
+      {@HiveField(0) required String name,
+      @HiveField(1) required double lat,
+      @HiveField(2) required double long}) {
     return _Province(
       name: name,
       lat: lat,
@@ -379,8 +402,11 @@ const $Province = _$ProvinceTearOff();
 
 /// @nodoc
 mixin _$Province {
+  @HiveField(0)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   double get lat => throw _privateConstructorUsedError;
+  @HiveField(2)
   double get long => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -392,7 +418,10 @@ mixin _$Province {
 abstract class $ProvinceCopyWith<$Res> {
   factory $ProvinceCopyWith(Province value, $Res Function(Province) then) =
       _$ProvinceCopyWithImpl<$Res>;
-  $Res call({String name, double lat, double long});
+  $Res call(
+      {@HiveField(0) String name,
+      @HiveField(1) double lat,
+      @HiveField(2) double long});
 }
 
 /// @nodoc
@@ -431,7 +460,10 @@ abstract class _$ProvinceCopyWith<$Res> implements $ProvinceCopyWith<$Res> {
   factory _$ProvinceCopyWith(_Province value, $Res Function(_Province) then) =
       __$ProvinceCopyWithImpl<$Res>;
   @override
-  $Res call({String name, double lat, double long});
+  $Res call(
+      {@HiveField(0) String name,
+      @HiveField(1) double lat,
+      @HiveField(2) double long});
 }
 
 /// @nodoc
@@ -468,14 +500,21 @@ class __$ProvinceCopyWithImpl<$Res> extends _$ProvinceCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 3, adapterName: 'ProvinceAdapter')
 class _$_Province implements _Province {
-  _$_Province({required this.name, required this.lat, required this.long});
+  _$_Province(
+      {@HiveField(0) required this.name,
+      @HiveField(1) required this.lat,
+      @HiveField(2) required this.long});
 
   @override
+  @HiveField(0)
   final String name;
   @override
+  @HiveField(1)
   final double lat;
   @override
+  @HiveField(2)
   final double long;
 
   @override
@@ -510,15 +549,18 @@ class _$_Province implements _Province {
 
 abstract class _Province implements Province {
   factory _Province(
-      {required String name,
-      required double lat,
-      required double long}) = _$_Province;
+      {@HiveField(0) required String name,
+      @HiveField(1) required double lat,
+      @HiveField(2) required double long}) = _$_Province;
 
   @override
+  @HiveField(0)
   String get name => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   double get lat => throw _privateConstructorUsedError;
   @override
+  @HiveField(2)
   double get long => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -531,7 +573,8 @@ class _$ProvinceCovidTearOff {
   const _$ProvinceCovidTearOff();
 
   _ProvinceCovid call(
-      {required CovidReport covidReport, required Province province}) {
+      {@HiveField(0) required CovidReport covidReport,
+      @HiveField(1) required Province province}) {
     return _ProvinceCovid(
       covidReport: covidReport,
       province: province,
@@ -544,7 +587,9 @@ const $ProvinceCovid = _$ProvinceCovidTearOff();
 
 /// @nodoc
 mixin _$ProvinceCovid {
+  @HiveField(0)
   CovidReport get covidReport => throw _privateConstructorUsedError;
+  @HiveField(1)
   Province get province => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -557,7 +602,8 @@ abstract class $ProvinceCovidCopyWith<$Res> {
   factory $ProvinceCovidCopyWith(
           ProvinceCovid value, $Res Function(ProvinceCovid) then) =
       _$ProvinceCovidCopyWithImpl<$Res>;
-  $Res call({CovidReport covidReport, Province province});
+  $Res call(
+      {@HiveField(0) CovidReport covidReport, @HiveField(1) Province province});
 
   $CovidReportCopyWith<$Res> get covidReport;
   $ProvinceCopyWith<$Res> get province;
@@ -611,7 +657,8 @@ abstract class _$ProvinceCovidCopyWith<$Res>
           _ProvinceCovid value, $Res Function(_ProvinceCovid) then) =
       __$ProvinceCovidCopyWithImpl<$Res>;
   @override
-  $Res call({CovidReport covidReport, Province province});
+  $Res call(
+      {@HiveField(0) CovidReport covidReport, @HiveField(1) Province province});
 
   @override
   $CovidReportCopyWith<$Res> get covidReport;
@@ -650,12 +697,17 @@ class __$ProvinceCovidCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 4, adapterName: 'ProvinceCovidAdapter')
 class _$_ProvinceCovid implements _ProvinceCovid {
-  _$_ProvinceCovid({required this.covidReport, required this.province});
+  _$_ProvinceCovid(
+      {@HiveField(0) required this.covidReport,
+      @HiveField(1) required this.province});
 
   @override
+  @HiveField(0)
   final CovidReport covidReport;
   @override
+  @HiveField(1)
   final Province province;
 
   @override
@@ -689,12 +741,14 @@ class _$_ProvinceCovid implements _ProvinceCovid {
 
 abstract class _ProvinceCovid implements ProvinceCovid {
   factory _ProvinceCovid(
-      {required CovidReport covidReport,
-      required Province province}) = _$_ProvinceCovid;
+      {@HiveField(0) required CovidReport covidReport,
+      @HiveField(1) required Province province}) = _$_ProvinceCovid;
 
   @override
+  @HiveField(0)
   CovidReport get covidReport => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   Province get province => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

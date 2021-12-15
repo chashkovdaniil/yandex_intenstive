@@ -1,3 +1,6 @@
+import 'package:yandex_intensive/core/api/internet_checker.dart';
+import 'package:yandex_intensive/core/data/datasources/covid_cache_datasource.dart';
+
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
 import '../../domain/repositories/covid_repository.dart';
@@ -5,51 +8,63 @@ import '../../domain/repositories/covid_repository.dart';
 import '../datasources/covid_datasource.dart';
 
 class CovidRepositoryImpl implements CovidRepository {
-  final CovidDatasource _covidCacheDatasource;
+  final CovidCacheDatasource _covidCacheDatasource;
   final CovidDatasource _covidNetworkDatasource;
+  final InternetChecker _internetChecker;
   CovidRepositoryImpl({
-    required CovidDatasource covidCacheDatasource,
+    required CovidCacheDatasource covidCacheDatasource,
     required CovidDatasource covidNetworkDatasource,
+    required InternetChecker internetChecker,
   })  : _covidCacheDatasource = covidCacheDatasource,
-        _covidNetworkDatasource = covidNetworkDatasource;
+        _covidNetworkDatasource = covidNetworkDatasource,
+        _internetChecker = internetChecker;
 
-  CovidDatasource get _covidDatasource {
+  Future<CovidDatasource> get _covidDatasource async {
     /// ToDo: проверка на соединение
-    return (true) ? _covidNetworkDatasource : _covidCacheDatasource;
+    return (await _internetChecker.isConnected())
+        ? _covidNetworkDatasource
+        : _covidCacheDatasource;
   }
 
   @override
   Future<Map<String, CountryCovid>> statsCountriesByDate({
     DateTime? date,
-  }) {
-    return _covidDatasource.statsCountriesByDate(date: date);
+  }) async {
+    var result = (await _covidDatasource).statsCountriesByDate(date: date);
+    _covidCacheDatasource.saveStatsCountriesByDate(await result);
+    return result;
   }
 
   @override
   Future<CovidReport> statsCountryByDate({
     DateTime? date,
     required Country country,
-  }) {
-    return _covidDatasource.statsCountryByDate(date: date, country: country);
+  }) async {
+    return (await _covidDatasource)
+        .statsCountryByDate(date: date, country: country);
   }
 
   @override
-  Future<CovidReport> statsTotalByDate({DateTime? date}) {
-    return _covidDatasource.statsTotalByDate(date: date);
+  Future<CovidReport> statsTotalByDate({DateTime? date}) async {
+    return (await _covidDatasource).statsTotalByDate(date: date);
   }
 
   @override
-  Future<List<Country>> countries() {
-    return _covidDatasource.countries();
+  Future<List<Country>> countries() async {
+    var result = (await _covidDatasource).countries();
+    _covidCacheDatasource.saveCountries(await result);
+    return result;
   }
 
   @override
-  Future<List<CovidReport>> statsTotal() {
-    return _covidDatasource.statsTotal();
+  Future<List<CovidReport>> statsTotal() async {
+    var result = (await _covidDatasource).statsTotal();
+    _covidCacheDatasource.saveStatsTotal(await result);
+    return result;
   }
 
   @override
-  Future<List<CovidReport>> statsTotalByYear(int year) {
-    return _covidDatasource.statsTotalByYear(year);
+  Future<List<CovidReport>> statsTotalByYear(int year) async {
+    return (await _covidDatasource).statsTotalByYear(year);
   }
 }

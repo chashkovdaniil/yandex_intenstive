@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../components/education_preview.dart';
-import '../components/expandable_page_view.dart';
+// import '../components/expandable_page_view.dart';
+import '../components/expandable_tab_bar_view.dart';
 import '../diagnosis.dart';
-import '../education_pager.dart';
+// import '../education_pager.dart';
 import '../prevention.dart';
 import '../symptoms.dart';
 
@@ -21,7 +22,13 @@ class EducationScreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.all(20.0),
-                child: EducationPager(),
+                child: ExpandableTabBarView(
+                  children: [
+                    PreventionPage(),
+                    SymptomsPage(),
+                    DiagnosisPage(),
+                  ],
+                ),
               ),
               // Padding(
               //   padding: const EdgeInsets.all(20.0),

@@ -10,10 +10,18 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actionsIconTheme: IconThemeData(
+          color: AppColors.primary,
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        iconColor: AppColors.primary,
       ),
       fontFamily: '.SF Pro Text',
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.white,
+      primaryColorLight: AppColors.primary,
+      primaryColorDark: AppColors.primary,
     );
   }
 }

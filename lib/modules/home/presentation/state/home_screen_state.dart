@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
-
-import '../../../../core/domain/repositories/covid_repository.dart';
+import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
 
 part 'home_screen_state.freezed.dart';
 
@@ -18,116 +15,50 @@ class HomeScreenStateStatus with _$HomeScreenStateStatus {
 class HomeScreenState with _$HomeScreenState {
   const factory HomeScreenState({
     required HomeScreenStateStatus status,
+    Map<String, CountryCovid>? countriesCovid,
     List<List<double>>? confirmedSpots,
     List<List<double>>? recoveredSpots,
-    Map<String, Object>? testData,
+    List<List<double>>? deathsSpots,
+    List<List<double>>? activeSpots,
+    int? deaths,
+    int? confirmed,
+    int? recovered,
+    int? active,
+    double? fatalityRate,
   }) = _HomeScreenState;
 }
 
-class HomeScreenProvider extends StateNotifier<HomeScreenState> {
-  final CovidRepository? _covidRepository;
-
-  HomeScreenProvider({
-    CovidRepository? covidRepository,
-  })  : _covidRepository = covidRepository,
-        super(
-          const HomeScreenState(status: HomeScreenStateStatus.loading()),
+class HomeScreenManager extends StateNotifier<HomeScreenState> {
+  HomeScreenManager()
+      : super(
+          const HomeScreenState(
+            status: HomeScreenStateStatus.loading(),
+          ),
         );
-
-  void load() {
-    // Вынести логику в usecase
-    if ((state.confirmedSpots == null ||
-            state.recoveredSpots == null ||
-            state.testData == null ||
-            state.status == const HomeScreenStateStatus.failed()) &&
-        state.status != const HomeScreenStateStatus.loading()) {
-      state = state.copyWith(
-        status: const HomeScreenStateStatus.loading(),
-      );
-    }
-    Future.delayed(const Duration(seconds: 0), () {
-      state = state.copyWith(
-        status: const HomeScreenStateStatus.success(),
-        // status: Random().nextBool()
-        //     ? const HomeScreenStateStatus.success()
-        //     : const HomeScreenStateStatus.failed(),
-        confirmedSpots: [
-          [0, 63839023],
-          [1, 83963772],
-          [2, 103409401],
-          [3, 114428986],
-          [4, 129525492],
-          [5, 151801690],
-          [6, 171051485],
-          [7, 182593657],
-          [8, 198291279],
-          [9, 218382706],
-          [10, 234285671],
-          [11, 266448563]
-        ],
-        recoveredSpots: [
-          [0, 63839023],
-          [1, 83963772],
-          [2, 103409401],
-          [3, 114428986],
-          [4, 129525492],
-          [5, 100000000],
-          [6, 171051485],
-          [7, 182593657],
-          [8, 0],
-          [9, 218382706],
-          [10, 234285671],
-          [11, 200000000]
-        ],
-        testData: {
-          'Global': {
-            'NewConfirmed': 100282,
-            'TotalConfirmed': 1162857,
-            'NewDeaths': 5658,
-            'TotalDeaths': 63263,
-            'NewRecovered': 15405,
-            'TotalRecovered': 230845
-          },
-          'Countries': [
-            {
-              'Country': 'ALA Aland Islands',
-              'CountryCode': 'AX',
-              'Slug': 'ala-aland-islands',
-              'NewConfirmed': 0,
-              'TotalConfirmed': 0,
-              'NewDeaths': 0,
-              'TotalDeaths': 0,
-              'NewRecovered': 0,
-              'TotalRecovered': 0,
-              'Date': '2020-04-05T06:37:00Z'
-            },
-            {
-              'Country': 'Afghanistan',
-              'CountryCode': 'AF',
-              'Slug': 'afghanistan',
-              'NewConfirmed': 18,
-              'TotalConfirmed': 299,
-              'NewDeaths': 1,
-              'TotalDeaths': 7,
-              'NewRecovered': 0,
-              'TotalRecovered': 10,
-              'Date': '2020-04-05T06:37:00Z'
-            },
-            {
-              'Country': 'Albania',
-              'CountryCode': 'AL',
-              'Slug': 'albania',
-              'NewConfirmed': 29,
-              'TotalConfirmed': 333,
-              'NewDeaths': 3,
-              'TotalDeaths': 20,
-              'NewRecovered': 10,
-              'TotalRecovered': 99,
-              'Date': '2020-04-05T06:37:00Z'
-            },
-          ],
-        },
-      );
-    });
+  setData({
+    Map<String, CountryCovid>? countriesCovid,
+    List<List<double>>? confirmedSpots,
+    List<List<double>>? recoveredSpots,
+    List<List<double>>? deathsSpots,
+    List<List<double>>? activeSpots,
+    int? deaths,
+    int? confirmed,
+    int? recovered,
+    int? active,
+    double? fatalityRate,
+  }) {
+    state = state.copyWith(
+      countriesCovid: countriesCovid ?? state.countriesCovid,
+      confirmedSpots: confirmedSpots ?? state.confirmedSpots,
+      recoveredSpots: recoveredSpots ?? state.recoveredSpots,
+      deathsSpots: deathsSpots ?? state.deathsSpots,
+      deaths: deaths ?? state.deaths,
+      confirmed: confirmed ?? state.confirmed,
+      recovered: recovered ?? state.recovered,
+      fatalityRate: fatalityRate ?? state.fatalityRate,
+      active: active ?? state.active,
+      activeSpots: activeSpots ?? state.activeSpots,
+      status: const HomeScreenStateStatus.success(),
+    );
   }
 }

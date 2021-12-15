@@ -1,5 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:throttling/throttling.dart';
+import 'package:yandex_intensive/modules/home/presentation/state/home_screen_state.dart';
+import 'package:yandex_intensive/modules/home/usecases/home_stats_total.dart';
 import 'package:yandex_intensive/modules/search/domains/usecases/countries_by_name_usecase.dart';
 import 'package:yandex_intensive/modules/search/domains/usecases/countries_usecase.dart';
 import 'package:yandex_intensive/modules/search/presentation/search_screen_state.dart';
@@ -35,6 +37,16 @@ final countriesUsecaseProvider = Provider<Countries>((ref) {
   return Countries(
     covidRepository: ref.watch(covidRepositoryProvider),
     screenStateManager: ref.watch(searchScreenStateManagerProvider),
+  );
+});
+final homeScreenStateManagerProvider = Provider<HomeScreenManager>((ref) {
+  return HomeScreenManager();
+});
+
+final statsTotalUsecaseProvider = Provider<StatsTotal>((ref) {
+  return StatsTotal(
+    manager: ref.watch(homeScreenStateManagerProvider),
+    repository: ref.watch(covidRepositoryProvider),
   );
 });
 final countriesByNameUsecaseProvider =

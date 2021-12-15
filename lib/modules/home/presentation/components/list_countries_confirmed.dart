@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/colors.dart';
+import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
 
 class ListCountriesConfirmed extends StatelessWidget {
-  final List<Map<String, Object>> testData;
+  final List<CountryCovid> countriesCovid;
 
   const ListCountriesConfirmed({
     Key? key,
-    required this.testData,
+    required this.countriesCovid,
   }) : super(key: key);
 
   @override
@@ -17,10 +19,25 @@ class ListCountriesConfirmed extends StatelessWidget {
           trailing: Text('Confirmed'),
         ),
         ...List.generate(
-          testData.length,
+          countriesCovid.length,
           (index) => ListTile(
-            title: Text("${testData[index]['Country']}"),
-            trailing: Text("${testData[index]['TotalConfirmed']}"),
+            title: Text(countriesCovid[index].country.name),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('${countriesCovid[index].covidReport.confirmed}'),
+                const SizedBox(width: 10),
+                countriesCovid[index].covidReport.confirmedDiff > 0
+                    ? const Icon(
+                        Icons.trending_up,
+                        color: AppColors.red,
+                      )
+                    : const Icon(
+                        Icons.trending_down,
+                        color: AppColors.green,
+                      ),
+              ],
+            ),
           ),
         ),
       ],

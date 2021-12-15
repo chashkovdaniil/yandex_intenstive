@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
 
@@ -9,8 +10,9 @@ import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
 import '../news/presentation/screens/news_screen.dart';
 
-class BottomNavigationState extends State with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
+class BottomNavigationState extends State
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  // late final TabController _tabController;
   final _children = <Widget>[
     const HomeScreen(),
     const MapScreen(),
@@ -18,29 +20,27 @@ class BottomNavigationState extends State with SingleTickerProviderStateMixin {
     const DiscoveryScreen(),
     const NewsScreen(),
   ];
+  int _currentIndex = 0;
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(
-      length: _children.length,
-      vsync: this,
-    );
+    // _tabController = TabController(
+    //   length: _children.length,
+    //   vsync: this,
+    // );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabBarView(
-        children: _children,
-        controller: _tabController,
-      ),
+      body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.grey,
         selectedLabelStyle: TextStyles.selectedLabelStyle,
         unselectedLabelStyle: TextStyles.unselectedLabelStyle,
         onTap: onTabTapped,
-        currentIndex: _tabController.index,
+        currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
@@ -69,7 +69,10 @@ class BottomNavigationState extends State with SingleTickerProviderStateMixin {
 
   void onTabTapped(int index) {
     setState(() {
-      _tabController.index = index;
+      _currentIndex = index;
     });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

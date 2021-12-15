@@ -52,6 +52,14 @@ class SearchScreen extends HookConsumerWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.home),
+          ),
+        ],
         title: SearchField(
           autofocus: true,
           searchFieldController: textFieldController,

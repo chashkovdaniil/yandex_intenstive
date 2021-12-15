@@ -1,12 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
-import 'package:yandex_intensive/core/data/dto/country_dto.dart';
-
-// import 'package:yandex_intensive/core/domain/entities/country_entity.dart';
 
 import '../../api/app_exceptions.dart';
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
+import '../dto/country_dto.dart';
 import '../dto/covid_report_dto.dart';
 import 'covid_datasource.dart';
 
@@ -105,8 +103,10 @@ class CovidNetworkDatasource implements CovidDatasource {
     try {
       date ??= DateTime.now();
       var str = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
-      var json = await _dio.get(_apiReportsTotal,
-          queryParameters: {'date': str, 'iso': country.code});
+      var json = await _dio.get(
+        _apiReportsTotal,
+        queryParameters: {'date': str, 'iso': country.code},
+      );
       var raw = json.data['data'] as Map<String, dynamic>;
       var dto = CovidReportDto.fromJson(raw);
 

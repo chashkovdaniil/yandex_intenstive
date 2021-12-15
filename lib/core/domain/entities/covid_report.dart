@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../data/dto/covid_report_dto.dart';
-import 'country_covid_entity.dart';
 
 part 'covid_report.freezed.dart';
 

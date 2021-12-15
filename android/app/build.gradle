@@ -36,11 +36,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.yandex_intensive"
-<<<<<<< HEAD
-        minSdkVersion 21
-=======
         minSdkVersion 19
->>>>>>> 2266aab267621ff16c73feff428660b77226b7df
         targetSdkVersion 30
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()

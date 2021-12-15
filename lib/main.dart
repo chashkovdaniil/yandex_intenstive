@@ -40,7 +40,7 @@ class MyApp extends HookConsumerWidget {
       initialRoute: AppRoutes.splashScreen,
       navigatorKey: ref.watch(appNavigationManagerProvider).key,
       routes: {
-        AppRoutes.bottomNavigation: (_) => BottomNavigation(),
+        AppRoutes.bottomNavigation: (_) => const BottomNavigation(),
         AppRoutes.splashScreen: (_) => const SplashScreen(),
         AppRoutes.onboardingScreen: (_) => Onboarding(),
         AppRoutes.searchScreenRoute: (_) => const SearchScreen(),

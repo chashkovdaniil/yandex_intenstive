@@ -4,7 +4,7 @@ import 'bottom_navigation_state.dart';
 
 class BottomNavigation extends StatefulWidget {
 
-  BottomNavigation({Key? key}) : super(key: key);
+  const BottomNavigation({Key? key}) : super(key: key);
 
   @override
   State createState() {

@@ -15,6 +15,7 @@ class PushNotificationService {
     await enableIOSNotifications();
     await registerNotificationListeners();
   }
+
   registerNotificationListeners() async {
     AndroidNotificationChannel channel = androidNotificationChannel();
     final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
@@ -31,15 +32,18 @@ class PushNotificationService {
     );
     var initSettings =
         InitializationSettings(android: androidSettings, iOS: iOSSettings);
-    flutterLocalNotificationsPlugin.initialize(initSettings,
-        onSelectNotification: (message) async {
-      // Get.toNamed(NOTIFICATIOINS_ROUTE);
-    });
+    flutterLocalNotificationsPlugin.initialize(
+      initSettings,
+      onSelectNotification: (message) async {
+        // Get.toNamed(NOTIFICATIOINS_ROUTE);
+      },
+    );
     FirebaseMessaging.onMessage.listen((RemoteMessage? message) {
-      print('Got a message whilst in the foreground!');
-      print('Message data: ${message?.data}');
+      //print('Got a message whilst in the foreground!');
+      //print('Message data: ${message?.data}');
     });
   }
+
   enableIOSNotifications() async {
     var messaging = FirebaseMessaging.instance;
     await messaging.setForegroundNotificationPresentationOptions(
@@ -47,17 +51,10 @@ class PushNotificationService {
       badge: true,
       sound: true,
     );
-    var settings = await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-    print('User granted permission: ${settings.authorizationStatus}');
+    //var settings = await messaging.requestPermission();
+    //print('User granted permission: ${settings.authorizationStatus}');
   }
+
   androidNotificationChannel() => const AndroidNotificationChannel(
         'high_importance_channel',
         'High Importance Notifications',

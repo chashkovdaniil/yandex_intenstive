@@ -126,17 +126,18 @@ class CovidNetworkDatasource implements CovidDatasource {
         return CovidReport.fromDto(CovidReportDto(
           date: strDate,
           confirmed: 0,
-          deaths: 0,
-          recovered: 0,
-          confirmedDiff: 0,
-          deathsDiff: 0,
-          recoveredDiff: 0,
-          lastUpdate: strDate,
-          active: 0,
-          activeDiff: 0,
-          fatalityRate: 0,
-          region: {},
-        ));
+            deaths: 0,
+            recovered: 0,
+            confirmedDiff: 0,
+            deathsDiff: 0,
+            recoveredDiff: 0,
+            lastUpdate: strDate,
+            active: 0,
+            activeDiff: 0,
+            fatalityRate: 0,
+            region: {},
+          ),
+        );
       }
       var dto = CovidReportDto.fromJson(data);
 

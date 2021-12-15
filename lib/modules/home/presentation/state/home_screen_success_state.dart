@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
 
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
+import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../search/presentation/widgets/search_field.dart';
 import '../components/home_card.dart';
 import '../components/home_line_chart.dart';

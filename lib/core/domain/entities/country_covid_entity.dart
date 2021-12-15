@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:yandex_intensive/core/data/dto/country_dto.dart';
 
+import '../../data/dto/country_dto.dart';
 import 'covid_report.dart';
 
 part 'country_covid_entity.freezed.dart';

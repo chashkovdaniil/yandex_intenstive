@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/constants.dart';
 
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
@@ -40,22 +41,22 @@ class BottomNavigationState extends State
         unselectedLabelStyle: TextStyles.unselectedLabelStyle,
         onTap: onTabTapped,
         currentIndex: _currentIndex,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
+            icon: const Icon(CupertinoIcons.home),
+            label: StringValues.bottomNavigationItemHome,
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.map),
-            label: 'Map',
+            icon: const Icon(CupertinoIcons.map),
+            label: StringValues.bottomNavigationItemMap,
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: 'Education',
+            icon: const Icon(CupertinoIcons.person),
+            label: StringValues.bottomNavigationItemEducation,
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.settings),
-            label: 'Discovery',
+            icon: const Icon(CupertinoIcons.settings),
+            label: StringValues.bottomNavigationItemSettings,
           ),
         ],
       ),

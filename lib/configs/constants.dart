@@ -4,7 +4,6 @@ import 'package:syncfusion_flutter_maps/maps.dart';
 import '../modules/map/presentation/helpers/model.dart';
 import '../modules/map/presentation/widgets/rest_country_card.dart';
 import '../modules/map/presentation/widgets/top_country_card.dart';
-
 import 'colors.dart';
 
 class StringValues {
@@ -180,6 +179,13 @@ class StringValues {
   static String get splashScreenBottomText =>
       'Yandex intensive on Flutter in Sirius, 2021';
 
+  static String get bottomNavigationItemHome => 'Home';
+
+  static String get bottomNavigationItemMap => 'Map';
+
+  static String get bottomNavigationItemEducation => 'Education';
+
+  static String get bottomNavigationItemSettings => 'Settings';
 }
 
 class MockData {

@@ -28,13 +28,18 @@ class CovidRepositoryImpl implements CovidRepository {
   @override
   Future<CovidReport> statsCountryByDate({
     DateTime? date,
-    required String iso,
+    required Country country,
   }) {
-    return _covidDatasource.statsCountryByDate(date: date, iso: iso);
+    return _covidDatasource.statsCountryByDate(date: date, country: country);
   }
 
   @override
   Future<CovidReport> statsTotalByDate({DateTime? date}) {
     return _covidDatasource.statsTotalByDate(date: date);
+  }
+
+  @override
+  Future<List<Country>> countries() {
+    return _covidDatasource.countries();
   }
 }

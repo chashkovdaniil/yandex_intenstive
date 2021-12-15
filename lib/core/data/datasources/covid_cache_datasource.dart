@@ -22,9 +22,15 @@ class CovidCacheDatasource implements CovidDatasource {
   @override
   Future<CovidReport> statsCountryByDate({
     DateTime? date,
-    required String iso,
+    required Country country,
   }) {
     // TODO: implement statsCountryByDate
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<Country>> countries() {
+    // TODO: implement countries
     throw UnimplementedError();
   }
 

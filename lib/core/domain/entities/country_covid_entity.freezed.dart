@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'country_covid_entity.dart';
 
@@ -31,7 +30,6 @@ const $Country = _$CountryTearOff();
 /// @nodoc
 mixin _$Country {
   String get code => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -42,7 +40,6 @@ mixin _$Country {
 abstract class $CountryCopyWith<$Res> {
   factory $CountryCopyWith(Country value, $Res Function(Country) then) =
       _$CountryCopyWithImpl<$Res>;
-
   $Res call({String code, String name});
 }
 
@@ -51,7 +48,6 @@ class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
   _$CountryCopyWithImpl(this._value, this._then);
 
   final Country _value;
-
   // ignore: unused_field
   final $Res Function(Country) _then;
 
@@ -77,7 +73,6 @@ class _$CountryCopyWithImpl<$Res> implements $CountryCopyWith<$Res> {
 abstract class _$CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
   factory _$CountryCopyWith(_Country value, $Res Function(_Country) then) =
       __$CountryCopyWithImpl<$Res>;
-
   @override
   $Res call({String code, String name});
 }
@@ -127,17 +122,18 @@ class _$_Country implements _Country {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _Country &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.name, name));
+        (other is _Country &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -150,11 +146,9 @@ abstract class _Country implements Country {
       _$_Country;
 
   @override
-  String get code;
-
+  String get code => throw _privateConstructorUsedError;
   @override
-  String get name;
-
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CountryCopyWith<_Country> get copyWith =>
@@ -183,9 +177,7 @@ const $CountryCovid = _$CountryCovidTearOff();
 /// @nodoc
 mixin _$CountryCovid {
   CovidReport get covidReport => throw _privateConstructorUsedError;
-
   List<ProvinceCovid> get provinces => throw _privateConstructorUsedError;
-
   Country get country => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -198,14 +190,12 @@ abstract class $CountryCovidCopyWith<$Res> {
   factory $CountryCovidCopyWith(
           CountryCovid value, $Res Function(CountryCovid) then) =
       _$CountryCovidCopyWithImpl<$Res>;
-
   $Res call(
       {CovidReport covidReport,
       List<ProvinceCovid> provinces,
       Country country});
 
   $CovidReportCopyWith<$Res> get covidReport;
-
   $CountryCopyWith<$Res> get country;
 }
 
@@ -214,7 +204,6 @@ class _$CountryCovidCopyWithImpl<$Res> implements $CountryCovidCopyWith<$Res> {
   _$CountryCovidCopyWithImpl(this._value, this._then);
 
   final CountryCovid _value;
-
   // ignore: unused_field
   final $Res Function(CountryCovid) _then;
 
@@ -261,7 +250,6 @@ abstract class _$CountryCovidCopyWith<$Res>
   factory _$CountryCovidCopyWith(
           _CountryCovid value, $Res Function(_CountryCovid) then) =
       __$CountryCovidCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {CovidReport covidReport,
@@ -270,7 +258,6 @@ abstract class _$CountryCovidCopyWith<$Res>
 
   @override
   $CovidReportCopyWith<$Res> get covidReport;
-
   @override
   $CountryCopyWith<$Res> get country;
 }
@@ -331,20 +318,23 @@ class _$_CountryCovid implements _CountryCovid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _CountryCovid &&
-            const DeepCollectionEquality()
-                .equals(other.covidReport, covidReport) &&
-            const DeepCollectionEquality().equals(other.provinces, provinces) &&
-            const DeepCollectionEquality().equals(other.country, country));
+        (other is _CountryCovid &&
+            (identical(other.covidReport, covidReport) ||
+                const DeepCollectionEquality()
+                    .equals(other.covidReport, covidReport)) &&
+            (identical(other.provinces, provinces) ||
+                const DeepCollectionEquality()
+                    .equals(other.provinces, provinces)) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(other.country, country)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(covidReport),
-      const DeepCollectionEquality().hash(provinces),
-      const DeepCollectionEquality().hash(country));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(covidReport) ^
+      const DeepCollectionEquality().hash(provinces) ^
+      const DeepCollectionEquality().hash(country);
 
   @JsonKey(ignore: true)
   @override
@@ -359,14 +349,11 @@ abstract class _CountryCovid implements CountryCovid {
       required Country country}) = _$_CountryCovid;
 
   @override
-  CovidReport get covidReport;
-
+  CovidReport get covidReport => throw _privateConstructorUsedError;
   @override
-  List<ProvinceCovid> get provinces;
-
+  List<ProvinceCovid> get provinces => throw _privateConstructorUsedError;
   @override
-  Country get country;
-
+  Country get country => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CountryCovidCopyWith<_CountryCovid> get copyWith =>
@@ -393,9 +380,7 @@ const $Province = _$ProvinceTearOff();
 /// @nodoc
 mixin _$Province {
   String get name => throw _privateConstructorUsedError;
-
   double get lat => throw _privateConstructorUsedError;
-
   double get long => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -407,7 +392,6 @@ mixin _$Province {
 abstract class $ProvinceCopyWith<$Res> {
   factory $ProvinceCopyWith(Province value, $Res Function(Province) then) =
       _$ProvinceCopyWithImpl<$Res>;
-
   $Res call({String name, double lat, double long});
 }
 
@@ -416,7 +400,6 @@ class _$ProvinceCopyWithImpl<$Res> implements $ProvinceCopyWith<$Res> {
   _$ProvinceCopyWithImpl(this._value, this._then);
 
   final Province _value;
-
   // ignore: unused_field
   final $Res Function(Province) _then;
 
@@ -447,7 +430,6 @@ class _$ProvinceCopyWithImpl<$Res> implements $ProvinceCopyWith<$Res> {
 abstract class _$ProvinceCopyWith<$Res> implements $ProvinceCopyWith<$Res> {
   factory _$ProvinceCopyWith(_Province value, $Res Function(_Province) then) =
       __$ProvinceCopyWithImpl<$Res>;
-
   @override
   $Res call({String name, double lat, double long});
 }
@@ -504,19 +486,21 @@ class _$_Province implements _Province {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _Province &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.lat, lat) &&
-            const DeepCollectionEquality().equals(other.long, long));
+        (other is _Province &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.lat, lat) ||
+                const DeepCollectionEquality().equals(other.lat, lat)) &&
+            (identical(other.long, long) ||
+                const DeepCollectionEquality().equals(other.long, long)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(lat),
-      const DeepCollectionEquality().hash(long));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(lat) ^
+      const DeepCollectionEquality().hash(long);
 
   @JsonKey(ignore: true)
   @override
@@ -531,14 +515,11 @@ abstract class _Province implements Province {
       required double long}) = _$_Province;
 
   @override
-  String get name;
-
+  String get name => throw _privateConstructorUsedError;
   @override
-  double get lat;
-
+  double get lat => throw _privateConstructorUsedError;
   @override
-  double get long;
-
+  double get long => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProvinceCopyWith<_Province> get copyWith =>
@@ -564,7 +545,6 @@ const $ProvinceCovid = _$ProvinceCovidTearOff();
 /// @nodoc
 mixin _$ProvinceCovid {
   CovidReport get covidReport => throw _privateConstructorUsedError;
-
   Province get province => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -577,11 +557,9 @@ abstract class $ProvinceCovidCopyWith<$Res> {
   factory $ProvinceCovidCopyWith(
           ProvinceCovid value, $Res Function(ProvinceCovid) then) =
       _$ProvinceCovidCopyWithImpl<$Res>;
-
   $Res call({CovidReport covidReport, Province province});
 
   $CovidReportCopyWith<$Res> get covidReport;
-
   $ProvinceCopyWith<$Res> get province;
 }
 
@@ -591,7 +569,6 @@ class _$ProvinceCovidCopyWithImpl<$Res>
   _$ProvinceCovidCopyWithImpl(this._value, this._then);
 
   final ProvinceCovid _value;
-
   // ignore: unused_field
   final $Res Function(ProvinceCovid) _then;
 
@@ -633,13 +610,11 @@ abstract class _$ProvinceCovidCopyWith<$Res>
   factory _$ProvinceCovidCopyWith(
           _ProvinceCovid value, $Res Function(_ProvinceCovid) then) =
       __$ProvinceCovidCopyWithImpl<$Res>;
-
   @override
   $Res call({CovidReport covidReport, Province province});
 
   @override
   $CovidReportCopyWith<$Res> get covidReport;
-
   @override
   $ProvinceCopyWith<$Res> get province;
 }
@@ -691,18 +666,20 @@ class _$_ProvinceCovid implements _ProvinceCovid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ProvinceCovid &&
-            const DeepCollectionEquality()
-                .equals(other.covidReport, covidReport) &&
-            const DeepCollectionEquality().equals(other.province, province));
+        (other is _ProvinceCovid &&
+            (identical(other.covidReport, covidReport) ||
+                const DeepCollectionEquality()
+                    .equals(other.covidReport, covidReport)) &&
+            (identical(other.province, province) ||
+                const DeepCollectionEquality()
+                    .equals(other.province, province)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(covidReport),
-      const DeepCollectionEquality().hash(province));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(covidReport) ^
+      const DeepCollectionEquality().hash(province);
 
   @JsonKey(ignore: true)
   @override
@@ -716,11 +693,9 @@ abstract class _ProvinceCovid implements ProvinceCovid {
       required Province province}) = _$_ProvinceCovid;
 
   @override
-  CovidReport get covidReport;
-
+  CovidReport get covidReport => throw _privateConstructorUsedError;
   @override
-  Province get province;
-
+  Province get province => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProvinceCovidCopyWith<_ProvinceCovid> get copyWith =>

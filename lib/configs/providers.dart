@@ -1,9 +1,14 @@
 import 'package:riverpod/riverpod.dart';
+import 'package:throttling/throttling.dart';
+
 import '../core/data/datasources/covid_cache_datasource.dart';
 import '../core/data/datasources/covid_datasource.dart';
 import '../core/data/datasources/covid_network_datasource.dart';
 import '../core/data/repositories/covid_repository_impl.dart';
 import '../core/domain/repositories/covid_repository.dart';
+import '../modules/search/domains/usecases/countries_by_name_usecase.dart';
+import '../modules/search/domains/usecases/countries_usecase.dart';
+import '../modules/search/presentation/search_screen_state.dart';
 
 final covidCacheDatasourceProvider = Provider<CovidDatasource>(
   (ref) => CovidCacheDatasource(),
@@ -11,10 +16,10 @@ final covidCacheDatasourceProvider = Provider<CovidDatasource>(
 final covidNetworkDatasourceProvider = Provider<CovidDatasource>(
   (ref) => CovidNetworkDatasource(),
 );
-final covidRepository = Provider<CovidRepository>(
+final covidRepositoryProvider = Provider<CovidRepository>(
   (ref) {
-    final covidCacheDatasource = ref.read(covidCacheDatasourceProvider);
-    final covidNetworkDatasource = ref.read(covidNetworkDatasourceProvider);
+    final covidCacheDatasource = ref.watch(covidCacheDatasourceProvider);
+    final covidNetworkDatasource = ref.watch(covidNetworkDatasourceProvider);
 
     return CovidRepositoryImpl(
       covidCacheDatasource: covidCacheDatasource,
@@ -22,3 +27,25 @@ final covidRepository = Provider<CovidRepository>(
     );
   },
 );
+final searchScreenStateManagerProvider =
+    Provider<SearchScreenStateManager>((ref) {
+  return SearchScreenStateManager();
+});
+
+final countriesUsecaseProvider = Provider<Countries>((ref) {
+  return Countries(
+    covidRepository: ref.watch(covidRepositoryProvider),
+    screenStateManager: ref.watch(searchScreenStateManagerProvider),
+  );
+});
+final countriesByNameUsecaseProvider =
+    Provider.family<CountriesByName, String>((ref, name) {
+  return CountriesByName(
+    name: name,
+    covidRepository: ref.watch(covidRepositoryProvider),
+    screenStateManager: ref.watch(searchScreenStateManagerProvider),
+  );
+});
+final throttling = Provider<Throttling>((ref) {
+  return Throttling();
+});

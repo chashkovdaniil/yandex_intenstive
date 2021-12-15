@@ -1,32 +1,46 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
-import 'package:yandex_intensive/configs/text_styles.dart';
-import 'package:yandex_intensive/modules/settings/presentation%20/screens/settings_screen.dart';
+import '../../configs/colors.dart';
+import '../../configs/text_styles.dart';
 
+import '../discovery/presentation/screens/discovery_screen.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
-class BottomNavigationState extends State {
-  int _currentIndex = 0;
-  final List _children = [
+import '../news/presentation/screens/news_screen.dart';
+
+class BottomNavigationState extends State with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+  final _children = <Widget>[
     const HomeScreen(),
     const MapScreen(),
     const EducationScreen(),
-    const SettingsScreen(),
+    const DiscoveryScreen(),
+    const NewsScreen(),
   ];
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(
+      length: _children.length,
+      vsync: this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_currentIndex],
+      body: TabBarView(
+        children: _children,
+        controller: _tabController,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.grey,
         selectedLabelStyle: TextStyles.selectedLabelStyle,
         unselectedLabelStyle: TextStyles.unselectedLabelStyle,
         onTap: onTabTapped,
-        currentIndex: _currentIndex,
+        currentIndex: _tabController.index,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
@@ -41,8 +55,12 @@ class BottomNavigationState extends State {
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.settings),
-            label: 'Settings',
+            icon: Icon(CupertinoIcons.location),
+            label: 'Discovery',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.book),
+            label: 'News',
           ),
         ],
       ),
@@ -51,7 +69,7 @@ class BottomNavigationState extends State {
 
   void onTabTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      _tabController.index = index;
     });
   }
 }

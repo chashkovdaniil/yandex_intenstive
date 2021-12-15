@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../data/dto/covid_report_dto.dart';
 
 part 'covid_report.freezed.dart';

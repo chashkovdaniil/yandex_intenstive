@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod/riverpod.dart';
-import '../modules/map/presentation/helpers/country_details_screen_args.dart';
 
+import '../modules/map/presentation/helpers/country_details_screen_args.dart';
 import 'app_routes.dart';
 
 final appNavigationManagerProvider = Provider<AppNavigationManager>((ref) {
@@ -27,6 +27,7 @@ class AppNavigationManager {
       arguments: args,
     );
   }
+
   // Future<void>? openOnboarding() => _navigator?.pushReplacementNamed(
   //       AppRoutes.onboarding,
   //     );

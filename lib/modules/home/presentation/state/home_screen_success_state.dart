@@ -5,7 +5,6 @@ import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart'
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../search/presentation/widgets/search_field.dart';
-import '../components/animation_numbers_text.dart';
 import '../components/home_card.dart';
 import '../components/home_line_chart.dart';
 import '../components/list_countries_confirmed.dart';
@@ -22,6 +21,7 @@ class HomeScreenSuccessData {
   final int confirmed;
   final int recovered;
   final double fatalityRate;
+
   HomeScreenSuccessData({
     required this.countriesStats,
     required this.confirmedSpots,
@@ -38,6 +38,7 @@ class HomeScreenSuccessData {
 
 class HomeScreenSuccessState extends HookConsumerWidget {
   final HomeScreenSuccessData data;
+
   const HomeScreenSuccessState({
     Key? key,
     required this.data,

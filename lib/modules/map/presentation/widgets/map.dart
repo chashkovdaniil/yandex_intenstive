@@ -19,9 +19,19 @@ class MapChart extends StatelessWidget {
             child: Row(
               children: [
                 Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 5,
+                        blurRadius: 3,
+                        offset: const Offset(0.0, 0.9),
+                      ),
+                    ],
+                  ),
                   height: 12,
                   width: 12,
-                  color: AppColors.affected5,
                 ),
                 const SizedBox(
                   width: 12,
@@ -33,9 +43,19 @@ class MapChart extends StatelessWidget {
                   width: 20,
                 ),
                 Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.affected2,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 5,
+                        blurRadius: 3,
+                        offset: const Offset(0.0, 0.9),
+                      ),
+                    ],
+                  ),
                   height: 12,
                   width: 12,
-                  color: AppColors.affected2,
                 ),
                 const SizedBox(
                   width: 12,
@@ -53,6 +73,14 @@ class MapChart extends StatelessWidget {
               border: Border.all(
                 color: AppColors.grey.withOpacity(0.3),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.08),
+                  spreadRadius: 5,
+                  blurRadius: 3,
+                  offset: const Offset(0.0, 0.9),
+                ),
+              ],
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),

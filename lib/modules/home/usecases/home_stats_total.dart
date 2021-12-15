@@ -1,5 +1,3 @@
-import 'package:fl_chart/fl_chart.dart';
-
 import '../../../core/domain/repositories/covid_repository.dart';
 import '../../../core/domain/usecases/base_usecase.dart';
 import '../presentation/state/home_screen_state.dart';
@@ -7,6 +5,7 @@ import '../presentation/state/home_screen_state.dart';
 class StatsTotal extends BaseUsecase<void> {
   final CovidRepository _repository;
   final HomeScreenManager manager;
+
   StatsTotal({
     required CovidRepository repository,
     required this.manager,

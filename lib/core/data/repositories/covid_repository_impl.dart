@@ -1,7 +1,6 @@
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
 import '../../domain/repositories/covid_repository.dart';
-
 import '../datasources/covid_datasource.dart';
 
 class CovidRepositoryImpl implements CovidRepository {

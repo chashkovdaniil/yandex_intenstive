@@ -1,3 +1,4 @@
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
@@ -35,6 +36,7 @@ class HomeScreenManager extends StateNotifier<HomeScreenState> {
             status: HomeScreenStateStatus.loading(),
           ),
         );
+
   setData({
     Map<String, CountryCovid>? countriesCovid,
     List<List<double>>? confirmedSpots,

@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -10,7 +12,15 @@ import 'modules/onboarding/onboarding.dart';
 import 'modules/search/presentation/search_screen.dart';
 import 'modules/splash_screen/splash_screen.dart';
 
-void main() {
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print('Handling a background message: ${message.messageId}');
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await PushNotificationService().setupInteractedMessage();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -30,7 +40,7 @@ class MyApp extends HookConsumerWidget {
       initialRoute: AppRoutes.splashScreen,
       navigatorKey: ref.watch(appNavigationManagerProvider).key,
       routes: {
-        AppRoutes.bottomNavigation: (_) => const BottomNavigation(),
+        AppRoutes.bottomNavigation: (_) => BottomNavigation(),
         AppRoutes.splashScreen: (_) => const SplashScreen(),
         AppRoutes.onboardingScreen: (_) => Onboarding(),
         AppRoutes.searchScreenRoute: (_) => const SearchScreen(),

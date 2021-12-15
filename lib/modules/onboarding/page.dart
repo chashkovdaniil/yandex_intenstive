@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../configs/text_styles.dart';
 
 class OnboardingPage extends StatelessWidget {

@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../search/presentation/widgets/search_field.dart';
 import '../components/home_card.dart';
@@ -81,7 +82,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                   children: [
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'Confirmed',
+                        title: StringValues.homeScreenConfirmed,
                         value: data.confirmed,
                         colors: const [AppColors.orange],
                         spots: data.confirmedSpots,
@@ -90,7 +91,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'Recovered',
+                        title: StringValues.homeScreenRecovered,
                         value: data.recovered,
                         colors: const [AppColors.green],
                         showAnimation: true,
@@ -99,7 +100,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'Deaths',
+                        title: StringValues.homeScreenDeaths,
                         value: data.deaths,
                         colors: const [AppColors.red],
                         showAnimation: true,
@@ -108,7 +109,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'Active',
+                        title: StringValues.homeScreenActive,
                         value: data.active,
                         colors: const [AppColors.red],
                         showAnimation: true,

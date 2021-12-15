@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 
 class ListCountriesConfirmed extends StatelessWidget {
@@ -15,9 +16,9 @@ class ListCountriesConfirmed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ListTile(
-          title: Text('Country'),
-          trailing: Text('Confirmed'),
+        ListTile(
+          title: Text(StringValues.listCountriesConfirmedTitle),
+          trailing: Text(StringValues.listCountriesConfirmedTrailing),
         ),
         ...List.generate(
           countriesCovid.length,

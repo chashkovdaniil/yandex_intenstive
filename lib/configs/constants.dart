@@ -186,6 +186,30 @@ class StringValues {
   static String get bottomNavigationItemEducation => 'Education';
 
   static String get bottomNavigationItemSettings => 'Settings';
+
+  static String get listCountriesConfirmedTitle => 'Country';
+
+  static String get listCountriesConfirmedTrailing => 'Confirmed';
+
+  static String get ratioRecoveryChartTitle => 'Ratio of Recovery';
+
+  static String get ratioRecoveryChartPercent => '%';
+
+  static String get ratioRecoveryChartMarkChartDeath => 'Deaths';
+
+  static String get ratioRecoveryChartMarkChartRecovered => 'Recovered';
+
+  static String get homeScreenRecovered => 'Recovered';
+
+  static String get homeScreenConfirmed => 'Confirmed';
+
+  static String get homeScreenDeaths => 'Deaths';
+
+  static String get homeScreenActive => 'Active';
+
+  static String get homeScreenError => 'Error';
+
+  static String get homeScreenRefresh => 'Refresh';
 }
 
 class MockData {

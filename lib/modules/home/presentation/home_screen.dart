@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/constants.dart';
 
 import '../../../configs/providers.dart';
 import 'state/home_screen_state.dart';
@@ -50,14 +51,14 @@ class HomeScreen extends HookConsumerWidget {
           failed: () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(
-                child: Text('Error'),
+              Center(
+                child: Text(StringValues.homeScreenError),
               ),
               ElevatedButton(
                 onPressed: () {
                   ref.read(statsTotalUsecaseProvider).call();
                 },
-                child: const Text('Обновить'),
+                child: Text(StringValues.homeScreenRefresh),
               )
             ],
           ),

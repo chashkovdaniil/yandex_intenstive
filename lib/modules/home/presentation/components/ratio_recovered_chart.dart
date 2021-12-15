@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import '../../../../configs/colors.dart';
 
+import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import 'animation_numbers_text.dart';
 import 'mark_chart.dart';
 
@@ -30,7 +31,7 @@ class RatioRecoveryChart extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'Ratio of Recovery',
+          StringValues.ratioRecoveryChartTitle,
           style: Theme.of(context).textTheme.headline6,
         ),
         const SizedBox(height: 10),
@@ -56,7 +57,7 @@ class RatioRecoveryChart extends StatelessWidget {
             circularStrokeCap: CircularStrokeCap.round,
             center: AnimatedNumbersText(
               duration: Duration(milliseconds: _animationDuration),
-              additionText: '%',
+              additionText: StringValues.ratioRecoveryChartPercent,
               from: 0,
               to: percentRecovered,
               fractionDigits: 2,
@@ -67,12 +68,12 @@ class RatioRecoveryChart extends StatelessWidget {
             children: [
               MarkChart(
                 color: AppColors.red,
-                title: 'Deaths',
+                title: StringValues.ratioRecoveryChartMarkChartDeath,
                 value: deaths,
               ),
               MarkChart(
                 color: AppColors.green,
-                title: 'Recovered',
+                title: StringValues.ratioRecoveryChartMarkChartRecovered,
                 value: recovered,
               ),
             ],

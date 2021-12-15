@@ -35,6 +35,23 @@ class AppNavigationManager {
   //       AppRoutes.charts,
   //     );
 
+  pushReplacementAndRemoveUntil(String uri, {Object? arguments}) {
+    Navigator.pushNamedAndRemoveUntil(
+      key.currentContext!,
+      uri,
+      (_) => false,
+      arguments: arguments,
+    );
+  }
+
+  pushReplacement(String uri, {Object? arguments}) {
+    Navigator.pushReplacementNamed(
+      key.currentContext!,
+      uri,
+      arguments: arguments,
+    );
+  }
+
   push(String uri, {Object? arguments}) {
     Navigator.pushNamed(key.currentContext!, uri, arguments: arguments);
   }

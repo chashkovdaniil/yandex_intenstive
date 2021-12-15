@@ -1,8 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:objectbox/objectbox.dart';
 
-import 'package:yandex_intensive/core/data/dto/country_dto.dart';
+import '../../data/dto/country_dto.dart';
 
 import 'covid_report.dart';
 

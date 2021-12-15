@@ -5,8 +5,6 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:yandex_intensive/core/data/datasources/covid_network_datasource.dart';
-
 void main() async {
   // var _nds = await CovidNetworkDatasource().countries();
   // print(_nds);

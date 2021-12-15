@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'configs/app_routes.dart';
+import 'configs/hive_settings.dart';
 import 'configs/navigator.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
@@ -11,6 +12,7 @@ import 'modules/search/presentation/search_screen.dart';
 import 'modules/splash_screen/splash_screen.dart';
 
 void main() async {
+  await initHive();
   runApp(
     const ProviderScope(
       child: MyApp(),

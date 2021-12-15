@@ -30,12 +30,9 @@ final covidNetworkDatasourceProvider = Provider<CovidDatasource>(
 );
 final covidRepositoryProvider = Provider<CovidRepository>(
   (ref) {
-    final covidCacheDatasource = ref.watch(covidCacheDatasourceProvider);
-    final covidNetworkDatasource = ref.watch(covidNetworkDatasourceProvider);
-
     return CovidRepositoryImpl(
-      covidCacheDatasource: covidCacheDatasource,
-      covidNetworkDatasource: covidNetworkDatasource,
+      covidCacheDatasource: ref.watch(covidCacheDatasourceProvider),
+      covidNetworkDatasource: ref.watch(covidNetworkDatasourceProvider),
       internetChecker: ref.watch(internetChecker),
     );
   },

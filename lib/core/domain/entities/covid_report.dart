@@ -37,36 +37,4 @@ class CovidReport with _$CovidReport {
       fatalityRate: dto.fatalityRate,
     );
   }
-
-  // List<String> get listPropertiesAsString {
-  //   return [
-  //     date.millisecondsSinceEpoch.toString(),
-  //     confirmed.toString(),
-  //     deaths.toString(),
-  //     recovered.toString(),
-  //     confirmedDiff.toString(),
-  //     deathsDiff.toString(),
-  //     recoveredDiff.toString(),
-  //     lastUpdate.millisecondsSinceEpoch.toString(),
-  //     active.toString(),
-  //     activeDiff.toString(),
-  //     fatalityRate.toString(),
-  //   ];
-  // }
-
-  // static CovidReport covidReportFromListString(List<String> data) {
-  //   return CovidReport(
-  //     date: DateTime.fromMillisecondsSinceEpoch(int.parse(data[0])),
-  //     confirmed: int.parse(data[1]),
-  //     deaths: int.parse(data[2]),
-  //     recovered: int.parse(data[3]),
-  //     confirmedDiff: int.parse(data[4]),
-  //     deathsDiff: int.parse(data[5]),
-  //     recoveredDiff: int.parse(data[6]),
-  //     lastUpdate: DateTime.fromMillisecondsSinceEpoch(int.parse(data[7])),
-  //     active: int.parse(data[8]),
-  //     activeDiff: int.parse(data[9]),
-  //     fatalityRate: double.parse(data[10]),
-  //   );
-  // }
 }

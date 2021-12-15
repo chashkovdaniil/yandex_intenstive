@@ -1,5 +1,4 @@
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
-
+import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../../core/domain/repositories/covid_repository.dart';
 import '../../../../core/domain/usecases/base_usecase.dart';
 import '../../presentation/search_screen_state.dart';

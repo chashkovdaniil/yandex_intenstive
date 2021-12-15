@@ -22,6 +22,10 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var searchFieldBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(25),
+      borderSide: BorderSide.none,
+    );
     return TextField(
       controller: _searchFieldController,
       focusNode: _focusNode,
@@ -36,26 +40,14 @@ class SearchField extends StatelessWidget {
       onSubmitted: onSubmitted,
       textInputAction: TextInputAction.search,
       decoration: InputDecoration(
+        fillColor: AppColors.grey.withOpacity(0.5),
+        filled: true,
         prefixIcon: const Icon(Icons.search),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
+        disabledBorder: searchFieldBorder,
+        enabledBorder: searchFieldBorder,
+        border: searchFieldBorder,
+        focusedBorder: searchFieldBorder,
       ),
     );
   }

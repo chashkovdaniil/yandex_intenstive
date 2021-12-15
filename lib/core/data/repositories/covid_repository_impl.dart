@@ -41,4 +41,14 @@ class CovidRepositoryImpl implements CovidRepository {
   Future<List<Country>> countries() {
     return _covidDatasource.countries();
   }
+
+  @override
+  Future<List<CovidReport>> statsTotal() {
+    return _covidDatasource.statsTotal();
+  }
+
+  @override
+  Future<List<CovidReport>> statsTotalByYear(int year) {
+    return _covidDatasource.statsTotalByYear(year);
+  }
 }

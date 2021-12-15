@@ -59,7 +59,6 @@ mixin _$MapScreenStateStatus {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Success value) success,
@@ -99,7 +98,6 @@ class _$MapScreenStateStatusCopyWithImpl<$Res>
   _$MapScreenStateStatusCopyWithImpl(this._value, this._then);
 
   final MapScreenStateStatus _value;
-
   // ignore: unused_field
   final $Res Function(MapScreenStateStatus) _then;
 }
@@ -450,7 +448,6 @@ const $MapScreenState = _$MapScreenStateTearOff();
 /// @nodoc
 mixin _$MapScreenState {
   MapScreenStateStatus get status => throw _privateConstructorUsedError;
-
   Map<String, Object>? get testData => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -463,7 +460,6 @@ abstract class $MapScreenStateCopyWith<$Res> {
   factory $MapScreenStateCopyWith(
           MapScreenState value, $Res Function(MapScreenState) then) =
       _$MapScreenStateCopyWithImpl<$Res>;
-
   $Res call({MapScreenStateStatus status, Map<String, Object>? testData});
 
   $MapScreenStateStatusCopyWith<$Res> get status;
@@ -475,7 +471,6 @@ class _$MapScreenStateCopyWithImpl<$Res>
   _$MapScreenStateCopyWithImpl(this._value, this._then);
 
   final MapScreenState _value;
-
   // ignore: unused_field
   final $Res Function(MapScreenState) _then;
 
@@ -510,7 +505,6 @@ abstract class _$MapScreenStateCopyWith<$Res>
   factory _$MapScreenStateCopyWith(
           _MapScreenState value, $Res Function(_MapScreenState) then) =
       __$MapScreenStateCopyWithImpl<$Res>;
-
   @override
   $Res call({MapScreenStateStatus status, Map<String, Object>? testData});
 
@@ -590,10 +584,8 @@ abstract class _MapScreenState implements MapScreenState {
 
   @override
   MapScreenStateStatus get status;
-
   @override
   Map<String, Object>? get testData;
-
   @override
   @JsonKey(ignore: true)
   _$MapScreenStateCopyWith<_MapScreenState> get copyWith =>

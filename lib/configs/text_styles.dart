@@ -34,13 +34,22 @@ class TextStyles {
       );
 
   static TextStyle get deathValue => const TextStyle(
-      color: AppColors.primary, fontWeight: FontWeight.w600, fontSize: 28);
+        color: AppColors.primary,
+        fontWeight: FontWeight.w600,
+        fontSize: 28,
+      );
 
   static TextStyle get selectedLabelStyle => const TextStyle(
-      color: AppColors.primary, fontWeight: FontWeight.w400, fontSize: 11);
+        color: AppColors.primary,
+        fontWeight: FontWeight.w400,
+        fontSize: 11,
+      );
 
   static TextStyle get unselectedLabelStyle => const TextStyle(
-      color: AppColors.grey, fontWeight: FontWeight.w400, fontSize: 11);
+        color: AppColors.grey,
+        fontWeight: FontWeight.w400,
+        fontSize: 11,
+      );
 
   static const splashScreenTitleTextStyle = TextStyle(
     fontSize: 40,
@@ -58,12 +67,12 @@ class TextStyles {
     fontWeight: FontWeight.w500,
   );
   static const titleTextStyle = TextStyle(
-    color: AppColors.primary,
+    color: AppColors.onboaringTitle,
     fontSize: 28,
     fontWeight: FontWeight.w600,
   );
   static const descriptionTextStyle = TextStyle(
-    color: AppColors.grey,
+    color: AppColors.onboardingDescription,
     fontSize: 16,
     letterSpacing: 0.5,
     fontWeight: FontWeight.w300,

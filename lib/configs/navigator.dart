@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod/riverpod.dart';
-import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
 
+import '../modules/map/presentation/helpers/country_details_screen_args.dart';
 import 'app_routes.dart';
 
-final navigator = Provider<AppNavigationManager>((ref) {
+final appNavigationManagerProvider = Provider<AppNavigationManager>((ref) {
   return AppNavigationManager(key: GlobalKey<NavigatorState>());
 });
 
@@ -27,6 +27,7 @@ class AppNavigationManager {
       arguments: args,
     );
   }
+
   // Future<void>? openOnboarding() => _navigator?.pushReplacementNamed(
   //       AppRoutes.onboarding,
   //     );
@@ -34,6 +35,23 @@ class AppNavigationManager {
   // Future<Object?>? openCharts() => _navigator?.pushNamed(
   //       AppRoutes.charts,
   //     );
+
+  pushReplacementAndRemoveUntil(String uri, {Object? arguments}) {
+    Navigator.pushNamedAndRemoveUntil(
+      key.currentContext!,
+      uri,
+      (_) => false,
+      arguments: arguments,
+    );
+  }
+
+  pushReplacement(String uri, {Object? arguments}) {
+    Navigator.pushReplacementNamed(
+      key.currentContext!,
+      uri,
+      arguments: arguments,
+    );
+  }
 
   push(String uri, {Object? arguments}) {
     Navigator.pushNamed(key.currentContext!, uri, arguments: arguments);

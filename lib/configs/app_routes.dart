@@ -1,5 +1,3 @@
-
-
 class AppRoutes {
   static String get mapPageScreen => '/map-page';
 
@@ -12,4 +10,6 @@ class AppRoutes {
   static String get bottomNavigation => '/';
 
   static String get countryDetails => '/country-details';
+
+  static String get searchScreenRoute => '/search-screen';
 }

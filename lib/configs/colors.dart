@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
+
   // basic colors
   static const Color primary = Color(0xFFFF647C);
   static const Color secondary = Color(0xFFE4E4E4);
@@ -9,6 +10,10 @@ class AppColors {
   static const Color grey = Color(0xFFE4E4E4);
   static const Color white = Colors.white;
   static const Color red = Color(0xffFF647C);
+
+  // Colors for onboarding
+  static const Color onboaringTitle = Color(0xFF171725);
+  static const Color onboardingDescription = Color(0xFF999999);
 
 // Colors for progress bars
   static const Color green = Color(0xFF00C48C);

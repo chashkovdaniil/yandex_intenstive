@@ -6,6 +6,10 @@ import 'package:yandex_intensive/configs/providers.dart';
 import 'package:yandex_intensive/modules/map/presentation/helpers/country_details_screen_args.dart';
 import 'package:yandex_intensive/modules/search/presentation/search_screen_state.dart';
 
+import '../../../configs/navigator.dart';
+import '../../../configs/providers.dart';
+import '../../map/presentation/helpers/country_details_screen_args.dart';
+import 'search_screen_state.dart';
 import 'widgets/search_field.dart';
 
 final _searchScreenProvider =
@@ -50,6 +54,14 @@ class SearchScreen extends HookConsumerWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.home),
+          ),
+        ],
         title: SearchField(
           autofocus: true,
           searchFieldController: textFieldController,
@@ -69,7 +81,7 @@ class SearchScreen extends HookConsumerWidget {
             return ListTile(
               title: Text(e.name),
               onTap: () {
-                ref.read(navigator).openCountryDetails(
+                ref.read(appNavigationManagerProvider).openCountryDetails(
                       CountryDetailsScreenArgs(country: e),
                     );
               },

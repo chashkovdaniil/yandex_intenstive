@@ -34,19 +34,31 @@ class CovidCacheDatasource implements CovidDatasource {
     throw UnimplementedError();
   }
 
-  // @override
-  // Future<WorldStats> worldInfo(DateTime date) async {
-  //   throw UnimplementedError();
-  // }
+  @override
+  Future<List<CovidReport>> statsTotal() {
+    // TODO: implement statsTotal
+    throw UnimplementedError();
+  }
 
-  // @override
-  // Future<bool> hasInfo(DateTime date) async {
-  //   throw UnimplementedError();
-  // }
+  @override
+  Future<List<CovidReport>> statsTotalByYear(int year) {
+    // TODO: implement statsTotalByYear
+    throw UnimplementedError();
+  }
 
-  // @override
-  // Future<Country> countries() {
-  //   // TODO: implement countries
-  //   throw UnimplementedError();
-  // }
+// @override
+// Future<WorldStats> worldInfo(DateTime date) async {
+//   throw UnimplementedError();
+// }
+
+// @override
+// Future<bool> hasInfo(DateTime date) async {
+//   throw UnimplementedError();
+// }
+
+// @override
+// Future<Country> countries() {
+//   // TODO: implement countries
+//   throw UnimplementedError();
+// }
 }

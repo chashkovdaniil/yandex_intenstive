@@ -1,86 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../configs/colors.dart';
 import '../../configs/constants.dart';
+import '../../configs/providers.dart';
 import 'left_button.dart';
 import 'page.dart';
 import 'page_point.dart';
 import 'right_button.dart';
 
-const _backgroundColor = Colors.white;
-
-class Onboarding extends StatefulWidget {
-  const Onboarding({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _OnboardingState();
-}
-
-class _OnboardingState extends State<Onboarding> {
-  late final _pageController;
-  int _currentPage = 0;
+class Onboarding extends HookConsumerWidget {
   static const _countPages = 3;
+  final _images = [
+    Assets.onboardingImage1,
+    Assets.onboardingImage2,
+    Assets.onboardingImage3,
+  ];
+  final _titles = [
+    StringValues.onboardingTitle1,
+    StringValues.onboardingTitle2,
+    StringValues.onboardingTitle3,
+  ];
+  final _descriptions = [
+    StringValues.onboardingDescription1,
+    StringValues.onboardingDescription2,
+    StringValues.onboardingDescription3,
+  ];
+
+  Onboarding({Key? key}) : super(key: key);
 
   @override
-  void initState() {
-    _pageController = PageController();
-    super.initState();
-  }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _pageController = useMemoized(
+      () {
+        return PageController();
+      },
+      const [],
+    );
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
+    useEffect(
+      () {
+        ref.read(onboardingUseCaseProvider).init();
+      },
+      const [],
+    );
+    final _currentPage = useState(0);
 
-  void _changePage(int index, BuildContext context) {
-    if (index >= _countPages) {
-      _closePage(context);
-    } else {
-      setState(() => _currentPage = index);
-      _pageController.animateToPage(
-        _currentPage,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+    void _changePage(int index, BuildContext context, WidgetRef ref) {
+      if (index >= _countPages) {
+        _pageController.dispose();
+        ref.read(onboardingUseCaseProvider).closeOnboarding();
+      } else {
+        _currentPage.value = index;
+        _pageController.animateToPage(
+          _currentPage.value,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
     }
-  }
 
-  void _closePage(BuildContext context) {
-    Navigator.maybePop(context);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final images = [
-      Assets.onboardingImage1,
-      Assets.onboardingImage2,
-      Assets.onboardingImage3,
-    ];
-    final titles = [
-      StringValues.onboardingTitle1,
-      StringValues.onboardingTitle2,
-      StringValues.onboardingTitle3,
-    ];
-    final descriptions = [
-      StringValues.onboardingDescription1,
-      StringValues.onboardingDescription2,
-      StringValues.onboardingDescription3,
-    ];
     return Scaffold(
-      backgroundColor: _backgroundColor,
+      backgroundColor: AppColors.white,
       body: Column(
         children: [
           Expanded(
             flex: 6,
             child: PageView(
               controller: _pageController,
-              onPageChanged: (index) => setState(() => _currentPage = index),
+              onPageChanged: (index) => _currentPage.value = index,
               children: [
-                for (int i = 0; i < images.length; ++i)
+                for (int i = 0; i < _images.length; ++i)
                   OnboardingPage(
-                    image: images[i],
-                    title: titles[i],
-                    description: descriptions[i],
+                    image: _images[i],
+                    title: _titles[i],
+                    description: _descriptions[i],
                   ),
               ],
             ),
@@ -92,17 +87,21 @@ class _OnboardingState extends State<Onboarding> {
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
                   child: OnboardingLeftButton(
-                    onPressed: () => _closePage(context),
+                    onPressed: () {
+                      _pageController.dispose();
+                      ref.read(onboardingUseCaseProvider).closeOnboarding();
+                    },
                   ),
                 ),
                 const Spacer(),
                 for (var i = 0; i < _countPages; ++i)
-                  OnboardingPagePoint(i == _currentPage),
+                  OnboardingPagePoint(i == _currentPage.value),
                 const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 25.0),
                   child: OnboardingRightButton(
-                    onPressed: () => _changePage(_currentPage + 1, context),
+                    onPressed: () =>
+                        _changePage(_currentPage.value + 1, context, ref),
                   ),
                 ),
               ],

@@ -14,7 +14,7 @@ class SplashUseCase {
     await Future.delayed(const Duration(seconds: 3));
     final shouldOpenOnboarding =
         _sharedPrefs.getBool(SharedPreferences.shouldOpenOnboarding) ?? true;
-    _navigator.push(
+    _navigator.pushReplacementAndRemoveUntil(
       shouldOpenOnboarding
           ? AppRoutes.onboardingScreen
           : AppRoutes.bottomNavigation,

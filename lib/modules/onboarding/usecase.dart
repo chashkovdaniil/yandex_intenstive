@@ -18,6 +18,6 @@ class OnboardingUseCase {
 
   void closeOnboarding() {
     _sharedPrefs.setBool(SharedPreferences.shouldOpenOnboarding, false);
-    _navigator.push(AppRoutes.bottomNavigation);
+    _navigator.pushReplacementAndRemoveUntil(AppRoutes.bottomNavigation);
   }
 }

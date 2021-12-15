@@ -69,7 +69,7 @@ class CountryDetailsCard extends StatelessWidget {
                     Align(
                       alignment: Alignment.topRight,
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 12, right: 16),
+                        padding: const EdgeInsets.only(top: 12),
                         child: IconButton(
                           icon: const Icon(
                             CupertinoIcons.bell,

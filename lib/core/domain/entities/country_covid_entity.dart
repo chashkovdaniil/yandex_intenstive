@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data/dto/country_dto.dart';
 import 'covid_report.dart';
 
 part 'country_covid_entity.freezed.dart';
@@ -10,6 +11,9 @@ class Country with _$Country {
     required String code,
     required String name,
   }) = _Country;
+  factory Country.fromDto(CountryDto dto) {
+    return Country(code: dto.iso, name: dto.name);
+  }
 }
 
 @freezed

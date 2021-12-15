@@ -1,18 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
 
-// import 'package:yandex_intensive/core/domain/entities/country_entity.dart';
-
 import '../../api/app_exceptions.dart';
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
+import '../dto/country_dto.dart';
 import '../dto/covid_report_dto.dart';
 import 'covid_datasource.dart';
 
 class CovidNetworkDatasource implements CovidDatasource {
   static const _apiReports = 'https://covid-api.com/api/reports';
   static const _apiReportsTotal = 'https://covid-api.com/api/reports/total';
-  // final _countries = List<Country>.empty();
+  static const _apiCountries = 'https://covid-api.com/api/regions';
+
   final Dio _dio = Dio();
 
   @override
@@ -20,7 +20,7 @@ class CovidNetworkDatasource implements CovidDatasource {
     DateTime? date,
   }) async {
     try {
-      date ??= DateTime.now();
+      date ??= DateTime.now().subtract(const Duration(days: 2));
       var str = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
       var json = await _dio.get(_apiReports, queryParameters: {'date': str});
       var reportsRaw = json.data['data'] as List<dynamic>;
@@ -28,7 +28,6 @@ class CovidNetworkDatasource implements CovidDatasource {
         (e) => CovidReportDto.fromJson(e as Map<String, dynamic>),
       );
 
-      // var countries = Set<Country>.identity();
       var reportsByCountry = <String, CountryCovid>{};
 
       for (final reportDto in reportsDto) {
@@ -48,8 +47,6 @@ class CovidNetworkDatasource implements CovidDatasource {
           covidReport: covidReport,
           province: province,
         );
-
-        // countries.add(country);
 
         if (reportsByCountry.keys.contains(country.code)) {
           var cc = reportsByCountry[country.code];
@@ -87,7 +84,6 @@ class CovidNetworkDatasource implements CovidDatasource {
           );
         }
       }
-      // _countries.addAll(countries);
       // ToDo: сделать проверку на ошибки с сервера
       return reportsByCountry;
     } catch (e) {
@@ -97,14 +93,16 @@ class CovidNetworkDatasource implements CovidDatasource {
 
   @override
   Future<CovidReport> statsCountryByDate({
-    required String iso,
+    required Country country,
     DateTime? date,
   }) async {
     try {
       date ??= DateTime.now();
       var str = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
-      var json = await _dio
-          .get(_apiReportsTotal, queryParameters: {'date': str, 'iso': iso});
+      var json = await _dio.get(
+        _apiReportsTotal,
+        queryParameters: {'date': str, 'iso': country.code},
+      );
       var raw = json.data['data'] as Map<String, dynamic>;
       var dto = CovidReportDto.fromJson(raw);
 
@@ -118,15 +116,74 @@ class CovidNetworkDatasource implements CovidDatasource {
   Future<CovidReport> statsTotalByDate({DateTime? date}) async {
     try {
       date ??= DateTime.now();
-      var str = sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
+      var strDate =
+          sprintf('%04i-%02i-%02i', [date.year, date.month, date.day]);
       var json =
-          await _dio.get(_apiReportsTotal, queryParameters: {'date': str});
-      var raw = json.data['data'] as Map<String, dynamic>;
-      var dto = CovidReportDto.fromJson(raw);
+          await _dio.get(_apiReportsTotal, queryParameters: {'date': strDate});
+      var raw = json.data as Map<String, dynamic>;
+      var data = raw['data'];
+      if (data is List<dynamic> && data.isEmpty) {
+        return CovidReport.fromDto(CovidReportDto(
+          date: strDate,
+          confirmed: 0,
+            deaths: 0,
+            recovered: 0,
+            confirmedDiff: 0,
+            deathsDiff: 0,
+            recoveredDiff: 0,
+            lastUpdate: strDate,
+            active: 0,
+            activeDiff: 0,
+            fatalityRate: 0,
+            region: {},
+          ),
+        );
+      }
+      var dto = CovidReportDto.fromJson(data);
 
       return CovidReport.fromDto(dto);
     } catch (e) {
       throw CovidNotFoundException("Can't take covid data from network: $e");
     }
+  }
+
+  @override
+  Future<List<CovidReport>> statsTotalByYear(int year) async {
+    try {
+      final data = List<CovidReport>.empty(growable: true);
+      var lastMonth = 12;
+      if (year == DateTime.now().year) {
+        lastMonth = DateTime.now().month;
+      }
+      for (var month = 1; month <= lastMonth; month++) {
+        data.add(await statsTotalByDate(date: DateTime(year, month)));
+      }
+      return data;
+    } catch (e) {
+      throw CovidNotFoundException("Can't take covid data from network: $e");
+    }
+  }
+
+  @override
+  Future<List<CovidReport>> statsTotal() async {
+    try {
+      final data = List<CovidReport>.empty(growable: true);
+      for (var year = 2020; year <= DateTime.now().year; year++) {
+        data.addAll(await statsTotalByYear(year));
+      }
+      return data;
+    } catch (e) {
+      throw CovidNotFoundException("Can't take covid data from network: $e");
+    }
+  }
+
+  @override
+  Future<List<Country>> countries() async {
+    final response = await _dio.get(_apiCountries);
+    final dataRaw = response.data['data'] as List<dynamic>;
+    final countries = dataRaw.map((e) {
+      return Country.fromDto(CountryDto.fromJson(e as Map<String, dynamic>));
+    });
+    return countries.toList();
   }
 }

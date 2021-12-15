@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/colors.dart';
@@ -26,8 +25,16 @@ class MapScreenCard extends StatelessWidget {
             color: AppColors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: AppColors.grey.withOpacity(0.3),
+              color: AppColors.grey.withOpacity(0.6),
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 5,
+                blurRadius: 3,
+                offset: const Offset(0.0, 0.9),
+              ),
+            ],
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),

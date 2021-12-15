@@ -5,11 +5,10 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-void main() async {
-  // var _nds = await CovidNetworkDatasource().statsCountriesByDate(
-  //   date: DateTime.now().subtract(const Duration(days: 2)),
-  // );
 
+void main() async {
+  // var _nds = await CovidNetworkDatasource().countries();
+  // print(_nds);
   // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
   //   // Build our app and trigger a frame.
   //   await tester.pumpWidget(MyApp());

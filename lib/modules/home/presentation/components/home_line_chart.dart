@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
 import 'animation_numbers_text.dart';
 
 class HomeLineChart extends StatefulWidget {
@@ -46,10 +47,10 @@ class _HomeLineChartState extends State<HomeLineChart> {
           show: false,
         ),
         gridData: FlGridData(
-          show: false,
+          show: true,
         ),
         lineTouchData: LineTouchData(
-          enabled: false,
+          enabled: true,
         ),
         lineBarsData: [
           LineChartBarData(
@@ -82,7 +83,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
           show: false,
         ),
         lineTouchData: LineTouchData(
-          enabled: false,
+          enabled: true,
         ),
         lineBarsData: [
           LineChartBarData(
@@ -94,7 +95,10 @@ class _HomeLineChartState extends State<HomeLineChart> {
             dotData: FlDotData(
               show: false,
             ),
-            belowBarData: BarAreaData(show: true, colors: widget.colors),
+            belowBarData: BarAreaData(
+              show: false,
+              colors: widget.colors,
+            ),
           ),
         ],
       );
@@ -113,25 +117,36 @@ class _HomeLineChartState extends State<HomeLineChart> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(widget.title),
-        const SizedBox(height: 10),
-        AnimatedNumbersText(
-          from: widget.showAnimation ? 0.0 : widget.value.toDouble(),
-          to: widget.value.toDouble(),
-          duration: widget.duration,
-          textStyle: Theme.of(context).textTheme.headline5,
-        ),
-        Expanded(
-          child: LineChart(
-            _isStart ? afterStartData : beforeStartData,
-            swapAnimationDuration: widget.duration,
-            swapAnimationCurve: Curves.easeInCubic,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.title,
+            style: Theme.of(context).textTheme.headline5?.copyWith(
+                  color: const Color(0xff999999),
+                ),
           ),
-        ),
-      ],
+          const SizedBox(height: 10),
+          AnimatedNumbersText(
+            from: widget.showAnimation ? 0.0 : widget.value.toDouble(),
+            to: widget.value.toDouble(),
+            duration: widget.duration,
+            textStyle: Theme.of(context).textTheme.headline5?.copyWith(
+                  color: const Color(0xff151522),
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+          Expanded(
+            child: LineChart(
+              _isStart ? afterStartData : beforeStartData,
+              swapAnimationDuration: widget.duration,
+              swapAnimationCurve: Curves.easeInCubic,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

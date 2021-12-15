@@ -33,7 +33,7 @@ class StringValues {
   static String get countryStatisticsInfectedCases =>
       ' Infected cases reported';
 
-  static String get countryStatisticsDeathCases => ' Death cases reported';
+  static String get countryStatisticsDeathCases => ' Death cases';
 
   static String get countryStatisticsGraphTitle =>
       'Current affected and death people';
@@ -155,6 +155,31 @@ class StringValues {
     'Symptoms',
     'Diagnosis',
   ];
+
+  static String get onboardingTitle1 => 'Fever';
+
+  static String get onboardingTitle2 => 'Cough';
+
+  static String get onboardingTitle3 => 'Breathing Difficulty';
+
+  static String get onboardingDescription1 =>
+      'He severity of COVID-19 symptoms can range from very mild to severe. Some people have no symptoms. People who are older or have existing chronic medical conditions.';
+
+  static String get onboardingDescription2 =>
+      'Such as heart or lung disease or diabetis, may be at higher risk of serious illness. This is similar to what is seen with other respiratory illnesses, such influenza.';
+
+  static String get onboardingDescription3 =>
+      'Contact your doctor or clinic right away if you have COVID-19 symptoms, you’ve been exposed to someone with COVID-19, or you live in or have traveled from an area with ongoing community spread of COVID-19.';
+
+  static String get onBoardingSkipText => 'Skip';
+
+  static String get onBoardingNextText => 'Next';
+
+  static String get splashScreenTitle => 'covstats';
+
+  static String get splashScreenBottomText =>
+      'Yandex intensive on Flutter in Sirius, 2021';
+
 }
 
 class MockData {
@@ -492,4 +517,27 @@ class MockData {
           image: 'by',
         ),
       ];
+}
+
+class Assets {
+  static final splashScreenImage = Image.asset(
+    'assets/pictures/splash_screen.png',
+    height: 179.68,
+    width: 176.48,
+  );
+  static final onboardingImage1 = Image.asset(
+    'assets/pictures/onboarding1.png',
+    height: 260.8,
+    width: 260.8,
+  );
+  static final onboardingImage2 = Image.asset(
+    'assets/pictures/onboarding2.png',
+    height: 260.8,
+    width: 260.8,
+  );
+  static final onboardingImage3 = Image.asset(
+    'assets/pictures/onboarding3.png',
+    height: 260.8,
+    width: 260.8,
+  );
 }

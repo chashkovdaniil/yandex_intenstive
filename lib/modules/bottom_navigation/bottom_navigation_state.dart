@@ -1,23 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
-import 'package:yandex_intensive/configs/text_styles.dart';
 
-import '../discovery/presentation/screens/discovery_screen.dart';
+import '../../configs/colors.dart';
+import '../../configs/text_styles.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
-import '../news/presentation/screens/news_screen.dart';
+import '../settings/presentation%20/screens/settings_screen.dart';
 
-class BottomNavigationState extends State {
-  int _currentIndex = 0;
-  final List _children = [
+class BottomNavigationState extends State
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  // late final TabController _tabController;
+  final _children = <Widget>[
     const HomeScreen(),
     const MapScreen(),
     const EducationScreen(),
-    const DiscoveryScreen(),
-    const NewsScreen(),
+    const SettingsScreen(),
   ];
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // _tabController = TabController(
+    //   length: _children.length,
+    //   vsync: this,
+    // );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +53,8 @@ class BottomNavigationState extends State {
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.location),
+            icon: Icon(CupertinoIcons.settings),
             label: 'Discovery',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.book),
-            label: 'News',
           ),
         ],
       ),
@@ -61,4 +66,7 @@ class BottomNavigationState extends State {
       _currentIndex = index;
     });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

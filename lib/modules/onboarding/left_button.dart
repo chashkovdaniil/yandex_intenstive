@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/config/config.dart';
-import 'package:yandex_intensive/modules/onboarding/button.dart';
+
+import '../../configs/constants.dart';
+import '../../configs/text_styles.dart';
+import 'button.dart';
 
 class OnboardingLeftButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const OnboardingLeftButton({
+    Key? key,
     required this.onPressed,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return OnboardingButton(
       onTap: onPressed,
-      child: const Text(
-        OnboardingButtonTexts.skipText,
+      child: Text(
+        StringValues.onBoardingSkipText,
         style: TextStyles.buttonTextStyle,
       ),
     );

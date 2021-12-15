@@ -1,7 +1,6 @@
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
 import '../../domain/repositories/covid_repository.dart';
-
 import '../datasources/covid_datasource.dart';
 
 class CovidRepositoryImpl implements CovidRepository {
@@ -15,7 +14,7 @@ class CovidRepositoryImpl implements CovidRepository {
 
   CovidDatasource get _covidDatasource {
     /// ToDo: проверка на соединение
-    return (true) ? _covidNetworkDatasource : _covidCacheDatasource;
+    return _covidNetworkDatasource;
   }
 
   @override
@@ -28,13 +27,28 @@ class CovidRepositoryImpl implements CovidRepository {
   @override
   Future<CovidReport> statsCountryByDate({
     DateTime? date,
-    required String iso,
+    required Country country,
   }) {
-    return _covidDatasource.statsCountryByDate(date: date, iso: iso);
+    return _covidDatasource.statsCountryByDate(date: date, country: country);
   }
 
   @override
   Future<CovidReport> statsTotalByDate({DateTime? date}) {
     return _covidDatasource.statsTotalByDate(date: date);
+  }
+
+  @override
+  Future<List<Country>> countries() {
+    return _covidDatasource.countries();
+  }
+
+  @override
+  Future<List<CovidReport>> statsTotal() {
+    return _covidDatasource.statsTotal();
+  }
+
+  @override
+  Future<List<CovidReport>> statsTotalByYear(int year) {
+    return _covidDatasource.statsTotalByYear(year);
   }
 }

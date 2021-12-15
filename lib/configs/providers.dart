@@ -1,6 +1,8 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:throttling/throttling.dart';
 
+import '../core/api/internet_checker.dart';
+import '../core/api/internet_checker_impl.dart';
 import '../core/data/datasources/covid_cache_datasource.dart';
 import '../core/data/datasources/covid_datasource.dart';
 import '../core/data/datasources/covid_network_datasource.dart';
@@ -16,7 +18,11 @@ import '../modules/search/presentation/search_screen_state.dart';
 import '../modules/splash_screen/usecase.dart';
 import 'navigator.dart';
 
-final covidCacheDatasourceProvider = Provider<CovidDatasource>(
+final internetChecker = Provider<InternetChecker>(
+  (ref) => InternetCheckerImpl(),
+);
+
+final covidCacheDatasourceProvider = Provider<CovidCacheDatasource>(
   (ref) => CovidCacheDatasource(),
 );
 final covidNetworkDatasourceProvider = Provider<CovidDatasource>(
@@ -24,12 +30,10 @@ final covidNetworkDatasourceProvider = Provider<CovidDatasource>(
 );
 final covidRepositoryProvider = Provider<CovidRepository>(
   (ref) {
-    final covidCacheDatasource = ref.watch(covidCacheDatasourceProvider);
-    final covidNetworkDatasource = ref.watch(covidNetworkDatasourceProvider);
-
     return CovidRepositoryImpl(
-      covidCacheDatasource: covidCacheDatasource,
-      covidNetworkDatasource: covidNetworkDatasource,
+      covidCacheDatasource: ref.watch(covidCacheDatasourceProvider),
+      covidNetworkDatasource: ref.watch(covidNetworkDatasourceProvider),
+      internetChecker: ref.watch(internetChecker),
     );
   },
 );

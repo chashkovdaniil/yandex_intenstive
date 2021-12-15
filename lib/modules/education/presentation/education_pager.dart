@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../configs/colors.dart';
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
-import 'components/expandable_page_view.dart';
 import 'diagnosis.dart';
 import 'prevention.dart';
 import 'symptoms.dart';

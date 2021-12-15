@@ -92,7 +92,12 @@ class _SymptomColumn extends StatelessWidget {
           ),
           const Divider(),
           ...StringValues.symptomColumnData
-              .map((item) => [_SymptomColumnLine(item), const Divider()])
+              .map((item) => [
+                    _SymptomColumnLine(item),
+                    ...item != StringValues.symptomColumnData.last
+                        ? [const Divider()]
+                        : []
+                  ])
               .reduce((a, b) {
             a.addAll(b);
             return a;

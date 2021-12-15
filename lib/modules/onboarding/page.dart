@@ -8,7 +8,7 @@ class OnboardingPage extends StatelessWidget {
   final String title;
   final String description;
 
-   const OnboardingPage({
+  const OnboardingPage({
     Key? key,
     required this.image,
     required this.title,

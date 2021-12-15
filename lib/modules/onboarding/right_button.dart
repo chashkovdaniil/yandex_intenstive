@@ -7,8 +7,10 @@ import 'button.dart';
 class OnboardingRightButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const OnboardingRightButton({Key? key, required this.onPressed})
-      : super(key: key);
+  const OnboardingRightButton({
+    Key? key,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

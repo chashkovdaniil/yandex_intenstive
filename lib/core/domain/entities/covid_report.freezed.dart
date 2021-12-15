@@ -17,17 +17,17 @@ class _$CovidReportTearOff {
   const _$CovidReportTearOff();
 
   _CovidReport call(
-      {required DateTime date,
-      required int confirmed,
-      required int deaths,
-      required int recovered,
-      required int confirmedDiff,
-      required int deathsDiff,
-      required int recoveredDiff,
-      required DateTime lastUpdate,
-      required int active,
-      required int activeDiff,
-      required double fatalityRate}) {
+      {@HiveField(0) required DateTime date,
+      @HiveField(1) required int confirmed,
+      @HiveField(2) required int deaths,
+      @HiveField(3) required int recovered,
+      @HiveField(4) required int confirmedDiff,
+      @HiveField(5) required int deathsDiff,
+      @HiveField(6) required int recoveredDiff,
+      @HiveField(7) required DateTime lastUpdate,
+      @HiveField(8) required int active,
+      @HiveField(9) required int activeDiff,
+      @HiveField(10) required double fatalityRate}) {
     return _CovidReport(
       date: date,
       confirmed: confirmed,
@@ -49,16 +49,27 @@ const $CovidReport = _$CovidReportTearOff();
 
 /// @nodoc
 mixin _$CovidReport {
+  @HiveField(0)
   DateTime get date => throw _privateConstructorUsedError;
+  @HiveField(1)
   int get confirmed => throw _privateConstructorUsedError;
+  @HiveField(2)
   int get deaths => throw _privateConstructorUsedError;
+  @HiveField(3)
   int get recovered => throw _privateConstructorUsedError;
+  @HiveField(4)
   int get confirmedDiff => throw _privateConstructorUsedError;
+  @HiveField(5)
   int get deathsDiff => throw _privateConstructorUsedError;
+  @HiveField(6)
   int get recoveredDiff => throw _privateConstructorUsedError;
+  @HiveField(7)
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+  @HiveField(8)
   int get active => throw _privateConstructorUsedError;
+  @HiveField(9)
   int get activeDiff => throw _privateConstructorUsedError;
+  @HiveField(10)
   double get fatalityRate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -72,17 +83,17 @@ abstract class $CovidReportCopyWith<$Res> {
           CovidReport value, $Res Function(CovidReport) then) =
       _$CovidReportCopyWithImpl<$Res>;
   $Res call(
-      {DateTime date,
-      int confirmed,
-      int deaths,
-      int recovered,
-      int confirmedDiff,
-      int deathsDiff,
-      int recoveredDiff,
-      DateTime lastUpdate,
-      int active,
-      int activeDiff,
-      double fatalityRate});
+      {@HiveField(0) DateTime date,
+      @HiveField(1) int confirmed,
+      @HiveField(2) int deaths,
+      @HiveField(3) int recovered,
+      @HiveField(4) int confirmedDiff,
+      @HiveField(5) int deathsDiff,
+      @HiveField(6) int recoveredDiff,
+      @HiveField(7) DateTime lastUpdate,
+      @HiveField(8) int active,
+      @HiveField(9) int activeDiff,
+      @HiveField(10) double fatalityRate});
 }
 
 /// @nodoc
@@ -164,17 +175,17 @@ abstract class _$CovidReportCopyWith<$Res>
       __$CovidReportCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DateTime date,
-      int confirmed,
-      int deaths,
-      int recovered,
-      int confirmedDiff,
-      int deathsDiff,
-      int recoveredDiff,
-      DateTime lastUpdate,
-      int active,
-      int activeDiff,
-      double fatalityRate});
+      {@HiveField(0) DateTime date,
+      @HiveField(1) int confirmed,
+      @HiveField(2) int deaths,
+      @HiveField(3) int recovered,
+      @HiveField(4) int confirmedDiff,
+      @HiveField(5) int deathsDiff,
+      @HiveField(6) int recoveredDiff,
+      @HiveField(7) DateTime lastUpdate,
+      @HiveField(8) int active,
+      @HiveField(9) int activeDiff,
+      @HiveField(10) double fatalityRate});
 }
 
 /// @nodoc
@@ -252,41 +263,53 @@ class __$CovidReportCopyWithImpl<$Res> extends _$CovidReportCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 5, adapterName: 'CovidReportAdapter')
 class _$_CovidReport implements _CovidReport {
   _$_CovidReport(
-      {required this.date,
-      required this.confirmed,
-      required this.deaths,
-      required this.recovered,
-      required this.confirmedDiff,
-      required this.deathsDiff,
-      required this.recoveredDiff,
-      required this.lastUpdate,
-      required this.active,
-      required this.activeDiff,
-      required this.fatalityRate});
+      {@HiveField(0) required this.date,
+      @HiveField(1) required this.confirmed,
+      @HiveField(2) required this.deaths,
+      @HiveField(3) required this.recovered,
+      @HiveField(4) required this.confirmedDiff,
+      @HiveField(5) required this.deathsDiff,
+      @HiveField(6) required this.recoveredDiff,
+      @HiveField(7) required this.lastUpdate,
+      @HiveField(8) required this.active,
+      @HiveField(9) required this.activeDiff,
+      @HiveField(10) required this.fatalityRate});
 
   @override
+  @HiveField(0)
   final DateTime date;
   @override
+  @HiveField(1)
   final int confirmed;
   @override
+  @HiveField(2)
   final int deaths;
   @override
+  @HiveField(3)
   final int recovered;
   @override
+  @HiveField(4)
   final int confirmedDiff;
   @override
+  @HiveField(5)
   final int deathsDiff;
   @override
+  @HiveField(6)
   final int recoveredDiff;
   @override
+  @HiveField(7)
   final DateTime lastUpdate;
   @override
+  @HiveField(8)
   final int active;
   @override
+  @HiveField(9)
   final int activeDiff;
   @override
+  @HiveField(10)
   final double fatalityRate;
 
   @override
@@ -353,39 +376,50 @@ class _$_CovidReport implements _CovidReport {
 
 abstract class _CovidReport implements CovidReport {
   factory _CovidReport(
-      {required DateTime date,
-      required int confirmed,
-      required int deaths,
-      required int recovered,
-      required int confirmedDiff,
-      required int deathsDiff,
-      required int recoveredDiff,
-      required DateTime lastUpdate,
-      required int active,
-      required int activeDiff,
-      required double fatalityRate}) = _$_CovidReport;
+      {@HiveField(0) required DateTime date,
+      @HiveField(1) required int confirmed,
+      @HiveField(2) required int deaths,
+      @HiveField(3) required int recovered,
+      @HiveField(4) required int confirmedDiff,
+      @HiveField(5) required int deathsDiff,
+      @HiveField(6) required int recoveredDiff,
+      @HiveField(7) required DateTime lastUpdate,
+      @HiveField(8) required int active,
+      @HiveField(9) required int activeDiff,
+      @HiveField(10) required double fatalityRate}) = _$_CovidReport;
 
   @override
+  @HiveField(0)
   DateTime get date => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   int get confirmed => throw _privateConstructorUsedError;
   @override
+  @HiveField(2)
   int get deaths => throw _privateConstructorUsedError;
   @override
+  @HiveField(3)
   int get recovered => throw _privateConstructorUsedError;
   @override
+  @HiveField(4)
   int get confirmedDiff => throw _privateConstructorUsedError;
   @override
+  @HiveField(5)
   int get deathsDiff => throw _privateConstructorUsedError;
   @override
+  @HiveField(6)
   int get recoveredDiff => throw _privateConstructorUsedError;
   @override
+  @HiveField(7)
   DateTime get lastUpdate => throw _privateConstructorUsedError;
   @override
+  @HiveField(8)
   int get active => throw _privateConstructorUsedError;
   @override
+  @HiveField(9)
   int get activeDiff => throw _privateConstructorUsedError;
   @override
+  @HiveField(10)
   double get fatalityRate => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

@@ -22,16 +22,17 @@ class BottomNavigationState extends State
   @override
   void initState() {
     super.initState();
-    // _tabController = TabController(
-    //   length: _children.length,
-    //   vsync: this,
-    // );
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Scaffold(
-      body: _children[_currentIndex],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _children,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.grey,

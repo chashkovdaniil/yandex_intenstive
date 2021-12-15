@@ -15,14 +15,14 @@ class StatsTotal extends BaseUsecase<void> {
   Future<void> call() async {
     var lastStatsCountries = await _repository.statsCountriesByDate();
     var statsTotalByYears = await _repository.statsTotal();
-    var statsTotal = await _repository.statsTotalByDate(
+    var statsTotalByDate = await _repository.statsTotalByDate(
       date: DateTime.now().subtract(const Duration(days: 2)),
     );
     var listWithIndexes = statsTotalByYears.asMap();
 
     manager.setData(
       countriesCovid: lastStatsCountries,
-      confirmed: statsTotal.confirmed,
+      confirmed: statsTotalByDate.confirmed,
       confirmedSpots: listWithIndexes
           .map<double, List<double>>(
             (key, value) => MapEntry(
@@ -32,7 +32,7 @@ class StatsTotal extends BaseUsecase<void> {
           )
           .values
           .toList(),
-      recovered: statsTotal.recovered,
+      recovered: statsTotalByDate.recovered,
       recoveredSpots: listWithIndexes
           .map<double, List<double>>(
             (key, value) => MapEntry(
@@ -42,7 +42,7 @@ class StatsTotal extends BaseUsecase<void> {
           )
           .values
           .toList(),
-      deaths: statsTotal.deaths,
+      deaths: statsTotalByDate.deaths,
       deathsSpots: listWithIndexes
           .map<double, List<double>>(
             (key, value) => MapEntry(
@@ -52,7 +52,7 @@ class StatsTotal extends BaseUsecase<void> {
           )
           .values
           .toList(),
-      active: statsTotal.active,
+      active: statsTotalByDate.active,
       activeSpots: listWithIndexes
           .map<double, List<double>>(
             (key, value) => MapEntry(
@@ -62,7 +62,7 @@ class StatsTotal extends BaseUsecase<void> {
           )
           .values
           .toList(),
-      fatalityRate: statsTotal.fatalityRate,
+      fatalityRate: statsTotalByDate.fatalityRate,
     );
   }
 }

@@ -1,23 +1,26 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../data/dto/covid_report_dto.dart';
 
+part 'covid_report.g.dart';
 part 'covid_report.freezed.dart';
 
 @freezed
 class CovidReport with _$CovidReport {
+  @HiveType(typeId: 5, adapterName: 'CovidReportAdapter')
   factory CovidReport({
-    required DateTime date,
-    required int confirmed,
-    required int deaths,
-    required int recovered,
-    required int confirmedDiff,
-    required int deathsDiff,
-    required int recoveredDiff,
-    required DateTime lastUpdate,
-    required int active,
-    required int activeDiff,
-    required double fatalityRate,
+    @HiveField(0) required DateTime date,
+    @HiveField(1) required int confirmed,
+    @HiveField(2) required int deaths,
+    @HiveField(3) required int recovered,
+    @HiveField(4) required int confirmedDiff,
+    @HiveField(5) required int deathsDiff,
+    @HiveField(6) required int recoveredDiff,
+    @HiveField(7) required DateTime lastUpdate,
+    @HiveField(8) required int active,
+    @HiveField(9) required int activeDiff,
+    @HiveField(10) required double fatalityRate,
   }) = _CovidReport;
 
   factory CovidReport.fromDto(CovidReportDto dto) {

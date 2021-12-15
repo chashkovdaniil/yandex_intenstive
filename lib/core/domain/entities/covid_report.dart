@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 import '../../data/dto/covid_report_dto.dart';
 
 part 'covid_report.g.dart';

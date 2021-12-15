@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:yandex_intensive/configs/app_routes.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/navigation_views.dart';
-import '../screens/country_details_screen.dart';
+import '../../../general/on_tap_opacity.dart';
 import 'custom_border.dart';
-import 'on_tap_opacity.dart';
 
 class TopCountryCard extends StatefulWidget {
   final String countryTitle;
@@ -36,7 +36,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
         padding: const EdgeInsets.only(top: 20, bottom: 16),
         child: OnTapOpacityContainer(
           onTap: () =>
-              Navigator.of(context).pushNamed(CountryDetailsScreen.route),
+              Navigator.of(context).pushNamed(AppRoutes.countryDetails),
           child: Stack(
             children: [
               Padding(

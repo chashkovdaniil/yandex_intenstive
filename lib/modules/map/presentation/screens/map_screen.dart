@@ -3,8 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../configs/constants.dart';
+import '../../../general/app_bar.dart';
 import '../state/map_screen_state.dart';
-import '../widgets/app_bar.dart';
 import '../widgets/card.dart';
 import '../widgets/map.dart';
 import '../widgets/rest_list.dart';
@@ -75,7 +75,7 @@ class MapScreenSuccessState extends StatelessWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              MapScreenAppBar(
+              CustomAppBar(
                 showBackButton: false,
                 title: StringValues.mapTitle,
               ),

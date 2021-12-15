@@ -1,7 +1,3 @@
-import '../modules/map/presentation/screens/country_details_screen.dart';
-
-import '../modules/search/presentation/search_screen.dart';
-
 class AppRoutes {
   static String get mapPageScreen => '/map-page';
 
@@ -13,6 +9,7 @@ class AppRoutes {
 
   static String get bottomNavigation => '/';
 
-  static String get searchScreenRoute => SearchScreen.route;
-  static String get countryDetails => CountryDetailsScreen.route;
+  static String get countryDetails => '/country-details';
+
+  static String get searchScreenRoute => '/search-screen';
 }

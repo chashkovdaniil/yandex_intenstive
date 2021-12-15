@@ -70,6 +70,7 @@ class CurvePainter extends CustomPainter {
       )
       ..lineTo(0, 0);
     canvas.drawPath(path, paint);
+    canvas.drawShadow(path, AppColors.grey.withOpacity(0.1), 4.0, false);
   }
 
   @override

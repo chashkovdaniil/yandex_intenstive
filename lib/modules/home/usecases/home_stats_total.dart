@@ -5,6 +5,7 @@ import '../presentation/state/home_screen_state.dart';
 class StatsTotal extends BaseUsecase<void> {
   final CovidRepository _repository;
   final HomeScreenManager manager;
+
   StatsTotal({
     required CovidRepository repository,
     required this.manager,

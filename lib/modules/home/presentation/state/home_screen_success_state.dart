@@ -21,6 +21,7 @@ class HomeScreenSuccessData {
   final int confirmed;
   final int recovered;
   final double fatalityRate;
+
   HomeScreenSuccessData({
     required this.countriesStats,
     required this.confirmedSpots,
@@ -37,6 +38,7 @@ class HomeScreenSuccessData {
 
 class HomeScreenSuccessState extends HookConsumerWidget {
   final HomeScreenSuccessData data;
+
   const HomeScreenSuccessState({
     Key? key,
     required this.data,

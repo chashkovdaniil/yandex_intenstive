@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
@@ -12,10 +13,10 @@ class SymptomsPage extends StatelessWidget {
   static final _rarityIcons = StringValues.symptomColumnAssets.map(
     (key, asset) => MapEntry(
       key,
-      Image.asset(
+      SvgPicture.asset(
         asset,
-        width: 35.0,
-        height: 35.0,
+        width: 30.0,
+        height: 30.0,
       ),
     ),
   );
@@ -45,7 +46,7 @@ class SymptomsPage extends StatelessWidget {
                 .map(
                   (item) => NamedIconData(
                     item[0],
-                    Image.asset(
+                    SvgPicture.asset(
                       item[1],
                       width: 35.0,
                       height: 35.0,
@@ -85,7 +86,7 @@ class SymptomsPage extends StatelessWidget {
  */
 class _SymptomColumn extends StatelessWidget {
   static const linePadding = EdgeInsets.only(top: 3.0, bottom: 3.0);
-  static const iconPadding = EdgeInsets.only(right: 8.0);
+  static const iconPadding = EdgeInsets.only(right: 15.0);
 
   const _SymptomColumn({Key? key}) : super(key: key);
 
@@ -97,18 +98,32 @@ class _SymptomColumn extends StatelessWidget {
                 ? linePadding
                 : linePadding,
             child: Row(
-              children: StringValues.symptomColumnLegendAssets
-                  .map(
-                    (item) => Padding(
-                      padding: iconPadding,
-                      child: Image.asset(
-                        item,
-                        width: 35.0,
-                        height: 35.0,
-                      ),
-                    ),
-                  )
-                  .toList(),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: SvgPicture.asset(
+                    StringValues.symptomColumnLegendAssets[0],
+                    width: 28.0,
+                    height: 28.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 11.0),
+                  child: SvgPicture.asset(
+                    StringValues.symptomColumnLegendAssets[1],
+                    width: 28.0,
+                    height: 28.0,
+                  ),
+                ),
+                Padding(
+                  padding: iconPadding,
+                  child: SvgPicture.asset(
+                    StringValues.symptomColumnLegendAssets[2],
+                    width: 28.0,
+                    height: 28.0,
+                  ),
+                ),
+              ],
             ),
           ),
           ...StringValues.symptomColumnData

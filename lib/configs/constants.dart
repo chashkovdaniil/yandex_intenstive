@@ -11,9 +11,9 @@ import 'colors.dart';
 class StringValues {
   // Strings for education
   static List<List<String>> get diseaseLegendData => [
-        [LocaleKeys.disease1.tr(), 'assets/images/cold@3x.png'],
-        [LocaleKeys.disease2.tr(), 'assets/images/flu@3x.png'],
-        [LocaleKeys.disease3.tr(), 'assets/images/covid@3x.png'],
+        [LocaleKeys.disease1.tr(), 'assets/images/cold.svg'],
+        [LocaleKeys.disease2.tr(), 'assets/images/flu.svg'],
+        [LocaleKeys.disease3.tr(), 'assets/images/covid.svg'],
       ];
 
   static List<List<String>> get symptomRarityLegendData => [
@@ -41,16 +41,16 @@ class StringValues {
       ];
 
   static const symptomColumnAssets = {
-    'never': 'assets/images/never.png',
-    'rare': 'assets/images/rare.png',
-    'sometimes': 'assets/images/sometimes.png',
-    'common': 'assets/images/common.png',
+    'never': 'assets/images/never.svg',
+    'rare': 'assets/images/rare.svg',
+    'sometimes': 'assets/images/sometimes.svg',
+    'common': 'assets/images/common.svg',
   };
 
   static const symptomColumnLegendAssets = [
-    'assets/images/cold_dark.png',
-    'assets/images/flu_dark.png',
-    'assets/images/covid_dark.png',
+    'assets/images/cold_black.svg',
+    'assets/images/flu_black.svg',
+    'assets/images/covid_black.svg',
   ];
 
   static List<List<String>> get preventionData => [

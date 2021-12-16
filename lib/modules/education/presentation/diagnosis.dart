@@ -50,8 +50,7 @@ class DiagnosisPage extends StatelessWidget {
           ElevatedButton(
             style: AppTheme.educationButtonStyle,
             onPressed: () => url_launcher.launch(
-              // TODO: а как же другие страны?
-              'tel://${LocaleKeys.diagnosisRussianPhoneNumber.tr()}',
+              LocaleKeys.diagnosisUrlLauncherCommand.tr(),
             ),
             child: Padding(
               padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),

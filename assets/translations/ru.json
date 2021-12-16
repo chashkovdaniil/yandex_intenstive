@@ -57,12 +57,13 @@
   "settingsItemHelp":                     "Помощь",
   "settingsItemTerms":                    "Правила и условия",
 
+  "educationAppBarTitle":        "Ликбез",
   "diagnosisDescription":        "Если вы чувствуете какие-то симптомы или подозреваете, что заболели, пожалуйста, сообщите об этом, чтобы обезопасить других людей.",
   "diagnosisWarningCaps":        "COVSTATS",
   "diagnosisWarning":            " позволяет каждому анонимно сообщить о своих симптомах на благо других",
   "diagnosisHeader":             "Сообщить о заболевании",
   "diagnosisButtonText":         "Сообщить",
-  "diagnosisRussianPhoneNumber": "88002000112",
+  "diagnosisUrlLauncherCommand": "tel://8(800)200-01-12",
 
   "disease1": "Простуда",
   "disease2": "Грипп",

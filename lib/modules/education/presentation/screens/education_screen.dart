@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../generated/codegen_loader.g.dart';
@@ -13,9 +14,9 @@ class EducationScreen extends StatelessWidget {
         child: Scaffold(
           body: Column(
             children: [
-              const CustomAppBar(
-                showBackButton: false,
-                title: 'Education',
+              CustomAppBar(
+                title: LocaleKeys.educationAppBarTitle.tr(),
+                showBackButton: EasyLocalization.of(context).toString() == '.',
                 showUserButton: false,
               ),
               const SizedBox(height: 20.0),

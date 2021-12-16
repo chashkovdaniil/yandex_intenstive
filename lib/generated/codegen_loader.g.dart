@@ -63,7 +63,7 @@ abstract class  LocaleKeys {
   static const diagnosisWarning = 'diagnosisWarning';
   static const diagnosisHeader = 'diagnosisHeader';
   static const diagnosisButtonText = 'diagnosisButtonText';
-  static const diagnosisRussianPhoneNumber = 'diagnosisRussianPhoneNumber';
+  static const diagnosisUrlLauncherCommand = 'diagnosisUrlLauncherCommand';
   static const disease1 = 'disease1';
   static const disease2 = 'disease2';
   static const disease3 = 'disease3';

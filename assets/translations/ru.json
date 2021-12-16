@@ -62,7 +62,7 @@
   "diagnosisWarning":            " позволяет каждому анонимно сообщить о своих симптомах на благо других",
   "diagnosisHeader":             "Сообщить о заболевании",
   "diagnosisButtonText":         "Сообщить",
-  "diagnosisRussianPhoneNumber": "88002000112",
+  "diagnosisUrlLauncherCommand": "tel://8(800)200-01-12",
 
   "disease1": "Простуда",
   "disease2": "Грипп",

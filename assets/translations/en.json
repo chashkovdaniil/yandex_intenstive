@@ -63,7 +63,7 @@
   "diagnosisWarning":            " gives everyone the opportunity to report their symptoms anonymously for the benefit of others",
   "diagnosisHeader":             "Report my Status",
   "diagnosisButtonText":         "Please report your status",
-  "diagnosisRussianPhoneNumber": "88002000112",
+  "diagnosisUrlLauncherCommand": "https://www.google.com/search?q=i+have+covid+now+what",
 
   "disease1": "Cold",
   "disease2": "Flu",

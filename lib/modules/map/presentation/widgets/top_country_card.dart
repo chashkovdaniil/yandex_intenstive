@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
+import '../../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/navigation_views.dart';
 import '../../../general/on_tap_opacity.dart';
@@ -33,7 +34,9 @@ class TopCountryCard extends StatefulWidget {
 class _TopCountryCardState extends State<TopCountryCard> {
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(top: 20, bottom: 16),
+        padding: EasyLocalization.of(context).toString() == ''
+            ? const EdgeInsets.only(top: 20, bottom: 16)
+            : const EdgeInsets.only(top: 20, bottom: 16),
         child: OnTapOpacityContainer(
           onTap: () =>
               Navigator.of(context).pushNamed(AppRoutes.countryDetails),
@@ -82,8 +85,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              StringValues.mapTopAffected +
-                                  widget.affectedValue,
+                              LocaleKeys.mapTopAffected.tr() + widget.affectedValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -92,8 +94,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             padding:
                                 const EdgeInsets.only(left: 12, bottom: 4.0),
                             child: Text(
-                              StringValues.mapTopRecovered +
-                                  widget.recoveredValue,
+                              LocaleKeys.mapTopRecovered.tr() + widget.recoveredValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -112,11 +113,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     //TODO: what this button is for lmao ??
                     onTap: () => showAlertDialog(
                       context: context,
-                      title: StringValues.countryDetailsAlertTitle,
-                      content: StringValues.countryDetailsAlertContent,
-                      cancelActionText: StringValues.countryDetailsAlertCancel,
-                      defaultActionText:
-                          StringValues.countryDetailsAlertDefault,
+                      title: LocaleKeys.countryDetailsAlertTitle.tr(),
+                      content: LocaleKeys.countryDetailsAlertContent.tr(),
+                      cancelActionText: LocaleKeys.countryDetailsAlertCancel.tr(),
+                      defaultActionText: LocaleKeys.countryDetailsAlertDefault.tr(),
                     ),
                     child: IconButton(
                       icon: const Icon(
@@ -126,12 +126,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       ),
                       onPressed: () => showAlertDialog(
                         context: context,
-                        title: StringValues.countryDetailsAlertTitle,
-                        content: StringValues.countryDetailsAlertContent,
-                        cancelActionText:
-                            StringValues.countryDetailsAlertCancel,
-                        defaultActionText:
-                            StringValues.countryDetailsAlertDefault,
+                        title: LocaleKeys.countryDetailsAlertTitle.tr(),
+                        content: LocaleKeys.countryDetailsAlertContent.tr(),
+                        cancelActionText: LocaleKeys.countryDetailsAlertCancel.tr(),
+                        defaultActionText: LocaleKeys.countryDetailsAlertDefault.tr(),
                       ),
                     ),
                   ),

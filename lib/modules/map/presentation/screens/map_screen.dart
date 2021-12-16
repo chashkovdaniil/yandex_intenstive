@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../configs/constants.dart';
+import '../../../../generated/codegen_loader.g.dart';
 import '../../../general/app_bar.dart';
 import '../state/map_screen_state.dart';
 import '../widgets/card.dart';
@@ -20,6 +21,7 @@ class MapScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    EasyLocalization.of(context);
     final mapScreenStatus = ref.watch(_mapScreenProvider).status;
 
     useEffect(
@@ -41,11 +43,11 @@ class MapScreen extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text(StringValues.mapScreenError),
+                child: Text(LocaleKeys.mapScreenError.tr()),
               ),
               ElevatedButton(
                 onPressed: () => ref.read(_mapScreenProvider.notifier).load(),
-                child: Text(StringValues.mapScreenRefresh),
+                child: Text(LocaleKeys.mapScreenRefresh.tr()),
               )
             ],
           ),
@@ -68,6 +70,7 @@ class MapScreenSuccessState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus,
@@ -77,7 +80,7 @@ class MapScreenSuccessState extends StatelessWidget {
             children: [
               CustomAppBar(
                 showBackButton: false,
-                title: StringValues.mapTitle,
+                title: LocaleKeys.mapTitle.tr(),
               ),
               Expanded(
                 child: CustomScrollView(
@@ -89,7 +92,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 410,
-                        title: StringValues.mapAreas,
+                        title: LocaleKeys.mapAreas.tr(),
                         content: const MapChart(),
                       ),
                     ),
@@ -99,7 +102,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 406,
-                        title: StringValues.mapTop,
+                        title: LocaleKeys.mapTop.tr(),
                         content: const TopList(),
                       ),
                     ),
@@ -109,7 +112,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 680,
-                        title: StringValues.mapRest,
+                        title: LocaleKeys.mapRest.tr(),
                         content: const RestList(),
                       ),
                     ),

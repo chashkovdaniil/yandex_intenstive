@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +31,21 @@ void main() async {
 
   // await PushNotificationService().setupInteractedMessage();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  await EasyLocalization.ensureInitialized();
+  // await PushNotificationService().setupInteractedMessage();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(
-    ProviderScope(
-      overrides: [sharedPrefsProvider.overrideWithValue(_sharedPrefs)],
-      child: const MyApp(),
+    EasyLocalization(
+      useFallbackTranslations: true,
+      supportedLocales: const [Locale('en'), Locale('ru')],
+      path:
+          'assets/translations', // <-- change the path of the translation files
+      fallbackLocale: const Locale('en'),
+      startLocale: const Locale('en'),
+      child: ProviderScope(
+        overrides: [sharedPrefsProvider.overrideWithValue(_sharedPrefs)],
+        child: const MyApp(),
+      ),
     ),
   );
 }
@@ -56,6 +68,9 @@ class MyApp extends HookConsumerWidget {
       ),
       builder: (context) {
         return MaterialApp(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           theme: AppTheme.light(),
           darkTheme: AppTheme.dark(),
           themeMode: ThemeProvider.of(context).themeMode,

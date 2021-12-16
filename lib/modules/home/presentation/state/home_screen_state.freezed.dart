@@ -385,26 +385,16 @@ const $HomeScreenState = _$HomeScreenStateTearOff();
 /// @nodoc
 mixin _$HomeScreenState {
   HomeScreenStateStatus get status => throw _privateConstructorUsedError;
-
   Map<String, CountryCovid>? get countriesCovid =>
       throw _privateConstructorUsedError;
-
   List<List<double>>? get confirmedSpots => throw _privateConstructorUsedError;
-
   List<List<double>>? get recoveredSpots => throw _privateConstructorUsedError;
-
   List<List<double>>? get deathsSpots => throw _privateConstructorUsedError;
-
   List<List<double>>? get activeSpots => throw _privateConstructorUsedError;
-
   int? get deaths => throw _privateConstructorUsedError;
-
   int? get confirmed => throw _privateConstructorUsedError;
-
   int? get recovered => throw _privateConstructorUsedError;
-
   int? get active => throw _privateConstructorUsedError;
-
   double? get fatalityRate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -417,7 +407,6 @@ abstract class $HomeScreenStateCopyWith<$Res> {
   factory $HomeScreenStateCopyWith(
           HomeScreenState value, $Res Function(HomeScreenState) then) =
       _$HomeScreenStateCopyWithImpl<$Res>;
-
   $Res call(
       {HomeScreenStateStatus status,
       Map<String, CountryCovid>? countriesCovid,
@@ -519,7 +508,6 @@ abstract class _$HomeScreenStateCopyWith<$Res>
   factory _$HomeScreenStateCopyWith(
           _HomeScreenState value, $Res Function(_HomeScreenState) then) =
       __$HomeScreenStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {HomeScreenStateStatus status,
@@ -729,38 +717,27 @@ abstract class _HomeScreenState implements HomeScreenState {
 
   @override
   HomeScreenStateStatus get status => throw _privateConstructorUsedError;
-
   @override
   Map<String, CountryCovid>? get countriesCovid =>
       throw _privateConstructorUsedError;
-
   @override
   List<List<double>>? get confirmedSpots => throw _privateConstructorUsedError;
-
   @override
   List<List<double>>? get recoveredSpots => throw _privateConstructorUsedError;
-
   @override
   List<List<double>>? get deathsSpots => throw _privateConstructorUsedError;
-
   @override
   List<List<double>>? get activeSpots => throw _privateConstructorUsedError;
-
   @override
   int? get deaths => throw _privateConstructorUsedError;
-
   @override
   int? get confirmed => throw _privateConstructorUsedError;
-
   @override
   int? get recovered => throw _privateConstructorUsedError;
-
   @override
   int? get active => throw _privateConstructorUsedError;
-
   @override
   double? get fatalityRate => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$HomeScreenStateCopyWith<_HomeScreenState> get copyWith =>

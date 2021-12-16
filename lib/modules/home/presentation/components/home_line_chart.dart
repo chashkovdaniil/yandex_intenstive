@@ -129,6 +129,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
             widget.title,
             style: Theme.of(context).textTheme.headline5?.copyWith(
                   color: const Color(0xff999999),
+                  fontSize: 22.0,
                 ),
           ),
           const SizedBox(height: 10),

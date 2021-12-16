@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../configs/constants.dart';
 import '../../../../core/styles/app_theme.dart';
+import '../../../../generated/codegen_loader.g.dart';
 
 class EducationPreview extends StatelessWidget {
   const EducationPreview({Key? key}) : super(key: key);
@@ -10,25 +11,27 @@ class EducationPreview extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Text(
-            StringValues.educationPreviewHeader,
+            EasyLocalization.of(context).toString() == ''
+                ? ''
+                : LocaleKeys.educationPreviewHeader.tr(),
             style: AppTheme.educationHeader1.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 30.0),
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               children: [
                 TextSpan(
-                  text: StringValues.educationPreviewDescriptionPreCaps,
+                  text: LocaleKeys.educationPreviewDescriptionPreCaps.tr(),
                   style: AppTheme.educationSubtitleLight,
                 ),
                 TextSpan(
-                  text: StringValues.educationPreviewDescriptionCaps,
+                  text: LocaleKeys.educationPreviewDescriptionCaps.tr(),
                   style: AppTheme.educationSubtitleInternalBold,
                 ),
                 TextSpan(
-                  text: StringValues.educationPreviewDescriptionPostCaps,
+                  text: LocaleKeys.educationPreviewDescriptionPostCaps.tr(),
                   style: AppTheme.educationSubtitleLight,
                 ),
               ],

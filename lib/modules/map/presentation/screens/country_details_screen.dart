@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../configs/constants.dart';
+import '../../../../generated/codegen_loader.g.dart';
 import '../../../general/app_bar.dart';
 import '../helpers/country_details_screen_args.dart';
 import '../widgets/card.dart';
@@ -27,6 +28,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     final args =
         ModalRoute.of(context)!.settings.arguments as CountryDetailsScreenArgs;
 
@@ -37,7 +39,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
             CustomAppBar(
               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
               title:
-                  '${args.country.name}${StringValues.countryStatisticsTitle}',
+                  '${args.country.name}${LocaleKeys.countryStatisticsTitle.tr()}',
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,7 +53,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
                 ),
                 MapScreenCard(
                   height: 350,
-                  title: StringValues.countryStatisticsGraphTitle,
+                  title: LocaleKeys.countryStatisticsGraphTitle.tr(),
                   content: const CountryGraph(),
                 ),
               ],

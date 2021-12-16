@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../configs/colors.dart';
 import '../../configs/constants.dart';
 import '../../configs/text_styles.dart';
+import '../../generated/codegen_loader.g.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
@@ -28,6 +30,7 @@ class BottomNavigationState extends State
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    EasyLocalization.of(context);
 
     return Scaffold(
       body: IndexedStack(
@@ -44,19 +47,19 @@ class BottomNavigationState extends State
         items: [
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.home),
-            label: StringValues.bottomNavigationItemHome,
+            label: LocaleKeys.bottomNavigationItemHome.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.map),
-            label: StringValues.bottomNavigationItemMap,
+            label: LocaleKeys.bottomNavigationItemMap.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.person),
-            label: StringValues.bottomNavigationItemEducation,
+            label: LocaleKeys.bottomNavigationItemEducation.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.settings),
-            label: StringValues.bottomNavigationItemSettings,
+            label: LocaleKeys.bottomNavigationItemSettings.tr(),
           ),
         ],
       ),

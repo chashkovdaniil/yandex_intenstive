@@ -6,23 +6,24 @@ part of 'covid_report_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CovidReportDto _$$_CovidReportDtoFromJson(Map<String, dynamic> json) =>
-    _$_CovidReportDto(
-      date: json['date'] as String,
-      confirmed: json['confirmed'] as int,
-      deaths: json['deaths'] as int,
-      recovered: json['recovered'] as int,
-      confirmedDiff: json['confirmed_diff'] as int,
-      deathsDiff: json['deaths_diff'] as int,
-      recoveredDiff: json['recovered_diff'] as int,
-      lastUpdate: json['last_update'] as String,
-      active: json['active'] as int,
-      activeDiff: json['active_diff'] as int,
-      fatalityRate: (json['fatality_rate'] as num).toDouble(),
-      region: json['region'] as Map<String, dynamic>?,
-    );
+_$_CovidReportDto _$_$_CovidReportDtoFromJson(Map<String, dynamic> json) {
+  return _$_CovidReportDto(
+    date: json['date'] as String,
+    confirmed: json['confirmed'] as int,
+    deaths: json['deaths'] as int,
+    recovered: json['recovered'] as int,
+    confirmedDiff: json['confirmed_diff'] as int,
+    deathsDiff: json['deaths_diff'] as int,
+    recoveredDiff: json['recovered_diff'] as int,
+    lastUpdate: json['last_update'] as String,
+    active: json['active'] as int,
+    activeDiff: json['active_diff'] as int,
+    fatalityRate: (json['fatality_rate'] as num).toDouble(),
+    region: json['region'] as Map<String, dynamic>?,
+  );
+}
 
-Map<String, dynamic> _$$_CovidReportDtoToJson(_$_CovidReportDto instance) =>
+Map<String, dynamic> _$_$_CovidReportDtoToJson(_$_CovidReportDto instance) =>
     <String, dynamic>{
       'date': instance.date,
       'confirmed': instance.confirmed,

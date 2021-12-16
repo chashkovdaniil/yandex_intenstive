@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../configs/constants.dart';
 
+import '../../../../generated/codegen_loader.g.dart';
 import '../../../configs/providers.dart';
 import 'state/home_screen_state.dart';
 import 'state/home_screen_success_state.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(_homeScreenProvider);
+    EasyLocalization.of(context);
 
     useEffect(
       () {
@@ -52,13 +54,13 @@ class HomeScreen extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text(StringValues.homeScreenError),
+                child: Text(LocaleKeys.homeScreenError.tr()),
               ),
               ElevatedButton(
                 onPressed: () {
                   ref.read(statsTotalUsecaseProvider).call();
                 },
-                child: Text(StringValues.homeScreenRefresh),
+                child: Text(LocaleKeys.homeScreenRefresh.tr()),
               )
             ],
           ),

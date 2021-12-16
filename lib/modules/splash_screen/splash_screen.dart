@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -5,12 +6,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../configs/constants.dart';
 import '../../configs/providers.dart';
 import '../../configs/text_styles.dart';
+import '../../generated/codegen_loader.g.dart';
 
 class SplashScreen extends HookConsumerWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    EasyLocalization.of(context);
     useEffect(
       () {
         ref.read(splashUseCaseProvider).init();
@@ -30,7 +33,7 @@ class SplashScreen extends HookConsumerWidget {
           Expanded(
             child: Align(
               child: Text(
-                StringValues.splashScreenTitle,
+                LocaleKeys.splashScreenTitle.tr(),
                 style: TextStyles.splashScreenTitleTextStyle,
               ),
             ),
@@ -41,7 +44,7 @@ class SplashScreen extends HookConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 55),
                 child: Text(
-                  StringValues.splashScreenBottomText,
+                  LocaleKeys.splashScreenBottomText.tr(),
                   style: TextStyles.splashScreenBottomTextStyle,
                 ),
               ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sprintf/sprintf.dart';
 
 class AnimatedNumbersText extends StatelessWidget {
   final String additionText;

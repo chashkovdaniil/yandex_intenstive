@@ -58,6 +58,7 @@ abstract class  LocaleKeys {
   static const settingsItemDonate = 'settingsItemDonate';
   static const settingsItemHelp = 'settingsItemHelp';
   static const settingsItemTerms = 'settingsItemTerms';
+  static const educationAppBarTitle = 'educationAppBarTitle';
   static const diagnosisDescription = 'diagnosisDescription';
   static const diagnosisWarningCaps = 'diagnosisWarningCaps';
   static const diagnosisWarning = 'diagnosisWarning';

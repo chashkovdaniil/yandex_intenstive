@@ -33,7 +33,9 @@ class TopCountryCard extends StatefulWidget {
 class _TopCountryCardState extends State<TopCountryCard> {
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(top: 20, bottom: 16),
+        padding: EasyLocalization.of(context).toString() == ''
+            ? const EdgeInsets.only(top: 20, bottom: 16)
+            : const EdgeInsets.only(top: 20, bottom: 16),
         child: OnTapOpacityContainer(
           onTap: () =>
               Navigator.of(context).pushNamed(AppRoutes.countryDetails),
@@ -80,8 +82,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              'mapTopAffected'.tr() +
-                                  widget.affectedValue,
+                              'mapTopAffected'.tr() + widget.affectedValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -90,8 +91,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             padding:
                                 const EdgeInsets.only(left: 12, bottom: 4.0),
                             child: Text(
-                              'mapTopRecovered'.tr() +
-                                  widget.recoveredValue,
+                              'mapTopRecovered'.tr() + widget.recoveredValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -113,8 +113,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       title: 'countryDetailsAlertTitle'.tr(),
                       content: 'countryDetailsAlertContent'.tr(),
                       cancelActionText: 'countryDetailsAlertCancel'.tr(),
-                      defaultActionText:
-                          'countryDetailsAlertDefault'.tr(),
+                      defaultActionText: 'countryDetailsAlertDefault'.tr(),
                     ),
                     child: IconButton(
                       icon: const Icon(
@@ -126,10 +125,8 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         context: context,
                         title: 'countryDetailsAlertTitle'.tr(),
                         content: 'countryDetailsAlertContent'.tr(),
-                        cancelActionText:
-                            'countryDetailsAlertCancel'.tr(),
-                        defaultActionText:
-                            'countryDetailsAlertDefault'.tr(),
+                        cancelActionText: 'countryDetailsAlertCancel'.tr(),
+                        defaultActionText: 'countryDetailsAlertDefault'.tr(),
                       ),
                     ),
                   ),

@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/styles/app_theme.dart';
+import '../../../../generated/codegen_loader.g.dart';
 
 class EducationPreview extends StatelessWidget {
   const EducationPreview({Key? key}) : super(key: key);
@@ -10,7 +11,9 @@ class EducationPreview extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Text(
-            'educationPreviewHeader'.tr(),
+            EasyLocalization.of(context).toString() == ''
+                ? ''
+                : 'educationPreviewHeader'.tr(),
             style: AppTheme.educationHeader1,
           ),
           const SizedBox(height: 30.0),
@@ -18,7 +21,7 @@ class EducationPreview extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: 'educationPreviewDescriptionPreCaps'.tr(),
+                  text: LocaleKeys.educationPreviewDescriptionPreCaps.tr(),
                   style: AppTheme.educationSubtitleLight,
                 ),
                 TextSpan(

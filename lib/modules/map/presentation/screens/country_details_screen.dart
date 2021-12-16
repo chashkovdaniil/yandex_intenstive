@@ -27,6 +27,7 @@ class _CountryDetailsScreenState extends State<CountryDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     final args =
         ModalRoute.of(context)!.settings.arguments as CountryDetailsScreenArgs;
 

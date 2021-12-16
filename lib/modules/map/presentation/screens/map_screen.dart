@@ -20,6 +20,7 @@ class MapScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    EasyLocalization.of(context);
     final mapScreenStatus = ref.watch(_mapScreenProvider).status;
 
     useEffect(
@@ -68,6 +69,7 @@ class MapScreenSuccessState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus,

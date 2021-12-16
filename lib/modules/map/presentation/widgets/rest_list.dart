@@ -11,8 +11,8 @@ class RestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          const SizedBox(
-            height: 8,
+          SizedBox(
+            height: EasyLocalization.of(context).toString() == '' ? 8 : 8,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 12, bottom: 4),

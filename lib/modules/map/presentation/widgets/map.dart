@@ -11,8 +11,8 @@ class MapChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: EasyLocalization.of(context).toString() == '' ? 20 : 20,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8, bottom: 16),

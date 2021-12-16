@@ -32,10 +32,10 @@ class RestCountryCard extends StatefulWidget {
 class _RestCountryCardState extends State<RestCountryCard> {
   @override
   Widget build(BuildContext context) => OnTapOpacityContainer(
-    onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
+        onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: 60,
+          height: EasyLocalization.of(context).toString() == '' ? 60 : 60,
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border(

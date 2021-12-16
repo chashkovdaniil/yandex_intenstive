@@ -28,6 +28,7 @@ class BottomNavigationState extends State
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    EasyLocalization.of(context);
 
     return Scaffold(
       body: IndexedStack(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
+import '../../../generated/codegen_loader.g.dart';
 import 'components/prevention_item.dart';
 
 class PreventionPage extends StatelessWidget {
@@ -15,7 +16,9 @@ class PreventionPage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Text(
-            'preventionHeader'.tr(),
+            EasyLocalization.of(context).toString() == ''
+                ? LocaleKeys.preventionHeader.tr()
+                : LocaleKeys.preventionHeader.tr(),
             style: AppTheme.educationHeader1,
             softWrap: true,
           ),

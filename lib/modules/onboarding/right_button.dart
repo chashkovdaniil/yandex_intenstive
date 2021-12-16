@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../configs/constants.dart';
 import '../../configs/text_styles.dart';
 import 'button.dart';
 
@@ -15,6 +14,7 @@ class OnboardingRightButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     return OnboardingButton(
       onTap: onPressed,
       child: Text(

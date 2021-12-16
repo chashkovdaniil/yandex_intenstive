@@ -12,6 +12,7 @@ class SplashScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    EasyLocalization.of(context);
     useEffect(
       () {
         ref.read(splashUseCaseProvider).init();

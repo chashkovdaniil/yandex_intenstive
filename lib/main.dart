@@ -22,8 +22,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 
 void main() async {
-
-
   await initHive();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -31,10 +29,11 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(
     EasyLocalization(
+        useFallbackTranslations: true,
         supportedLocales: const [Locale('en'), Locale('ru')],
         path: 'assets/translations', // <-- change the path of the translation files
         fallbackLocale: const Locale('en'),
-        startLocale: const Locale('ru'),
+        startLocale: const Locale('en'),
         child: const ProviderScope(
           child: MyApp(),
         ),

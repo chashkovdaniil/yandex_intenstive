@@ -14,7 +14,9 @@ class CountryDetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: EasyLocalization.of(context).toString() == ''
+            ? const EdgeInsets.symmetric(horizontal: 12)
+            : const EdgeInsets.symmetric(horizontal: 12),
         child: Container(
           width: double.infinity,
           height: 240,
@@ -80,8 +82,7 @@ class CountryDetailsCard extends StatelessWidget {
                             context: context,
                             title: 'countryDetailsAlertTitle'.tr(),
                             content: 'countryDetailsAlertContent'.tr(),
-                            cancelActionText:
-                                'countryDetailsAlertCancel'.tr(),
+                            cancelActionText: 'countryDetailsAlertCancel'.tr(),
                             defaultActionText:
                                 'countryDetailsAlertDefault'.tr(),
                           ),
@@ -126,8 +127,7 @@ class CountryDetailsCard extends StatelessWidget {
                             alignment: Alignment.topLeft,
                             child: Text(
                               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                              '1,478' +
-                                  'countryStatisticsInfectedCases'.tr(),
+                              '1,478' + 'countryStatisticsInfectedCases'.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

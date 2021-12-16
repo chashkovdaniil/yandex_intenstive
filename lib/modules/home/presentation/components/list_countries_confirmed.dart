@@ -14,6 +14,7 @@ class ListCountriesConfirmed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     return Column(
       children: [
         ListTile(

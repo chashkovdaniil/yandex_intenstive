@@ -49,6 +49,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     final isHorizontalOrientation =
         MediaQuery.of(context).orientation == Orientation.landscape;
+    EasyLocalization.of(context);
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),

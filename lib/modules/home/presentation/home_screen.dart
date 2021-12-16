@@ -19,6 +19,7 @@ class HomeScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(_homeScreenProvider);
+    EasyLocalization.of(context);
 
     useEffect(
       () {

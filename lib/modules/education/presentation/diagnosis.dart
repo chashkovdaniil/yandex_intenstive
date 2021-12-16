@@ -9,7 +9,9 @@ class DiagnosisPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: EasyLocalization.of(context).toString() == ''
+            ? CrossAxisAlignment.start
+            : CrossAxisAlignment.start,
         children: [
           Text(
             'diagnosisHeader'.tr(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:yandex_intensive/modules/general/app_bar.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/card.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/map.dart';
@@ -27,6 +28,10 @@ class MapScreenSuccessState extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    var logger = Logger(
+      printer: PrettyPrinter(), // Use the PrettyPrinter to format and print log
+    );
+    logger.i(data.countriesStats);
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus,

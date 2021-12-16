@@ -65,13 +65,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 10,
             ),
-            //sharedPrefsProvider
-            // GeneralSettingsItemCard(
-            //   content: const ItemLanguage(),
-            //   title: StringValues.settingsItemLanguage,
-            //   icon: CupertinoIcons.globe,
-            //   iconColor: AppColors.green,
-            // ),
             GeneralSettingsItemCard(
               content: const ItemTheme(),
               title: LocaleKeys.settingsItemDarkMode.tr(),

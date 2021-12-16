@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../configs/text_styles.dart';
 import '../../../general/on_tap_opacity.dart';
+import 'package:yandex_intensive/generated/codegen_loader.g.dart';
 
 class ItemLanguage extends StatefulWidget {
   const ItemLanguage({Key? key}) : super(key: key);
@@ -12,18 +13,20 @@ class ItemLanguage extends StatefulWidget {
 }
 
 class _ItemLanguageState extends State<ItemLanguage> {
-  late var langValue = 'English';
+  late var langValue = LocaleKeys.english.tr();
 
   @override
   Widget build(BuildContext context) {
-    langValue = context.locale.toString() == 'ru' ? 'Русский' : 'English';
+    langValue = context.locale.toString() == 'ru'
+        ? LocaleKeys.russian.tr()
+        : LocaleKeys.english.tr();
     return OnTapOpacityContainer(
       onTap: () => setState(() {
-        if (langValue == 'English') {
-          langValue = 'Русский';
+        if (langValue == LocaleKeys.english.tr()) {
+          langValue = LocaleKeys.russian.tr();
           context.setLocale(const Locale('ru'));
         } else {
-          langValue = 'English';
+          langValue = LocaleKeys.english.tr();
           context.setLocale(const Locale('en'));
         }
       }),

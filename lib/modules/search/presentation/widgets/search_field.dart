@@ -6,7 +6,7 @@ class SearchField extends StatelessWidget {
   final Function(String)? onSubmitted;
   final TextEditingController? _searchFieldController;
   final FocusNode? _focusNode;
-  final Function()? onTap;
+  final VoidCallback? onTap;
 
   const SearchField({
     Key? key,

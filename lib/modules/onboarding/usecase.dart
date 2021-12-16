@@ -12,10 +12,6 @@ class OnboardingUseCase {
     this._navigator,
   );
 
-  Future<void> init() async {
-    // await _sharedPrefs.init();
-  }
-
   void closeOnboarding() {
     _sharedPrefs.setBool(SharedPreferencesNames.shouldOpenOnboarding, false);
     _navigator.pushReplacementAndRemoveUntil(AppRoutes.bottomNavigation);

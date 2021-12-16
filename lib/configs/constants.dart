@@ -9,40 +9,6 @@ import '../modules/map/presentation/widgets/top_country_card.dart';
 import 'colors.dart';
 
 class StringValues {
-  static String get mapTitle => 'World Wide map';
-
-  static String get mapAreas => 'COVID - 19 Affected Areas';
-
-  static String get mapAreasMost => 'Most Affected';
-
-  static String get mapAreasLess => 'Less Affected';
-
-  static String get mapTop => 'Top Countries';
-
-  static String get mapTopAffected => 'Affected - ';
-
-  static String get mapTopRecovered => 'Recovered - ';
-
-  static String get mapRest => 'Rest of the world';
-
-  static String get mapRestDescription => 'List of all Affected Countries';
-
-  static String get mapRestCases => ' - Death cases reported';
-
-  static String get countryStatisticsTitle => ' - statistic';
-
-  static String get countryStatisticsInfectedCases =>
-      ' Infected cases reported';
-
-  static String get countryStatisticsDeathCases => ' Death cases';
-
-  static String get countryStatisticsGraphTitle =>
-      'Current affected and death people';
-
-  static String get countryStatisticsDeath => 'Death';
-
-  static String get countryStatisticsAffected => 'Affected';
-
   // Strings for education
   static List<List<String>> get diseaseLegendData => [
         [LocaleKeys.disease1.tr(), 'assets/images/cold@3x.png'],

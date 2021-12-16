@@ -12,7 +12,7 @@ class ItemTheme extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    var themeModeSharedPrefs = ref.watch(sharedPrefsProvider);
+    final themeModeSharedPrefs = ref.watch(sharedPrefsProvider);
     return OnTapOpacityContainer(
       onTap: () {
         showModalBottomSheet(

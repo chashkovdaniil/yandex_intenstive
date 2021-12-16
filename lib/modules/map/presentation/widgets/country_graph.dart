@@ -31,6 +31,9 @@ class CountryGraph extends StatelessWidget {
                 ),
                 Text(
                   StringValues.countryStatisticsDeath,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
                 const SizedBox(
                   width: 20,
@@ -48,6 +51,9 @@ class CountryGraph extends StatelessWidget {
                 ),
                 Text(
                   StringValues.countryStatisticsAffected,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),

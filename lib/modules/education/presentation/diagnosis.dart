@@ -10,28 +10,34 @@ class DiagnosisPage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             StringValues.diagnosisHeader,
-            style: AppTheme.educationHeader1,
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 25.0),
-          const Text(
+          Text(
             StringValues.diagnosisDescription,
-            style: AppTheme.educationSubtitleLight,
+            style: AppTheme.educationSubtitleLight.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             softWrap: true,
           ),
           const SizedBox(height: 20.0),
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               children: [
-                TextSpan(
+                const TextSpan(
                   text: StringValues.diagnosisWarningCaps,
                   style: AppTheme.educationWarningRed,
                 ),
                 TextSpan(
                   text: StringValues.diagnosisWarning,
-                  style: AppTheme.educationWarning,
+                  style: AppTheme.educationWarning.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),
@@ -43,12 +49,14 @@ class DiagnosisPage extends StatelessWidget {
               // TODO: а как же другие страны?
               'tel://${StringValues.diagnosisRussianPhoneNumber}',
             ),
-            child: const Padding(
-              padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
               child: Center(
                 child: Text(
                   StringValues.diagnosisButtonText,
-                  style: AppTheme.educationSubtitleWhite,
+                  style: AppTheme.educationSubtitleWhite.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
                 ),
               ),
             ),

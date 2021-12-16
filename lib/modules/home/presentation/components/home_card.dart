@@ -12,9 +12,6 @@ class HomeCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(17),
       decoration: BoxDecoration(
-        // border: Border.all(
-        // color: const Color(0xffe4e4e4),
-        // ),
         borderRadius: BorderRadius.circular(15),
         color: Theme.of(context).colorScheme.surface,
         boxShadow: [

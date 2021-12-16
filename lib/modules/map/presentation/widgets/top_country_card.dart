@@ -74,7 +74,9 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             child: Text(
                               widget.countryTitle,
                               textAlign: TextAlign.start,
-                              style: TextStyles.titleCountry,
+                              style: TextStyles.titleCountry.copyWith(
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
                             ),
                           ),
                           Padding(
@@ -135,16 +137,17 @@ class _TopCountryCardState extends State<TopCountryCard> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 42),
-                child: SizedBox(
-                  width: 400,
-                  height: 40,
-                  child: CustomPaint(
-                    painter: CurvePainter(),
+              if (Theme.of(context).colorScheme.brightness == Brightness.light)
+                Padding(
+                  padding: const EdgeInsets.only(top: 42),
+                  child: SizedBox(
+                    width: 400,
+                    height: 40,
+                    child: CustomPaint(
+                      painter: CurvePainter(),
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

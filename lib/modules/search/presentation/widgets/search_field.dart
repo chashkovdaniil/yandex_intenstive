@@ -8,11 +8,13 @@ class SearchField extends StatelessWidget {
   final Function(String)? onSubmitted;
   final TextEditingController? _searchFieldController;
   final FocusNode? _focusNode;
+  final Function()? onTap;
 
   const SearchField({
     Key? key,
     this.enabled = true,
     this.autofocus = false,
+    this.onTap,
     TextEditingController? searchFieldController,
     FocusNode? focusNode,
     this.onSubmitted,
@@ -37,10 +39,11 @@ class SearchField extends StatelessWidget {
         cut: true,
         selectAll: true,
       ),
+      onTap: onTap,
       onSubmitted: onSubmitted,
       textInputAction: TextInputAction.search,
       decoration: InputDecoration(
-        fillColor: AppColors.grey.withOpacity(0.5),
+        fillColor: Theme.of(context).inputDecorationTheme.fillColor,
         filled: true,
         prefixIcon: const Icon(Icons.search),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20),

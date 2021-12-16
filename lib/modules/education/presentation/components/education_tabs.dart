@@ -55,8 +55,9 @@ class _EducationTabsState extends State<EducationTabs>
               TabBar(
                 controller: _controller,
                 labelStyle: AppTheme.educationSmall,
-                labelColor: AppTheme.educationSmall.color,
-                unselectedLabelColor: AppTheme.educationSmallLight.color,
+                labelColor: Theme.of(context).colorScheme.onSurface,
+                unselectedLabelColor:
+                    Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
                 indicatorColor: AppColors.green,
                 indicatorWeight: 5.0,
                 tabs: StringValues.educationPageTitles

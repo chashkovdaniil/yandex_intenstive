@@ -19,19 +19,23 @@ class CountryDetailsCard extends StatelessWidget {
           width: double.infinity,
           height: 240,
           decoration: BoxDecoration(
-            color: AppColors.white,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: AppColors.grey.withOpacity(0.6),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
-                spreadRadius: 5,
-                blurRadius: 3,
-                offset: const Offset(0.0, 0.9),
-              ),
-            ],
+            border: Theme.of(context).brightness == Brightness.light
+                ? Border.all(
+                    color: AppColors.grey.withOpacity(0.6),
+                  )
+                : null,
+            boxShadow: Theme.of(context).brightness == Brightness.light
+                ? [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 3,
+                      offset: const Offset(0.0, 0.9),
+                    ),
+                  ]
+                : null,
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
@@ -61,7 +65,9 @@ class CountryDetailsCard extends StatelessWidget {
                           // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
                           'China',
                           textAlign: TextAlign.start,
-                          style: TextStyles.titleCountryDetails,
+                          style: TextStyles.titleCountryDetails.copyWith(
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
                         ),
                       ),
                     ),
@@ -97,7 +103,6 @@ class CountryDetailsCard extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: AppColors.white,
                     border: Border(
                       bottom: BorderSide(
                         color: AppColors.grey.withOpacity(0.3),
@@ -137,12 +142,9 @@ class CountryDetailsCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 68,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
                   child: Column(
                     children: [
                       Padding(

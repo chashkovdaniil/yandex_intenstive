@@ -32,12 +32,12 @@ class RestCountryCard extends StatefulWidget {
 class _RestCountryCardState extends State<RestCountryCard> {
   @override
   Widget build(BuildContext context) => OnTapOpacityContainer(
-    onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
+        onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 60,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             border: Border(
               bottom: BorderSide(
                 color: AppColors.grey.withOpacity(0.3),
@@ -72,7 +72,9 @@ class _RestCountryCardState extends State<RestCountryCard> {
                       child: Text(
                         widget.countryTitle,
                         textAlign: TextAlign.start,
-                        style: TextStyles.titleCountry,
+                        style: TextStyles.titleCountry.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                         softWrap: true,
                       ),
                     ),
@@ -91,13 +93,16 @@ class _RestCountryCardState extends State<RestCountryCard> {
                 ),
               ),
               const Spacer(),
-              const Align(
+              Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 24, right: 4),
+                  padding: const EdgeInsets.only(top: 24, right: 4),
                   child: Text(
                     '14,459',
                     textAlign: TextAlign.start,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   ),
                 ),
               ),

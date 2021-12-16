@@ -7,7 +7,7 @@ import '../../configs/text_styles.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
-import '../settings/presentation%20/screens/settings_screen.dart';
+import '../settings/presentation/screens/settings_screen.dart';
 
 class BottomNavigationState extends State
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {

@@ -36,7 +36,10 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  StringValues.mapAreasMost,
+                  StringValues.mapAreasLess,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
                 const SizedBox(
                   width: 20,
@@ -60,14 +63,17 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  StringValues.mapAreasLess,
+                  StringValues.mapAreasMost,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              color: AppColors.white,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
                 color: AppColors.grey.withOpacity(0.3),
@@ -86,7 +92,17 @@ class MapChart extends StatelessWidget {
               child: SfMaps(
                 layers: [
                   MapShapeLayer(
+                    strokeColor: Theme.of(context).colorScheme.brightness ==
+                            Brightness.dark
+                        ? Theme.of(context).colorScheme.onSurface
+                        : null,
                     source: MockData.mapSource,
+                    // selectionSettings: MapSelectionSettings(
+                    //   color: Theme.of(context).colorScheme.surface,
+                    // ),
+                    tooltipSettings: MapTooltipSettings(
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
                     zoomPanBehavior: MockData.zoomPanBehavior,
                   )
                 ],

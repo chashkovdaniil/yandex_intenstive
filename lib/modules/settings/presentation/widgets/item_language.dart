@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../configs/text_styles.dart';
 import '../../../general/on_tap_opacity.dart';
@@ -38,9 +39,10 @@ class _ItemLanguageState extends State<ItemLanguage> {
       }),
       child: Text(
         langValue,
-        style: TextStyles.titleSettingsScope,
+        style: TextStyles.titleSettingsScope.copyWith(
+          color: Theme.of(context).colorScheme.onSurface,
+        ),
       ),
     );
   }
 }
-

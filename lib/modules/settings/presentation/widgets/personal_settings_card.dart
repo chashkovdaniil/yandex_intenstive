@@ -25,11 +25,13 @@ class PersonalSettingsItemCard extends StatelessWidget {
             width: double.infinity,
             height: 60,
             decoration: BoxDecoration(
-              color: AppColors.white,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: AppColors.grey.withOpacity(0.6),
-              ),
+              border: Theme.of(context).brightness == Brightness.light
+                  ? Border.all(
+                      color: AppColors.grey.withOpacity(0.6),
+                    )
+                  : null,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.08),
@@ -49,13 +51,15 @@ class PersonalSettingsItemCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: iconColor,
                       borderRadius: BorderRadius.circular(30),
-                      border: Border.all(
-                        color: AppColors.grey.withOpacity(0.6),
-                      ),
+                      border: Theme.of(context).brightness == Brightness.light
+                          ? Border.all(
+                              color: AppColors.grey.withOpacity(0.6),
+                            )
+                          : null,
                     ),
                     child: Icon(
                       icon,
-                      color: AppColors.white,
+                      color: Theme.of(context).colorScheme.surface,
                       size: 26,
                     ),
                   ),
@@ -64,7 +68,9 @@ class PersonalSettingsItemCard extends StatelessWidget {
                   ),
                   Text(
                     title,
-                    style: TextStyles.titleSettingsItem,
+                    style: TextStyles.titleSettingsItem.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   ),
                 ],
               ),

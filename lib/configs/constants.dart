@@ -11,9 +11,9 @@ class StringValues {
 
   static String get mapAreas => 'COVID - 19 Affected Areas';
 
-  static String get mapAreasLess => 'Most Affected';
+  static String get mapAreasMost => 'Most Affected';
 
-  static String get mapAreasMost => 'Less Affected';
+  static String get mapAreasLess => 'Less Affected';
 
   static String get mapTop => 'Top Countries';
 

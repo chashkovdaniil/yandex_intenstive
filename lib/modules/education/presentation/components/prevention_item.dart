@@ -37,7 +37,9 @@ class PreventionItem extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTheme.educationSubtitle,
+                  style: AppTheme.educationSubtitle.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                   softWrap: true,
                 ),
                 const SizedBox(height: 10.0),

@@ -39,7 +39,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 padding: const EdgeInsets.only(left: 16, bottom: 12, top: 20),
                 child: Text(
                   StringValues.settingsSubTitle1,
-                  style: TextStyles.titleSettingsScope,
+                  style: TextStyles.titleSettingsScope.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ),
             ),
@@ -76,7 +78,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 padding: const EdgeInsets.only(left: 16, bottom: 12, top: 20),
                 child: Text(
                   StringValues.settingsSubTitle2,
-                  style: TextStyles.titleSettingsScope,
+                  style: TextStyles.titleSettingsScope.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ),
             ),

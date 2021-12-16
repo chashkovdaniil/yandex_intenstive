@@ -33,7 +33,6 @@ void main() async {
         supportedLocales: const [Locale('en'), Locale('ru')],
         path: 'assets/translations', // <-- change the path of the translation files
         fallbackLocale: const Locale('en'),
-        startLocale: const Locale('en'),
         child: const ProviderScope(
           child: MyApp(),
         ),

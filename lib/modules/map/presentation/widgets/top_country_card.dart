@@ -1,10 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/navigation_views.dart';
 import '../../../general/on_tap_opacity.dart';
@@ -80,7 +80,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              StringValues.mapTopAffected +
+                              'mapTopAffected'.tr() +
                                   widget.affectedValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
@@ -90,7 +90,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             padding:
                                 const EdgeInsets.only(left: 12, bottom: 4.0),
                             child: Text(
-                              StringValues.mapTopRecovered +
+                              'mapTopRecovered'.tr() +
                                   widget.recoveredValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
@@ -110,11 +110,11 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     //TODO: what this button is for lmao ??
                     onTap: () => showAlertDialog(
                       context: context,
-                      title: StringValues.countryDetailsAlertTitle,
-                      content: StringValues.countryDetailsAlertContent,
-                      cancelActionText: StringValues.countryDetailsAlertCancel,
+                      title: 'countryDetailsAlertTitle'.tr(),
+                      content: 'countryDetailsAlertContent'.tr(),
+                      cancelActionText: 'countryDetailsAlertCancel'.tr(),
                       defaultActionText:
-                          StringValues.countryDetailsAlertDefault,
+                          'countryDetailsAlertDefault'.tr(),
                     ),
                     child: IconButton(
                       icon: const Icon(
@@ -124,12 +124,12 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       ),
                       onPressed: () => showAlertDialog(
                         context: context,
-                        title: StringValues.countryDetailsAlertTitle,
-                        content: StringValues.countryDetailsAlertContent,
+                        title: 'countryDetailsAlertTitle'.tr(),
+                        content: 'countryDetailsAlertContent'.tr(),
                         cancelActionText:
-                            StringValues.countryDetailsAlertCancel,
+                            'countryDetailsAlertCancel'.tr(),
                         defaultActionText:
-                            StringValues.countryDetailsAlertDefault,
+                            'countryDetailsAlertDefault'.tr(),
                       ),
                     ),
                   ),

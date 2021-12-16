@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../configs/colors.dart';
-import '../../configs/constants.dart';
 import '../../configs/text_styles.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
@@ -44,19 +44,19 @@ class BottomNavigationState extends State
         items: [
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.home),
-            label: StringValues.bottomNavigationItemHome,
+            label: 'bottomNavigationItemHome'.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.map),
-            label: StringValues.bottomNavigationItemMap,
+            label: 'bottomNavigationItemMap'.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.person),
-            label: StringValues.bottomNavigationItemEducation,
+            label: 'bottomNavigationItemEducation'.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.settings),
-            label: StringValues.bottomNavigationItemSettings,
+            label: 'bottomNavigationItemSettings'.tr(),
           ),
         ],
       ),

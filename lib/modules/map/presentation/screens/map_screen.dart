@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../configs/constants.dart';
 import '../../../general/app_bar.dart';
 import '../state/map_screen_state.dart';
 import '../widgets/card.dart';
@@ -41,11 +41,11 @@ class MapScreen extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text(StringValues.mapScreenError),
+                child: Text('mapScreenError'.tr()),
               ),
               ElevatedButton(
                 onPressed: () => ref.read(_mapScreenProvider.notifier).load(),
-                child: Text(StringValues.mapScreenRefresh),
+                child: Text('mapScreenRefresh'.tr()),
               )
             ],
           ),
@@ -77,7 +77,7 @@ class MapScreenSuccessState extends StatelessWidget {
             children: [
               CustomAppBar(
                 showBackButton: false,
-                title: StringValues.mapTitle,
+                title: 'mapTitle'.tr(),
               ),
               Expanded(
                 child: CustomScrollView(
@@ -89,7 +89,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 410,
-                        title: StringValues.mapAreas,
+                        title: 'mapAreas'.tr(),
                         content: const MapChart(),
                       ),
                     ),
@@ -99,7 +99,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 406,
-                        title: StringValues.mapTop,
+                        title: 'mapTop'.tr(),
                         content: const TopList(),
                       ),
                     ),
@@ -109,7 +109,7 @@ class MapScreenSuccessState extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 680,
-                        title: StringValues.mapRest,
+                        title: 'mapRest'.tr(),
                         content: const RestList(),
                       ),
                     ),

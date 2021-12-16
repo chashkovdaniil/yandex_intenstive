@@ -7,40 +7,6 @@ import '../modules/map/presentation/widgets/top_country_card.dart';
 import 'colors.dart';
 
 class StringValues {
-  static String get mapTitle => 'World Wide map';
-
-  static String get mapAreas => 'COVID - 19 Affected Areas';
-
-  static String get mapAreasLess => 'Most Affected';
-
-  static String get mapAreasMost => 'Less Affected';
-
-  static String get mapTop => 'Top Countries';
-
-  static String get mapTopAffected => 'Affected - ';
-
-  static String get mapTopRecovered => 'Recovered - ';
-
-  static String get mapRest => 'Rest of the world';
-
-  static String get mapRestDescription => 'List of all Affected Countries';
-
-  static String get mapRestCases => ' - Death cases reported';
-
-  static String get countryStatisticsTitle => ' - statistic';
-
-  static String get countryStatisticsInfectedCases =>
-      ' Infected cases reported';
-
-  static String get countryStatisticsDeathCases => ' Death cases';
-
-  static String get countryStatisticsGraphTitle =>
-      'Current affected and death people';
-
-  static String get countryStatisticsDeath => 'Death';
-
-  static String get countryStatisticsAffected => 'Affected';
-
   // Strings for education
   static const String diagnosisDescription =
       'If you feel some symptoms or you are thinking that you may'
@@ -154,69 +120,6 @@ class StringValues {
     'Symptoms',
     'Diagnosis',
   ];
-
-  static String get bottomNavigationItemHome => 'Home';
-
-  static String get bottomNavigationItemMap => 'Map';
-
-  static String get bottomNavigationItemEducation => 'Education';
-
-  static String get bottomNavigationItemSettings => 'Settings';
-
-  static String get listCountriesConfirmedTitle => 'Country';
-
-  static String get listCountriesConfirmedTrailing => 'Confirmed';
-
-  static String get ratioRecoveryChartTitle => 'Ratio of Recovery';
-
-  static String get ratioRecoveryChartPercent => '%';
-
-  static String get ratioRecoveryChartMarkChartDeath => 'Deaths';
-
-  static String get ratioRecoveryChartMarkChartRecovered => 'Recovered';
-
-  static String get homeScreenRecovered => 'Recovered';
-
-  static String get homeScreenConfirmed => 'Confirmed';
-
-  static String get homeScreenDeaths => 'Deaths';
-
-  static String get homeScreenActive => 'Active';
-
-  static String get homeScreenError => 'Error';
-
-  static String get homeScreenRefresh => 'Refresh';
-
-  static String get mapScreenRefresh => 'Refresh';
-
-  static String get mapScreenError => 'Error';
-
-  static String get countryDetailsAlertTitle => 'Enable notification';
-
-  static String get countryDetailsAlertContent =>
-      'Enable notification so you can always be up to date with new information.';
-
-  static String get countryDetailsAlertCancel => 'Later';
-
-  static String get countryDetailsAlertDefault => 'Enable now';
-
-  static String get settingsTitle => 'Settings';
-
-  static String get settingsSubTitle1 => 'General';
-
-  static String get settingsSubTitle2 => 'Personal';
-
-  static String get settingsItemLanguage => 'Language';
-
-  static String get settingsItemNotifications => 'Notifications';
-
-  static String get settingsItemDarkMode => 'Dark Mode';
-
-  static String get settingsItemDonate => 'Donate';
-
-  static String get settingsItemHelp => 'Help';
-
-  static String get settingsItemTerms => 'Terms & Conditions';
 }
 
 class MockData {

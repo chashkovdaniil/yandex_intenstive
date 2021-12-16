@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
@@ -36,7 +37,7 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  StringValues.mapAreasMost,
+                  'mapAreasMost'.tr(),
                 ),
                 const SizedBox(
                   width: 20,
@@ -60,7 +61,7 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  StringValues.mapAreasLess,
+                  'mapAreasLess'.tr(),
                 ),
               ],
             ),

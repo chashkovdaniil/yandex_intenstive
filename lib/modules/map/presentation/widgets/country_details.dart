@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
 import '../../../general/navigation_views.dart';
 
@@ -78,12 +78,12 @@ class CountryDetailsCard extends StatelessWidget {
                           ),
                           onPressed: () => showAlertDialog(
                             context: context,
-                            title: StringValues.countryDetailsAlertTitle,
-                            content: StringValues.countryDetailsAlertContent,
+                            title: 'countryDetailsAlertTitle'.tr(),
+                            content: 'countryDetailsAlertContent'.tr(),
                             cancelActionText:
-                                StringValues.countryDetailsAlertCancel,
+                                'countryDetailsAlertCancel'.tr(),
                             defaultActionText:
-                                StringValues.countryDetailsAlertDefault,
+                                'countryDetailsAlertDefault'.tr(),
                           ),
                         ),
                       ),
@@ -127,7 +127,7 @@ class CountryDetailsCard extends StatelessWidget {
                             child: Text(
                               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
                               '1,478' +
-                                  StringValues.countryStatisticsInfectedCases,
+                                  'countryStatisticsInfectedCases'.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -163,7 +163,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '550' + StringValues.countryStatisticsDeathCases,
+                              '550' + 'countryStatisticsDeathCases'.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class RestList extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  StringValues.mapRest,
+                  'mapRest'.tr(),
                   textAlign: TextAlign.start,
                   style: TextStyles.infoCountry,
                 ),

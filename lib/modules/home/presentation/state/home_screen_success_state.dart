@@ -1,9 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../search/presentation/widgets/search_field.dart';
 import '../components/home_card.dart';
@@ -82,7 +82,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                   children: [
                     HomeCard(
                       child: HomeLineChart(
-                        title: StringValues.homeScreenConfirmed,
+                        title: 'homeScreenConfirmed'.tr(),
                         value: data.confirmed,
                         colors: const [AppColors.orange],
                         spots: data.confirmedSpots,
@@ -91,7 +91,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: StringValues.homeScreenRecovered,
+                        title: 'homeScreenRecovered'.tr(),
                         value: data.recovered,
                         colors: const [AppColors.green],
                         showAnimation: true,
@@ -100,7 +100,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: StringValues.homeScreenDeaths,
+                        title: 'homeScreenDeaths'.tr(),
                         value: data.deaths,
                         colors: const [AppColors.red],
                         showAnimation: true,
@@ -109,7 +109,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: StringValues.homeScreenActive,
+                        title: 'homeScreenActive'.tr(),
                         value: data.active,
                         colors: const [AppColors.red],
                         showAnimation: true,

@@ -55,22 +55,22 @@ class StringValues {
 
   static List<List<String>> get preventionData => [
     [
-      'assets/images/clean_hands.svg',
+      'assets/images/clean_hands.png',
       LocaleKeys.preventionTitle1.tr(),
       LocaleKeys.preventionDesc1.tr(),
     ],
     [
-      'assets/images/wear_facemask.svg',
+      'assets/images/wear_facemask.png',
       LocaleKeys.preventionTitle2.tr(),
       LocaleKeys.preventionDesc2.tr(),
     ],
     [
-      'assets/images/avoid_touching_face.svg',
+      'assets/images/avoid_touching_face.png',
       LocaleKeys.preventionTitle3.tr(),
       LocaleKeys.preventionDesc3.tr(),
     ],
     [
-      'assets/images/avoid_close_contact.svg',
+      'assets/images/avoid_close_contact.png',
       LocaleKeys.preventionTitle4.tr(),
       LocaleKeys.preventionDesc4.tr(),
     ],

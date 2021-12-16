@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
@@ -8,16 +9,16 @@ import 'colors.dart';
 
 class StringValues {
   // Strings for education
-  static const diseaseLegendData = [
-    ['Cold', 'assets/images/cold@3x.png'],
-    ['Flu', 'assets/images/flu@3x.png'],
-    ['COVID-19', 'assets/images/covid@3x.png'],
+  static final diseaseLegendData = [
+    ['disease1'.tr(), 'assets/images/cold@3x.png'],
+    ['disease2'.tr(), 'assets/images/flu@3x.png'],
+    ['disease3'.tr(), 'assets/images/covid@3x.png'],
   ];
 
-  static const symptomRarityLegendData = [
-    ['Common', 'rare'],
-    ['Sometimes', 'sometimes'],
-    ['Rare', 'rare'],
+  static final symptomRarityLegendData = [
+    ['rarity1'.tr(), 'common'],
+    ['rarity2'.tr(), 'sometimes'],
+    ['rarity3'.tr(), 'rare'],
   ];
 
   /*
@@ -25,17 +26,17 @@ class StringValues {
    * соответственно, какую иконку следует рисовать; имена файлов самих
    * иконок следует брать из symptomColumnAssets
    */
-  static const symptomColumnData = [
-    ['rare', 'rare', 'common', 'Shortness of breath'],
-    ['rare', 'common', 'common', 'Fever'],
-    ['sometimes', 'common', 'common', 'Cough, chest discomfort'],
-    ['sometimes', 'common', 'never', 'Fatigue, weakness'],
-    ['rare', 'common', 'never', 'Aches'],
-    ['rare', 'common', 'never', 'Chills'],
-    ['rare', 'common', 'never', 'Headache'],
-    ['common', 'sometimes', 'never', 'Sore throat'],
-    ['common', 'sometimes', 'never', 'Sneezing'],
-    ['common', 'sometimes', 'never', 'Stuffy, runny nose'],
+  static final symptomColumnData = [
+    ['rare', 'rare', 'common', 'symptomColumnHint1'.tr()],
+    ['rare', 'common', 'common', 'symptomColumnHint2'.tr()],
+    ['sometimes', 'common', 'common', 'symptomColumnHint3'.tr()],
+    ['sometimes', 'common', 'never', 'symptomColumnHint4'.tr()],
+    ['rare', 'common', 'never', 'symptomColumnHint5'.tr()],
+    ['rare', 'common', 'never', 'symptomColumnHint6'.tr()],
+    ['rare', 'common', 'never', 'symptomColumnHint7'.tr()],
+    ['common', 'sometimes', 'never', 'symptomColumnHint8'.tr()],
+    ['common', 'sometimes', 'never', 'symptomColumnHint9'.tr()],
+    ['common', 'sometimes', 'never', 'symptomColumnHint10'.tr()],
   ];
 
   static const symptomColumnAssets = {
@@ -51,33 +52,33 @@ class StringValues {
     'assets/images/covid_dark.png',
   ];
 
-  static const preventionData = [
+  static final preventionData = [
     [
       'assets/images/clean_hands.svg',
-      'Clean your hands often',
-      'Wash hands often with soap and water for at least 20s',
+      'preventionTitle1'.tr(),
+      'preventionDesc1'.tr(),
     ],
     [
       'assets/images/wear_facemask.svg',
-      'Wear a facemask',
-      'You should wear facemask when you are around other people.',
+      'preventionTitle2'.tr(),
+      'preventionDesc2'.tr(),
     ],
     [
       'assets/images/avoid_touching_face.svg',
-      'Avoid touching your face',
-      'Hands touch many surfaces and can pick up viruses.',
+      'preventionTitle3'.tr(),
+      'preventionDesc3'.tr(),
     ],
     [
       'assets/images/avoid_close_contact.svg',
-      'Avoid close contact',
-      'Put distance between yourself and other people.',
+      'preventionTitle4'.tr(),
+      'preventionDesc4'.tr(),
     ],
   ];
 
-  static const educationPageTitles = [
-    'Prevention',
-    'Symptoms',
-    'Diagnosis',
+  static final educationPageTitles = [
+    'educationPageTitle1'.tr(),
+    'educationPageTitle2'.tr(),
+    'educationPageTitle3'.tr(),
   ];
 }
 

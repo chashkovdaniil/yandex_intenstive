@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'map_screen_state.dart';
 
@@ -42,15 +41,6 @@ mixin _$MapScreenStateStatus {
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
-
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function()? failed,
-    TResult Function()? loading,
-  }) =>
-      throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? success,
@@ -66,15 +56,6 @@ mixin _$MapScreenStateStatus {
     required TResult Function(Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
-
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Success value)? success,
-    TResult Function(Failed value)? failed,
-    TResult Function(Loading value)? loading,
-  }) =>
-      throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Success value)? success,
@@ -131,8 +112,7 @@ class _$Success implements Success {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Success);
+    return identical(this, other) || (other is Success);
   }
 
   @override
@@ -146,16 +126,6 @@ class _$Success implements Success {
     required TResult Function() loading,
   }) {
     return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function()? failed,
-    TResult Function()? loading,
-  }) {
-    return success?.call();
   }
 
   @override
@@ -180,16 +150,6 @@ class _$Success implements Success {
     required TResult Function(Loading value) loading,
   }) {
     return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Success value)? success,
-    TResult Function(Failed value)? failed,
-    TResult Function(Loading value)? loading,
-  }) {
-    return success?.call(this);
   }
 
   @override
@@ -240,8 +200,7 @@ class _$Failed implements Failed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Failed);
+    return identical(this, other) || (other is Failed);
   }
 
   @override
@@ -255,16 +214,6 @@ class _$Failed implements Failed {
     required TResult Function() loading,
   }) {
     return failed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function()? failed,
-    TResult Function()? loading,
-  }) {
-    return failed?.call();
   }
 
   @override
@@ -289,16 +238,6 @@ class _$Failed implements Failed {
     required TResult Function(Loading value) loading,
   }) {
     return failed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Success value)? success,
-    TResult Function(Failed value)? failed,
-    TResult Function(Loading value)? loading,
-  }) {
-    return failed?.call(this);
   }
 
   @override
@@ -349,8 +288,7 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Loading);
+    return identical(this, other) || (other is Loading);
   }
 
   @override
@@ -364,16 +302,6 @@ class _$Loading implements Loading {
     required TResult Function() loading,
   }) {
     return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? success,
-    TResult Function()? failed,
-    TResult Function()? loading,
-  }) {
-    return loading?.call();
   }
 
   @override
@@ -402,16 +330,6 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Success value)? success,
-    TResult Function(Failed value)? failed,
-    TResult Function(Loading value)? loading,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Success value)? success,
     TResult Function(Failed value)? failed,
@@ -434,10 +352,11 @@ class _$MapScreenStateTearOff {
   const _$MapScreenStateTearOff();
 
   _MapScreenState call(
-      {required MapScreenStateStatus status, Map<String, Object>? testData}) {
+      {required MapScreenStateStatus status,
+      Map<String, CountryCovid>? countriesCovid}) {
     return _MapScreenState(
       status: status,
-      testData: testData,
+      countriesCovid: countriesCovid,
     );
   }
 }
@@ -448,7 +367,9 @@ const $MapScreenState = _$MapScreenStateTearOff();
 /// @nodoc
 mixin _$MapScreenState {
   MapScreenStateStatus get status => throw _privateConstructorUsedError;
-  Map<String, Object>? get testData => throw _privateConstructorUsedError;
+
+  Map<String, CountryCovid>? get countriesCovid =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MapScreenStateCopyWith<MapScreenState> get copyWith =>
@@ -460,7 +381,9 @@ abstract class $MapScreenStateCopyWith<$Res> {
   factory $MapScreenStateCopyWith(
           MapScreenState value, $Res Function(MapScreenState) then) =
       _$MapScreenStateCopyWithImpl<$Res>;
-  $Res call({MapScreenStateStatus status, Map<String, Object>? testData});
+
+  $Res call(
+      {MapScreenStateStatus status, Map<String, CountryCovid>? countriesCovid});
 
   $MapScreenStateStatusCopyWith<$Res> get status;
 }
@@ -477,17 +400,17 @@ class _$MapScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
-    Object? testData = freezed,
+    Object? countriesCovid = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as MapScreenStateStatus,
-      testData: testData == freezed
-          ? _value.testData
-          : testData // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
+      countriesCovid: countriesCovid == freezed
+          ? _value.countriesCovid
+          : countriesCovid // ignore: cast_nullable_to_non_nullable
+              as Map<String, CountryCovid>?,
     ));
   }
 
@@ -505,8 +428,10 @@ abstract class _$MapScreenStateCopyWith<$Res>
   factory _$MapScreenStateCopyWith(
           _MapScreenState value, $Res Function(_MapScreenState) then) =
       __$MapScreenStateCopyWithImpl<$Res>;
+
   @override
-  $Res call({MapScreenStateStatus status, Map<String, Object>? testData});
+  $Res call(
+      {MapScreenStateStatus status, Map<String, CountryCovid>? countriesCovid});
 
   @override
   $MapScreenStateStatusCopyWith<$Res> get status;
@@ -526,17 +451,17 @@ class __$MapScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
-    Object? testData = freezed,
+    Object? countriesCovid = freezed,
   }) {
     return _then(_MapScreenState(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as MapScreenStateStatus,
-      testData: testData == freezed
-          ? _value.testData
-          : testData // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
+      countriesCovid: countriesCovid == freezed
+          ? _value.countriesCovid
+          : countriesCovid // ignore: cast_nullable_to_non_nullable
+              as Map<String, CountryCovid>?,
     ));
   }
 }
@@ -544,32 +469,34 @@ class __$MapScreenStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MapScreenState implements _MapScreenState {
-  const _$_MapScreenState({required this.status, this.testData});
+  const _$_MapScreenState({required this.status, this.countriesCovid});
 
   @override
   final MapScreenStateStatus status;
   @override
-  final Map<String, Object>? testData;
+  final Map<String, CountryCovid>? countriesCovid;
 
   @override
   String toString() {
-    return 'MapScreenState(status: $status, testData: $testData)';
+    return 'MapScreenState(status: $status, countriesCovid: $countriesCovid)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _MapScreenState &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.testData, testData));
+        (other is _MapScreenState &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.countriesCovid, countriesCovid) ||
+                const DeepCollectionEquality()
+                    .equals(other.countriesCovid, countriesCovid)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(testData));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(countriesCovid);
 
   @JsonKey(ignore: true)
   @override
@@ -580,12 +507,15 @@ class _$_MapScreenState implements _MapScreenState {
 abstract class _MapScreenState implements MapScreenState {
   const factory _MapScreenState(
       {required MapScreenStateStatus status,
-      Map<String, Object>? testData}) = _$_MapScreenState;
+      Map<String, CountryCovid>? countriesCovid}) = _$_MapScreenState;
 
   @override
-  MapScreenStateStatus get status;
+  MapScreenStateStatus get status => throw _privateConstructorUsedError;
+
   @override
-  Map<String, Object>? get testData;
+  Map<String, CountryCovid>? get countriesCovid =>
+      throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$MapScreenStateCopyWith<_MapScreenState> get copyWith =>

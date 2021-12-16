@@ -1,5 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:throttling/throttling.dart';
+import 'package:yandex_intensive/modules/map/presentation/state/map_screen_state.dart';
+import 'package:yandex_intensive/modules/map/usecases/map_stats_total.dart';
 
 import '../core/api/internet_checker.dart';
 import '../core/api/internet_checker_impl.dart';
@@ -81,3 +83,14 @@ final splashUseCaseProvider = Provider(
     ref.watch(appNavigationManagerProvider),
   ),
 );
+
+final mapScreenStateManagerProvider = Provider<MapScreenManager>((ref) {
+  return MapScreenManager();
+});
+
+final statsUsecaseProviderMap = Provider<StatsMap>((ref) {
+  return StatsMap(
+    manager: ref.watch(mapScreenStateManagerProvider),
+    repository: ref.watch(covidRepositoryProvider),
+  );
+});

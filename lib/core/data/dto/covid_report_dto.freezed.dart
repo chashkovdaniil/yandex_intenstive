@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'covid_report_dto.dart';
 
@@ -50,7 +49,7 @@ class _$CovidReportDtoTearOff {
     );
   }
 
-  CovidReportDto fromJson(Map<String, Object?> json) {
+  CovidReportDto fromJson(Map<String, Object> json) {
     return CovidReportDto.fromJson(json);
   }
 }
@@ -61,37 +60,25 @@ const $CovidReportDto = _$CovidReportDtoTearOff();
 /// @nodoc
 mixin _$CovidReportDto {
   String get date => throw _privateConstructorUsedError;
-
   int get confirmed => throw _privateConstructorUsedError;
-
   int get deaths => throw _privateConstructorUsedError;
-
   int get recovered => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'confirmed_diff')
   int get confirmedDiff => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'deaths_diff')
   int get deathsDiff => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'recovered_diff')
   int get recoveredDiff => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'last_update')
   String get lastUpdate => throw _privateConstructorUsedError;
-
   int get active => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'active_diff')
   int get activeDiff => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'fatality_rate')
   double get fatalityRate => throw _privateConstructorUsedError;
-
   Map<String, dynamic>? get region => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $CovidReportDtoCopyWith<CovidReportDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -102,7 +89,6 @@ abstract class $CovidReportDtoCopyWith<$Res> {
   factory $CovidReportDtoCopyWith(
           CovidReportDto value, $Res Function(CovidReportDto) then) =
       _$CovidReportDtoCopyWithImpl<$Res>;
-
   $Res call(
       {String date,
       int confirmed,
@@ -124,7 +110,6 @@ class _$CovidReportDtoCopyWithImpl<$Res>
   _$CovidReportDtoCopyWithImpl(this._value, this._then);
 
   final CovidReportDto _value;
-
   // ignore: unused_field
   final $Res Function(CovidReportDto) _then;
 
@@ -202,7 +187,6 @@ abstract class _$CovidReportDtoCopyWith<$Res>
   factory _$CovidReportDtoCopyWith(
           _CovidReportDto value, $Res Function(_CovidReportDto) then) =
       __$CovidReportDtoCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {String date,
@@ -316,7 +300,7 @@ class _$_CovidReportDto implements _CovidReportDto {
       required this.region});
 
   factory _$_CovidReportDto.fromJson(Map<String, dynamic> json) =>
-      _$$_CovidReportDtoFromJson(json);
+      _$_$_CovidReportDtoFromJson(json);
 
   @override
   final String date;
@@ -357,43 +341,56 @@ class _$_CovidReportDto implements _CovidReportDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _CovidReportDto &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.confirmed, confirmed) &&
-            const DeepCollectionEquality().equals(other.deaths, deaths) &&
-            const DeepCollectionEquality().equals(other.recovered, recovered) &&
-            const DeepCollectionEquality()
-                .equals(other.confirmedDiff, confirmedDiff) &&
-            const DeepCollectionEquality()
-                .equals(other.deathsDiff, deathsDiff) &&
-            const DeepCollectionEquality()
-                .equals(other.recoveredDiff, recoveredDiff) &&
-            const DeepCollectionEquality()
-                .equals(other.lastUpdate, lastUpdate) &&
-            const DeepCollectionEquality().equals(other.active, active) &&
-            const DeepCollectionEquality()
-                .equals(other.activeDiff, activeDiff) &&
-            const DeepCollectionEquality()
-                .equals(other.fatalityRate, fatalityRate) &&
-            const DeepCollectionEquality().equals(other.region, region));
+        (other is _CovidReportDto &&
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)) &&
+            (identical(other.confirmed, confirmed) ||
+                const DeepCollectionEquality()
+                    .equals(other.confirmed, confirmed)) &&
+            (identical(other.deaths, deaths) ||
+                const DeepCollectionEquality().equals(other.deaths, deaths)) &&
+            (identical(other.recovered, recovered) ||
+                const DeepCollectionEquality()
+                    .equals(other.recovered, recovered)) &&
+            (identical(other.confirmedDiff, confirmedDiff) ||
+                const DeepCollectionEquality()
+                    .equals(other.confirmedDiff, confirmedDiff)) &&
+            (identical(other.deathsDiff, deathsDiff) ||
+                const DeepCollectionEquality()
+                    .equals(other.deathsDiff, deathsDiff)) &&
+            (identical(other.recoveredDiff, recoveredDiff) ||
+                const DeepCollectionEquality()
+                    .equals(other.recoveredDiff, recoveredDiff)) &&
+            (identical(other.lastUpdate, lastUpdate) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastUpdate, lastUpdate)) &&
+            (identical(other.active, active) ||
+                const DeepCollectionEquality().equals(other.active, active)) &&
+            (identical(other.activeDiff, activeDiff) ||
+                const DeepCollectionEquality()
+                    .equals(other.activeDiff, activeDiff)) &&
+            (identical(other.fatalityRate, fatalityRate) ||
+                const DeepCollectionEquality()
+                    .equals(other.fatalityRate, fatalityRate)) &&
+            (identical(other.region, region) ||
+                const DeepCollectionEquality().equals(other.region, region)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(confirmed),
-      const DeepCollectionEquality().hash(deaths),
-      const DeepCollectionEquality().hash(recovered),
-      const DeepCollectionEquality().hash(confirmedDiff),
-      const DeepCollectionEquality().hash(deathsDiff),
-      const DeepCollectionEquality().hash(recoveredDiff),
-      const DeepCollectionEquality().hash(lastUpdate),
-      const DeepCollectionEquality().hash(active),
-      const DeepCollectionEquality().hash(activeDiff),
-      const DeepCollectionEquality().hash(fatalityRate),
-      const DeepCollectionEquality().hash(region));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(date) ^
+      const DeepCollectionEquality().hash(confirmed) ^
+      const DeepCollectionEquality().hash(deaths) ^
+      const DeepCollectionEquality().hash(recovered) ^
+      const DeepCollectionEquality().hash(confirmedDiff) ^
+      const DeepCollectionEquality().hash(deathsDiff) ^
+      const DeepCollectionEquality().hash(recoveredDiff) ^
+      const DeepCollectionEquality().hash(lastUpdate) ^
+      const DeepCollectionEquality().hash(active) ^
+      const DeepCollectionEquality().hash(activeDiff) ^
+      const DeepCollectionEquality().hash(fatalityRate) ^
+      const DeepCollectionEquality().hash(region);
 
   @JsonKey(ignore: true)
   @override
@@ -402,7 +399,7 @@ class _$_CovidReportDto implements _CovidReportDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CovidReportDtoToJson(this);
+    return _$_$_CovidReportDtoToJson(this);
   }
 }
 
@@ -425,46 +422,46 @@ abstract class _CovidReportDto implements CovidReportDto {
       _$_CovidReportDto.fromJson;
 
   @override
-  String get date;
+  String get date => throw _privateConstructorUsedError;
 
   @override
-  int get confirmed;
+  int get confirmed => throw _privateConstructorUsedError;
 
   @override
-  int get deaths;
+  int get deaths => throw _privateConstructorUsedError;
 
   @override
-  int get recovered;
+  int get recovered => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(name: 'confirmed_diff')
-  int get confirmedDiff;
+  int get confirmedDiff => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(name: 'deaths_diff')
-  int get deathsDiff;
+  int get deathsDiff => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(name: 'recovered_diff')
-  int get recoveredDiff;
+  int get recoveredDiff => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(name: 'last_update')
-  String get lastUpdate;
+  String get lastUpdate => throw _privateConstructorUsedError;
 
   @override
-  int get active;
+  int get active => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(name: 'active_diff')
-  int get activeDiff;
+  int get activeDiff => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(name: 'fatality_rate')
-  double get fatalityRate;
+  double get fatalityRate => throw _privateConstructorUsedError;
 
   @override
-  Map<String, dynamic>? get region;
+  Map<String, dynamic>? get region => throw _privateConstructorUsedError;
 
   @override
   @JsonKey(ignore: true)

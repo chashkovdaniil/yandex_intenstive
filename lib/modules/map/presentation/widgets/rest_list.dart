@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
+import '../../../../generated/codegen_loader.g.dart';
 
 class RestList extends StatelessWidget {
   const RestList({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class RestList extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'mapRest'.tr(),
+                  LocaleKeys.mapRest.tr(),
                   textAlign: TextAlign.start,
                   style: TextStyles.infoCountry,
                 ),

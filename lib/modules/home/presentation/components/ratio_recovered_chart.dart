@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
 import 'animation_numbers_text.dart';
 import 'mark_chart.dart';
@@ -32,7 +33,7 @@ class RatioRecoveryChart extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'ratioRecoveryChartTitle'.tr(),
+          LocaleKeys.ratioRecoveryChartTitle.tr(),
           style: Theme.of(context).textTheme.headline6,
         ),
         const SizedBox(height: 10),
@@ -58,7 +59,7 @@ class RatioRecoveryChart extends StatelessWidget {
             circularStrokeCap: CircularStrokeCap.round,
             center: AnimatedNumbersText(
               duration: Duration(milliseconds: _animationDuration),
-              additionText: 'ratioRecoveryChartPercent'.tr(),
+              additionText: LocaleKeys.ratioRecoveryChartPercent.tr(),
               from: 0,
               to: percentRecovered,
               fractionDigits: 2,
@@ -69,12 +70,12 @@ class RatioRecoveryChart extends StatelessWidget {
             children: [
               MarkChart(
                 color: AppColors.red,
-                title: 'ratioRecoveryChartMarkChartDeath'.tr(),
+                title: LocaleKeys.ratioRecoveryChartMarkChartDeath.tr(),
                 value: deaths,
               ),
               MarkChart(
                 color: AppColors.green,
-                title: 'ratioRecoveryChartMarkChartRecovered'.tr(),
+                title: LocaleKeys.ratioRecoveryChartMarkChartRecovered.tr(),
                 value: recovered,
               ),
             ],

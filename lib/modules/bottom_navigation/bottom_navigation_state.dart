@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
+import '../../generated/codegen_loader.g.dart';
 import '../education/presentation/screens/education_screen.dart';
 import '../home/presentation/home_screen.dart';
 import '../map/presentation/screens/map_screen.dart';
@@ -45,19 +46,19 @@ class BottomNavigationState extends State
         items: [
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.home),
-            label: 'bottomNavigationItemHome'.tr(),
+            label: LocaleKeys.bottomNavigationItemHome.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.map),
-            label: 'bottomNavigationItemMap'.tr(),
+            label: LocaleKeys.bottomNavigationItemMap.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.person),
-            label: 'bottomNavigationItemEducation'.tr(),
+            label: LocaleKeys.bottomNavigationItemEducation.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(CupertinoIcons.settings),
-            label: 'bottomNavigationItemSettings'.tr(),
+            label: LocaleKeys.bottomNavigationItemSettings.tr(),
           ),
         ],
       ),

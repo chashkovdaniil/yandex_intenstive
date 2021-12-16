@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
@@ -80,7 +81,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
                       padding: const EdgeInsets.only(left: 12),
                       child: SizedBox(
                         child: Text(
-                          '562' + 'countryStatisticsDeathCases'.tr(),
+                          '562' + LocaleKeys.countryStatisticsDeathCases.tr(),
                           textAlign: TextAlign.start,
                           style: TextStyles.infoCountry,
                           softWrap: true,

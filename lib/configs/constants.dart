@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
+import '../generated/codegen_loader.g.dart';
 import '../modules/map/presentation/helpers/model.dart';
 import '../modules/map/presentation/widgets/rest_country_card.dart';
 import '../modules/map/presentation/widgets/top_country_card.dart';
@@ -10,15 +11,15 @@ import 'colors.dart';
 class StringValues {
   // Strings for education
   static List<List<String>> get diseaseLegendData => [
-    ['disease1'.tr(), 'assets/images/cold@3x.png'],
-    ['disease2'.tr(), 'assets/images/flu@3x.png'],
-    ['disease3'.tr(), 'assets/images/covid@3x.png'],
+    [LocaleKeys.disease1.tr(), 'assets/images/cold@3x.png'],
+    [LocaleKeys.disease2.tr(), 'assets/images/flu@3x.png'],
+    [LocaleKeys.disease3.tr(), 'assets/images/covid@3x.png'],
   ];
 
   static List<List<String>> get symptomRarityLegendData => [
-    ['rarity1'.tr(), 'common'],
-    ['rarity2'.tr(), 'sometimes'],
-    ['rarity3'.tr(), 'rare'],
+    [LocaleKeys.rarity1.tr(), 'common'],
+    [LocaleKeys.rarity2.tr(), 'sometimes'],
+    [LocaleKeys.rarity3.tr(), 'rare'],
   ];
 
   /*
@@ -27,16 +28,16 @@ class StringValues {
    * иконок следует брать из symptomColumnAssets
    */
   static List<List<String>> get symptomColumnData => [
-    ['rare', 'rare', 'common', 'symptomColumnHint1'.tr()],
-    ['rare', 'common', 'common', 'symptomColumnHint2'.tr()],
-    ['sometimes', 'common', 'common', 'symptomColumnHint3'.tr()],
-    ['sometimes', 'common', 'never', 'symptomColumnHint4'.tr()],
-    ['rare', 'common', 'never', 'symptomColumnHint5'.tr()],
-    ['rare', 'common', 'never', 'symptomColumnHint6'.tr()],
-    ['rare', 'common', 'never', 'symptomColumnHint7'.tr()],
-    ['common', 'sometimes', 'never', 'symptomColumnHint8'.tr()],
-    ['common', 'sometimes', 'never', 'symptomColumnHint9'.tr()],
-    ['common', 'sometimes', 'never', 'symptomColumnHint10'.tr()],
+    ['rare', 'rare', 'common', LocaleKeys.symptomColumnHint1.tr()],
+    ['rare', 'common', 'common', LocaleKeys.symptomColumnHint2.tr()],
+    ['sometimes', 'common', 'common', LocaleKeys.symptomColumnHint3.tr()],
+    ['sometimes', 'common', 'never', LocaleKeys.symptomColumnHint4.tr()],
+    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint5.tr()],
+    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint6.tr()],
+    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint7.tr()],
+    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint8.tr()],
+    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint9.tr()],
+    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint10.tr()],
   ];
 
   static const symptomColumnAssets = {
@@ -55,30 +56,30 @@ class StringValues {
   static List<List<String>> get preventionData => [
     [
       'assets/images/clean_hands.svg',
-      'preventionTitle1'.tr(),
-      'preventionDesc1'.tr(),
+      LocaleKeys.preventionTitle1.tr(),
+      LocaleKeys.preventionDesc1.tr(),
     ],
     [
       'assets/images/wear_facemask.svg',
-      'preventionTitle2'.tr(),
-      'preventionDesc2'.tr(),
+      LocaleKeys.preventionTitle2.tr(),
+      LocaleKeys.preventionDesc2.tr(),
     ],
     [
       'assets/images/avoid_touching_face.svg',
-      'preventionTitle3'.tr(),
-      'preventionDesc3'.tr(),
+      LocaleKeys.preventionTitle3.tr(),
+      LocaleKeys.preventionDesc3.tr(),
     ],
     [
       'assets/images/avoid_close_contact.svg',
-      'preventionTitle4'.tr(),
-      'preventionDesc4'.tr(),
+      LocaleKeys.preventionTitle4.tr(),
+      LocaleKeys.preventionDesc4.tr(),
     ],
   ];
 
   static List<String> get educationPageTitles => [
-    'educationPageTitle1'.tr(),
-    'educationPageTitle2'.tr(),
-    'educationPageTitle3'.tr(),
+    LocaleKeys.educationPageTitle1.tr(),
+    LocaleKeys.educationPageTitle2.tr(),
+    LocaleKeys.educationPageTitle3.tr(),
   ];
 }
 

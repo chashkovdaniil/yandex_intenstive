@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/app_bar.dart';
@@ -28,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             CustomAppBar(
               showBackButton: false,
-              title: 'settingsTitle'.tr(),
+              title: LocaleKeys.settingsTitle.tr(),
               showUserButton: false,
             ),
             const SizedBox(
@@ -39,14 +40,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, bottom: 12, top: 20),
                 child: Text(
-                  'settingsSubTitle1'.tr(),
+                  LocaleKeys.settingsSubTitle1.tr(),
                   style: TextStyles.titleSettingsScope,
                 ),
               ),
             ),
             GeneralSettingsItemCard(
               content: const ItemLanguage(),
-              title: 'settingsItemLanguage'.tr(),
+              title: LocaleKeys.settingsItemLanguage.tr(),
               icon: CupertinoIcons.globe,
               iconColor: AppColors.green,
             ),
@@ -55,7 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             GeneralSettingsItemCard(
               content: const ItemNotifications(),
-              title: 'settingsItemNotifications'.tr(),
+              title: LocaleKeys.settingsItemNotifications.tr(),
               icon: CupertinoIcons.bell,
               iconColor: AppColors.greenLight,
             ),
@@ -64,7 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             GeneralSettingsItemCard(
               content: const ItemTheme(),
-              title: 'settingsItemDarkMode'.tr(),
+              title: LocaleKeys.settingsItemDarkMode.tr(),
               icon: CupertinoIcons.moon,
               iconColor: AppColors.blue,
             ),
@@ -76,13 +77,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, bottom: 12, top: 20),
                 child: Text(
-                  'settingsSubTitle2'.tr(),
+                  LocaleKeys.settingsSubTitle2.tr(),
                   style: TextStyles.titleSettingsScope,
                 ),
               ),
             ),
             PersonalSettingsItemCard(
-              title: 'settingsItemDonate'.tr(),
+              title: LocaleKeys.settingsItemDonate.tr(),
               icon: CupertinoIcons.bitcoin,
               iconColor: AppColors.orange,
             ),
@@ -90,7 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 10,
             ),
             PersonalSettingsItemCard(
-              title: 'settingsItemHelp'.tr(),
+              title: LocaleKeys.settingsItemHelp.tr(),
               icon: CupertinoIcons.shield_lefthalf_fill,
               iconColor: AppColors.grey,
             ),
@@ -98,7 +99,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 10,
             ),
             PersonalSettingsItemCard(
-              title: 'settingsItemTerms'.tr(),
+              title: LocaleKeys.settingsItemTerms.tr(),
               icon: CupertinoIcons.archivebox,
               iconColor: AppColors.grey,
             ),

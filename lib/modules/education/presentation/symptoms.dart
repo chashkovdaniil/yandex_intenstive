@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
+import '../../../generated/codegen_loader.g.dart';
 
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
@@ -28,12 +29,12 @@ class SymptomsPage extends StatelessWidget {
             : CrossAxisAlignment.start,
         children: [
           Text(
-            'symptomsHeader'.tr(),
+            LocaleKeys.symptomsHeader.tr(),
             style: AppTheme.educationHeader1,
           ),
           const SizedBox(height: 20.0),
           Text(
-            'symptomsSubtitle'.tr(),
+            LocaleKeys.symptomsSubtitle.tr(),
             style: AppTheme.educationSubtitleLight,
           ),
           const SizedBox(height: 10.0),
@@ -59,7 +60,7 @@ class SymptomsPage extends StatelessWidget {
           const _SymptomColumn(),
           const SizedBox(height: 30.0),
           Text(
-            'symptomsLegendSubtitle'.tr(),
+            LocaleKeys.symptomsLegendSubtitle.tr(),
             style: AppTheme.educationSubtitle,
           ),
           const SizedBox(height: 10.0),

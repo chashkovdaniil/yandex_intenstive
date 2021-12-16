@@ -13,7 +13,7 @@ class EducationPreview extends StatelessWidget {
           Text(
             EasyLocalization.of(context).toString() == ''
                 ? ''
-                : 'educationPreviewHeader'.tr(),
+                : LocaleKeys.educationPreviewHeader.tr(),
             style: AppTheme.educationHeader1,
           ),
           const SizedBox(height: 30.0),
@@ -25,11 +25,11 @@ class EducationPreview extends StatelessWidget {
                   style: AppTheme.educationSubtitleLight,
                 ),
                 TextSpan(
-                  text: 'educationPreviewDescriptionCaps'.tr(),
+                  text: LocaleKeys.educationPreviewDescriptionCaps.tr(),
                   style: AppTheme.educationSubtitleInternalBold,
                 ),
                 TextSpan(
-                  text: 'educationPreviewDescriptionPostCaps'.tr(),
+                  text: LocaleKeys.educationPreviewDescriptionPostCaps.tr(),
                   style: AppTheme.educationSubtitleLight,
                 ),
               ],

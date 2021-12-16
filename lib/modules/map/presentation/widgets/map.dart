@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 
@@ -37,7 +38,7 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  'mapAreasMost'.tr(),
+                  LocaleKeys.mapAreasMost.tr(),
                 ),
                 const SizedBox(
                   width: 20,
@@ -61,7 +62,7 @@ class MapChart extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  'mapAreasLess'.tr(),
+                  LocaleKeys.mapAreasLess.tr(),
                 ),
               ],
             ),

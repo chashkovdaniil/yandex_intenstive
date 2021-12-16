@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 import '../../../core/styles/app_theme.dart';
+import '../../../generated/codegen_loader.g.dart';
 
 class DiagnosisPage extends StatelessWidget {
   const DiagnosisPage({Key? key}) : super(key: key);
@@ -14,13 +15,13 @@ class DiagnosisPage extends StatelessWidget {
             : CrossAxisAlignment.start,
         children: [
           Text(
-            'diagnosisHeader'.tr(),
+            LocaleKeys.diagnosisHeader.tr(),
             style: AppTheme.educationHeader1,
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 25.0),
           Text(
-            'diagnosisDescription'.tr(),
+            LocaleKeys.diagnosisDescription.tr(),
             style: AppTheme.educationSubtitleLight,
             softWrap: true,
           ),
@@ -29,11 +30,11 @@ class DiagnosisPage extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: 'diagnosisWarningCaps'.tr(),
+                  text: LocaleKeys.diagnosisWarningCaps.tr(),
                   style: AppTheme.educationWarningRed,
                 ),
                 TextSpan(
-                  text: 'diagnosisWarning'.tr(),
+                  text: LocaleKeys.diagnosisWarning.tr(),
                   style: AppTheme.educationWarning,
                 ),
               ],
@@ -44,13 +45,13 @@ class DiagnosisPage extends StatelessWidget {
             style: AppTheme.educationButtonStyle,
             onPressed: () => url_launcher.launch(
               // TODO: а как же другие страны?
-              'tel://${'diagnosisRussianPhoneNumber'.tr()}',
+              'tel://${LocaleKeys.diagnosisRussianPhoneNumber.tr()}',
             ),
             child: Padding(
               padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
               child: Center(
                 child: Text(
-                  'diagnosisButtonText'.tr(),
+                  LocaleKeys.diagnosisButtonText.tr(),
                   style: AppTheme.educationSubtitleWhite,
                 ),
               ),

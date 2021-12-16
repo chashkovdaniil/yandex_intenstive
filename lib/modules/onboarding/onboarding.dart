@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../configs/colors.dart';
 import '../../configs/constants.dart';
 import '../../configs/providers.dart';
+import '../../generated/codegen_loader.g.dart';
 import 'left_button.dart';
 import 'page.dart';
 import 'page_point.dart';
@@ -19,14 +20,14 @@ class Onboarding extends HookConsumerWidget {
     Assets.onboardingImage3,
   ];
   final _titles = [
-    'onboardingTitle1'.tr(),
-    'onboardingTitle2'.tr(),
-    'onboardingTitle3'.tr(),
+    LocaleKeys.onboardingTitle1.tr(),
+    LocaleKeys.onboardingTitle2.tr(),
+    LocaleKeys.onboardingTitle3.tr(),
   ];
   final _descriptions = [
-    'onboardingDescription1'.tr(),
-    'onboardingDescription2'.tr(),
-    'onboardingDescription3'.tr(),
+    LocaleKeys.onboardingDescription1.tr(),
+    LocaleKeys.onboardingDescription2.tr(),
+    LocaleKeys.onboardingDescription3.tr(),
   ];
 
   Onboarding({Key? key}) : super(key: key);

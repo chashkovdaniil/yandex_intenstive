@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
@@ -83,7 +84,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                   children: [
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'homeScreenConfirmed'.tr(),
+                        title: LocaleKeys.homeScreenConfirmed.tr(),
                         value: data.confirmed,
                         colors: const [AppColors.orange],
                         spots: data.confirmedSpots,
@@ -92,7 +93,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'homeScreenRecovered'.tr(),
+                        title: LocaleKeys.homeScreenRecovered.tr(),
                         value: data.recovered,
                         colors: const [AppColors.green],
                         showAnimation: true,
@@ -101,7 +102,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'homeScreenDeaths'.tr(),
+                        title: LocaleKeys.homeScreenDeaths.tr(),
                         value: data.deaths,
                         colors: const [AppColors.red],
                         showAnimation: true,
@@ -110,7 +111,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     HomeCard(
                       child: HomeLineChart(
-                        title: 'homeScreenActive'.tr(),
+                        title: LocaleKeys.homeScreenActive.tr(),
                         value: data.active,
                         colors: const [AppColors.red],
                         showAnimation: true,

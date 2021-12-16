@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../configs/constants.dart';
@@ -13,8 +14,8 @@ class PreventionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          const Text(
-            StringValues.preventionHeader,
+          Text(
+            'preventionHeader'.tr(),
             style: AppTheme.educationHeader1,
             softWrap: true,
           ),

@@ -8,34 +8,11 @@ import 'colors.dart';
 
 class StringValues {
   // Strings for education
-  static const String diagnosisDescription =
-      'If you feel some symptoms or you are thinking that you may'
-      'be infected. Please report your self so other people can'
-      'be aware that someone who is in isolation is nearby them.';
-
-  static const String diagnosisWarningCaps = 'COVSTATS';
-
-  static const String diagnosisWarning =
-      ' gives everyone the opportunity to report their symptoms'
-      'anonymously for the benefit of others';
-
-  static const String diagnosisHeader = 'Report my Status';
-
-  static const String diagnosisButtonText = 'Please report your status';
-
-  static const String diagnosisRussianPhoneNumber = '88002000112';
-
   static const diseaseLegendData = [
     ['Cold', 'assets/images/cold@3x.png'],
     ['Flu', 'assets/images/flu@3x.png'],
     ['COVID-19', 'assets/images/covid@3x.png'],
   ];
-
-  static const symptomsHeader = 'Symptom Check';
-
-  static const symptomsSubtitle = 'Check you symptoms for';
-
-  static const symptomsLegendSubtitle = 'Legend';
 
   static const symptomRarityLegendData = [
     ['Common', 'rare'],
@@ -74,9 +51,6 @@ class StringValues {
     'assets/images/covid_dark.png',
   ];
 
-  static const String preventionHeader =
-      'Basic protective measures against the new coronavirus';
-
   static const preventionData = [
     [
       'assets/images/clean_hands.svg',
@@ -99,21 +73,6 @@ class StringValues {
       'Put distance between yourself and other people.',
     ],
   ];
-
-  static const educationPreviewHeader =
-      'Coronavirus disease (COVID - 19) advice for the public';
-
-  static const educationPreviewDescriptionPreCaps =
-      'Stay aware of the latest information on the ';
-
-  static const educationPreviewDescriptionCaps = 'COVID-19 outbreak';
-
-  static const educationPreviewDescriptionPostCaps =
-      ', available on the WHO website and through your national and'
-      'local public health authority. Most people who become'
-      'infected experience mild illness and recover, but it can be'
-      'more severe for others. Take care of your health and protect'
-      'others by doing the following:';
 
   static const educationPageTitles = [
     'Prevention',

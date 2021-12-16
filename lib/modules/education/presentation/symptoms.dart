@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../configs/constants.dart';
@@ -41,13 +42,13 @@ class SymptomsPage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            StringValues.symptomsHeader,
+          Text(
+            'symptomsHeader'.tr(),
             style: AppTheme.educationHeader1,
           ),
           const SizedBox(height: 20.0),
-          const Text(
-            StringValues.symptomsSubtitle,
+          Text(
+            'symptomsSubtitle'.tr(),
             style: AppTheme.educationSubtitleLight,
           ),
           const SizedBox(height: 10.0),
@@ -61,8 +62,8 @@ class SymptomsPage extends StatelessWidget {
           const SizedBox(height: 30.0),
           const _SymptomColumn(),
           const SizedBox(height: 30.0),
-          const Text(
-            StringValues.symptomsLegendSubtitle,
+          Text(
+            'symptomsLegendSubtitle'.tr(),
             style: AppTheme.educationSubtitle,
           ),
           const SizedBox(height: 10.0),

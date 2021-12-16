@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../configs/constants.dart';
 import '../../../../core/styles/app_theme.dart';
 
 class EducationPreview extends StatelessWidget {
@@ -16,18 +15,18 @@ class EducationPreview extends StatelessWidget {
           ),
           const SizedBox(height: 30.0),
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               children: [
                 TextSpan(
-                  text: StringValues.educationPreviewDescriptionPreCaps,
+                  text: 'educationPreviewDescriptionPreCaps'.tr(),
                   style: AppTheme.educationSubtitleLight,
                 ),
                 TextSpan(
-                  text: StringValues.educationPreviewDescriptionCaps,
+                  text: 'educationPreviewDescriptionCaps'.tr(),
                   style: AppTheme.educationSubtitleInternalBold,
                 ),
                 TextSpan(
-                  text: StringValues.educationPreviewDescriptionPostCaps,
+                  text: 'educationPreviewDescriptionPostCaps'.tr(),
                   style: AppTheme.educationSubtitleLight,
                 ),
               ],

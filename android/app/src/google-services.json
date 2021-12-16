@@ -29,13 +29,6 @@
             {
               "client_id": "78547531665-oi4t6ivgne46in76lecaoje7v2rp8a93.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "78547531665-c69garhff2sabdiosuvjf76s0390ehmn.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.yandex.yandexIntensive"
-              }
             }
           ]
         }

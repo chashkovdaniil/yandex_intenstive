@@ -69,8 +69,9 @@ class CurvePainter extends CustomPainter {
         r - size.height,
       )
       ..lineTo(0, 0);
-    canvas.drawPath(path, paint);
-    canvas.drawShadow(path, AppColors.grey.withOpacity(0.1), 4.0, false);
+    canvas
+      ..drawPath(path, paint)
+      ..drawShadow(path, AppColors.grey.withOpacity(0.1), 4.0, false);
   }
 
   @override

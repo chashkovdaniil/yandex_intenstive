@@ -19,8 +19,9 @@ class CovidRepositoryImpl implements CovidRepository {
 
   Future<CovidDatasource> get _covidDatasource async {
     /// ToDo: проверка на соединение
-    // return (await _internetChecker.isConnected())
-    return (false) ? _covidNetworkDatasource : _covidCacheDatasource;
+    return (await _internetChecker.isConnected())
+        ? _covidNetworkDatasource
+        : _covidCacheDatasource;
   }
 
   @override

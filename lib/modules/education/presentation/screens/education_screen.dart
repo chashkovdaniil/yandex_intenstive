@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../generated/codegen_loader.g.dart';
+import '../../../general/app_bar.dart';
 import '../components/education_preview.dart';
 import '../components/education_tabs.dart';
 
@@ -9,15 +11,27 @@ class EducationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(
-          body: ListView(
-            children: const [
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: EducationPreview(),
+          body: Column(
+            children: [
+              const CustomAppBar(
+                showBackButton: false,
+                title: 'Education',
+                showUserButton: false,
               ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: EducationTabs(),
+              const SizedBox(height: 20.0),
+              Expanded(
+                child: ListView(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: EducationPreview(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: EducationTabs(),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

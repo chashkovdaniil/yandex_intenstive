@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/app_bar.dart';
 import '../widgets/general_settings_card.dart';

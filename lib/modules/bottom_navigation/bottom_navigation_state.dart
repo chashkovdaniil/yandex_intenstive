@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../configs/colors.dart';
-import '../../configs/constants.dart';
 import '../../configs/text_styles.dart';
 import '../../generated/codegen_loader.g.dart';
 import '../education/presentation/screens/education_screen.dart';

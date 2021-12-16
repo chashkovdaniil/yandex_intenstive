@@ -16,17 +16,12 @@ class PreventionPage extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Text(
-<<<<<<< HEAD
-            StringValues.preventionHeader,
-            style: AppTheme.educationHeader1.copyWith(
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-=======
             EasyLocalization.of(context).toString() == ''
                 ? LocaleKeys.preventionHeader.tr()
                 : LocaleKeys.preventionHeader.tr(),
-            style: AppTheme.educationHeader1,
->>>>>>> 20226fb30666d62f59940b0d865d9a0eeaed4cf8
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             softWrap: true,
           ),
           const SizedBox(height: 30.0),

@@ -23,7 +23,7 @@
   "onboardingDescription3":               "Contact your doctor or clinic right away if you have COVID-19 symptoms, you’ve been exposed to someone with COVID-19, or you live in or have traveled from an area with ongoing community spread of COVID-19.",
   "onBoardingSkipText":                   "Skip",
   "onBoardingNextText":                   "Next",
-  "splashScreenTitle":                    "covstats",
+  "splashScreenTitle":                    "COVSTATS",
   "splashScreenBottomText":               "Yandex intensive on Flutter in Sirius, 2021",
   "bottomNavigationItemHome":             "Home",
   "bottomNavigationItemMap":              "Map",

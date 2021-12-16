@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 
 class ListCountriesConfirmed extends StatelessWidget {
@@ -14,11 +15,12 @@ class ListCountriesConfirmed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     return Column(
       children: [
         ListTile(
-          title: Text(StringValues.listCountriesConfirmedTitle),
-          trailing: Text(StringValues.listCountriesConfirmedTrailing),
+          title: Text(LocaleKeys.listCountriesConfirmedTitle.tr()),
+          trailing: Text(LocaleKeys.listCountriesConfirmedTrailing.tr()),
         ),
         ...List.generate(
           countriesCovid.length,

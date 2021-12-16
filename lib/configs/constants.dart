@@ -1,80 +1,25 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
+import '../generated/codegen_loader.g.dart';
 import '../modules/map/presentation/helpers/model.dart';
 import '../modules/map/presentation/widgets/rest_country_card.dart';
 import '../modules/map/presentation/widgets/top_country_card.dart';
 import 'colors.dart';
 
 class StringValues {
-  static String get mapTitle => 'World Wide map';
-
-  static String get mapAreas => 'COVID - 19 Affected Areas';
-
-  static String get mapAreasLess => 'Most Affected';
-
-  static String get mapAreasMost => 'Less Affected';
-
-  static String get mapTop => 'Top Countries';
-
-  static String get mapTopAffected => 'Affected - ';
-
-  static String get mapTopRecovered => 'Recovered - ';
-
-  static String get mapRest => 'Rest of the world';
-
-  static String get mapRestDescription => 'List of all Affected Countries';
-
-  static String get mapRestCases => ' - Death cases reported';
-
-  static String get countryStatisticsTitle => ' - statistic';
-
-  static String get countryStatisticsInfectedCases =>
-      ' Infected cases reported';
-
-  static String get countryStatisticsDeathCases => ' Death cases';
-
-  static String get countryStatisticsGraphTitle =>
-      'Current affected and death people';
-
-  static String get countryStatisticsDeath => 'Death';
-
-  static String get countryStatisticsAffected => 'Affected';
-
   // Strings for education
-  static const String diagnosisDescription =
-      'If you feel some symptoms or you are thinking that you may'
-      'be infected. Please report your self so other people can'
-      'be aware that someone who is in isolation is nearby them.';
-
-  static const String diagnosisWarningCaps = 'COVSTATS';
-
-  static const String diagnosisWarning =
-      ' gives everyone the opportunity to report their symptoms'
-      'anonymously for the benefit of others';
-
-  static const String diagnosisHeader = 'Report my Status';
-
-  static const String diagnosisButtonText = 'Please report your status';
-
-  static const String diagnosisRussianPhoneNumber = '88002000112';
-
-  static const diseaseLegendData = [
-    ['Cold', 'assets/images/cold@3x.png'],
-    ['Flu', 'assets/images/flu@3x.png'],
-    ['COVID-19', 'assets/images/covid@3x.png'],
+  static List<List<String>> get diseaseLegendData => [
+    [LocaleKeys.disease1.tr(), 'assets/images/cold@3x.png'],
+    [LocaleKeys.disease2.tr(), 'assets/images/flu@3x.png'],
+    [LocaleKeys.disease3.tr(), 'assets/images/covid@3x.png'],
   ];
 
-  static const symptomsHeader = 'Symptom Check';
-
-  static const symptomsSubtitle = 'Check you symptoms for';
-
-  static const symptomsLegendSubtitle = 'Legend';
-
-  static const symptomRarityLegendData = [
-    ['Common', 'rare'],
-    ['Sometimes', 'sometimes'],
-    ['Rare', 'rare'],
+  static List<List<String>> get symptomRarityLegendData => [
+    [LocaleKeys.rarity1.tr(), 'common'],
+    [LocaleKeys.rarity2.tr(), 'sometimes'],
+    [LocaleKeys.rarity3.tr(), 'rare'],
   ];
 
   /*
@@ -82,17 +27,17 @@ class StringValues {
    * соответственно, какую иконку следует рисовать; имена файлов самих
    * иконок следует брать из symptomColumnAssets
    */
-  static const symptomColumnData = [
-    ['rare', 'rare', 'common', 'Shortness of breath'],
-    ['rare', 'common', 'common', 'Fever'],
-    ['sometimes', 'common', 'common', 'Cough, chest discomfort'],
-    ['sometimes', 'common', 'never', 'Fatigue, weakness'],
-    ['rare', 'common', 'never', 'Aches'],
-    ['rare', 'common', 'never', 'Chills'],
-    ['rare', 'common', 'never', 'Headache'],
-    ['common', 'sometimes', 'never', 'Sore throat'],
-    ['common', 'sometimes', 'never', 'Sneezing'],
-    ['common', 'sometimes', 'never', 'Stuffy, runny nose'],
+  static List<List<String>> get symptomColumnData => [
+    ['rare', 'rare', 'common', LocaleKeys.symptomColumnHint1.tr()],
+    ['rare', 'common', 'common', LocaleKeys.symptomColumnHint2.tr()],
+    ['sometimes', 'common', 'common', LocaleKeys.symptomColumnHint3.tr()],
+    ['sometimes', 'common', 'never', LocaleKeys.symptomColumnHint4.tr()],
+    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint5.tr()],
+    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint6.tr()],
+    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint7.tr()],
+    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint8.tr()],
+    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint9.tr()],
+    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint10.tr()],
   ];
 
   static const symptomColumnAssets = {
@@ -108,139 +53,34 @@ class StringValues {
     'assets/images/covid_dark.png',
   ];
 
-  static const String preventionHeader =
-      'Basic protective measures against the new coronavirus';
-
-  static const preventionData = [
+  static List<List<String>> get preventionData => [
     [
       'assets/images/clean_hands.svg',
-      'Clean your hands often',
-      'Wash hands often with soap and water for at least 20s',
+      LocaleKeys.preventionTitle1.tr(),
+      LocaleKeys.preventionDesc1.tr(),
     ],
     [
       'assets/images/wear_facemask.svg',
-      'Wear a facemask',
-      'You should wear facemask when you are around other people.',
+      LocaleKeys.preventionTitle2.tr(),
+      LocaleKeys.preventionDesc2.tr(),
     ],
     [
       'assets/images/avoid_touching_face.svg',
-      'Avoid touching your face',
-      'Hands touch many surfaces and can pick up viruses.',
+      LocaleKeys.preventionTitle3.tr(),
+      LocaleKeys.preventionDesc3.tr(),
     ],
     [
       'assets/images/avoid_close_contact.svg',
-      'Avoid close contact',
-      'Put distance between yourself and other people.',
+      LocaleKeys.preventionTitle4.tr(),
+      LocaleKeys.preventionDesc4.tr(),
     ],
   ];
 
-  static const educationPreviewHeader =
-      'Coronavirus disease (COVID - 19) advice for the public';
-
-  static const educationPreviewDescriptionPreCaps =
-      'Stay aware of the latest information on the ';
-
-  static const educationPreviewDescriptionCaps = 'COVID-19 outbreak';
-
-  static const educationPreviewDescriptionPostCaps =
-      ', available on the WHO website and through your national and'
-      'local public health authority. Most people who become'
-      'infected experience mild illness and recover, but it can be'
-      'more severe for others. Take care of your health and protect'
-      'others by doing the following:';
-
-  static const educationPageTitles = [
-    'Prevention',
-    'Symptoms',
-    'Diagnosis',
+  static List<String> get educationPageTitles => [
+    LocaleKeys.educationPageTitle1.tr(),
+    LocaleKeys.educationPageTitle2.tr(),
+    LocaleKeys.educationPageTitle3.tr(),
   ];
-
-  static String get onboardingTitle1 => 'Fever';
-
-  static String get onboardingTitle2 => 'Cough';
-
-  static String get onboardingTitle3 => 'Breathing Difficulty';
-
-  static String get onboardingDescription1 =>
-      'He severity of COVID-19 symptoms can range from very mild to severe. Some people have no symptoms. People who are older or have existing chronic medical conditions.';
-
-  static String get onboardingDescription2 =>
-      'Such as heart or lung disease or diabetis, may be at higher risk of serious illness. This is similar to what is seen with other respiratory illnesses, such influenza.';
-
-  static String get onboardingDescription3 =>
-      'Contact your doctor or clinic right away if you have COVID-19 symptoms, you’ve been exposed to someone with COVID-19, or you live in or have traveled from an area with ongoing community spread of COVID-19.';
-
-  static String get onBoardingSkipText => 'Skip';
-
-  static String get onBoardingNextText => 'Next';
-
-  static String get splashScreenTitle => 'covstats';
-
-  static String get splashScreenBottomText =>
-      'Yandex intensive on Flutter in Sirius, 2021';
-
-  static String get bottomNavigationItemHome => 'Home';
-
-  static String get bottomNavigationItemMap => 'Map';
-
-  static String get bottomNavigationItemEducation => 'Education';
-
-  static String get bottomNavigationItemSettings => 'Settings';
-
-  static String get listCountriesConfirmedTitle => 'Country';
-
-  static String get listCountriesConfirmedTrailing => 'Confirmed';
-
-  static String get ratioRecoveryChartTitle => 'Ratio of Recovery';
-
-  static String get ratioRecoveryChartPercent => '%';
-
-  static String get ratioRecoveryChartMarkChartDeath => 'Deaths';
-
-  static String get ratioRecoveryChartMarkChartRecovered => 'Recovered';
-
-  static String get homeScreenRecovered => 'Recovered';
-
-  static String get homeScreenConfirmed => 'Confirmed';
-
-  static String get homeScreenDeaths => 'Deaths';
-
-  static String get homeScreenActive => 'Active';
-
-  static String get homeScreenError => 'Error';
-
-  static String get homeScreenRefresh => 'Refresh';
-
-  static String get mapScreenRefresh => 'Refresh';
-
-  static String get mapScreenError => 'Error';
-
-  static String get countryDetailsAlertTitle => 'Enable notification';
-
-  static String get countryDetailsAlertContent =>
-      'Enable notification so you can always be up to date with new information.';
-
-  static String get countryDetailsAlertCancel => 'Later';
-
-  static String get countryDetailsAlertDefault => 'Enable now';
-
-  static String get settingsTitle => 'Settings';
-
-  static String get settingsSubTitle1 => 'General';
-
-  static String get settingsSubTitle2 => 'Personal';
-
-  static String get settingsItemLanguage => 'Language';
-
-  static String get settingsItemNotifications => 'Notifications';
-
-  static String get settingsItemDarkMode => 'Dark Mode';
-
-  static String get settingsItemDonate => 'Donate';
-
-  static String get settingsItemHelp => 'Help';
-
-  static String get settingsItemTerms => 'Terms & Conditions';
 }
 
 class MockData {

@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/on_tap_opacity.dart';
 
@@ -32,10 +33,10 @@ class RestCountryCard extends StatefulWidget {
 class _RestCountryCardState extends State<RestCountryCard> {
   @override
   Widget build(BuildContext context) => OnTapOpacityContainer(
-    onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
+        onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: 60,
+          height: EasyLocalization.of(context).toString() == '' ? 60 : 60,
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border(
@@ -80,7 +81,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
                       padding: const EdgeInsets.only(left: 12),
                       child: SizedBox(
                         child: Text(
-                          '562' + StringValues.countryStatisticsDeathCases,
+                          '562' + LocaleKeys.countryStatisticsDeathCases.tr(),
                           textAlign: TextAlign.start,
                           style: TextStyles.infoCountry,
                           softWrap: true,

@@ -1,24 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../../../configs/text_styles.dart';
 import '../../../general/on_tap_opacity.dart';
-
-// class ItemLanguage extends StatelessWidget {
-//   const ItemLanguage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     var langValue = 'English';
-//     return OnTapOpacityContainer(
-//       onTap: () =>
-//         langValue == 'English' ? langValue = 'Russian' : langValue ='English',
-//       child: Text(
-//         langValue,
-//         style: TextStyles.titleSettingsScope,
-//       ),
-//     );
-//   }
-// }
 
 class ItemLanguage extends StatefulWidget {
   const ItemLanguage({Key? key}) : super(key: key);
@@ -28,13 +13,22 @@ class ItemLanguage extends StatefulWidget {
 }
 
 class _ItemLanguageState extends State<ItemLanguage> {
-  var langValue = 'English';
+  late var langValue = 'English';
 
   @override
   Widget build(BuildContext context) {
+    langValue = context.locale.toString() == 'ru' ?
+      'Русский' : 'English';
     return OnTapOpacityContainer(
       onTap: () => setState(() {
-        langValue == 'English' ? langValue = 'Russian' : langValue = 'English';
+        if (langValue == 'English') {
+          langValue = 'Русский';
+          context.setLocale(const Locale('ru'));
+        }
+        else {
+          langValue = 'English';
+          context.setLocale(const Locale('en'));
+        }
       }),
       child: Text(
         langValue,

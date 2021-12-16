@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
 import '../../../general/navigation_views.dart';
 
@@ -14,7 +15,9 @@ class CountryDetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: EasyLocalization.of(context).toString() == ''
+            ? const EdgeInsets.symmetric(horizontal: 12)
+            : const EdgeInsets.symmetric(horizontal: 12),
         child: Container(
           width: double.infinity,
           height: 240,
@@ -78,12 +81,11 @@ class CountryDetailsCard extends StatelessWidget {
                           ),
                           onPressed: () => showAlertDialog(
                             context: context,
-                            title: StringValues.countryDetailsAlertTitle,
-                            content: StringValues.countryDetailsAlertContent,
-                            cancelActionText:
-                                StringValues.countryDetailsAlertCancel,
+                            title: LocaleKeys.countryDetailsAlertTitle.tr(),
+                            content: LocaleKeys.countryDetailsAlertContent.tr(),
+                            cancelActionText: LocaleKeys.countryDetailsAlertCancel.tr(),
                             defaultActionText:
-                                StringValues.countryDetailsAlertDefault,
+                                LocaleKeys.countryDetailsAlertDefault.tr(),
                           ),
                         ),
                       ),
@@ -126,8 +128,7 @@ class CountryDetailsCard extends StatelessWidget {
                             alignment: Alignment.topLeft,
                             child: Text(
                               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                              '1,478' +
-                                  StringValues.countryStatisticsInfectedCases,
+                              '1,478' + LocaleKeys.countryStatisticsInfectedCases.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -163,7 +164,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '550' + StringValues.countryStatisticsDeathCases,
+                              '550' + LocaleKeys.countryStatisticsDeathCases.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

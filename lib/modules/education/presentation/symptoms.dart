@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
+import '../../../generated/codegen_loader.g.dart';
 
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
@@ -18,41 +20,37 @@ class SymptomsPage extends StatelessWidget {
     ),
   );
 
-  static final _diseaseLegend = StringValues.diseaseLegendData
-      .map(
-        (item) => NamedIconData(
-          item[0],
-          Image.asset(
-            item[1],
-            width: 35.0,
-            height: 35.0,
-          ),
-        ),
-      )
-      .toList();
-
-  static final _rarityLegend = StringValues.symptomRarityLegendData
-      .map((item) => NamedIconData(item[0], _rarityIcons[item[1]]!))
-      .toList();
-
   const SymptomsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: EasyLocalization.of(context).toString() == ''
+            ? CrossAxisAlignment.start
+            : CrossAxisAlignment.start,
         children: [
-          const Text(
-            StringValues.symptomsHeader,
+          Text(
+            LocaleKeys.symptomsHeader.tr(),
             style: AppTheme.educationHeader1,
           ),
           const SizedBox(height: 20.0),
-          const Text(
-            StringValues.symptomsSubtitle,
+          Text(
+            LocaleKeys.symptomsSubtitle.tr(),
             style: AppTheme.educationSubtitleLight,
           ),
           const SizedBox(height: 10.0),
           NamedIconTray(
-            _diseaseLegend,
+            StringValues.diseaseLegendData
+                .map(
+                  (item) => NamedIconData(
+                    item[0],
+                    Image.asset(
+                      item[1],
+                      width: 35.0,
+                      height: 35.0,
+                    ),
+                  ),
+                )
+                .toList(),
             const NamedIconConfig(
               style: AppTheme.educationSubtitleBold,
               textPadding: EdgeInsets.only(top: 8.0),
@@ -61,13 +59,15 @@ class SymptomsPage extends StatelessWidget {
           const SizedBox(height: 30.0),
           const _SymptomColumn(),
           const SizedBox(height: 30.0),
-          const Text(
-            StringValues.symptomsLegendSubtitle,
+          Text(
+            LocaleKeys.symptomsLegendSubtitle.tr(),
             style: AppTheme.educationSubtitle,
           ),
           const SizedBox(height: 10.0),
           NamedIconTray(
-            _rarityLegend,
+            StringValues.symptomRarityLegendData
+                .map((item) => NamedIconData(item[0], _rarityIcons[item[1]]!))
+                .toList(),
             const NamedIconConfig(
               style: AppTheme.educationSmallLight,
               textPadding: EdgeInsets.only(top: 2.0),
@@ -91,7 +91,9 @@ class _SymptomColumn extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding: linePadding,
+            padding: EasyLocalization.of(context).toString() == ''
+                ? linePadding
+                : linePadding,
             child: Row(
               children: StringValues.symptomColumnLegendAssets
                   .map(
@@ -108,13 +110,15 @@ class _SymptomColumn extends StatelessWidget {
             ),
           ),
           ...StringValues.symptomColumnData
-              .map((item) => [
-                    const Divider(),
-                    Padding(
-                      padding: linePadding,
-                      child: _SymptomColumnLine(item),
-                    ),
-                  ])
+              .map(
+            (item) => [
+              const Divider(),
+              Padding(
+                padding: linePadding,
+                child: _SymptomColumnLine(item),
+              ),
+            ],
+          )
               .reduce((a, b) {
             a.addAll(b);
             return a;

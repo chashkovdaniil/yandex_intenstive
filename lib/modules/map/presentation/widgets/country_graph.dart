@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import 'line_chart.dart';
 
 class CountryGraph extends StatelessWidget {
@@ -11,8 +12,8 @@ class CountryGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: EasyLocalization.of(context).toString() == '' ? 20 : 20,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16, bottom: 16),
@@ -30,7 +31,7 @@ class CountryGraph extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  StringValues.countryStatisticsDeath,
+                  LocaleKeys.countryStatisticsDeath.tr(),
                 ),
                 const SizedBox(
                   width: 20,
@@ -47,7 +48,7 @@ class CountryGraph extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  StringValues.countryStatisticsAffected,
+                  LocaleKeys.countryStatisticsAffected.tr(),
                 ),
               ],
             ),

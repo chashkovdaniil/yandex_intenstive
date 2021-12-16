@@ -69,7 +69,7 @@ class AppTheme {
 
   static const educationSubtitleBold = TextStyle(
     color: AppColors.educationBlackSubtitle,
-    fontSize: 22.0,
+    fontSize: 20.0,
     fontWeight: FontWeight.w600,
   );
 

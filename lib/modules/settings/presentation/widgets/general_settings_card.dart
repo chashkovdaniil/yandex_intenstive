@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
@@ -26,11 +27,11 @@ class GeneralSettingsItemCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),
-            border: Theme.of(context).brightness == Brightness.light
-                ? Border.all(
+            border: ThemeProvider.of(context).isDarkTheme
+                ? null
+                : Border.all(
                     color: AppColors.grey.withOpacity(0.6),
-                  )
-                : null,
+                  ),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.08),
@@ -50,11 +51,11 @@ class GeneralSettingsItemCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: iconColor,
                     borderRadius: BorderRadius.circular(30),
-                    border: Theme.of(context).brightness == Brightness.light
-                        ? Border.all(
+                    border: ThemeProvider.of(context).isDarkTheme
+                        ? null
+                        : Border.all(
                             color: AppColors.grey.withOpacity(0.6),
-                          )
-                        : null,
+                          ),
                   ),
                   child: Icon(
                     icon,

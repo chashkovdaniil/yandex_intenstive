@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
@@ -23,12 +24,12 @@ class MapScreenCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(10),
-          border: Theme.of(context).colorScheme.brightness == Brightness.dark
+          border: ThemeProvider.of(context).isDarkTheme
               ? null
               : Border.all(
                   color: AppColors.grey.withOpacity(0.6),
                 ),
-          boxShadow: Theme.of(context).colorScheme.brightness == Brightness.dark
+          boxShadow: ThemeProvider.of(context).isDarkTheme
               ? null
               : [
                   BoxShadow(

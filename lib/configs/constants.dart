@@ -9,13 +9,13 @@ import 'colors.dart';
 
 class StringValues {
   // Strings for education
-  static final diseaseLegendData = [
+  static List<List<String>> get diseaseLegendData => [
     ['disease1'.tr(), 'assets/images/cold@3x.png'],
     ['disease2'.tr(), 'assets/images/flu@3x.png'],
     ['disease3'.tr(), 'assets/images/covid@3x.png'],
   ];
 
-  static final symptomRarityLegendData = [
+  static List<List<String>> get symptomRarityLegendData => [
     ['rarity1'.tr(), 'common'],
     ['rarity2'.tr(), 'sometimes'],
     ['rarity3'.tr(), 'rare'],
@@ -26,7 +26,7 @@ class StringValues {
    * соответственно, какую иконку следует рисовать; имена файлов самих
    * иконок следует брать из symptomColumnAssets
    */
-  static final symptomColumnData = [
+  static List<List<String>> get symptomColumnData => [
     ['rare', 'rare', 'common', 'symptomColumnHint1'.tr()],
     ['rare', 'common', 'common', 'symptomColumnHint2'.tr()],
     ['sometimes', 'common', 'common', 'symptomColumnHint3'.tr()],
@@ -52,7 +52,7 @@ class StringValues {
     'assets/images/covid_dark.png',
   ];
 
-  static final preventionData = [
+  static List<List<String>> get preventionData => [
     [
       'assets/images/clean_hands.svg',
       'preventionTitle1'.tr(),
@@ -75,7 +75,7 @@ class StringValues {
     ],
   ];
 
-  static final educationPageTitles = [
+  static List<String> get educationPageTitles => [
     'educationPageTitle1'.tr(),
     'educationPageTitle2'.tr(),
     'educationPageTitle3'.tr(),

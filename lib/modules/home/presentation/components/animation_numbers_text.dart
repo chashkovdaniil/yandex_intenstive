@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sprintf/sprintf.dart';
 
 class AnimatedNumbersText extends StatelessWidget {
   final String additionText;
@@ -20,12 +21,20 @@ class AnimatedNumbersText extends StatelessWidget {
     this.textStyle,
   }) : super(key: key);
 
+  static String _prettifyNumber(int value) {
+    var res = (value % 1000).toString();
+    while ((value ~/= 1000) != 0) {
+      res = (value % 1000).toString() + ',' + res;
+    }
+    return res;
+  }
+
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
       builder: (context, value, child) {
         return Text(
-          value.toStringAsFixed(fractionDigits) + additionText,
+          _prettifyNumber(value.round()) + additionText,
           style: textStyle ?? Theme.of(context).textTheme.headline6,
         );
       },

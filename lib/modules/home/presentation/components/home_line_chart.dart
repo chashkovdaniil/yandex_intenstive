@@ -137,6 +137,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
             textStyle: Theme.of(context).textTheme.headline5?.copyWith(
                   color: const Color(0xff151522),
                   fontWeight: FontWeight.bold,
+                  fontSize: 23.0,
                 ),
           ),
           Expanded(

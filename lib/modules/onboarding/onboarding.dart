@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -18,14 +19,14 @@ class Onboarding extends HookConsumerWidget {
     Assets.onboardingImage3,
   ];
   final _titles = [
-    StringValues.onboardingTitle1,
-    StringValues.onboardingTitle2,
-    StringValues.onboardingTitle3,
+    'onboardingTitle1'.tr(),
+    'onboardingTitle2'.tr(),
+    'onboardingTitle3'.tr(),
   ];
   final _descriptions = [
-    StringValues.onboardingDescription1,
-    StringValues.onboardingDescription2,
-    StringValues.onboardingDescription3,
+    'onboardingDescription1'.tr(),
+    'onboardingDescription2'.tr(),
+    'onboardingDescription3'.tr(),
   ];
 
   Onboarding({Key? key}) : super(key: key);

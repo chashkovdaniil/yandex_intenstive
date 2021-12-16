@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../configs/constants.dart';
@@ -17,7 +18,7 @@ class OnboardingLeftButton extends StatelessWidget {
     return OnboardingButton(
       onTap: onPressed,
       child: Text(
-        StringValues.onBoardingSkipText,
+        'onBoardingSkipText'.tr(),
         style: TextStyles.buttonTextStyle,
       ),
     );

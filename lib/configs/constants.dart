@@ -155,30 +155,6 @@ class StringValues {
     'Diagnosis',
   ];
 
-  static String get onboardingTitle1 => 'Fever';
-
-  static String get onboardingTitle2 => 'Cough';
-
-  static String get onboardingTitle3 => 'Breathing Difficulty';
-
-  static String get onboardingDescription1 =>
-      'He severity of COVID-19 symptoms can range from very mild to severe. Some people have no symptoms. People who are older or have existing chronic medical conditions.';
-
-  static String get onboardingDescription2 =>
-      'Such as heart or lung disease or diabetis, may be at higher risk of serious illness. This is similar to what is seen with other respiratory illnesses, such influenza.';
-
-  static String get onboardingDescription3 =>
-      'Contact your doctor or clinic right away if you have COVID-19 symptoms, you’ve been exposed to someone with COVID-19, or you live in or have traveled from an area with ongoing community spread of COVID-19.';
-
-  static String get onBoardingSkipText => 'Skip';
-
-  static String get onBoardingNextText => 'Next';
-
-  static String get splashScreenTitle => 'covstats';
-
-  static String get splashScreenBottomText =>
-      'Yandex intensive on Flutter in Sirius, 2021';
-
   static String get bottomNavigationItemHome => 'Home';
 
   static String get bottomNavigationItemMap => 'Map';

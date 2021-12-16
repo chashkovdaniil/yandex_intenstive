@@ -72,7 +72,9 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(
-                            context, AppRoutes.searchScreenRoute);
+                          context,
+                          AppRoutes.searchScreenRoute,
+                        );
                       },
                       child: const SearchField(enabled: false),
                     ),

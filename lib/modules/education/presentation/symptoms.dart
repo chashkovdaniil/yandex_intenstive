@@ -110,13 +110,15 @@ class _SymptomColumn extends StatelessWidget {
             ),
           ),
           ...StringValues.symptomColumnData
-              .map((item) => [
-                    const Divider(),
-                    Padding(
-                      padding: linePadding,
-                      child: _SymptomColumnLine(item),
-                    ),
-                  ])
+              .map(
+            (item) => [
+              const Divider(),
+              Padding(
+                padding: linePadding,
+                child: _SymptomColumnLine(item),
+              ),
+            ],
+          )
               .reduce((a, b) {
             a.addAll(b);
             return a;

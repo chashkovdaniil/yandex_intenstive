@@ -60,15 +60,15 @@ class AppTheme {
         background: const Color(0xff000000),
         brightness: Brightness.dark,
         error: AppColors.red,
-        onBackground: Color(0xff121212),
-        onError: Color(0xff121212),
-        onPrimary: Color(0xff121212),
-        onSecondary: Color(0xff121212),
+        onBackground: const Color(0xff121212),
+        onError: const Color(0xff121212),
+        onPrimary: const Color(0xff121212),
+        onSecondary: const Color(0xff121212),
         onSurface: Colors.white.withOpacity(0.8),
         primary: AppColors.primary,
-        primaryVariant: Color(0xff121212),
-        secondary: Color(0xff121212),
-        secondaryVariant: Color(0xff121212),
+        primaryVariant: const Color(0xff121212),
+        secondary: const Color(0xff121212),
+        secondaryVariant: const Color(0xff121212),
       ),
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: AppColors.primary,
@@ -150,4 +150,30 @@ class AppTheme {
       AppColors.primary,
     ),
   );
+
+  static ThemeMode themeModeFromStr(String mode) {
+    switch (mode) {
+      case 'dark':
+        return ThemeMode.dark;
+      case 'light':
+        return ThemeMode.light;
+      case 'system':
+        return ThemeMode.system;
+      default:
+        return ThemeMode.system;
+    }
+  }
+
+  static String stringToThemeMode(ThemeMode mode) {
+    switch (mode) {
+      case ThemeMode.dark:
+        return 'dark';
+      case ThemeMode.light:
+        return 'light';
+      case ThemeMode.system:
+        return 'system';
+      default:
+        return 'system';
+    }
+  }
 }

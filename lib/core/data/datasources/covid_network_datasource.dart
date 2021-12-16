@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
 
-import '../../api/app_exceptions.dart';
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
 import '../dto/country_dto.dart';

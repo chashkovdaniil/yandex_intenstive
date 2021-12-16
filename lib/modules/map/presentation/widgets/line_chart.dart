@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/colors.dart';
+import '../../../../configs/colors.dart';
 
 class CurrentSituationGraph extends StatefulWidget {
   const CurrentSituationGraph({Key? key}) : super(key: key);

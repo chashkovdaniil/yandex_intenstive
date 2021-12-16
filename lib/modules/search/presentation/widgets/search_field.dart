@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../configs/colors.dart';
-
 class SearchField extends StatelessWidget {
   final bool enabled;
   final bool autofocus;

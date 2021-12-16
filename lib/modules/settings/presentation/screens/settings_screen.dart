@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/constants.dart';
 
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/app_bar.dart';
 import '../widgets/general_settings_card.dart';
@@ -63,6 +63,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 10,
             ),
+            //sharedPrefsProvider
+            // GeneralSettingsItemCard(
+            //   content: const ItemLanguage(),
+            //   title: StringValues.settingsItemLanguage,
+            //   icon: CupertinoIcons.globe,
+            //   iconColor: AppColors.green,
+            // ),
             GeneralSettingsItemCard(
               content: const ItemTheme(),
               title: StringValues.settingsItemDarkMode,

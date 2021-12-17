@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/modules/general/functions.dart';
 
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../../generated/codegen_loader.g.dart';
+import '../../../general/functions.dart';
 import 'rest_country_card.dart';
 
 class RestList extends StatelessWidget {
@@ -17,9 +17,6 @@ class RestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     EasyLocalization.of(context);
-    countriesCovid.sort(
-      (a, b) => b.covidReport.confirmed.compareTo(a.covidReport.confirmed),
-    );
     return Column(
       children: [
         Align(
@@ -35,11 +32,19 @@ class RestList extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        ListView.builder(
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(5.5),
-          itemCount: countriesCovid.length - 3,
-          itemBuilder: _itemBuilder,
+        Column(
+          children: List.generate(
+            countriesCovid.length - 3,
+            (index) => Padding(
+              padding: const EdgeInsets.only(
+                left: 5.5,
+                right: 5.5,
+                top: 2.0,
+                bottom: 2.0,
+              ),
+              child: _itemBuilder(context, index),
+            ),
+          ),
         ),
       ],
     );
@@ -53,7 +58,7 @@ class RestList extends StatelessWidget {
     return RestCountryCard(
       countryTitle: _shorten(
         countriesCovid.elementAt(index + 3).country.name,
-        28,
+        26,
       ),
       deathValue: beautifyNumber(
         countriesCovid.elementAt(index + 3).covidReport.deaths,

@@ -75,8 +75,11 @@ class MapScreenSuccessState extends HookConsumerWidget {
                       child: SizedBox(height: 16),
                     ),
                     SliverToBoxAdapter(
-                      child: HomeCard(
-                        child: RestList(data.stats),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        child: HomeCard(
+                          child: RestList(data.stats),
+                        ),
                       ),
                     ),
                     const SliverToBoxAdapter(

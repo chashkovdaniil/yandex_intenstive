@@ -9,7 +9,7 @@ part 'home_screen_state.freezed.dart';
 class HomeScreenStateStatus with _$HomeScreenStateStatus {
   const factory HomeScreenStateStatus.success() = Success;
 
-  const factory HomeScreenStateStatus.failed() = Failed;
+  const factory HomeScreenStateStatus.failed(String msg) = Failed;
 
   const factory HomeScreenStateStatus.loading() = Loading;
 }
@@ -39,6 +39,13 @@ class HomeScreenManager extends StateNotifier<HomeScreenState> {
           ),
         );
 
+  failed([String? msg]) {
+    print("ERR $msg");
+    state = state.copyWith(
+      status: HomeScreenStateStatus.failed(msg ?? 'Unexpected error'),
+    );
+  }
+
   setData({
     Map<String, CountryCovid>? countriesCovid,
     List<List<double>>? confirmedSpots,
@@ -63,6 +70,12 @@ class HomeScreenManager extends StateNotifier<HomeScreenState> {
       active: active ?? state.active,
       activeSpots: activeSpots ?? state.activeSpots,
       status: const HomeScreenStateStatus.success(),
+    );
+  }
+
+  load() {
+    state = state.copyWith(
+      status: const HomeScreenStateStatus.loading(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:yandex_intensive/core/api/app_exceptions.dart';
 import '../../../configs/hive_settings.dart';
 
 import '../../domain/entities/country_covid_entity.dart';
@@ -14,13 +15,17 @@ class CovidCacheDatasource implements CovidDatasource {
   Future<Map<String, CountryCovid>> statsCountriesByDate({
     DateTime? date,
   }) async {
-    var map = <String, CountryCovid>{};
+    try {
+      var map = <String, CountryCovid>{};
 
-    for (final country in statsCountriesBox.values) {
-      map[country.country.code] = country;
+      for (final country in statsCountriesBox.values) {
+        map[country.country.code] = country;
+      }
+
+      return map;
+    } catch (err) {
+      throw AppExceptions.noInternetConnection;
     }
-
-    return map;
   }
 
   @override
@@ -28,9 +33,13 @@ class CovidCacheDatasource implements CovidDatasource {
     DateTime? date,
     required Country country,
   }) async {
-    return statsCountriesBox.values
-        .firstWhere((element) => element.country == country)
-        .covidReport;
+    try {
+      return statsCountriesBox.values
+          .firstWhere((element) => element.country == country)
+          .covidReport;
+    } catch (err) {
+      throw AppExceptions.noInternetConnection;
+    }
   }
 
   Future<void> saveStatsCountriesByDate(Map<String, CountryCovid> map) async {
@@ -40,37 +49,49 @@ class CovidCacheDatasource implements CovidDatasource {
 
   @override
   Future<List<Country>> countries() async {
-    return countriesBox.values.toList();
+    try {
+      return countriesBox.values.toList();
+    } catch (err) {
+      throw AppExceptions.noInternetConnection;
+    }
   }
 
   Future<void> saveCountries(List<Country> data) async {
     await countriesBox.clear();
     await countriesBox.addAll(data);
-    // }
-    // return true;
   }
 
   @override
   Future<CovidReport> statsTotalByDate({DateTime? date}) async {
-    return statsTotalBox
-        .values.last; //firstWhere((element) => element.date == date);
+    try {
+      return statsTotalBox.values.last;
+    } catch (err) {
+      throw AppExceptions.noInternetConnection;
+    }
   }
 
   @override
   Future<List<CovidReport>> statsTotal() async {
-    return statsTotalBox.values.toList();
+    try {
+      return statsTotalBox.values.toList();
+    } catch (err) {
+      throw AppExceptions.noInternetConnection;
+    }
   }
 
   Future<void> saveStatsTotal(List<CovidReport> data) async {
     await statsTotalBox.clear();
     await statsTotalBox.addAll(data);
-    // return true;
   }
 
   @override
   Future<List<CovidReport>> statsTotalByYear(int year) async {
-    return statsTotalBox.values
-        .where((element) => element.date.year == year)
-        .toList();
+    try {
+      return statsTotalBox.values
+          .where((element) => element.date.year == year)
+          .toList();
+    } catch (err) {
+      throw AppExceptions.noInternetConnection;
+    }
   }
 }

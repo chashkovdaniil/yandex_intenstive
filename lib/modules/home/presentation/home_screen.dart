@@ -50,14 +50,15 @@ class HomeScreen extends HookConsumerWidget {
               activeSpots: state.activeSpots!,
             ),
           ),
-          failed: () => Column(
+          failed: (msg) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text(LocaleKeys.homeScreenError.tr()),
+                child: Text(msg), //LocaleKeys.homeScreenError.tr()),
               ),
               ElevatedButton(
                 onPressed: () {
+                  ref.read(statsTotalUsecaseProvider).manager.load();
                   ref.read(statsTotalUsecaseProvider).call();
                 },
                 child: Text(LocaleKeys.homeScreenRefresh.tr()),

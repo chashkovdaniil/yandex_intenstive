@@ -45,7 +45,9 @@ class OnboardingPage extends StatelessWidget {
             child: Text(
               description,
               textAlign: TextAlign.center,
-              style: TextStyles.descriptionTextStyle,
+              style: TextStyles.descriptionTextStyle.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
         ),

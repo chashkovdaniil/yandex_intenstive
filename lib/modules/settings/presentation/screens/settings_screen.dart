@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_donation_buttons/flutter_donation_buttons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:yandex_intensive/modules/general/bottom_sheet.dart';
-
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/app_bar.dart';
+import '../../../general/bottom_sheet.dart';
 import '../widgets/general_settings_card.dart';
 import '../widgets/item_language.dart';
 import '../widgets/item_notifications.dart';

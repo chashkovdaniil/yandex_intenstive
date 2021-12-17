@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/constants.dart';
@@ -26,7 +25,12 @@ class RestList extends StatelessWidget {
               top: 10,
               left: 12,
             ),
-            child: Text(LocaleKeys.mapRest.tr(), style: TextStyles.titleMap),
+            child: Text(
+              LocaleKeys.mapRest.tr(),
+              style: TextStyles.titleMap.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
           ),
         ),
         const SizedBox(

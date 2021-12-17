@@ -130,7 +130,8 @@ class _HomeLineChartState extends State<HomeLineChart> {
             widget.title,
             style: Theme.of(context).textTheme.headline5?.copyWith(
                   color: const Color(0xff999999),
-                  fontSize: 22.0,
+                  fontSize: 18.0,
+                  overflow: TextOverflow.ellipsis,
                 ),
           ),
           const SizedBox(height: 10),
@@ -140,7 +141,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
             duration: widget.duration,
             textStyle: Theme.of(context).textTheme.headline5?.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
+                  fontSize: 18.0,
                 ),
             translator: (value) => beautifyNumber(value.round()),
           ),

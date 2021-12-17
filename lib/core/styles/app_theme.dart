@@ -91,60 +91,60 @@ class AppTheme {
 
   static const educationHeader1 = TextStyle(
     color: AppColors.educationBlackHeader,
-    fontSize: 24.0,
+    fontSize: 22.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationSubtitle = TextStyle(
     color: AppColors.black,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationSubtitleLight = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w300,
   );
 
   static const educationSubtitleInternalBold = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w700,
   );
 
   static const educationSubtitleWhite = TextStyle(
     color: AppColors.white,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w300,
   );
 
   static const educationSubtitleBold = TextStyle(
     color: AppColors.educationBlackSubtitle,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationSmall = TextStyle(
     color: AppColors.black,
-    fontSize: 16.0,
+    fontSize: 14.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationSmallLight = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 16.0,
+    fontSize: 14.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationWarning = TextStyle(
     color: AppColors.educationBlackHeader,
-    fontSize: 24.0,
+    fontSize: 22.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationWarningRed = TextStyle(
-    fontSize: 24.0,
+    fontSize: 22.0,
     color: AppColors.primary,
     fontWeight: FontWeight.w600,
   );

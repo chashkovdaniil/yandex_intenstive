@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>78547531665-c69garhff2sabdiosuvjf76s0390ehmn.apps.googleusercontent.com</string>
+	<string>78547531665-i9f5umj44gf9tsb73m4s97h7bm9vofsv.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.78547531665-c69garhff2sabdiosuvjf76s0390ehmn</string>
+	<string>com.googleusercontent.apps.78547531665-i9f5umj44gf9tsb73m4s97h7bm9vofsv</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDTky6ZwttN4VuAIh2XhkLaVBk-rrE0vl4</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.yandex.yandexIntensive</string>
+	<string>com.example.sirius.apns.sanekyy</string>
 	<key>PROJECT_ID</key>
 	<string>covid-app-d6a36</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:78547531665:ios:ddca4041fd0ed79908cc30</string>
+	<string>1:78547531665:ios:91a5bd75f522ad4108cc30</string>
 </dict>
 </plist>

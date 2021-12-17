@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../configs/constants.dart';
 import '../../configs/providers.dart';
 import '../../configs/text_styles.dart';
+import '../../core/styles/app_theme.dart';
 import '../../generated/codegen_loader.g.dart';
 
 class SplashScreen extends HookConsumerWidget {
@@ -45,7 +46,9 @@ class SplashScreen extends HookConsumerWidget {
                 padding: const EdgeInsets.only(bottom: 55),
                 child: Text(
                   LocaleKeys.splashScreenBottomText.tr(),
-                  style: TextStyles.splashScreenBottomTextStyle,
+                  style: AppTheme.splashScreenBottomTextStyle.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ),
             ),

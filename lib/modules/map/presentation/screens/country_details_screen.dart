@@ -12,7 +12,6 @@ class CountryDetailsScreen extends StatefulWidget {
   // static Route route() => CupertinoPageRoute(
   //       builder: (context) => const CountryDetailsScreen(),
   //     );
-
   const CountryDetailsScreen({Key? key}) : super(key: key);
 
   @override

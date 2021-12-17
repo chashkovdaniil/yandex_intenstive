@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:yandex_intensive/modules/general/app_bar.dart';
+import 'package:yandex_intensive/modules/home/presentation/components/home_card.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/card.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/map.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/rest_list.dart';
@@ -28,11 +28,6 @@ class MapScreenSuccessState extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    var logger = Logger(
-      printer: PrettyPrinter(), // Use the PrettyPrinter to format and print log
-    );
-    // final parser = MapStatisticsParser(data.countriesStats);
-    // logger.i(parser.parseInBackground().toString());
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus,
@@ -65,17 +60,19 @@ class MapScreenSuccessState extends HookConsumerWidget {
                       child: MapScreenCard(
                         height: 406,
                         title: StringValues.mapTop,
-                        content: const TopList(),
+                        content: TopList(
+                          List<CountryCovid>.from(
+                            data.countriesStats.values,
+                          ),
+                        ),
                       ),
                     ),
                     const SliverToBoxAdapter(
                       child: SizedBox(height: 16),
                     ),
                     SliverToBoxAdapter(
-                      child: MapScreenCard(
-                        height: 2400,
-                        title: StringValues.mapRest,
-                        content: RestList(
+                      child: HomeCard(
+                        child: RestList(
                           List<CountryCovid>.from(
                             data.countriesStats.values,
                           ),

@@ -59,32 +59,34 @@ class _RestCountryCardState extends State<RestCountryCard> {
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10, left: 12, bottom: 6),
-                      child: Text(
-                        widget.countryTitle,
-                        textAlign: TextAlign.start,
-                        style: TextStyles.titleCountry,
-                        softWrap: true,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 12),
-                      child: SizedBox(
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 10, left: 12, bottom: 6),
                         child: Text(
-                          widget.deathValue +
-                              StringValues.countryStatisticsDeathCases,
+                          widget.countryTitle,
                           textAlign: TextAlign.start,
-                          style: TextStyles.infoCountry,
-                          softWrap: true,
+                          overflow: TextOverflow.clip,
+                          style: TextStyles.titleCountry,
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: SizedBox(
+                          child: Text(
+                            widget.deathValue +
+                                StringValues.countryStatisticsDeathCases,
+                            textAlign: TextAlign.start,
+                            style: TextStyles.infoCountry,
+                            softWrap: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const Spacer(),

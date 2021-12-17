@@ -12,38 +12,53 @@ class RestList extends StatelessWidget {
   const RestList(this.countriesCovid, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Column(
-        children: [
-          const SizedBox(
-            height: 8,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12, bottom: 4),
-            child: Row(
-              children: [
-                Text(
-                  StringValues.mapRest,
-                  textAlign: TextAlign.start,
-                  style: TextStyles.infoCountry,
-                ),
-              ],
+  Widget build(BuildContext context) {
+    countriesCovid.sort(
+      (a, b) => a.covidReport.activeDiff.compareTo(b.covidReport.activeDiff),
+    );
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 10,
+              left: 12,
             ),
+            child: Text(StringValues.mapRest, style: TextStyles.titleMap),
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(5.5),
-            itemCount: countriesCovid.length - 3,
-            itemBuilder: _itemBuilder,
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 12, bottom: 4),
+          child: Row(
+            children: [
+              Text(
+                StringValues.mapRest,
+                textAlign: TextAlign.start,
+                style: TextStyles.infoCountry,
+              ),
+            ],
           ),
-        ],
-      );
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          padding: const EdgeInsets.all(5.5),
+          itemCount: countriesCovid.length - 3,
+          itemBuilder: _itemBuilder,
+        ),
+      ],
+    );
+  }
 
   Widget _itemBuilder(BuildContext context, int index) {
     return RestCountryCard(
       countryTitle: countriesCovid.elementAt(index).country.name,
       deathValue: countriesCovid.elementAt(index).covidReport.deaths.toString(),
       affectedValue:
-          countriesCovid.elementAt(index).covidReport.activeDiff.toString(),
+          countriesCovid.elementAt(index).covidReport.confirmed.toString(),
       image: 'fr',
     );
   }

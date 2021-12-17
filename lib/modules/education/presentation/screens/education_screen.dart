@@ -24,11 +24,19 @@ class EducationScreen extends StatelessWidget {
                 child: ListView(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.only(
+                          left: 20.0,
+                          right: 20.0,
+                          bottom: 20.0,
+                      ),
                       child: EducationPreview(),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.only(
+                          left: 20.0,
+                          right: 20.0,
+                          bottom: 20.0,
+                      ),
                       child: EducationTabs(),
                     ),
                   ],

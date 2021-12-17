@@ -15,8 +15,8 @@ class SymptomsPage extends StatelessWidget {
       key,
       SvgPicture.asset(
         asset,
-        width: 30.0,
-        height: 30.0,
+        width: 25.0,
+        height: 25.0,
       ),
     ),
   );
@@ -59,7 +59,7 @@ class SymptomsPage extends StatelessWidget {
               textPadding: EdgeInsets.only(top: 8.0),
             ),
           ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 20.0),
           const _SymptomColumn(),
           const SizedBox(height: 30.0),
           Text(
@@ -85,8 +85,8 @@ class SymptomsPage extends StatelessWidget {
 * для каких болезней какие симптомы более характерны
  */
 class _SymptomColumn extends StatelessWidget {
-  static const linePadding = EdgeInsets.only(top: 3.0, bottom: 3.0);
-  static const iconPadding = EdgeInsets.only(right: 15.0);
+  static const linePadding = EdgeInsets.only(top: 2.0, bottom: 2.0);
+  static const iconPadding = EdgeInsets.only(right: 20.0);
 
   const _SymptomColumn({Key? key}) : super(key: key);
 
@@ -100,27 +100,27 @@ class _SymptomColumn extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
+                  padding: const EdgeInsets.only(right: 25.0),
                   child: SvgPicture.asset(
                     StringValues.symptomColumnLegendAssets[0],
-                    width: 28.0,
-                    height: 28.0,
+                    width: 23.0,
+                    height: 23.0,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 11.0),
+                  padding: const EdgeInsets.only(right: 16.0, top: 2.0),
                   child: SvgPicture.asset(
                     StringValues.symptomColumnLegendAssets[1],
-                    width: 28.0,
-                    height: 28.0,
+                    width: 23.0,
+                    height: 23.0,
                   ),
                 ),
                 Padding(
                   padding: iconPadding,
                   child: SvgPicture.asset(
                     StringValues.symptomColumnLegendAssets[2],
-                    width: 28.0,
-                    height: 28.0,
+                    width: 23.0,
+                    height: 23.0,
                   ),
                 ),
               ],
@@ -152,17 +152,11 @@ class _SymptomColumnLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Row(
         children: [
-          Padding(
-            padding: _SymptomColumn.iconPadding,
-            child: SymptomsPage._rarityIcons[items[0]],
-          ),
-          Padding(
-            padding: _SymptomColumn.iconPadding,
-            child: SymptomsPage._rarityIcons[items[1]],
-          ),
-          Padding(
-            padding: _SymptomColumn.iconPadding,
-            child: SymptomsPage._rarityIcons[items[2]],
+          ...items.map(
+            (rarity) => Padding(
+              padding: _SymptomColumn.iconPadding,
+              child: SymptomsPage._rarityIcons[rarity],
+            ),
           ),
           Expanded(
             child: Text(

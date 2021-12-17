@@ -24,7 +24,7 @@ class PreventionPage extends StatelessWidget {
             ),
             softWrap: true,
           ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 15.0),
           ...StringValues.preventionData
               .map(
             (data) => [
@@ -35,8 +35,8 @@ class PreventionPage extends StatelessWidget {
                 title: data[1],
                 tip: data[2],
               ),
-              ...data != StringValues.preventionData.last
-                  ? [const Divider(height: 45.0)]
+              ...data[0] != StringValues.preventionData.last[0]
+                  ? [const Divider(height: 30.0)]
                   : [],
             ],
           )

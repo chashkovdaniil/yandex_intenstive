@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -13,6 +14,7 @@ class ItemTheme extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    EasyLocalization.of(context);
     final themeModeSharedPrefs = ref.watch(sharedPrefsProvider);
     return OnTapOpacityContainer(
       onTap: () {
@@ -38,12 +40,12 @@ class ItemTheme extends HookConsumerWidget {
                         );
                         themeModeSharedPrefs.setString(
                           SharedPreferencesNames.themeMode,
-                          ThemeMode.values.elementAt(index).name,
+                          ThemeMode.values.elementAt(index).name.tr(),
                         );
                         ref.watch(appNavigationManagerProvider).pop();
                       },
                       title: Text(
-                        ThemeMode.values.elementAt(index).name,
+                        ThemeMode.values.elementAt(index).name.tr(),
                       ),
                     );
                   },
@@ -55,7 +57,7 @@ class ItemTheme extends HookConsumerWidget {
         );
       },
       child: Text(
-        ThemeProvider.of(context).themeMode.name,
+        ThemeProvider.of(context).themeMode.name.tr(),
         style: TextStyles.titleSettingsScope.copyWith(
           color: Theme.of(context).colorScheme.onSurface,
         ),

@@ -1,10 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_donation_buttons/flutter_donation_buttons.dart';
 
-import '../../../../configs/navigator.dart';
-import '../../../../configs/shared_preferences_names.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../configs/theme_provider.dart';
 import '../../../general/on_tap_opacity.dart';

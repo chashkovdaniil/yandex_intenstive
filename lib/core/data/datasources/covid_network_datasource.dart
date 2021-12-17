@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:sprintf/sprintf.dart';
-import 'package:yandex_intensive/core/api/app_exceptions.dart';
+import '../../api/app_exceptions.dart';
 
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';

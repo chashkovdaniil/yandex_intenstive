@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
-import 'package:yandex_intensive/core/api/app_exceptions.dart';
-import '../../../configs/hive_settings.dart';
 
+import '../../../configs/hive_settings.dart';
+import '../../api/app_exceptions.dart';
 import '../../domain/entities/country_covid_entity.dart';
 import '../../domain/entities/covid_report.dart';
 import 'covid_datasource.dart';

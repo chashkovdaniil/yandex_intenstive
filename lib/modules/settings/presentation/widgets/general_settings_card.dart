@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
+import '../../../../configs/theme_provider.dart';
 
 class GeneralSettingsItemCard extends StatelessWidget {
   final Widget content;

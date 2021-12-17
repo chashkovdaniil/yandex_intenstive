@@ -1,4 +1,4 @@
-import 'package:yandex_intensive/core/api/app_exceptions.dart';
+import '../../../core/api/app_exceptions.dart';
 
 import '../../../core/domain/repositories/covid_repository.dart';
 import '../../../core/domain/usecases/base_usecase.dart';
@@ -68,7 +68,6 @@ class StatsTotal extends BaseUsecase<void> {
         fatalityRate: statsTotalByDate.fatalityRate,
       );
     } on AppExceptions catch (err) {
-      print("USECASE APPEXCEPTION: $err");
       switch (err) {
         case AppExceptions.requestCancelled:
           manager.failed('Request cancelled');
@@ -101,8 +100,7 @@ class StatsTotal extends BaseUsecase<void> {
           manager.failed();
           break;
       }
-    } catch (err, s) {
-      print("USECAE CATCH: $err $s");
+    } catch (err) {
       manager.failed();
     }
   }

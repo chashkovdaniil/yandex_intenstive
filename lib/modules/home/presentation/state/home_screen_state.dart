@@ -40,7 +40,6 @@ class HomeScreenManager extends StateNotifier<HomeScreenState> {
         );
 
   failed([String? msg]) {
-    print("ERR $msg");
     state = state.copyWith(
       status: HomeScreenStateStatus.failed(msg ?? 'Unexpected error'),
     );

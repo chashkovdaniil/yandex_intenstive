@@ -91,60 +91,60 @@ class AppTheme {
 
   static const educationHeader1 = TextStyle(
     color: AppColors.educationBlackHeader,
-    fontSize: 24.0,
+    fontSize: 22.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationSubtitle = TextStyle(
     color: AppColors.black,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationSubtitleLight = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w300,
   );
 
   static const educationSubtitleInternalBold = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w700,
   );
 
   static const educationSubtitleWhite = TextStyle(
     color: AppColors.white,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w300,
   );
 
   static const educationSubtitleBold = TextStyle(
     color: AppColors.educationBlackSubtitle,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationSmall = TextStyle(
     color: AppColors.black,
-    fontSize: 16.0,
+    fontSize: 14.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationSmallLight = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 16.0,
+    fontSize: 14.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationWarning = TextStyle(
     color: AppColors.educationBlackHeader,
-    fontSize: 24.0,
+    fontSize: 22.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationWarningRed = TextStyle(
-    fontSize: 24.0,
+    fontSize: 22.0,
     color: AppColors.primary,
     fontWeight: FontWeight.w600,
   );
@@ -153,6 +153,33 @@ class AppTheme {
     backgroundColor: MaterialStateProperty.all<Color>(
       AppColors.primary,
     ),
+  );
+
+  static const splashScreenTitleTextStyle = TextStyle(
+    fontSize: 40,
+    color: AppColors.primary,
+    fontWeight: FontWeight.w600,
+  );
+  static const splashScreenBottomTextStyle = TextStyle(
+    fontSize: 15,
+    color: Colors.black,
+    fontWeight: FontWeight.w300,
+  );
+  static const buttonTextStyle = TextStyle(
+    fontSize: 12,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+  );
+  static const titleTextStyle = TextStyle(
+    color: AppColors.onboaringTitle,
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+  );
+  static const descriptionTextStyle = TextStyle(
+    color: AppColors.onboardingDescription,
+    fontSize: 16,
+    letterSpacing: 0.5,
+    fontWeight: FontWeight.w300,
   );
 
   static ThemeMode themeModeFromStr(String mode) {

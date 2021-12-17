@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../core/styles/app_theme.dart';
 
-import '../../configs/text_styles.dart';
 import '../../generated/codegen_loader.g.dart';
 import 'button.dart';
 
@@ -20,7 +20,9 @@ class OnboardingLeftButton extends StatelessWidget {
       onTap: onPressed,
       child: Text(
         LocaleKeys.onBoardingSkipText.tr(),
-        style: TextStyles.buttonTextStyle,
+        style: AppTheme.buttonTextStyle.copyWith(
+          color: Theme.of(context).colorScheme.onSurface,
+        ),
       ),
     );
   }

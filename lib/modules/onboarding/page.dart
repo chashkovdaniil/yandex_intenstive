@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../configs/text_styles.dart';
+import '../../core/styles/app_theme.dart';
 
 class OnboardingPage extends StatelessWidget {
   final Image image;
@@ -30,7 +31,9 @@ class OnboardingPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 47),
             child: Text(
               title,
-              style: TextStyles.titleTextStyle,
+              style: AppTheme.titleTextStyle.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
         ),

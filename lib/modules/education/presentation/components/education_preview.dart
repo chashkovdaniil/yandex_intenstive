@@ -12,7 +12,7 @@ class EducationPreview extends StatelessWidget {
         children: [
           Text(
             EasyLocalization.of(context).toString() == ''
-                ? ''
+                ? LocaleKeys.educationPreviewHeader.tr()
                 : LocaleKeys.educationPreviewHeader.tr(),
             style: AppTheme.educationHeader1.copyWith(
               color: Theme.of(context).colorScheme.onSurface,

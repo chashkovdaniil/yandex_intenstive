@@ -1,15 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yandex_intensive/configs/colors.dart';
 import 'package:yandex_intensive/configs/providers.dart';
 
+import '../../../../generated/codegen_loader.g.dart';
 import '../state/map_screen_state.dart';
 import '../state/map_screen_success_state.dart';
 
 final _mapScreenProvider =
-    StateNotifierProvider<MapScreenManager, MapScreenState>(
-  (ref) => ref.watch(mapScreenStateManagerProvider),
+StateNotifierProvider<MapScreenManager, MapScreenState>(
+      (ref) => ref.watch(mapScreenStateManagerProvider),
 );
 
 class MapScreen extends HookConsumerWidget {
@@ -17,6 +19,7 @@ class MapScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    EasyLocalization.of(context);
     final state = ref.watch(_mapScreenProvider);
 
     useEffect(
@@ -42,13 +45,13 @@ class MapScreen extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text('Error'),
+                child: Text(LocaleKeys.mapScreenError.tr()),
               ),
               ElevatedButton(
                 onPressed: () {
                   ref.read(statsUsecaseProviderMap).call();
                 },
-                child: Text('Refresh'),
+                child: Text(LocaleKeys.mapScreenRefresh.tr()),
               )
             ],
           ),

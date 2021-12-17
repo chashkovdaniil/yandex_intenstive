@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yandex_intensive/modules/general/app_bar.dart';
@@ -9,6 +10,7 @@ import 'package:yandex_intensive/modules/map/presentation/widgets/top_list.dart'
 
 import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
+import '../../../../generated/codegen_loader.g.dart';
 
 class MapScreenSuccessData {
   final Map<String, CountryCovid> countriesStats;
@@ -28,6 +30,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    EasyLocalization.of(context);
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus,
@@ -37,7 +40,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
             children: [
               CustomAppBar(
                 showBackButton: false,
-                title: 'Title',
+                title: LocaleKeys.mapTitle.tr(),
               ),
               Expanded(
                 child: CustomScrollView(
@@ -49,7 +52,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 410,
-                        title: 'map areas',
+                        title: LocaleKeys.mapAreas.tr(),
                         content: MapChart(MockData.mapData),
                       ),
                     ),
@@ -59,7 +62,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 406,
-                        title: 'top',
+                        title: LocaleKeys.mapTop.tr(),
                         content: TopList(
                           List<CountryCovid>.from(
                             data.countriesStats.values,

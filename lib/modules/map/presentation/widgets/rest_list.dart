@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
+import '../../../../generated/codegen_loader.g.dart';
 import 'rest_country_card.dart';
 
 class RestList extends StatelessWidget {
@@ -13,6 +15,7 @@ class RestList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context);
     countriesCovid.sort(
       (a, b) => b.covidReport.confirmed.compareTo(a.covidReport.confirmed),
     );
@@ -25,7 +28,7 @@ class RestList extends StatelessWidget {
               top: 10,
               left: 12,
             ),
-            child: Text('reset', style: TextStyles.titleMap),
+            child: Text(LocaleKeys.mapRest.tr(), style: TextStyles.titleMap),
           ),
         ),
         const SizedBox(
@@ -36,7 +39,7 @@ class RestList extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                'rest',
+                LocaleKeys.mapRest.tr(),
                 textAlign: TextAlign.start,
                 style: TextStyles.infoCountry,
               ),
@@ -58,10 +61,10 @@ class RestList extends StatelessWidget {
       countryTitle: countriesCovid.elementAt(index).country.name,
       deathValue: countriesCovid.elementAt(index).covidReport.deaths.toString(),
       affectedValue:
-          countriesCovid.elementAt(index).covidReport.confirmed.toString(),
+      countriesCovid.elementAt(index).covidReport.confirmed.toString(),
       image: isoAlpha3Map[
-                  countriesCovid.elementAt(index).country.code.toUpperCase()]
-              ?.toLowerCase() ??
+      countriesCovid.elementAt(index).country.code.toUpperCase()]
+          ?.toLowerCase() ??
           'fr',
     );
   }

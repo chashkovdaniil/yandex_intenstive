@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/theme_provider.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
 import '../../../general/navigation_views.dart';
 
@@ -14,24 +16,30 @@ class CountryDetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: EasyLocalization.of(context).toString() == ''
+            ? const EdgeInsets.symmetric(horizontal: 12)
+            : const EdgeInsets.symmetric(horizontal: 12),
         child: Container(
           width: double.infinity,
           height: 240,
           decoration: BoxDecoration(
-            color: AppColors.white,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: AppColors.grey.withOpacity(0.6),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
-                spreadRadius: 5,
-                blurRadius: 3,
-                offset: const Offset(0.0, 0.9),
-              ),
-            ],
+            border: ThemeProvider.of(context).isDarkTheme
+                ? null
+                : Border.all(
+                    color: AppColors.grey.withOpacity(0.6),
+                  ),
+            boxShadow: ThemeProvider.of(context).isDarkTheme
+                ? null
+                : [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 3,
+                      offset: const Offset(0.0, 0.9),
+                    ),
+                  ],
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
@@ -61,7 +69,9 @@ class CountryDetailsCard extends StatelessWidget {
                           // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
                           'China',
                           textAlign: TextAlign.start,
-                          style: TextStyles.titleCountryDetails,
+                          style: TextStyles.titleCountryDetails.copyWith(
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
                         ),
                       ),
                     ),
@@ -78,12 +88,12 @@ class CountryDetailsCard extends StatelessWidget {
                           ),
                           onPressed: () => showAlertDialog(
                             context: context,
-                            title: StringValues.countryDetailsAlertTitle,
-                            content: StringValues.countryDetailsAlertContent,
+                            title: LocaleKeys.countryDetailsAlertTitle.tr(),
+                            content: LocaleKeys.countryDetailsAlertContent.tr(),
                             cancelActionText:
-                                StringValues.countryDetailsAlertCancel,
+                                LocaleKeys.countryDetailsAlertCancel.tr(),
                             defaultActionText:
-                                StringValues.countryDetailsAlertDefault,
+                                LocaleKeys.countryDetailsAlertDefault.tr(),
                           ),
                         ),
                       ),
@@ -97,7 +107,6 @@ class CountryDetailsCard extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: AppColors.white,
                     border: Border(
                       bottom: BorderSide(
                         color: AppColors.grey.withOpacity(0.3),
@@ -127,7 +136,8 @@ class CountryDetailsCard extends StatelessWidget {
                             child: Text(
                               // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
                               '1,478' +
-                                  StringValues.countryStatisticsInfectedCases,
+                                  LocaleKeys.countryStatisticsInfectedCases
+                                      .tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -137,12 +147,9 @@ class CountryDetailsCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 68,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
                   child: Column(
                     children: [
                       Padding(
@@ -163,7 +170,8 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '550' + StringValues.countryStatisticsDeathCases,
+                              '550' +
+                                  LocaleKeys.countryStatisticsDeathCases.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

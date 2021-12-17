@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../helpers/model.dart';
 
 class MapChart extends StatelessWidget {
@@ -14,8 +15,8 @@ class MapChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: EasyLocalization.of(context).toString() == '' ? 20 : 20,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8, bottom: 16),
@@ -40,7 +41,10 @@ class MapChart extends StatelessWidget {
                 width: 12,
               ),
               Text(
-                StringValues.mapAreasMost,
+                LocaleKeys.mapAreasMost.tr(),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
               ),
               const SizedBox(
                 width: 20,
@@ -64,14 +68,17 @@ class MapChart extends StatelessWidget {
                 width: 12,
               ),
               Text(
-                StringValues.mapAreasLess,
+                LocaleKeys.mapAreasLess.tr(),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
               ),
             ],
           ),
         ),
         Container(
           decoration: BoxDecoration(
-            color: AppColors.white,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: AppColors.grey.withOpacity(0.3),
@@ -90,6 +97,10 @@ class MapChart extends StatelessWidget {
             child: SfMaps(
               layers: [
                 MapShapeLayer(
+                  strokeColor: Theme.of(context).colorScheme.brightness ==
+                          Brightness.dark
+                      ? Theme.of(context).colorScheme.onSurface
+                      : null,
                   source: MapShapeSource.asset(
                     'assets/world_map.json',
                     shapeDataField: 'name',
@@ -102,6 +113,12 @@ class MapChart extends StatelessWidget {
                         from: -1,
                         to: 100,
                         color: AppColors.affected1,
+                        // selectionSettings: MapSelectionSettings(
+                        //   color: Theme.of(context).colorScheme.surface,
+                        // ),
+                        // tooltipSettings: MapTooltipSettings(
+                        //   color: Theme.of(context).colorScheme.surface,
+                        // ),
                       ),
                       const MapColorMapper(
                         from: 101,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -5,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../configs/colors.dart';
 import '../../configs/constants.dart';
 import '../../configs/providers.dart';
+import '../../generated/codegen_loader.g.dart';
 import 'left_button.dart';
 import 'page.dart';
 import 'page_point.dart';
@@ -18,14 +20,14 @@ class Onboarding extends HookConsumerWidget {
     Assets.onboardingImage3,
   ];
   final _titles = [
-    StringValues.onboardingTitle1,
-    StringValues.onboardingTitle2,
-    StringValues.onboardingTitle3,
+    LocaleKeys.onboardingTitle1.tr(),
+    LocaleKeys.onboardingTitle2.tr(),
+    LocaleKeys.onboardingTitle3.tr(),
   ];
   final _descriptions = [
-    StringValues.onboardingDescription1,
-    StringValues.onboardingDescription2,
-    StringValues.onboardingDescription3,
+    LocaleKeys.onboardingDescription1.tr(),
+    LocaleKeys.onboardingDescription2.tr(),
+    LocaleKeys.onboardingDescription3.tr(),
   ];
 
   Onboarding({Key? key}) : super(key: key);
@@ -33,18 +35,12 @@ class Onboarding extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _pageController = useMemoized(
-      () {
+          () {
         return PageController();
       },
       const [],
     );
 
-    useEffect(
-      () {
-        ref.read(onboardingUseCaseProvider).init();
-      },
-      const [],
-    );
     final _currentPage = useState(0);
 
     void _changePage(int index, BuildContext context, WidgetRef ref) {

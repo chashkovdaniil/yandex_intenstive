@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yandex_intensive/configs/colors.dart';
 import 'package:yandex_intensive/configs/providers.dart';
 
-import '../../../../configs/constants.dart';
 import '../state/map_screen_state.dart';
 import '../state/map_screen_success_state.dart';
 
@@ -43,13 +42,13 @@ class MapScreen extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text(StringValues.mapScreenError),
+                child: Text('Error'),
               ),
               ElevatedButton(
                 onPressed: () {
                   ref.read(statsUsecaseProviderMap).call();
                 },
-                child: Text(StringValues.mapScreenRefresh),
+                child: Text('Refresh'),
               )
             ],
           ),

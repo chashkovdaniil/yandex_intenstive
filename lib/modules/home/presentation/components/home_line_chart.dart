@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../../general/functions.dart';
 import 'animation_numbers_text.dart';
 
 class HomeLineChart extends StatefulWidget {
@@ -84,6 +85,9 @@ class _HomeLineChartState extends State<HomeLineChart> {
         ),
         lineTouchData: LineTouchData(
           enabled: true,
+          touchTooltipData: LineTouchTooltipData(
+            tooltipBgColor: Theme.of(context).colorScheme.surface,
+          ),
         ),
         lineBarsData: [
           LineChartBarData(
@@ -126,6 +130,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
             widget.title,
             style: Theme.of(context).textTheme.headline5?.copyWith(
                   color: const Color(0xff999999),
+                  fontSize: 22.0,
                 ),
           ),
           const SizedBox(height: 10),
@@ -134,9 +139,11 @@ class _HomeLineChartState extends State<HomeLineChart> {
             to: widget.value.toDouble(),
             duration: widget.duration,
             textStyle: Theme.of(context).textTheme.headline5?.copyWith(
-                  color: const Color(0xff151522),
+                  // color: const Color(0xff151522),
                   fontWeight: FontWeight.bold,
+                  fontSize: 23.0,
                 ),
+            translator: (value) => beautifyNumber(value.round()),
           ),
           Expanded(
             child: LineChart(

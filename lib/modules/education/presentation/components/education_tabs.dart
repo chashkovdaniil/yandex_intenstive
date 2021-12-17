@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/colors.dart';
@@ -38,6 +39,7 @@ class _EducationTabsState extends State<EducationTabs>
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context).toString();
     var scaffold = Scaffold(
       appBar: AppBar(
         toolbarHeight: 0.0,
@@ -54,9 +56,10 @@ class _EducationTabsState extends State<EducationTabs>
               ),
               TabBar(
                 controller: _controller,
-                labelStyle: AppTheme.educationSmall,
-                labelColor: AppTheme.educationSmall.color,
-                unselectedLabelColor: AppTheme.educationSmallLight.color,
+                labelStyle: AppTheme.educationSmall.copyWith(fontSize: 17.0),
+                labelColor: Theme.of(context).colorScheme.onSurface,
+                unselectedLabelColor:
+                    Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
                 indicatorColor: AppColors.green,
                 indicatorWeight: 5.0,
                 tabs: StringValues.educationPageTitles

@@ -1,10 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:yandex_intensive/configs/theme_provider.dart';
 
+import '../../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/navigation_views.dart';
 import '../../../general/on_tap_opacity.dart';
@@ -33,7 +35,9 @@ class TopCountryCard extends StatefulWidget {
 class _TopCountryCardState extends State<TopCountryCard> {
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(top: 20, bottom: 16),
+        padding: EasyLocalization.of(context).toString() == ''
+            ? const EdgeInsets.only(top: 20, bottom: 16)
+            : const EdgeInsets.only(top: 20, bottom: 16),
         child: OnTapOpacityContainer(
           onTap: () =>
               Navigator.of(context).pushNamed(AppRoutes.countryDetails),
@@ -74,13 +78,15 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             child: Text(
                               widget.countryTitle,
                               textAlign: TextAlign.start,
-                              style: TextStyles.titleCountry,
+                              style: TextStyles.titleCountry.copyWith(
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              StringValues.mapTopAffected +
+                              LocaleKeys.mapTopAffected.tr() +
                                   widget.affectedValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
@@ -90,7 +96,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             padding:
                                 const EdgeInsets.only(left: 12, bottom: 4.0),
                             child: Text(
-                              StringValues.mapTopRecovered +
+                              LocaleKeys.mapTopRecovered.tr() +
                                   widget.recoveredValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
@@ -110,11 +116,12 @@ class _TopCountryCardState extends State<TopCountryCard> {
                     //TODO: what this button is for lmao ??
                     onTap: () => showAlertDialog(
                       context: context,
-                      title: StringValues.countryDetailsAlertTitle,
-                      content: StringValues.countryDetailsAlertContent,
-                      cancelActionText: StringValues.countryDetailsAlertCancel,
+                      title: LocaleKeys.countryDetailsAlertTitle.tr(),
+                      content: LocaleKeys.countryDetailsAlertContent.tr(),
+                      cancelActionText:
+                          LocaleKeys.countryDetailsAlertCancel.tr(),
                       defaultActionText:
-                          StringValues.countryDetailsAlertDefault,
+                          LocaleKeys.countryDetailsAlertDefault.tr(),
                     ),
                     child: IconButton(
                       icon: const Icon(
@@ -124,27 +131,28 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       ),
                       onPressed: () => showAlertDialog(
                         context: context,
-                        title: StringValues.countryDetailsAlertTitle,
-                        content: StringValues.countryDetailsAlertContent,
+                        title: LocaleKeys.countryDetailsAlertTitle.tr(),
+                        content: LocaleKeys.countryDetailsAlertContent.tr(),
                         cancelActionText:
-                            StringValues.countryDetailsAlertCancel,
+                            LocaleKeys.countryDetailsAlertCancel.tr(),
                         defaultActionText:
-                            StringValues.countryDetailsAlertDefault,
+                            LocaleKeys.countryDetailsAlertDefault.tr(),
                       ),
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 42),
-                child: SizedBox(
-                  width: 400,
-                  height: 40,
-                  child: CustomPaint(
-                    painter: CurvePainter(),
+              if (!ThemeProvider.of(context).isDarkTheme)
+                Padding(
+                  padding: const EdgeInsets.only(top: 42),
+                  child: SizedBox(
+                    width: 400,
+                    height: 40,
+                    child: CustomPaint(
+                      painter: CurvePainter(),
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

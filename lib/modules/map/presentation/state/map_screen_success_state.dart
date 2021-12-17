@@ -37,7 +37,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
             children: [
               CustomAppBar(
                 showBackButton: false,
-                title: StringValues.mapTitle,
+                title: 'Title',
               ),
               Expanded(
                 child: CustomScrollView(
@@ -49,7 +49,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 410,
-                        title: StringValues.mapAreas,
+                        title: 'map areas',
                         content: MapChart(MockData.mapData),
                       ),
                     ),
@@ -59,7 +59,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                     SliverToBoxAdapter(
                       child: MapScreenCard(
                         height: 406,
-                        title: StringValues.mapTop,
+                        title: 'top',
                         content: TopList(
                           List<CountryCovid>.from(
                             data.countriesStats.values,

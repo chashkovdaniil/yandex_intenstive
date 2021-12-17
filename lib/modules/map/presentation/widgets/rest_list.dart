@@ -25,7 +25,7 @@ class RestList extends StatelessWidget {
               top: 10,
               left: 12,
             ),
-            child: Text(StringValues.mapRest, style: TextStyles.titleMap),
+            child: Text('reset', style: TextStyles.titleMap),
           ),
         ),
         const SizedBox(
@@ -36,7 +36,7 @@ class RestList extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                StringValues.mapRest,
+                'rest',
                 textAlign: TextAlign.start,
                 style: TextStyles.infoCountry,
               ),

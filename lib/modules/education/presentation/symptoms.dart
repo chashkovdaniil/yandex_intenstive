@@ -1,58 +1,58 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
-
+import '../../../generated/codegen_loader.g.dart';
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
 
 class SymptomsPage extends StatelessWidget {
   static final _rarityIcons = StringValues.symptomColumnAssets.map(
-    (key, asset) => MapEntry(
+        (key, asset) => MapEntry(
       key,
-      Image.asset(
+      SvgPicture.asset(
         asset,
-        width: 35.0,
-        height: 35.0,
+        width: 30.0,
+        height: 30.0,
       ),
     ),
   );
-
-  static final _diseaseLegend = StringValues.diseaseLegendData
-      .map(
-        (item) => NamedIconData(
-          item[0],
-          Image.asset(
-            item[1],
-            width: 35.0,
-            height: 35.0,
-          ),
-        ),
-      )
-      .toList();
-
-  static final _rarityLegend = StringValues.symptomRarityLegendData
-      .map((item) => NamedIconData(item[0], _rarityIcons[item[1]]!))
-      .toList();
 
   const SymptomsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: EasyLocalization.of(context).toString() == ''
+            ? CrossAxisAlignment.start
+            : CrossAxisAlignment.start,
         children: [
-          const Text(
-            StringValues.symptomsHeader,
-            style: AppTheme.educationHeader1,
+          Text(
+            LocaleKeys.symptomsHeader.tr(),
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
           ),
           const SizedBox(height: 20.0),
-          const Text(
-            StringValues.symptomsSubtitle,
+          Text(
+            LocaleKeys.symptomsSubtitle.tr(),
             style: AppTheme.educationSubtitleLight,
           ),
           const SizedBox(height: 10.0),
           NamedIconTray(
-            _diseaseLegend,
+            StringValues.diseaseLegendData
+                .map(
+                  (item) => NamedIconData(
+                    item[0],
+                    SvgPicture.asset(
+                      item[1],
+                      width: 35.0,
+                      height: 35.0,
+                    ),
+                  ),
+                )
+                .toList(),
             const NamedIconConfig(
               style: AppTheme.educationSubtitleBold,
               textPadding: EdgeInsets.only(top: 8.0),
@@ -61,13 +61,15 @@ class SymptomsPage extends StatelessWidget {
           const SizedBox(height: 30.0),
           const _SymptomColumn(),
           const SizedBox(height: 30.0),
-          const Text(
-            StringValues.symptomsLegendSubtitle,
+          Text(
+            LocaleKeys.symptomsLegendSubtitle.tr(),
             style: AppTheme.educationSubtitle,
           ),
           const SizedBox(height: 10.0),
           NamedIconTray(
-            _rarityLegend,
+            StringValues.symptomRarityLegendData
+                .map((item) => NamedIconData(item[0], _rarityIcons[item[1]]!))
+                .toList(),
             const NamedIconConfig(
               style: AppTheme.educationSmallLight,
               textPadding: EdgeInsets.only(top: 2.0),
@@ -83,7 +85,7 @@ class SymptomsPage extends StatelessWidget {
  */
 class _SymptomColumn extends StatelessWidget {
   static const linePadding = EdgeInsets.only(top: 3.0, bottom: 3.0);
-  static const iconPadding = EdgeInsets.only(right: 8.0);
+  static const iconPadding = EdgeInsets.only(right: 15.0);
 
   const _SymptomColumn({Key? key}) : super(key: key);
 
@@ -91,30 +93,48 @@ class _SymptomColumn extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Padding(
-            padding: linePadding,
+            padding: EasyLocalization.of(context).toString() == ''
+                ? linePadding
+                : linePadding,
             child: Row(
-              children: StringValues.symptomColumnLegendAssets
-                  .map(
-                    (item) => Padding(
-                      padding: iconPadding,
-                      child: Image.asset(
-                        item,
-                        width: 35.0,
-                        height: 35.0,
-                      ),
-                    ),
-                  )
-                  .toList(),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: SvgPicture.asset(
+                    StringValues.symptomColumnLegendAssets[0],
+                    width: 28.0,
+                    height: 28.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 11.0),
+                  child: SvgPicture.asset(
+                    StringValues.symptomColumnLegendAssets[1],
+                    width: 28.0,
+                    height: 28.0,
+                  ),
+                ),
+                Padding(
+                  padding: iconPadding,
+                  child: SvgPicture.asset(
+                    StringValues.symptomColumnLegendAssets[2],
+                    width: 28.0,
+                    height: 28.0,
+                  ),
+                ),
+              ],
             ),
           ),
           ...StringValues.symptomColumnData
-              .map((item) => [
-                    const Divider(),
-                    Padding(
-                      padding: linePadding,
-                      child: _SymptomColumnLine(item),
-                    ),
-                  ])
+              .map(
+            (item) => [
+              const Divider(),
+              Padding(
+                padding: linePadding,
+                child: _SymptomColumnLine(item),
+              ),
+            ],
+          )
               .reduce((a, b) {
             a.addAll(b);
             return a;

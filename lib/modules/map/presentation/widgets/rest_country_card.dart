@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../general/on_tap_opacity.dart';
 
@@ -76,13 +75,12 @@ class _RestCountryCardState extends State<RestCountryCard> {
                         padding: const EdgeInsets.only(left: 12),
                         child: SizedBox(
                           child: Text(
-                            widget.deathValue +
-                                StringValues.countryStatisticsDeathCases,
-                            textAlign: TextAlign.start,
-                            style: TextStyles.infoCountry,
-                            softWrap: true,
-                          ),
+                          widget.deathValue + 'death cases',
+                          textAlign: TextAlign.start,
+                          style: TextStyles.infoCountry,
+                          softWrap: true,
                         ),
+                      ),
                       ),
                     ],
                   ),

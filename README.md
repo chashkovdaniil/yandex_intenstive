@@ -5,31 +5,36 @@
 - Covid API: https://covid-api.com/api/<br>
 - Covid UI: https://www.figma.com/file/UmTL67Z9IPDA3Y6HSXJGUA/Untitled?node-id=0%3A1<br>
 - State managment & DI: https://riverpod.dev/<br>
-- For network models: <a href="https://pub.dev/packages/freezed">Freezed</a> + <a href="https://pub.dev/packages/json_serializable">JsonSerializable</a>
+- For network models: <a href="https://pub.dev/packages/freezed">Freezed</a>
+  + <a href="https://pub.dev/packages/json_serializable">JsonSerializable</a>
+- Local storage: <a href="https://pub.dev/packages/hive">Hive</a>
 
 ## Requirements
+
 <ul>
   <li>Красивый дизайн</li>
-  <li>2+ экрана, навигация 1.0</li>
-  <li>Использование списка</li>
-  <li>Использование API</li>
-  <li>Хранение данных локально</li>
+  <li><strike>2+ экрана, навигация 1.0</strike></li>
+  <li><strike>Использование списка</strike></li>
+  <li><strike>Использование API</strike></li>
+  <li><strike>Хранение данных локально</strike></li>
   <li>Стабильность работы</li>
-  <li>Ввод текста</li>
-  <li>Какие-то анимации</li>
+  <li><strike>Ввод текста</strike></li>
+  <li><strike>Какие-то анимации</strike></li>
   <li>Без просадок fps</li>
-  <li>Темная тема</li>
+  <li><strike>Темная тема</strike></li>
 </ul>
 
 ## Todos
-- [ ] Просмотр общей статистики
+
+- [x] Локализация
+- [x] Просмотр общей статистики
 - [ ] Просмотр статистики по странам
   ### Статистика:
-    - [ ] заболевших,
-    - [ ] активных,
-    - [ ] выздоровевших,
-    - [ ] умерших,
-    - [ ] процент вакцинированных,
-    - [ ] смертность
+  - [x] заболевших,
+  - [x] активных,
+  - [x] выздоровевших,
+  - [x] умерших,
+  - [ ] процент вакцинированных,
+  - [x] смертность
 - [ ] Просмотр ежедневной статистики, можно по странам
-- [ ] Кэширование, чтобы можно было посмотреть оффлайн
+- [x] Кэширование, чтобы можно было посмотреть оффлайн

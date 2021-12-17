@@ -28,14 +28,6 @@ class AppNavigationManager {
     );
   }
 
-  // Future<void>? openOnboarding() => _navigator?.pushReplacementNamed(
-  //       AppRoutes.onboarding,
-  //     );
-
-  // Future<Object?>? openCharts() => _navigator?.pushNamed(
-  //       AppRoutes.charts,
-  //     );
-
   pushReplacementAndRemoveUntil(String uri, {Object? arguments}) {
     Navigator.pushNamedAndRemoveUntil(
       key.currentContext!,

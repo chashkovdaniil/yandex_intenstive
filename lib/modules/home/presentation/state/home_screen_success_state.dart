@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/navigator.dart';
 
+import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
-import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../search/presentation/widgets/search_field.dart';
 import '../components/home_card.dart';
@@ -49,95 +51,108 @@ class HomeScreenSuccessState extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     final isHorizontalOrientation =
         MediaQuery.of(context).orientation == Orientation.landscape;
+    EasyLocalization.of(context);
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           body: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(0.0),
             child: CustomScrollView(
               clipBehavior: Clip.none,
               controller: ScrollController(),
               physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
-                  backgroundColor: Colors.white,
                   elevation: 0,
                   floating: true,
-                  flexibleSpace: GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.searchScreenRoute);
-                    },
-                    child: const SearchField(enabled: false),
+                  backgroundColor: Colors.transparent,
+                  flexibleSpace: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 12.0,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        ref.watch(appNavigationManagerProvider).push(
+                              AppRoutes.searchScreenRoute,
+                            );
+                      },
+                      child: const SearchField(enabled: false),
+                    ),
                   ),
                 ),
                 const SliverToBoxAdapter(
                   child: SizedBox(height: 10),
                 ),
-                SliverGrid.count(
-                  crossAxisCount: isHorizontalOrientation ? 4 : 2,
-                  mainAxisSpacing: 30,
-                  crossAxisSpacing: 25,
-                  childAspectRatio: 0.8,
-                  children: [
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: StringValues.homeScreenConfirmed,
-                        value: data.confirmed,
-                        colors: const [AppColors.orange],
-                        spots: data.confirmedSpots,
-                        showAnimation: true,
+                SliverPadding(
+                  padding: const EdgeInsets.all(12),
+                  sliver: SliverGrid.count(
+                    crossAxisCount: isHorizontalOrientation ? 4 : 2,
+                    mainAxisSpacing: 30,
+                    crossAxisSpacing: 25,
+                    childAspectRatio: 0.8,
+                    children: [
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenConfirmed.tr(),
+                          value: data.confirmed,
+                          colors: const [AppColors.orange],
+                          spots: data.confirmedSpots,
+                          showAnimation: true,
+                        ),
                       ),
-                    ),
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: StringValues.homeScreenRecovered,
-                        value: data.recovered,
-                        colors: const [AppColors.green],
-                        showAnimation: true,
-                        spots: data.recoveredSpots,
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenRecovered.tr(),
+                          value: data.recovered,
+                          colors: const [AppColors.green],
+                          showAnimation: true,
+                          spots: data.recoveredSpots,
+                        ),
                       ),
-                    ),
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: StringValues.homeScreenDeaths,
-                        value: data.deaths,
-                        colors: const [AppColors.red],
-                        showAnimation: true,
-                        spots: data.deathsSpots,
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenDeaths.tr(),
+                          value: data.deaths,
+                          colors: const [AppColors.red],
+                          showAnimation: true,
+                          spots: data.deathsSpots,
+                        ),
                       ),
-                    ),
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: StringValues.homeScreenActive,
-                        value: data.active,
-                        colors: const [AppColors.red],
-                        showAnimation: true,
-                        spots: data.deathsSpots,
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenActive.tr(),
+                          value: data.active,
+                          colors: const [AppColors.red],
+                          showAnimation: true,
+                          spots: data.deathsSpots,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const SliverToBoxAdapter(
-                  child: SizedBox(height: 25),
-                ),
-                SliverToBoxAdapter(
-                  child: HomeCard(
-                    child: RatioRecoveryChart(
-                      deaths: data.deaths,
-                      recovered: data.recovered,
-                      confirmed: data.confirmed,
+                SliverPadding(
+                  padding: const EdgeInsets.all(12),
+                  sliver: SliverToBoxAdapter(
+                    child: HomeCard(
+                      child: RatioRecoveryChart(
+                        active: data.active,
+                        deaths: data.deaths,
+                        recovered: data.recovered,
+                        confirmed: data.confirmed,
+                      ),
                     ),
                   ),
                 ),
-                const SliverToBoxAdapter(
-                  child: SizedBox(height: 25),
-                ),
-                SliverToBoxAdapter(
-                  child: HomeCard(
-                    child: ListCountriesConfirmed(
-                      countriesCovid: List<CountryCovid>.from(
-                        data.countriesStats.values,
+                SliverPadding(
+                  padding: const EdgeInsets.all(12),
+                  sliver: SliverToBoxAdapter(
+                    child: HomeCard(
+                      child: ListCountriesConfirmed(
+                        countriesCovid: List<CountryCovid>.from(
+                          data.countriesStats.values,
+                        ),
                       ),
                     ),
                   ),

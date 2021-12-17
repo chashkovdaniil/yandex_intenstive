@@ -8,6 +8,7 @@ class AnimatedNumbersText extends StatelessWidget {
   final int fractionDigits;
   final Curve curve;
   final TextStyle? textStyle;
+  final Function? translator; // (double) -> String
 
   const AnimatedNumbersText({
     Key? key,
@@ -18,6 +19,7 @@ class AnimatedNumbersText extends StatelessWidget {
     required this.to,
     this.fractionDigits = 0,
     this.textStyle,
+    this.translator,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class AnimatedNumbersText extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       builder: (context, value, child) {
         return Text(
-          value.toStringAsFixed(fractionDigits) + additionText,
+          translator?.call(value) ?? value.toStringAsFixed(fractionDigits),
           style: textStyle ?? Theme.of(context).textTheme.headline6,
         );
       },

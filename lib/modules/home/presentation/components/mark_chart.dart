@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../general/functions.dart';
+
 class MarkChart extends StatelessWidget {
   final Color color;
   final String title;
@@ -27,7 +29,7 @@ class MarkChart extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Text('$value'),
+            Text(beautifyNumber(value)),
           ],
         ),
         const SizedBox(height: 5),

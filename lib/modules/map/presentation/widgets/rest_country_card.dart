@@ -9,19 +9,15 @@ import '../../../general/on_tap_opacity.dart';
 
 class RestCountryCard extends StatefulWidget {
   final String countryTitle;
+  final String deathValue;
   final String affectedValue;
-  final String recoveredValue;
-  final double countryProgress;
-  final Color countryProgressColor;
   final String image;
 
   const RestCountryCard({
     Key? key,
     required this.countryTitle,
+    required this.deathValue,
     required this.affectedValue,
-    required this.recoveredValue,
-    required this.countryProgress,
-    required this.countryProgressColor,
     required this.image,
   }) : super(key: key);
 
@@ -80,7 +76,8 @@ class _RestCountryCardState extends State<RestCountryCard> {
                       padding: const EdgeInsets.only(left: 12),
                       child: SizedBox(
                         child: Text(
-                          '562' + StringValues.countryStatisticsDeathCases,
+                          widget.deathValue +
+                              StringValues.countryStatisticsDeathCases,
                           textAlign: TextAlign.start,
                           style: TextStyles.infoCountry,
                           softWrap: true,
@@ -91,12 +88,12 @@ class _RestCountryCardState extends State<RestCountryCard> {
                 ),
               ),
               const Spacer(),
-              const Align(
+              Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 24, right: 4),
+                  padding: const EdgeInsets.only(top: 24, right: 4),
                   child: Text(
-                    '14,459',
+                    widget.affectedValue,
                     textAlign: TextAlign.start,
                   ),
                 ),

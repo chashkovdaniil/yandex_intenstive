@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../configs/colors.dart';
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
@@ -42,12 +41,9 @@ class RestList extends StatelessWidget {
   Widget _itemBuilder(BuildContext context, int index) {
     return RestCountryCard(
       countryTitle: countriesCovid.elementAt(index).country.name,
+      deathValue: countriesCovid.elementAt(index).covidReport.deaths.toString(),
       affectedValue:
-          countriesCovid.elementAt(index).covidReport.confirmed.toString(),
-      recoveredValue:
-          countriesCovid.elementAt(index).covidReport.recovered.toString(),
-      countryProgress: 0.26,
-      countryProgressColor: AppColors.primary,
+          countriesCovid.elementAt(index).covidReport.activeDiff.toString(),
       image: 'fr',
     );
   }

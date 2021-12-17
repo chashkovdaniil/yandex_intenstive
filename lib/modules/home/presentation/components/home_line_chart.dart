@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../../general/functions.dart';
 import 'animation_numbers_text.dart';
 
 class HomeLineChart extends StatefulWidget {
@@ -139,6 +140,7 @@ class _HomeLineChartState extends State<HomeLineChart> {
                   fontWeight: FontWeight.bold,
                   fontSize: 23.0,
                 ),
+            translator: (value) => beautifyNumber(value.round()),
           ),
           Expanded(
             child: LineChart(

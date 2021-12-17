@@ -2,6 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_donation_buttons/flutter_donation_buttons.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'package:yandex_intensive/modules/general/bottom_sheet.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
@@ -13,6 +16,15 @@ import '../widgets/item_notifications.dart';
 import '../widgets/item_theme.dart';
 import '../widgets/personal_settings_card.dart';
 
+class TelegramAccount {
+  final String name;
+  final String nickname;
+  TelegramAccount({
+    required this.name,
+    required this.nickname,
+  });
+}
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
@@ -21,6 +33,14 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  final _telegrams = [
+    TelegramAccount(name: 'Василий', nickname: 'vasidmi'),
+    TelegramAccount(name: 'Даниил', nickname: 'chashkovdaniil'),
+    TelegramAccount(name: 'Арина', nickname: 'amoriodi'),
+    TelegramAccount(name: 'Денис', nickname: 'dcherskiy'),
+    TelegramAccount(name: 'Кирилл', nickname: 'mrchuvyzgalov'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     EasyLocalization.of(context);
@@ -98,13 +118,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   builder: (context) {
-                    return BottomSheet(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                        ),
-                      ),
+                    return AppBottomSheet(
                       builder: (BuildContext context) {
                         return ListView(
                           padding: const EdgeInsets.all(12),
@@ -117,7 +131,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           shrinkWrap: true,
                         );
                       },
-                      onClosing: () {},
                     );
                   },
                 );
@@ -126,10 +139,41 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 10,
             ),
-            PersonalSettingsItemCard(
+            GeneralSettingsItemCard(
               title: LocaleKeys.settingsItemHelp.tr(),
               icon: CupertinoIcons.shield_lefthalf_fill,
               iconColor: AppColors.grey,
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  builder: (context) {
+                    return AppBottomSheet(
+                      builder: (BuildContext context) {
+                        return ListView.builder(
+                          padding: const EdgeInsets.all(12),
+                          shrinkWrap: true,
+                          itemCount: _telegrams.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text(_telegrams[index].name),
+                              onTap: () async {
+                                var url =
+                                    'http://t.me/${_telegrams[index].nickname}';
+                                if (await canLaunch(url)) {
+                                  launch(url);
+                                }
+                              },
+                            );
+                          },
+                        );
+                      },
+                    );
+                  },
+                );
+              },
             ),
             const SizedBox(
               height: 10,

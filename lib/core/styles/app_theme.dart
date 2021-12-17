@@ -29,6 +29,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.white,
       primaryColorLight: AppColors.primary,
       primaryColorDark: AppColors.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primary),
+        ),
+      ),
     );
   }
 
@@ -76,6 +81,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.blue.withOpacity(0.01),
       primaryColorLight: AppColors.primary,
       primaryColorDark: AppColors.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primary),
+        ),
+      ),
     );
   }
 

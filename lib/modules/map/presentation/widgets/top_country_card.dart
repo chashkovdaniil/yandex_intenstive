@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
+import '../../../../configs/theme_provider.dart';
 import '../../../general/navigation_views.dart';
 import '../../../general/on_tap_opacity.dart';
 import 'custom_border.dart';

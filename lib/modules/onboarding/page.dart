@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../configs/text_styles.dart';
@@ -45,7 +44,9 @@ class OnboardingPage extends StatelessWidget {
             child: Text(
               description,
               textAlign: TextAlign.center,
-              style: TextStyles.descriptionTextStyle,
+              style: TextStyles.descriptionTextStyle.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
         ),

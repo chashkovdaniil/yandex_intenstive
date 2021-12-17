@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:yandex_intensive/generated/codegen_loader.g.dart';
 
 import '../../../../configs/text_styles.dart';
+import '../../../../generated/codegen_loader.g.dart';
 import '../../../general/on_tap_opacity.dart';
 
 class ItemLanguage extends StatefulWidget {

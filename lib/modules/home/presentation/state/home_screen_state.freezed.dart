@@ -20,8 +20,10 @@ class _$HomeScreenStateStatusTearOff {
     return const Success();
   }
 
-  Failed failed() {
-    return const Failed();
+  Failed failed(String msg) {
+    return Failed(
+      msg,
+    );
   }
 
   Loading loading() {
@@ -37,14 +39,14 @@ mixin _$HomeScreenStateStatus {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() success,
-    required TResult Function() failed,
+    required TResult Function(String msg) failed,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? success,
-    TResult Function()? failed,
+    TResult Function(String msg)? failed,
     TResult Function()? loading,
     required TResult orElse(),
   }) =>
@@ -122,7 +124,7 @@ class _$Success implements Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() success,
-    required TResult Function() failed,
+    required TResult Function(String msg) failed,
     required TResult Function() loading,
   }) {
     return success();
@@ -132,7 +134,7 @@ class _$Success implements Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? success,
-    TResult Function()? failed,
+    TResult Function(String msg)? failed,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -175,6 +177,7 @@ abstract class Success implements HomeScreenStateStatus {
 abstract class $FailedCopyWith<$Res> {
   factory $FailedCopyWith(Failed value, $Res Function(Failed) then) =
       _$FailedCopyWithImpl<$Res>;
+  $Res call({String msg});
 }
 
 /// @nodoc
@@ -186,46 +189,70 @@ class _$FailedCopyWithImpl<$Res>
 
   @override
   Failed get _value => super._value as Failed;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(Failed(
+      msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Failed implements Failed {
-  const _$Failed();
+  const _$Failed(this.msg);
+
+  @override
+  final String msg;
 
   @override
   String toString() {
-    return 'HomeScreenStateStatus.failed()';
+    return 'HomeScreenStateStatus.failed(msg: $msg)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Failed);
+    return identical(this, other) ||
+        (other is Failed &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(msg);
+
+  @JsonKey(ignore: true)
+  @override
+  $FailedCopyWith<Failed> get copyWith =>
+      _$FailedCopyWithImpl<Failed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() success,
-    required TResult Function() failed,
+    required TResult Function(String msg) failed,
     required TResult Function() loading,
   }) {
-    return failed();
+    return failed(msg);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? success,
-    TResult Function()? failed,
+    TResult Function(String msg)? failed,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (failed != null) {
-      return failed();
+      return failed(msg);
     }
     return orElse();
   }
@@ -256,7 +283,11 @@ class _$Failed implements Failed {
 }
 
 abstract class Failed implements HomeScreenStateStatus {
-  const factory Failed() = _$Failed;
+  const factory Failed(String msg) = _$Failed;
+
+  String get msg => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FailedCopyWith<Failed> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -298,7 +329,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() success,
-    required TResult Function() failed,
+    required TResult Function(String msg) failed,
     required TResult Function() loading,
   }) {
     return loading();
@@ -308,7 +339,7 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? success,
-    TResult Function()? failed,
+    TResult Function(String msg)? failed,
     TResult Function()? loading,
     required TResult orElse(),
   }) {

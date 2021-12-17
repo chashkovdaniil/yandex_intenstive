@@ -142,7 +142,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                   ),
                 ),
               ),
-              if (ThemeProvider.of(context).isDarkTheme)
+              if (!ThemeProvider.of(context).isDarkTheme)
                 Padding(
                   padding: const EdgeInsets.only(top: 42),
                   child: SizedBox(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
+import '../../../general/functions.dart';
 
 class ListCountriesConfirmed extends StatelessWidget {
   final List<CountryCovid> countriesCovid;
@@ -29,7 +30,9 @@ class ListCountriesConfirmed extends StatelessWidget {
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('${countriesCovid[index].covidReport.confirmed}'),
+                Text(
+                  beautifyNumber(countriesCovid[index].covidReport.confirmed),
+                ),
                 const SizedBox(width: 10),
                 countriesCovid[index].covidReport.confirmedDiff > 0
                     ? const Icon(

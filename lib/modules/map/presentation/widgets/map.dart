@@ -148,7 +148,7 @@ class MapChart extends StatelessWidget {
                     ],
                   ),
                   zoomPanBehavior: MapZoomPanBehavior(
-                    focalLatLng: const MapLatLng(27.1751, 78.0421),
+                    focalLatLng: const MapLatLng(2.3821, -28.0403),
                     zoomLevel: 3,
                     toolbarSettings: const MapToolbarSettings(
                       position: MapToolbarPosition.topLeft,

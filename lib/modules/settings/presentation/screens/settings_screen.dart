@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_donation_buttons/flutter_donation_buttons.dart';
-import 'package:yandex_intensive/modules/settings/presentation/widgets/item_donate.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';

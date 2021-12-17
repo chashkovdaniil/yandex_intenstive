@@ -27,8 +27,7 @@ class AnimatedNumbersText extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       builder: (context, value, child) {
         return Text(
-          translator?.call(value) ??
-              value.toStringAsFixed(fractionDigits),
+          translator?.call(value) ?? value.toStringAsFixed(fractionDigits),
           style: textStyle ?? Theme.of(context).textTheme.headline6,
         );
       },

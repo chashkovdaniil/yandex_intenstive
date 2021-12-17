@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'covid_report_dto.dart';
 
@@ -60,25 +61,37 @@ const $CovidReportDto = _$CovidReportDtoTearOff();
 /// @nodoc
 mixin _$CovidReportDto {
   String get date => throw _privateConstructorUsedError;
+
   int get confirmed => throw _privateConstructorUsedError;
+
   int get deaths => throw _privateConstructorUsedError;
+
   int get recovered => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'confirmed_diff')
   int get confirmedDiff => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'deaths_diff')
   int get deathsDiff => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'recovered_diff')
   int get recoveredDiff => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'last_update')
   String get lastUpdate => throw _privateConstructorUsedError;
+
   int get active => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'active_diff')
   int get activeDiff => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'fatality_rate')
   double get fatalityRate => throw _privateConstructorUsedError;
+
   Map<String, dynamic>? get region => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $CovidReportDtoCopyWith<CovidReportDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -89,6 +102,7 @@ abstract class $CovidReportDtoCopyWith<$Res> {
   factory $CovidReportDtoCopyWith(
           CovidReportDto value, $Res Function(CovidReportDto) then) =
       _$CovidReportDtoCopyWithImpl<$Res>;
+
   $Res call(
       {String date,
       int confirmed,
@@ -110,6 +124,7 @@ class _$CovidReportDtoCopyWithImpl<$Res>
   _$CovidReportDtoCopyWithImpl(this._value, this._then);
 
   final CovidReportDto _value;
+
   // ignore: unused_field
   final $Res Function(CovidReportDto) _then;
 
@@ -187,6 +202,7 @@ abstract class _$CovidReportDtoCopyWith<$Res>
   factory _$CovidReportDtoCopyWith(
           _CovidReportDto value, $Res Function(_CovidReportDto) then) =
       __$CovidReportDtoCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {String date,
@@ -423,34 +439,46 @@ abstract class _CovidReportDto implements CovidReportDto {
 
   @override
   String get date => throw _privateConstructorUsedError;
+
   @override
   int get confirmed => throw _privateConstructorUsedError;
+
   @override
   int get deaths => throw _privateConstructorUsedError;
+
   @override
   int get recovered => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(name: 'confirmed_diff')
   int get confirmedDiff => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(name: 'deaths_diff')
   int get deathsDiff => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(name: 'recovered_diff')
   int get recoveredDiff => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(name: 'last_update')
   String get lastUpdate => throw _privateConstructorUsedError;
+
   @override
   int get active => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(name: 'active_diff')
   int get activeDiff => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(name: 'fatality_rate')
   double get fatalityRate => throw _privateConstructorUsedError;
+
   @override
   Map<String, dynamic>? get region => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$CovidReportDtoCopyWith<_CovidReportDto> get copyWith =>

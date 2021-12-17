@@ -38,8 +38,8 @@ void main() async {
     EasyLocalization(
       useFallbackTranslations: true,
       supportedLocales: const [Locale('en'), Locale('ru')],
-      path:
-          'assets/translations', // <-- change the path of the translation files
+      path: 'assets/translations',
+      // <-- change the path of the translation files
       fallbackLocale: const Locale('en'),
       startLocale: const Locale('en'),
       child: ProviderScope(
@@ -56,7 +56,6 @@ class MyApp extends HookConsumerWidget {
   }) : super(key: key);
 
   @override
-
   // ignore: prefer_expression_function_bodies
   Widget build(BuildContext context, ref) {
     var themeModeRef = ref

@@ -2,18 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/colors.dart';
+import 'package:yandex_intensive/configs/providers.dart';
 
 import '../../../../generated/codegen_loader.g.dart';
-import '../../../general/app_bar.dart';
 import '../state/map_screen_state.dart';
-import '../widgets/card.dart';
-import '../widgets/map.dart';
-import '../widgets/rest_list.dart';
-import '../widgets/top_list.dart';
+import '../state/map_screen_success_state.dart';
 
 final _mapScreenProvider =
-    StateNotifierProvider<MapScreenProvider, MapScreenState>(
-  (ref) => MapScreenProvider(),
+StateNotifierProvider<MapScreenManager, MapScreenState>(
+      (ref) => ref.watch(mapScreenStateManagerProvider),
 );
 
 class MapScreen extends HookConsumerWidget {
@@ -22,22 +20,26 @@ class MapScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     EasyLocalization.of(context);
-    final mapScreenStatus = ref.watch(_mapScreenProvider).status;
+    final state = ref.watch(_mapScreenProvider);
 
     useEffect(
       () {
-        ref.read(_mapScreenProvider.notifier).load();
+        ref.watch(statsUsecaseProviderMap).call();
       },
       const [],
     );
 
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () => ref.read(_mapScreenProvider.notifier).load(),
+        onRefresh: () async {
+          await ref.watch(statsUsecaseProviderMap).call();
+        },
         triggerMode: RefreshIndicatorTriggerMode.anywhere,
-        child: mapScreenStatus.when(
+        child: state.status.when(
           success: () => MapScreenSuccessState(
-            testData: ref.watch(_mapScreenProvider).testData,
+            data: MapScreenSuccessData(
+              countriesStats: state.countriesCovid!,
+            ),
           ),
           failed: () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -46,13 +48,17 @@ class MapScreen extends HookConsumerWidget {
                 child: Text(LocaleKeys.mapScreenError.tr()),
               ),
               ElevatedButton(
-                onPressed: () => ref.read(_mapScreenProvider.notifier).load(),
+                onPressed: () {
+                  ref.read(statsUsecaseProviderMap).call();
+                },
                 child: Text(LocaleKeys.mapScreenRefresh.tr()),
               )
             ],
           ),
           loading: () => const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: AppColors.primary,
+            ),
           ),
         ),
       ),
@@ -60,72 +66,4 @@ class MapScreen extends HookConsumerWidget {
   }
 }
 
-class MapScreenSuccessState extends StatelessWidget {
-  final Map<String, Object>? testData;
 
-  const MapScreenSuccessState({
-    Key? key,
-    required this.testData,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    EasyLocalization.of(context);
-    return SafeArea(
-      child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus,
-        child: Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              CustomAppBar(
-                showBackButton: false,
-                title: LocaleKeys.mapTitle.tr(),
-              ),
-              Expanded(
-                child: CustomScrollView(
-                  controller: ScrollController(),
-                  slivers: [
-                    const SliverToBoxAdapter(
-                      child: SizedBox(height: 20),
-                    ),
-                    SliverToBoxAdapter(
-                      child: MapScreenCard(
-                        height: 410,
-                        title: LocaleKeys.mapAreas.tr(),
-                        content: const MapChart(),
-                      ),
-                    ),
-                    const SliverToBoxAdapter(
-                      child: SizedBox(height: 16),
-                    ),
-                    SliverToBoxAdapter(
-                      child: MapScreenCard(
-                        height: 406,
-                        title: LocaleKeys.mapTop.tr(),
-                        content: const TopList(),
-                      ),
-                    ),
-                    const SliverToBoxAdapter(
-                      child: SizedBox(height: 16),
-                    ),
-                    SliverToBoxAdapter(
-                      child: MapScreenCard(
-                        height: 680,
-                        title: LocaleKeys.mapRest.tr(),
-                        content: const RestList(),
-                      ),
-                    ),
-                    const SliverToBoxAdapter(
-                      child: SizedBox(height: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}

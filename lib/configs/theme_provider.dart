@@ -4,6 +4,7 @@ class ThemeProvider extends StatefulWidget {
   final Widget? child;
   final ThemeMode themeMode;
   final Widget Function(BuildContext context)? builder;
+
   const ThemeProvider({
     Key? key,
     this.child,

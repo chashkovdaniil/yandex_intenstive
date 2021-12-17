@@ -9,12 +9,13 @@ import 'state/home_screen_state.dart';
 import 'state/home_screen_success_state.dart';
 
 final _homeScreenProvider =
-    StateNotifierProvider<HomeScreenManager, HomeScreenState>(
+StateNotifierProvider<HomeScreenManager, HomeScreenState>(
   (ref) => ref.watch(homeScreenStateManagerProvider),
 );
 
 class HomeScreen extends HookConsumerWidget {
   static const route = '/';
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override

@@ -352,10 +352,11 @@ class _$MapScreenStateTearOff {
   const _$MapScreenStateTearOff();
 
   _MapScreenState call(
-      {required MapScreenStateStatus status, Map<String, Object>? testData}) {
+      {required MapScreenStateStatus status,
+      Map<String, CountryCovid>? countriesCovid}) {
     return _MapScreenState(
       status: status,
-      testData: testData,
+      countriesCovid: countriesCovid,
     );
   }
 }
@@ -366,7 +367,9 @@ const $MapScreenState = _$MapScreenStateTearOff();
 /// @nodoc
 mixin _$MapScreenState {
   MapScreenStateStatus get status => throw _privateConstructorUsedError;
-  Map<String, Object>? get testData => throw _privateConstructorUsedError;
+
+  Map<String, CountryCovid>? get countriesCovid =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MapScreenStateCopyWith<MapScreenState> get copyWith =>
@@ -378,7 +381,9 @@ abstract class $MapScreenStateCopyWith<$Res> {
   factory $MapScreenStateCopyWith(
           MapScreenState value, $Res Function(MapScreenState) then) =
       _$MapScreenStateCopyWithImpl<$Res>;
-  $Res call({MapScreenStateStatus status, Map<String, Object>? testData});
+
+  $Res call(
+      {MapScreenStateStatus status, Map<String, CountryCovid>? countriesCovid});
 
   $MapScreenStateStatusCopyWith<$Res> get status;
 }
@@ -395,17 +400,17 @@ class _$MapScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
-    Object? testData = freezed,
+    Object? countriesCovid = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as MapScreenStateStatus,
-      testData: testData == freezed
-          ? _value.testData
-          : testData // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
+      countriesCovid: countriesCovid == freezed
+          ? _value.countriesCovid
+          : countriesCovid // ignore: cast_nullable_to_non_nullable
+              as Map<String, CountryCovid>?,
     ));
   }
 
@@ -423,8 +428,10 @@ abstract class _$MapScreenStateCopyWith<$Res>
   factory _$MapScreenStateCopyWith(
           _MapScreenState value, $Res Function(_MapScreenState) then) =
       __$MapScreenStateCopyWithImpl<$Res>;
+
   @override
-  $Res call({MapScreenStateStatus status, Map<String, Object>? testData});
+  $Res call(
+      {MapScreenStateStatus status, Map<String, CountryCovid>? countriesCovid});
 
   @override
   $MapScreenStateStatusCopyWith<$Res> get status;
@@ -444,17 +451,17 @@ class __$MapScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
-    Object? testData = freezed,
+    Object? countriesCovid = freezed,
   }) {
     return _then(_MapScreenState(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as MapScreenStateStatus,
-      testData: testData == freezed
-          ? _value.testData
-          : testData // ignore: cast_nullable_to_non_nullable
-              as Map<String, Object>?,
+      countriesCovid: countriesCovid == freezed
+          ? _value.countriesCovid
+          : countriesCovid // ignore: cast_nullable_to_non_nullable
+              as Map<String, CountryCovid>?,
     ));
   }
 }
@@ -462,16 +469,16 @@ class __$MapScreenStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MapScreenState implements _MapScreenState {
-  const _$_MapScreenState({required this.status, this.testData});
+  const _$_MapScreenState({required this.status, this.countriesCovid});
 
   @override
   final MapScreenStateStatus status;
   @override
-  final Map<String, Object>? testData;
+  final Map<String, CountryCovid>? countriesCovid;
 
   @override
   String toString() {
-    return 'MapScreenState(status: $status, testData: $testData)';
+    return 'MapScreenState(status: $status, countriesCovid: $countriesCovid)';
   }
 
   @override
@@ -480,16 +487,16 @@ class _$_MapScreenState implements _MapScreenState {
         (other is _MapScreenState &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.testData, testData) ||
+            (identical(other.countriesCovid, countriesCovid) ||
                 const DeepCollectionEquality()
-                    .equals(other.testData, testData)));
+                    .equals(other.countriesCovid, countriesCovid)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(testData);
+      const DeepCollectionEquality().hash(countriesCovid);
 
   @JsonKey(ignore: true)
   @override
@@ -500,12 +507,15 @@ class _$_MapScreenState implements _MapScreenState {
 abstract class _MapScreenState implements MapScreenState {
   const factory _MapScreenState(
       {required MapScreenStateStatus status,
-      Map<String, Object>? testData}) = _$_MapScreenState;
+      Map<String, CountryCovid>? countriesCovid}) = _$_MapScreenState;
 
   @override
   MapScreenStateStatus get status => throw _privateConstructorUsedError;
+
   @override
-  Map<String, Object>? get testData => throw _privateConstructorUsedError;
+  Map<String, CountryCovid>? get countriesCovid =>
+      throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$MapScreenStateCopyWith<_MapScreenState> get copyWith =>

@@ -5,13 +5,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../configs/constants.dart';
 import '../../../core/styles/app_theme.dart';
 import '../../../generated/codegen_loader.g.dart';
-
 import 'components/named_icon.dart';
 import 'components/named_icon_tray.dart';
 
 class SymptomsPage extends StatelessWidget {
   static final _rarityIcons = StringValues.symptomColumnAssets.map(
-    (key, asset) => MapEntry(
+        (key, asset) => MapEntry(
       key,
       SvgPicture.asset(
         asset,

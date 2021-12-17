@@ -35,7 +35,7 @@ class Onboarding extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _pageController = useMemoized(
-      () {
+          () {
         return PageController();
       },
       const [],

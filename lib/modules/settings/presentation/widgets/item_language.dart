@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/generated/codegen_loader.g.dart';
 
 import '../../../../configs/text_styles.dart';
 import '../../../general/on_tap_opacity.dart';
-import 'package:yandex_intensive/generated/codegen_loader.g.dart';
 
 class ItemLanguage extends StatefulWidget {
   const ItemLanguage({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const mapTitle = 'mapTitle';
   static const mapAreas = 'mapAreas';
   static const mapAreasLess = 'mapAreasLess';
@@ -12,7 +12,8 @@ abstract class  LocaleKeys {
   static const mapRestDescription = 'mapRestDescription';
   static const mapRestCases = 'mapRestCases';
   static const countryStatisticsTitle = 'countryStatisticsTitle';
-  static const countryStatisticsInfectedCases = 'countryStatisticsInfectedCases';
+  static const countryStatisticsInfectedCases =
+      'countryStatisticsInfectedCases';
   static const countryStatisticsDeathCases = 'countryStatisticsDeathCases';
   static const countryStatisticsGraphTitle = 'countryStatisticsGraphTitle';
   static const countryStatisticsDeath = 'countryStatisticsDeath';
@@ -32,11 +33,14 @@ abstract class  LocaleKeys {
   static const bottomNavigationItemEducation = 'bottomNavigationItemEducation';
   static const bottomNavigationItemSettings = 'bottomNavigationItemSettings';
   static const listCountriesConfirmedTitle = 'listCountriesConfirmedTitle';
-  static const listCountriesConfirmedTrailing = 'listCountriesConfirmedTrailing';
+  static const listCountriesConfirmedTrailing =
+      'listCountriesConfirmedTrailing';
   static const ratioRecoveryChartTitle = 'ratioRecoveryChartTitle';
   static const ratioRecoveryChartPercent = 'ratioRecoveryChartPercent';
-  static const ratioRecoveryChartMarkChartDeath = 'ratioRecoveryChartMarkChartDeath';
-  static const ratioRecoveryChartMarkChartRecovered = 'ratioRecoveryChartMarkChartRecovered';
+  static const ratioRecoveryChartMarkChartDeath =
+      'ratioRecoveryChartMarkChartDeath';
+  static const ratioRecoveryChartMarkChartRecovered =
+      'ratioRecoveryChartMarkChartRecovered';
   static const homeScreenRecovered = 'homeScreenRecovered';
   static const homeScreenConfirmed = 'homeScreenConfirmed';
   static const homeScreenDeaths = 'homeScreenDeaths';
@@ -94,13 +98,15 @@ abstract class  LocaleKeys {
   static const preventionTitle4 = 'preventionTitle4';
   static const preventionDesc4 = 'preventionDesc4';
   static const educationPreviewHeader = 'educationPreviewHeader';
-  static const educationPreviewDescriptionPreCaps = 'educationPreviewDescriptionPreCaps';
-  static const educationPreviewDescriptionCaps = 'educationPreviewDescriptionCaps';
-  static const educationPreviewDescriptionPostCaps = 'educationPreviewDescriptionPostCaps';
+  static const educationPreviewDescriptionPreCaps =
+      'educationPreviewDescriptionPreCaps';
+  static const educationPreviewDescriptionCaps =
+      'educationPreviewDescriptionCaps';
+  static const educationPreviewDescriptionPostCaps =
+      'educationPreviewDescriptionPostCaps';
   static const educationPageTitle1 = 'educationPageTitle1';
   static const educationPageTitle2 = 'educationPageTitle2';
   static const educationPageTitle3 = 'educationPageTitle3';
   static const english = 'english';
   static const russian = 'russian';
-
 }

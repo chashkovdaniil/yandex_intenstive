@@ -13,11 +13,14 @@ import '../widgets/rest_list.dart';
 import '../widgets/top_list.dart';
 
 class MapScreenSuccessData {
-  final Map<String, CountryCovid> countriesStats;
+  late final List<CountryCovid> stats;
 
-  MapScreenSuccessData({
-    required this.countriesStats,
-  });
+  MapScreenSuccessData(Map<String, CountryCovid> mapStats) {
+    stats = mapStats.values.toList();
+    stats.sort(
+      (a, b) => b.covidReport.confirmed.compareTo(a.covidReport.confirmed),
+    );
+  }
 }
 
 class MapScreenSuccessState extends HookConsumerWidget {
@@ -64,9 +67,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                         height: 406,
                         title: LocaleKeys.mapTop.tr(),
                         content: TopList(
-                          List<CountryCovid>.from(
-                            data.countriesStats.values,
-                          ),
+                          data.stats,
                         ),
                       ),
                     ),
@@ -75,11 +76,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                     ),
                     SliverToBoxAdapter(
                       child: HomeCard(
-                        child: RestList(
-                          List<CountryCovid>.from(
-                            data.countriesStats.values,
-                          ),
-                        ),
+                        child: RestList(data.stats),
                       ),
                     ),
                     const SliverToBoxAdapter(

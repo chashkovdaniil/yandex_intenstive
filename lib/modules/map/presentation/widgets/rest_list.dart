@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/modules/general/functions.dart';
 
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
@@ -34,18 +35,6 @@ class RestList extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, bottom: 4),
-          child: Row(
-            children: [
-              Text(
-                LocaleKeys.mapRest.tr(),
-                textAlign: TextAlign.start,
-                style: TextStyles.infoCountry,
-              ),
-            ],
-          ),
-        ),
         ListView.builder(
           shrinkWrap: true,
           padding: const EdgeInsets.all(5.5),
@@ -56,15 +45,28 @@ class RestList extends StatelessWidget {
     );
   }
 
+  static String _shorten(String str, int symbolsMax) => str.length > symbolsMax
+      ? str = str.substring(0, symbolsMax - 1) + '…'
+      : str;
+
   Widget _itemBuilder(BuildContext context, int index) {
     return RestCountryCard(
-      countryTitle: countriesCovid.elementAt(index).country.name,
-      deathValue: countriesCovid.elementAt(index).covidReport.deaths.toString(),
-      affectedValue:
-      countriesCovid.elementAt(index).covidReport.confirmed.toString(),
-      image: isoAlpha3Map[
-      countriesCovid.elementAt(index).country.code.toUpperCase()]
-          ?.toLowerCase() ??
+      countryTitle: _shorten(
+        countriesCovid.elementAt(index + 3).country.name,
+        28,
+      ),
+      deathValue: beautifyNumber(
+        countriesCovid.elementAt(index + 3).covidReport.deaths,
+      ),
+      affectedValue: beautifyNumber(
+        countriesCovid.elementAt(index + 3).covidReport.confirmed,
+      ),
+      image: isoAlpha3Map[countriesCovid
+                  .elementAt(index + 3)
+                  .country
+                  .code
+                  .toUpperCase()]
+              ?.toLowerCase() ??
           'fr',
     );
   }

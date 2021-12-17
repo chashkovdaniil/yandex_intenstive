@@ -33,12 +33,12 @@ class ItemTheme extends HookConsumerWidget {
                   itemBuilder: (context, index) {
                     return ListTile(
                       onTap: () {
+                        ThemeProvider.of(context).onThemeModeChanged(
+                          ThemeMode.values.elementAt(index),
+                        );
                         themeModeSharedPrefs.setString(
                           SharedPreferencesNames.themeMode,
                           ThemeMode.values.elementAt(index).name,
-                        );
-                        ThemeProvider.of(context).onThemeModeChanged(
-                          ThemeMode.values.elementAt(index),
                         );
                         ref.watch(appNavigationManagerProvider).pop();
                       },

@@ -44,7 +44,6 @@ class _ThemeProviderState extends State<ThemeProvider> {
     return ThemeProviderInherited(
       themeMode: themeMode,
       onThemeModeChanged: onThemeModeChanged,
-      isDarkTheme: Theme.of(context).brightness == Brightness.dark,
       child: widget.builder != null
           ? Builder(
               builder: widget.builder!,
@@ -57,16 +56,13 @@ class _ThemeProviderState extends State<ThemeProvider> {
 class ThemeProviderInherited extends InheritedWidget {
   final ThemeMode themeMode;
   final ValueChanged<ThemeMode> onThemeModeChanged;
-  final bool _isDarkTheme;
 
   const ThemeProviderInherited({
     Key? key,
     required Widget child,
     required this.themeMode,
     required this.onThemeModeChanged,
-    required bool isDarkTheme,
-  })  : _isDarkTheme = isDarkTheme,
-        super(
+  }) : super(
           key: key,
           child: child,
         );
@@ -77,7 +73,7 @@ class ThemeProviderInherited extends InheritedWidget {
         oldWidget.onThemeModeChanged != onThemeModeChanged;
   }
 
-  bool get isDarkTheme => _isDarkTheme;
+  bool get isDarkTheme => themeMode == ThemeMode.dark;
 
   static ThemeProviderInherited of(BuildContext context) {
     final result =

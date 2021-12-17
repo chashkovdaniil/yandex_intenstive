@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../../../configs/navigator.dart';
 
 import '../../../../configs/shared_preferences_names.dart';
 import '../../../../configs/text_styles.dart';
@@ -39,7 +40,7 @@ class ItemTheme extends HookConsumerWidget {
                         ThemeProvider.of(context).onThemeModeChanged(
                           ThemeMode.values.elementAt(index),
                         );
-                        Navigator.pop(context);
+                        ref.watch(appNavigationManagerProvider).pop();
                       },
                       title: Text(
                         ThemeMode.values.elementAt(index).name,

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:yandex_intensive/configs/navigator.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
@@ -73,10 +74,9 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRoutes.searchScreenRoute,
-                        );
+                        ref.watch(appNavigationManagerProvider).push(
+                              AppRoutes.searchScreenRoute,
+                            );
                       },
                       child: const SearchField(enabled: false),
                     ),

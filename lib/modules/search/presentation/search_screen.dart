@@ -53,7 +53,7 @@ class SearchScreen extends HookConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              ref.watch(appNavigationManagerProvider).pop();
             },
             icon: const Icon(Icons.home),
           ),

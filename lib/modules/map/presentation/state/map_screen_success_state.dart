@@ -1,16 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/modules/general/app_bar.dart';
-import 'package:yandex_intensive/modules/home/presentation/components/home_card.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/card.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/map.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/rest_list.dart';
-import 'package:yandex_intensive/modules/map/presentation/widgets/top_list.dart';
 
 import '../../../../configs/constants.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../../generated/codegen_loader.g.dart';
+import '../../../general/app_bar.dart';
+import '../../../home/presentation/components/home_card.dart';
+import '../widgets/card.dart';
+import '../widgets/map.dart';
+import '../widgets/rest_list.dart';
+import '../widgets/top_list.dart';
 
 class MapScreenSuccessData {
   final Map<String, CountryCovid> countriesStats;

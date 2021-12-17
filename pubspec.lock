@@ -512,7 +512,7 @@ packages:
     source: hosted
     version: "1.0.1"
   logger:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: logger
       url: "https://pub.dartlang.org"

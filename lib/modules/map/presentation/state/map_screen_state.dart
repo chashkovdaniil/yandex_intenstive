@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod/riverpod.dart';
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
+import '../../../../core/domain/entities/country_covid_entity.dart';
 
 part 'map_screen_state.freezed.dart';
 

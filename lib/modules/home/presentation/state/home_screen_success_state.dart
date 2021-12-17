@@ -85,71 +85,74 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                 const SliverToBoxAdapter(
                   child: SizedBox(height: 10),
                 ),
-                SliverGrid.count(
-                  crossAxisCount: isHorizontalOrientation ? 4 : 2,
-                  mainAxisSpacing: 30,
-                  crossAxisSpacing: 25,
-                  childAspectRatio: 0.8,
-                  children: [
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: LocaleKeys.homeScreenConfirmed.tr(),
-                        value: data.confirmed,
-                        colors: const [AppColors.orange],
-                        spots: data.confirmedSpots,
-                        showAnimation: true,
+                SliverPadding(
+                  padding: const EdgeInsets.all(12),
+                  sliver: SliverGrid.count(
+                    crossAxisCount: isHorizontalOrientation ? 4 : 2,
+                    mainAxisSpacing: 30,
+                    crossAxisSpacing: 25,
+                    childAspectRatio: 0.8,
+                    children: [
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenConfirmed.tr(),
+                          value: data.confirmed,
+                          colors: const [AppColors.orange],
+                          spots: data.confirmedSpots,
+                          showAnimation: true,
+                        ),
                       ),
-                    ),
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: LocaleKeys.homeScreenRecovered.tr(),
-                        value: data.recovered,
-                        colors: const [AppColors.green],
-                        showAnimation: true,
-                        spots: data.recoveredSpots,
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenRecovered.tr(),
+                          value: data.recovered,
+                          colors: const [AppColors.green],
+                          showAnimation: true,
+                          spots: data.recoveredSpots,
+                        ),
                       ),
-                    ),
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: LocaleKeys.homeScreenDeaths.tr(),
-                        value: data.deaths,
-                        colors: const [AppColors.red],
-                        showAnimation: true,
-                        spots: data.deathsSpots,
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenDeaths.tr(),
+                          value: data.deaths,
+                          colors: const [AppColors.red],
+                          showAnimation: true,
+                          spots: data.deathsSpots,
+                        ),
                       ),
-                    ),
-                    HomeCard(
-                      child: HomeLineChart(
-                        title: LocaleKeys.homeScreenActive.tr(),
-                        value: data.active,
-                        colors: const [AppColors.red],
-                        showAnimation: true,
-                        spots: data.deathsSpots,
+                      HomeCard(
+                        child: HomeLineChart(
+                          title: LocaleKeys.homeScreenActive.tr(),
+                          value: data.active,
+                          colors: const [AppColors.red],
+                          showAnimation: true,
+                          spots: data.deathsSpots,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const SliverToBoxAdapter(
-                  child: SizedBox(height: 25),
-                ),
-                SliverToBoxAdapter(
-                  child: HomeCard(
-                    child: RatioRecoveryChart(
-                      active: data.active,
-                      deaths: data.deaths,
-                      recovered: data.recovered,
-                      confirmed: data.confirmed,
+                SliverPadding(
+                  padding: const EdgeInsets.all(12),
+                  sliver: SliverToBoxAdapter(
+                    child: HomeCard(
+                      child: RatioRecoveryChart(
+                        active: data.active,
+                        deaths: data.deaths,
+                        recovered: data.recovered,
+                        confirmed: data.confirmed,
+                      ),
                     ),
                   ),
                 ),
-                const SliverToBoxAdapter(
-                  child: SizedBox(height: 25),
-                ),
-                SliverToBoxAdapter(
-                  child: HomeCard(
-                    child: ListCountriesConfirmed(
-                      countriesCovid: List<CountryCovid>.from(
-                        data.countriesStats.values,
+                SliverPadding(
+                  padding: const EdgeInsets.all(12),
+                  sliver: SliverToBoxAdapter(
+                    child: HomeCard(
+                      child: ListCountriesConfirmed(
+                        countriesCovid: List<CountryCovid>.from(
+                          data.countriesStats.values,
+                        ),
                       ),
                     ),
                   ),

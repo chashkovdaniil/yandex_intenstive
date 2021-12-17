@@ -21,7 +21,7 @@ class DiagnosisPage extends StatelessWidget {
             ),
             textAlign: TextAlign.start,
           ),
-          const SizedBox(height: 25.0),
+          const SizedBox(height: 15.0),
           Text(
             LocaleKeys.diagnosisDescription.tr(),
             style: AppTheme.educationSubtitleLight.copyWith(
@@ -29,7 +29,7 @@ class DiagnosisPage extends StatelessWidget {
             ),
             softWrap: true,
           ),
-          const SizedBox(height: 20.0),
+          const SizedBox(height: 15.0),
           RichText(
             text: TextSpan(
               children: [

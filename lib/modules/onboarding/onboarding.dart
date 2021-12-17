@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../configs/colors.dart';
 import '../../configs/constants.dart';
 import '../../configs/providers.dart';
 import '../../generated/codegen_loader.g.dart';
@@ -35,7 +34,7 @@ class Onboarding extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _pageController = useMemoized(
-          () {
+      () {
         return PageController();
       },
       const [],
@@ -58,7 +57,7 @@ class Onboarding extends HookConsumerWidget {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: Theme.of(context).colorScheme.onBackground,
       body: Column(
         children: [
           Expanded(

@@ -29,35 +29,35 @@ class MapScreen extends HookConsumerWidget {
       const [],
     );
 
-    return Scaffold(
-      body: RefreshIndicator(
-        onRefresh: () async {
-          await ref.watch(statsUsecaseProviderMap).call();
-        },
-        triggerMode: RefreshIndicatorTriggerMode.anywhere,
-        child: state.status.when(
-          success: () => MapScreenSuccessState(
-            data: MapScreenSuccessData(
-              countriesStats: state.countriesCovid!,
+    return SafeArea(
+      child: Scaffold(
+        body: RefreshIndicator(
+          onRefresh: () async {
+            await ref.watch(statsUsecaseProviderMap).call();
+          },
+          triggerMode: RefreshIndicatorTriggerMode.anywhere,
+          child: state.status.when(
+            success: () => MapScreenSuccessState(
+              data: MapScreenSuccessData(state.countriesCovid!),
             ),
-          ),
-          failed: () => Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(LocaleKeys.mapScreenError.tr()),
+            failed: () => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(LocaleKeys.mapScreenError.tr()),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    ref.read(statsUsecaseProviderMap).call();
+                  },
+                  child: Text(LocaleKeys.mapScreenRefresh.tr()),
+                )
+              ],
+            ),
+            loading: () => const Center(
+              child: CircularProgressIndicator(
+                color: AppColors.primary,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  ref.read(statsUsecaseProviderMap).call();
-                },
-                child: Text(LocaleKeys.mapScreenRefresh.tr()),
-              )
-            ],
-          ),
-          loading: () => const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.primary,
             ),
           ),
         ),

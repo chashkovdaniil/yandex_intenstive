@@ -36,7 +36,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
         width: MediaQuery.of(context).size.width,
         height: 60,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           border: Border(
             bottom: BorderSide(
               color: AppColors.grey.withOpacity(0.3),
@@ -60,19 +60,23 @@ class _RestCountryCardState extends State<RestCountryCard> {
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.topLeft,
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10, left: 12, bottom: 6),
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 12,
+                      bottom: 6,
+                    ),
                     child: Text(
                       widget.countryTitle,
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
-                      style: TextStyles.titleCountry,
+                      style: TextStyles.titleCountry.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
                     ),
                   ),
                   Padding(
@@ -83,34 +87,23 @@ class _RestCountryCardState extends State<RestCountryCard> {
                             LocaleKeys.countryStatisticsDeathCases.tr(),
                         textAlign: TextAlign.start,
                         style: TextStyles.infoCountry,
-                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        // softWrap: true,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            const Spacer(),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 24, right: 4),
-                child: Text(
-                  widget.affectedValue,
-                  textAlign: TextAlign.start,
-                ),
-              ),
+            // const Spacer(),
+            Text(
+              widget.affectedValue,
+              textAlign: TextAlign.start,
             ),
-            const Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.only(top: 22, right: 8.0),
-                child: Icon(
-                  CupertinoIcons.arrow_up,
-                  color: AppColors.primary,
-                  size: 20,
-                ),
-              ),
+            const Icon(
+              CupertinoIcons.arrow_up,
+              color: AppColors.primary,
+              size: 20,
             ),
           ],
         ),

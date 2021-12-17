@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../../generated/codegen_loader.g.dart';
+import '../../../general/functions.dart';
 import 'rest_country_card.dart';
 
 class RestList extends StatelessWidget {
@@ -16,9 +16,6 @@ class RestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     EasyLocalization.of(context);
-    countriesCovid.sort(
-      (a, b) => b.covidReport.confirmed.compareTo(a.covidReport.confirmed),
-    );
     return Column(
       children: [
         Align(
@@ -28,43 +25,57 @@ class RestList extends StatelessWidget {
               top: 10,
               left: 12,
             ),
-            child: Text(LocaleKeys.mapRest.tr(), style: TextStyles.titleMap),
+            child: Text(
+              LocaleKeys.mapRest.tr(),
+              style: TextStyles.titleMap.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
           ),
         ),
         const SizedBox(
           height: 8,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, bottom: 4),
-          child: Row(
-            children: [
-              Text(
-                LocaleKeys.mapRest.tr(),
-                textAlign: TextAlign.start,
-                style: TextStyles.infoCountry,
+        Column(
+          children: List.generate(
+            countriesCovid.length - 3,
+            (index) => Padding(
+              padding: const EdgeInsets.only(
+                left: 5.5,
+                right: 5.5,
+                top: 2.0,
+                bottom: 2.0,
               ),
-            ],
+              child: _itemBuilder(context, index),
+            ),
           ),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(5.5),
-          itemCount: countriesCovid.length - 3,
-          itemBuilder: _itemBuilder,
         ),
       ],
     );
   }
 
+  static String _shorten(String str, int symbolsMax) => str.length > symbolsMax
+      ? str = str.substring(0, symbolsMax - 1) + '…'
+      : str;
+
   Widget _itemBuilder(BuildContext context, int index) {
     return RestCountryCard(
-      countryTitle: countriesCovid.elementAt(index).country.name,
-      deathValue: countriesCovid.elementAt(index).covidReport.deaths.toString(),
-      affectedValue:
-      countriesCovid.elementAt(index).covidReport.confirmed.toString(),
-      image: isoAlpha3Map[
-      countriesCovid.elementAt(index).country.code.toUpperCase()]
-          ?.toLowerCase() ??
+      countryTitle: _shorten(
+        countriesCovid.elementAt(index + 3).country.name,
+        26,
+      ),
+      deathValue: beautifyNumber(
+        countriesCovid.elementAt(index + 3).covidReport.deaths,
+      ),
+      affectedValue: beautifyNumber(
+        countriesCovid.elementAt(index + 3).covidReport.confirmed,
+      ),
+      image: isoAlpha3Map[countriesCovid
+                  .elementAt(index + 3)
+                  .country
+                  .code
+                  .toUpperCase()]
+              ?.toLowerCase() ??
           'fr',
     );
   }

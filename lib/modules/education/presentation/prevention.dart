@@ -19,7 +19,9 @@ class PreventionPage extends StatelessWidget {
             EasyLocalization.of(context).toString() == ''
                 ? LocaleKeys.preventionHeader.tr()
                 : LocaleKeys.preventionHeader.tr(),
-            style: AppTheme.educationHeader1,
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             softWrap: true,
           ),
           const SizedBox(height: 30.0),

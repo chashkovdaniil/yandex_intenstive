@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
@@ -77,13 +78,16 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             child: Text(
                               widget.countryTitle,
                               textAlign: TextAlign.start,
-                              style: TextStyles.titleCountry,
+                              style: TextStyles.titleCountry.copyWith(
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
-                              LocaleKeys.mapTopAffected.tr() + widget.affectedValue,
+                              LocaleKeys.mapTopAffected.tr() +
+                                  widget.affectedValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -92,7 +96,8 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             padding:
                                 const EdgeInsets.only(left: 12, bottom: 4.0),
                             child: Text(
-                              LocaleKeys.mapTopRecovered.tr() + widget.recoveredValue,
+                              LocaleKeys.mapTopRecovered.tr() +
+                                  widget.recoveredValue,
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -113,8 +118,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
                       context: context,
                       title: LocaleKeys.countryDetailsAlertTitle.tr(),
                       content: LocaleKeys.countryDetailsAlertContent.tr(),
-                      cancelActionText: LocaleKeys.countryDetailsAlertCancel.tr(),
-                      defaultActionText: LocaleKeys.countryDetailsAlertDefault.tr(),
+                      cancelActionText:
+                          LocaleKeys.countryDetailsAlertCancel.tr(),
+                      defaultActionText:
+                          LocaleKeys.countryDetailsAlertDefault.tr(),
                     ),
                     child: IconButton(
                       icon: const Icon(
@@ -126,23 +133,26 @@ class _TopCountryCardState extends State<TopCountryCard> {
                         context: context,
                         title: LocaleKeys.countryDetailsAlertTitle.tr(),
                         content: LocaleKeys.countryDetailsAlertContent.tr(),
-                        cancelActionText: LocaleKeys.countryDetailsAlertCancel.tr(),
-                        defaultActionText: LocaleKeys.countryDetailsAlertDefault.tr(),
+                        cancelActionText:
+                            LocaleKeys.countryDetailsAlertCancel.tr(),
+                        defaultActionText:
+                            LocaleKeys.countryDetailsAlertDefault.tr(),
                       ),
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 42),
-                child: SizedBox(
-                  width: 400,
-                  height: 40,
-                  child: CustomPaint(
-                    painter: CurvePainter(),
+              if (ThemeProvider.of(context).isDarkTheme)
+                Padding(
+                  padding: const EdgeInsets.only(top: 42),
+                  child: SizedBox(
+                    width: 400,
+                    height: 40,
+                    child: CustomPaint(
+                      painter: CurvePainter(),
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

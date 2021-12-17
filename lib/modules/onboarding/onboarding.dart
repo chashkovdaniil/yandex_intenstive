@@ -41,12 +41,6 @@ class Onboarding extends HookConsumerWidget {
       const [],
     );
 
-    useEffect(
-      () {
-        ref.read(onboardingUseCaseProvider).init();
-      },
-      const [],
-    );
     final _currentPage = useState(0);
 
     void _changePage(int index, BuildContext context, WidgetRef ref) {

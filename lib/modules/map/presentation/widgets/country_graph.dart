@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
@@ -32,6 +31,9 @@ class CountryGraph extends StatelessWidget {
                 ),
                 Text(
                   LocaleKeys.countryStatisticsDeath.tr(),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
                 const SizedBox(
                   width: 20,
@@ -49,6 +51,9 @@ class CountryGraph extends StatelessWidget {
                 ),
                 Text(
                   LocaleKeys.countryStatisticsAffected.tr(),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),

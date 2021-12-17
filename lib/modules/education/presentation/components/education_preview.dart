@@ -14,7 +14,9 @@ class EducationPreview extends StatelessWidget {
             EasyLocalization.of(context).toString() == ''
                 ? ''
                 : LocaleKeys.educationPreviewHeader.tr(),
-            style: AppTheme.educationHeader1,
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
           ),
           const SizedBox(height: 30.0),
           RichText(

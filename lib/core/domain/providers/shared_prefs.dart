@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final sharedPrefsProvider = Provider((ref) => SharedPrefs());
+final sharedPrefsProvider = Provider<SharedPrefs>(
+  (ref) => SharedPrefs(),
+);
 
 class SharedPrefs {
   late SharedPreferences _prefs;

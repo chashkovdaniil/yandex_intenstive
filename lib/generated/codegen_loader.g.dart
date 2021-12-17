@@ -100,5 +100,7 @@ abstract class  LocaleKeys {
   static const educationPageTitle1 = 'educationPageTitle1';
   static const educationPageTitle2 = 'educationPageTitle2';
   static const educationPageTitle3 = 'educationPageTitle3';
+  static const english = 'english';
+  static const russian = 'russian';
 
 }

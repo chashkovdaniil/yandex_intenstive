@@ -16,13 +16,17 @@ class DiagnosisPage extends StatelessWidget {
         children: [
           Text(
             LocaleKeys.diagnosisHeader.tr(),
-            style: AppTheme.educationHeader1,
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 25.0),
           Text(
             LocaleKeys.diagnosisDescription.tr(),
-            style: AppTheme.educationSubtitleLight,
+            style: AppTheme.educationSubtitleLight.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             softWrap: true,
           ),
           const SizedBox(height: 20.0),
@@ -35,7 +39,9 @@ class DiagnosisPage extends StatelessWidget {
                 ),
                 TextSpan(
                   text: LocaleKeys.diagnosisWarning.tr(),
-                  style: AppTheme.educationWarning,
+                  style: AppTheme.educationWarning.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),
@@ -51,7 +57,9 @@ class DiagnosisPage extends StatelessWidget {
               child: Center(
                 child: Text(
                   LocaleKeys.diagnosisButtonText.tr(),
-                  style: AppTheme.educationSubtitleWhite,
+                  style: AppTheme.educationSubtitleWhite.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
                 ),
               ),
             ),

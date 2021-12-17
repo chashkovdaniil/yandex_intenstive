@@ -11,16 +11,16 @@ import 'colors.dart';
 class StringValues {
   // Strings for education
   static List<List<String>> get diseaseLegendData => [
-    [LocaleKeys.disease1.tr(), 'assets/images/cold.svg'],
-    [LocaleKeys.disease2.tr(), 'assets/images/flu.svg'],
-    [LocaleKeys.disease3.tr(), 'assets/images/covid.svg'],
-  ];
+        [LocaleKeys.disease1.tr(), 'assets/images/cold.svg'],
+        [LocaleKeys.disease2.tr(), 'assets/images/flu.svg'],
+        [LocaleKeys.disease3.tr(), 'assets/images/covid.svg'],
+      ];
 
   static List<List<String>> get symptomRarityLegendData => [
-    [LocaleKeys.rarity1.tr(), 'common'],
-    [LocaleKeys.rarity2.tr(), 'sometimes'],
-    [LocaleKeys.rarity3.tr(), 'rare'],
-  ];
+        [LocaleKeys.rarity1.tr(), 'common'],
+        [LocaleKeys.rarity2.tr(), 'sometimes'],
+        [LocaleKeys.rarity3.tr(), 'rare'],
+      ];
 
   /*
    * Первые три слова в каждом списке обозначают редкость симпотомов и,
@@ -28,17 +28,17 @@ class StringValues {
    * иконок следует брать из symptomColumnAssets
    */
   static List<List<String>> get symptomColumnData => [
-    ['rare', 'rare', 'common', LocaleKeys.symptomColumnHint1.tr()],
-    ['rare', 'common', 'common', LocaleKeys.symptomColumnHint2.tr()],
-    ['sometimes', 'common', 'common', LocaleKeys.symptomColumnHint3.tr()],
-    ['sometimes', 'common', 'never', LocaleKeys.symptomColumnHint4.tr()],
-    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint5.tr()],
-    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint6.tr()],
-    ['rare', 'common', 'never', LocaleKeys.symptomColumnHint7.tr()],
-    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint8.tr()],
-    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint9.tr()],
-    ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint10.tr()],
-  ];
+        ['rare', 'rare', 'common', LocaleKeys.symptomColumnHint1.tr()],
+        ['rare', 'common', 'common', LocaleKeys.symptomColumnHint2.tr()],
+        ['sometimes', 'common', 'common', LocaleKeys.symptomColumnHint3.tr()],
+        ['sometimes', 'common', 'never', LocaleKeys.symptomColumnHint4.tr()],
+        ['rare', 'common', 'never', LocaleKeys.symptomColumnHint5.tr()],
+        ['rare', 'common', 'never', LocaleKeys.symptomColumnHint6.tr()],
+        ['rare', 'common', 'never', LocaleKeys.symptomColumnHint7.tr()],
+        ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint8.tr()],
+        ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint9.tr()],
+        ['common', 'sometimes', 'never', LocaleKeys.symptomColumnHint10.tr()],
+      ];
 
   static const symptomColumnAssets = {
     'never': 'assets/images/never.svg',
@@ -54,33 +54,33 @@ class StringValues {
   ];
 
   static List<List<String>> get preventionData => [
-    [
-      'assets/images/clean_hands.png',
-      LocaleKeys.preventionTitle1.tr(),
-      LocaleKeys.preventionDesc1.tr(),
-    ],
-    [
-      'assets/images/wear_facemask.png',
-      LocaleKeys.preventionTitle2.tr(),
-      LocaleKeys.preventionDesc2.tr(),
-    ],
-    [
-      'assets/images/avoid_touching_face.png',
-      LocaleKeys.preventionTitle3.tr(),
-      LocaleKeys.preventionDesc3.tr(),
-    ],
-    [
-      'assets/images/avoid_close_contact.png',
-      LocaleKeys.preventionTitle4.tr(),
-      LocaleKeys.preventionDesc4.tr(),
-    ],
-  ];
+        [
+          'assets/images/clean_hands.svg',
+          LocaleKeys.preventionTitle1.tr(),
+          LocaleKeys.preventionDesc1.tr(),
+        ],
+        [
+          'assets/images/wear_facemask.svg',
+          LocaleKeys.preventionTitle2.tr(),
+          LocaleKeys.preventionDesc2.tr(),
+        ],
+        [
+          'assets/images/avoid_touching_face.svg',
+          LocaleKeys.preventionTitle3.tr(),
+          LocaleKeys.preventionDesc3.tr(),
+        ],
+        [
+          'assets/images/avoid_close_contact.svg',
+          LocaleKeys.preventionTitle4.tr(),
+          LocaleKeys.preventionDesc4.tr(),
+        ],
+      ];
 
   static List<String> get educationPageTitles => [
-    LocaleKeys.educationPageTitle1.tr(),
-    LocaleKeys.educationPageTitle2.tr(),
-    LocaleKeys.educationPageTitle3.tr(),
-  ];
+        LocaleKeys.educationPageTitle1.tr(),
+        LocaleKeys.educationPageTitle2.tr(),
+        LocaleKeys.educationPageTitle3.tr(),
+      ];
 }
 
 class MockData {

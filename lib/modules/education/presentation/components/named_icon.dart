@@ -33,7 +33,9 @@ class NamedIcon extends StatelessWidget {
             padding: config.textPadding,
             child: Text(
               data.title,
-              style: config.style,
+              style: config.style.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
         ],

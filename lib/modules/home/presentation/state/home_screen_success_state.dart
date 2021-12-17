@@ -56,21 +56,30 @@ class HomeScreenSuccessState extends HookConsumerWidget {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           body: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(0.0),
             child: CustomScrollView(
               clipBehavior: Clip.none,
               controller: ScrollController(),
               physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
-                  backgroundColor: Colors.white,
                   elevation: 0,
                   floating: true,
-                  flexibleSpace: GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.searchScreenRoute);
-                    },
-                    child: const SearchField(enabled: false),
+                  backgroundColor: Colors.transparent,
+                  flexibleSpace: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 12.0,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRoutes.searchScreenRoute,
+                        );
+                      },
+                      child: const SearchField(enabled: false),
+                    ),
                   ),
                 ),
                 const SliverToBoxAdapter(

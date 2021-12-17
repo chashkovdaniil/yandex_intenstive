@@ -31,7 +31,9 @@ class SymptomsPage extends StatelessWidget {
         children: [
           Text(
             LocaleKeys.symptomsHeader.tr(),
-            style: AppTheme.educationHeader1,
+            style: AppTheme.educationHeader1.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
           ),
           const SizedBox(height: 20.0),
           Text(

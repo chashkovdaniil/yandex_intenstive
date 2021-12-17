@@ -3,12 +3,6 @@ import 'package:yandex_intensive/core/data/datasources/covid_network_datasource.
 import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
 
 void main() {
-  // Future<Map<String, CountryCovid>> statsCountriesByDate({DateTime? date});
-  // Future<CovidReport> statsCountryByDate({
-  //   DateTime? date,
-  //   required String iso,
-  // });
-  // Future<CovidReport> statsTotalByDate({DateTime? date});
   final _api = CovidNetworkDatasource();
   test('Get countries', () async {
     var countries = await _api.countries();

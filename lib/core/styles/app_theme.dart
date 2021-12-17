@@ -29,6 +29,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.white,
       primaryColorLight: AppColors.primary,
       primaryColorDark: AppColors.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primary),
+        ),
+      ),
     );
   }
 
@@ -76,71 +81,70 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.blue.withOpacity(0.01),
       primaryColorLight: AppColors.primary,
       primaryColorDark: AppColors.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primary),
+        ),
+      ),
     );
   }
 
   static const educationHeader1 = TextStyle(
     color: AppColors.educationBlackHeader,
-    fontSize: 34.0,
+    fontSize: 24.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationSubtitle = TextStyle(
     color: AppColors.black,
-    fontSize: 22.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationSubtitleLight = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 22.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w300,
   );
 
   static const educationSubtitleInternalBold = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 22.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w700,
   );
 
   static const educationSubtitleWhite = TextStyle(
     color: AppColors.white,
-    fontSize: 22.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w300,
   );
 
   static const educationSubtitleBold = TextStyle(
     color: AppColors.educationBlackSubtitle,
-    fontSize: 20.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w600,
-  );
-
-  static const educationUsualLight = TextStyle(
-    color: AppColors.educationGray,
-    fontSize: 20.0,
-    fontWeight: FontWeight.w400,
   );
 
   static const educationSmall = TextStyle(
     color: AppColors.black,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationSmallLight = TextStyle(
     color: AppColors.educationGray,
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w400,
   );
 
   static const educationWarning = TextStyle(
     color: AppColors.educationBlackHeader,
-    fontSize: 28.0,
+    fontSize: 24.0,
     fontWeight: FontWeight.w600,
   );
 
   static const educationWarningRed = TextStyle(
-    fontSize: 28.0,
+    fontSize: 24.0,
     color: AppColors.primary,
     fontWeight: FontWeight.w600,
   );

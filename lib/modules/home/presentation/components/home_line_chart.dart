@@ -139,9 +139,8 @@ class _HomeLineChartState extends State<HomeLineChart> {
             to: widget.value.toDouble(),
             duration: widget.duration,
             textStyle: Theme.of(context).textTheme.headline5?.copyWith(
-                  // color: const Color(0xff151522),
                   fontWeight: FontWeight.bold,
-                  fontSize: 23.0,
+                  fontSize: 20.0,
                 ),
             translator: (value) => beautifyNumber(value.round()),
           ),

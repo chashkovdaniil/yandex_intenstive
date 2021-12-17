@@ -1,7 +1,8 @@
-String beautifyNumber(int value) {
-  var res = (value % 1000).toString();
-  while ((value ~/= 1000) != 0) {
-    res = (value % 1000).toString() + ',' + res;
+String beautifyNumber(int val) {
+  String bunch(v) => (v % 1000).toString().padLeft(v ~/ 1000 == 0 ? 0 : 3, '0');
+  var res = bunch(val);
+  while ((val ~/= 1000) != 0) {
+    res = bunch(val) + ',' + res;
   }
   return res;
 }

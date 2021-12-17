@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../configs/colors.dart';
 import '../../configs/text_styles.dart';
+import '../../configs/theme_provider.dart';
 import 'on_tap_opacity.dart';
 
 class CustomAppBar extends StatelessWidget {

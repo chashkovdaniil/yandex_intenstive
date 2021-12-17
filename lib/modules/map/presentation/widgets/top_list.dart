@@ -15,8 +15,7 @@ class TopList extends StatelessWidget {
   Widget build(BuildContext context) {
     var logger = Logger(
       printer: PrettyPrinter(), // Use the PrettyPrinter to format and print log
-    );
-    logger.i(countriesCovid);
+    )..i(countriesCovid);
     countriesCovid.sort(
       (a, b) => a.covidReport.activeDiff.compareTo(b.covidReport.activeDiff),
     );

@@ -1,7 +1,5 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:throttling/throttling.dart';
-import 'package:yandex_intensive/modules/map/presentation/state/map_screen_state.dart';
-import 'package:yandex_intensive/modules/map/usecases/map_stats_total.dart';
 
 import '../core/api/internet_checker.dart';
 import '../core/api/internet_checker_impl.dart';
@@ -13,6 +11,8 @@ import '../core/domain/providers/shared_prefs.dart';
 import '../core/domain/repositories/covid_repository.dart';
 import '../modules/home/presentation/state/home_screen_state.dart';
 import '../modules/home/usecases/home_stats_total.dart';
+import '../modules/map/presentation/state/map_screen_state.dart';
+import '../modules/map/usecases/map_stats_total.dart';
 import '../modules/onboarding/usecase.dart';
 import '../modules/search/domains/usecases/countries_by_name_usecase.dart';
 import '../modules/search/domains/usecases/countries_usecase.dart';

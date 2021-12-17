@@ -18,7 +18,7 @@ class EducationPreview extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 15.0),
           RichText(
             text: TextSpan(
               children: [

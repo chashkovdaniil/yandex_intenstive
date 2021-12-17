@@ -2,16 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yandex_intensive/configs/colors.dart';
-import 'package:yandex_intensive/configs/providers.dart';
+import '../../../../configs/colors.dart';
+import '../../../../configs/providers.dart';
 
 import '../../../../generated/codegen_loader.g.dart';
 import '../state/map_screen_state.dart';
 import '../state/map_screen_success_state.dart';
 
 final _mapScreenProvider =
-StateNotifierProvider<MapScreenManager, MapScreenState>(
-      (ref) => ref.watch(mapScreenStateManagerProvider),
+    StateNotifierProvider<MapScreenManager, MapScreenState>(
+  (ref) => ref.watch(mapScreenStateManagerProvider),
 );
 
 class MapScreen extends HookConsumerWidget {
@@ -65,5 +65,3 @@ class MapScreen extends HookConsumerWidget {
     );
   }
 }
-
-

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yandex_intensive/configs/theme_provider.dart';
 
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
+import '../../../../configs/theme_provider.dart';
 import '../../../general/on_tap_opacity.dart';
 
 class PersonalSettingsItemCard extends StatelessWidget {
@@ -19,7 +19,6 @@ class PersonalSettingsItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Theme ${ThemeProvider.of(context).isDarkTheme}");
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: OnTapOpacityContainer(

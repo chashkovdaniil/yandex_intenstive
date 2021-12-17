@@ -58,7 +58,7 @@ class RestList extends StatelessWidget {
     return RestCountryCard(
       countryTitle: _shorten(
         countriesCovid.elementAt(index + 3).country.name,
-        26,
+        22,
       ),
       deathValue: beautifyNumber(
         countriesCovid.elementAt(index + 3).covidReport.deaths,

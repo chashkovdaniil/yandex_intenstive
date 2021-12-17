@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:yandex_intensive/modules/general/app_bar.dart';
-import 'package:yandex_intensive/modules/map/presentation/helpers/MapStatisticsParser.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/card.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/map.dart';
 import 'package:yandex_intensive/modules/map/presentation/widgets/rest_list.dart';
@@ -32,8 +31,8 @@ class MapScreenSuccessState extends HookConsumerWidget {
     var logger = Logger(
       printer: PrettyPrinter(), // Use the PrettyPrinter to format and print log
     );
-    final parser = MapStatisticsParser(data.countriesStats);
-    logger.i(parser.parseInBackground().toString());
+    // final parser = MapStatisticsParser(data.countriesStats);
+    // logger.i(parser.parseInBackground().toString());
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus,
@@ -56,7 +55,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
                       child: MapScreenCard(
                         height: 410,
                         title: StringValues.mapAreas,
-                        content: MapChart(),
+                        content: MapChart(MockData.mapData),
                       ),
                     ),
                     const SliverToBoxAdapter(
@@ -74,9 +73,13 @@ class MapScreenSuccessState extends HookConsumerWidget {
                     ),
                     SliverToBoxAdapter(
                       child: MapScreenCard(
-                        height: 680,
+                        height: 2400,
                         title: StringValues.mapRest,
-                        content: const RestList(),
+                        content: RestList(
+                          List<CountryCovid>.from(
+                            data.countriesStats.values,
+                          ),
+                        ),
                       ),
                     ),
                     const SliverToBoxAdapter(

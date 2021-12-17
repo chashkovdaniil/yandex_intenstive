@@ -31,7 +31,11 @@ class MapScreenManager extends StateNotifier<MapScreenState> {
 
   setData({
     Map<String, CountryCovid>? countriesCovid,
-  }) {
+  }) async {
+    // final parser =
+    // MapStatisticsParser((countriesCovid ?? state.countriesCovid)!);
+    // var result;
+    // await result = parser.parseInBackground();
     state = state.copyWith(
       countriesCovid: countriesCovid ?? state.countriesCovid,
       status: const MapScreenStateStatus.success(),

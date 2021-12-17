@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_donation_buttons/flutter_donation_buttons.dart';
+import 'package:yandex_intensive/modules/settings/presentation/widgets/item_donate.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
@@ -86,10 +88,41 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            PersonalSettingsItemCard(
+            GeneralSettingsItemCard(
               title: LocaleKeys.settingsItemDonate.tr(),
               icon: CupertinoIcons.bitcoin,
               iconColor: AppColors.orange,
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  builder: (context) {
+                    return BottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
+                        ),
+                      ),
+                      builder: (BuildContext context) {
+                        return ListView(
+                          padding: const EdgeInsets.all(12),
+                          children: const [
+                            KofiButton(
+                              kofiName: 'yandex_intensive_covid',
+                              kofiColor: KofiColor.Red,
+                            ),
+                          ],
+                          shrinkWrap: true,
+                        );
+                      },
+                      onClosing: () {},
+                    );
+                  },
+                );
+              },
             ),
             const SizedBox(
               height: 10,

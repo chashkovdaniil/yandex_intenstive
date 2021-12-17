@@ -59,19 +59,18 @@ class _RestCountryCardState extends State<RestCountryCard> {
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 10, left: 12, bottom: 6),
-                        child: Text(
-                          widget.countryTitle,
-                          textAlign: TextAlign.start,
-                          overflow: TextOverflow.clip,
-                          style: TextStyles.titleCountry,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 10, left: 12, bottom: 6),
+                      child: Text(
+                        widget.countryTitle,
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.clip,
+                        style: TextStyles.titleCountry,
+                      ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 12),
@@ -88,7 +87,6 @@ class _RestCountryCardState extends State<RestCountryCard> {
                     ],
                   ),
                 ),
-              ),
               const Spacer(),
               Align(
                 alignment: Alignment.topLeft,

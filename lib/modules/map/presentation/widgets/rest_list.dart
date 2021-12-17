@@ -60,8 +60,9 @@ class RestList extends StatelessWidget {
       affectedValue:
           countriesCovid.elementAt(index).covidReport.confirmed.toString(),
       image: isoAlpha3Map[
-              countriesCovid.elementAt(index).country.code.toUpperCase()]!
-          .toLowerCase(),
+                  countriesCovid.elementAt(index).country.code.toUpperCase()]
+              ?.toLowerCase() ??
+          'fr',
     );
   }
 }

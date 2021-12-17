@@ -10,7 +10,7 @@
   "mapRestDescription": "Список всех заражённых стран",
   "mapRestCases": " - Смертей",
   "countryStatisticsTitle": " - статистика",
-  "countryStatisticsInfectedCases": " Случаев заражения",
+  "countryStatisticsInfectedCases": " Заражений",
   "countryStatisticsDeathCases": " Смертей",
   "countryStatisticsGraphTitle": "Заражённых и умерших",
   "countryStatisticsDeath": "Death",

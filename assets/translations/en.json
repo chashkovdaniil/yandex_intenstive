@@ -31,7 +31,7 @@
   "bottomNavigationItemSettings": "Settings",
   "listCountriesConfirmedTitle": "Country",
   "listCountriesConfirmedTrailing": "Confirmed",
-  "ratioRecoveryChartTitle": "Ratio of Recovery",
+  "ratioRecoveryChartTitle": "Ratio of deaths",
   "ratioRecoveryChartPercent": "%",
   "ratioRecoveryChartMarkChartDeath": "Deaths",
   "ratioRecoveryChartMarkChartRecovered": "Recovered",

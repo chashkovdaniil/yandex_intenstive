@@ -135,6 +135,7 @@ class HomeScreenSuccessState extends HookConsumerWidget {
                 SliverToBoxAdapter(
                   child: HomeCard(
                     child: RatioRecoveryChart(
+                      active: data.active,
                       deaths: data.deaths,
                       recovered: data.recovered,
                       confirmed: data.confirmed,

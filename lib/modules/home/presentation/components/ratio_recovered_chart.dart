@@ -8,6 +8,7 @@ import 'animation_numbers_text.dart';
 import 'mark_chart.dart';
 
 class RatioRecoveryChart extends StatelessWidget {
+  final int active;
   final int deaths;
   final int recovered;
   final int confirmed;
@@ -18,13 +19,14 @@ class RatioRecoveryChart extends StatelessWidget {
 
   const RatioRecoveryChart({
     Key? key,
+    required this.active,
     required this.deaths,
     required this.recovered,
     required this.confirmed,
   }) : super(key: key);
 
   double get percentRecovered {
-    return recovered / confirmed * 100;
+    return deaths / confirmed * 100;
   }
 
   @override
@@ -48,9 +50,9 @@ class RatioRecoveryChart extends StatelessWidget {
           progressColor: AppColors.red,
           backgroundColor: Colors.transparent,
           center: CircularPercentIndicator(
-            percent: recovered / confirmed,
+            percent: active / confirmed,
             radius: 128,
-            progressColor: AppColors.green,
+            progressColor: AppColors.orange,
             lineWidth: 8.0,
             animation: true,
             animationDuration: _animationDuration,
@@ -69,14 +71,14 @@ class RatioRecoveryChart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MarkChart(
+                color: AppColors.orange,
+                title: LocaleKeys.homeScreenActive.tr(),
+                value: active,
+              ),
+              MarkChart(
                 color: AppColors.red,
                 title: LocaleKeys.ratioRecoveryChartMarkChartDeath.tr(),
                 value: deaths,
-              ),
-              MarkChart(
-                color: AppColors.green,
-                title: LocaleKeys.ratioRecoveryChartMarkChartRecovered.tr(),
-                value: recovered,
               ),
             ],
           ),

@@ -31,7 +31,7 @@
   "bottomNavigationItemSettings":         "Настройки",
   "listCountriesConfirmedTitle":          "Страна",
   "listCountriesConfirmedTrailing":       "Заболевших",
-  "ratioRecoveryChartTitle":              "Доля выздоровевших",
+  "ratioRecoveryChartTitle":              "Доля умерших",
   "ratioRecoveryChartPercent":            "%",
   "ratioRecoveryChartMarkChartDeath":     "Смертей",
   "ratioRecoveryChartMarkChartRecovered": "Выздоровело",

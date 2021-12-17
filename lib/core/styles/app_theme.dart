@@ -155,6 +155,33 @@ class AppTheme {
     ),
   );
 
+  static const splashScreenTitleTextStyle = TextStyle(
+    fontSize: 40,
+    color: AppColors.primary,
+    fontWeight: FontWeight.w600,
+  );
+  static const splashScreenBottomTextStyle = TextStyle(
+    fontSize: 15,
+    color: Colors.black,
+    fontWeight: FontWeight.w300,
+  );
+  static const buttonTextStyle = TextStyle(
+    fontSize: 12,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+  );
+  static const titleTextStyle = TextStyle(
+    color: AppColors.onboaringTitle,
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+  );
+  static const descriptionTextStyle = TextStyle(
+    color: AppColors.onboardingDescription,
+    fontSize: 16,
+    letterSpacing: 0.5,
+    fontWeight: FontWeight.w300,
+  );
+
   static ThemeMode themeModeFromStr(String mode) {
     switch (mode) {
       case 'dark':

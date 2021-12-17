@@ -14,7 +14,7 @@ class RestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     countriesCovid.sort(
-      (a, b) => a.covidReport.activeDiff.compareTo(b.covidReport.activeDiff),
+      (a, b) => b.covidReport.confirmed.compareTo(a.covidReport.confirmed),
     );
     return Column(
       children: [

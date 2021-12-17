@@ -167,17 +167,4 @@ class AppTheme {
         return ThemeMode.system;
     }
   }
-
-  static String stringToThemeMode(ThemeMode mode) {
-    switch (mode) {
-      case ThemeMode.dark:
-        return 'dark';
-      case ThemeMode.light:
-        return 'light';
-      case ThemeMode.system:
-        return 'system';
-      default:
-        return 'system';
-    }
-  }
 }

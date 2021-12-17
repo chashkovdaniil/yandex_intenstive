@@ -99,5 +99,8 @@
   "educationPageTitle2": "Symptoms",
   "educationPageTitle3": "Diagnosis",
   "english": "English",
-  "russian": "Русский"
+  "russian": "Русский",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System"
 }

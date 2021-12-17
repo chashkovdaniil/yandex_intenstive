@@ -43,6 +43,7 @@ class MapScreenSuccessState extends HookConsumerWidget {
             children: [
               CustomAppBar(
                 showBackButton: false,
+                showUserButton: false,
                 title: LocaleKeys.mapTitle.tr(),
               ),
               Expanded(

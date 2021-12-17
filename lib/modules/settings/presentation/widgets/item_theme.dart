@@ -40,7 +40,7 @@ class ItemTheme extends HookConsumerWidget {
                         );
                         themeModeSharedPrefs.setString(
                           SharedPreferencesNames.themeMode,
-                          ThemeMode.values.elementAt(index).name.tr(),
+                          ThemeMode.values.elementAt(index).name,
                         );
                         ref.watch(appNavigationManagerProvider).pop();
                       },

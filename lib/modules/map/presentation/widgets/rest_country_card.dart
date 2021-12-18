@@ -32,7 +32,10 @@ class _RestCountryCardState extends State<RestCountryCard> {
   Widget build(BuildContext context) {
     EasyLocalization.of(context);
     return OnTapOpacityContainer(
-      onTap: () => Navigator.of(context).pushNamed(AppRoutes.countryDetails),
+      onTap: () => Navigator.of(context).pushNamed(
+        AppRoutes.countryDetails,
+        arguments: widget.country,
+      ),
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 60,

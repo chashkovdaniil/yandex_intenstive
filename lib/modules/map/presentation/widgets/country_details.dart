@@ -6,13 +6,14 @@ import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart' show TextStyles;
 import '../../../../configs/theme_provider.dart';
+import '../../../../core/domain/entities/country_covid_entity.dart';
+import '../../../general/functions.dart';
 import '../../../general/navigation_views.dart';
 
 class CountryDetailsCard extends StatelessWidget {
-  // TODO: add CountryModel field to get it from MapScreen
-  const CountryDetailsCard({
-    Key? key,
-  }) : super(key: key);
+  final CountryCovid country;
+
+  const CountryDetailsCard(this.country, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -66,8 +67,7 @@ class CountryDetailsCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 12, left: 16),
                         child: Text(
-                          // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                          'China',
+                          country.country.name,
                           textAlign: TextAlign.start,
                           style: TextStyles.titleCountryDetails.copyWith(
                             color: Theme.of(context).colorScheme.onSurface,
@@ -121,8 +121,7 @@ class CountryDetailsCard extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                            '80,174',
+                            beautifyNumber(country.covidReport.confirmed),
                             textAlign: TextAlign.start,
                             style: TextStyles.infectedValue,
                           ),
@@ -134,8 +133,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              // TODO: transfer CountryModel from MapScreen and parse its fields for title and etc
-                              '1,478' +
+                              beautifyNumber(country.covidReport.active) +
                                   LocaleKeys.countryStatisticsInfectedCases
                                       .tr(),
                               textAlign: TextAlign.start,
@@ -158,7 +156,7 @@ class CountryDetailsCard extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            '2,915',
+                            beautifyNumber(country.covidReport.deaths),
                             textAlign: TextAlign.start,
                             style: TextStyles.deathValue,
                           ),
@@ -170,7 +168,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              '550' +
+                              beautifyNumber(country.covidReport.deathsDiff) +
                                   LocaleKeys.countryStatisticsDeathCases.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,

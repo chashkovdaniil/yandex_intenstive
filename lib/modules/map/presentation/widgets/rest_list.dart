@@ -52,9 +52,6 @@ class RestList extends StatelessWidget {
     );
   }
 
-  static String _shorten(String str, int symbolsMax) => str.length > symbolsMax
-      ? str = str.substring(0, symbolsMax - 1) + '…'
-      : str;
 
   Widget _itemBuilder(BuildContext context, int index) {
     return RestCountryCard(

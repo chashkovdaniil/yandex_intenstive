@@ -4,7 +4,6 @@ import 'package:syncfusion_flutter_maps/maps.dart';
 
 import '../generated/codegen_loader.g.dart';
 import '../modules/map/presentation/helpers/model.dart';
-import '../modules/map/presentation/widgets/top_country_card.dart';
 import 'colors.dart';
 
 class StringValues {
@@ -311,30 +310,6 @@ class MockData {
           itemHoverColor: Colors.blue,
         ),
       );
-
-  static List<TopCountryCard> get topCountryList => <TopCountryCard>[
-        const TopCountryCard(
-          countryTitle: 'China',
-          affectedValue: '81.05k',
-          recoveredValue: '72.44k',
-          countryProgress: 0.26,
-          countryProgressColor: AppColors.primary,
-        ),
-        const TopCountryCard(
-          countryTitle: 'Italy',
-          affectedValue: '53.5k',
-          recoveredValue: '6.07k',
-          countryProgress: 0.17,
-          countryProgressColor: AppColors.green,
-        ),
-        const TopCountryCard(
-          countryTitle: 'USA',
-          affectedValue: '26.892',
-          recoveredValue: '178',
-          countryProgress: 0.09,
-          countryProgressColor: AppColors.blue,
-        ),
-      ];
 }
 
 class Assets {

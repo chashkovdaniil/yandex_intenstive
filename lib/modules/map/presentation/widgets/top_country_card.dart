@@ -43,8 +43,10 @@ class _TopCountryCardState extends State<TopCountryCard> {
             ? const EdgeInsets.only(top: 20, bottom: 16)
             : const EdgeInsets.only(top: 20, bottom: 16),
         child: OnTapOpacityContainer(
-          onTap: () =>
-              Navigator.of(context).pushNamed(AppRoutes.countryDetails),
+          onTap: () => Navigator.of(context).pushNamed(
+            AppRoutes.countryDetails,
+            arguments: widget.country,
+          ),
           child: Stack(
             children: [
               Padding(

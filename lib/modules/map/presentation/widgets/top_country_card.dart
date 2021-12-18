@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
 
 import '../../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
@@ -13,6 +14,7 @@ import '../../../general/on_tap_opacity.dart';
 import 'custom_border.dart';
 
 class TopCountryCard extends StatefulWidget {
+  final CountryCovid country;
   final String countryTitle;
   final String affectedValue;
   final String recoveredValue;
@@ -21,6 +23,7 @@ class TopCountryCard extends StatefulWidget {
 
   const TopCountryCard({
     Key? key,
+    required this.country,
     required this.countryTitle,
     required this.affectedValue,
     required this.recoveredValue,

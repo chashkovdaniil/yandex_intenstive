@@ -22,7 +22,7 @@ class CountryDetailsCard extends StatelessWidget {
             : const EdgeInsets.symmetric(horizontal: 12),
         child: Container(
           width: double.infinity,
-          height: 240,
+          height: 300,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),

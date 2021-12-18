@@ -41,7 +41,6 @@ void main() async {
       path: 'assets/translations',
       // <-- change the path of the translation files
       fallbackLocale: const Locale('en'),
-      startLocale: const Locale('en'),
       child: ProviderScope(
         overrides: [sharedPrefsProvider.overrideWithValue(_sharedPrefs)],
         child: const MyApp(),

@@ -4,22 +4,19 @@ import 'package:flutter/material.dart';
 
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
+import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
+import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../../generated/codegen_loader.g.dart';
+import '../../../general/functions.dart';
 import '../../../general/on_tap_opacity.dart';
 
 class RestCountryCard extends StatefulWidget {
-  final String countryTitle;
-  final String deathValue;
-  final String affectedValue;
-  final String image;
+  final CountryCovid country;
 
   const RestCountryCard({
     Key? key,
-    required this.countryTitle,
-    required this.deathValue,
-    required this.affectedValue,
-    required this.image,
+    required this.country,
   }) : super(key: key);
 
   @override
@@ -27,6 +24,10 @@ class RestCountryCard extends StatefulWidget {
 }
 
 class _RestCountryCardState extends State<RestCountryCard> {
+  static String _shorten(String str, int symbolsMax) => str.length > symbolsMax
+      ? str = str.substring(0, symbolsMax - 1) + '…'
+      : str;
+
   @override
   Widget build(BuildContext context) {
     EasyLocalization.of(context);
@@ -52,7 +53,7 @@ class _RestCountryCardState extends State<RestCountryCard> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    'icons/flags/png/${widget.image}.png',
+                    'icons/flags/png/${isoAlpha3Map[widget.country.country.code.toUpperCase()]?.toLowerCase() ?? 'fr'}.png',
                     package: 'country_icons',
                     width: 46,
                     height: 30,
@@ -71,7 +72,10 @@ class _RestCountryCardState extends State<RestCountryCard> {
                       bottom: 6,
                     ),
                     child: Text(
-                      widget.countryTitle,
+                      _shorten(
+                        widget.country.country.name,
+                        22,
+                      ),
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
                       style: TextStyles.titleCountry.copyWith(
@@ -83,7 +87,9 @@ class _RestCountryCardState extends State<RestCountryCard> {
                     padding: const EdgeInsets.only(left: 12),
                     child: SizedBox(
                       child: Text(
-                        widget.deathValue +
+                        beautifyNumber(
+                              widget.country.covidReport.deaths,
+                            ) +
                             LocaleKeys.countryStatisticsDeathCases.tr(),
                         textAlign: TextAlign.start,
                         style: TextStyles.infoCountry,
@@ -97,7 +103,9 @@ class _RestCountryCardState extends State<RestCountryCard> {
             ),
             // const Spacer(),
             Text(
-              widget.affectedValue,
+              beautifyNumber(
+                widget.country.covidReport.confirmed,
+              ),
               textAlign: TextAlign.start,
             ),
             const Icon(

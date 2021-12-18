@@ -175,7 +175,6 @@ class CovidNetworkDatasource implements CovidDatasource {
       const monthEnd = 8;
 
       while (year < yearEnd || month <= monthEnd) {
-        print("$year, $month");
         data.add(await statsTotalByDate(date: DateTime(year, month)));
         if (month == 12) {
           ++year;

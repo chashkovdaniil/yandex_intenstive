@@ -16,6 +16,7 @@ class TopList extends StatelessWidget {
     return Column(
       children: [
         TopCountryCard(
+          country: countriesCovid.elementAt(0),
           countryTitle: countriesCovid.elementAt(0).country.name,
           affectedValue:
               beautifyNumber(countriesCovid.elementAt(0).covidReport.confirmed),
@@ -25,6 +26,7 @@ class TopList extends StatelessWidget {
           countryProgressColor: AppColors.primary,
         ),
         TopCountryCard(
+          country: countriesCovid.elementAt(1),
           countryTitle: countriesCovid.elementAt(1).country.name,
           affectedValue:
               beautifyNumber(countriesCovid.elementAt(1).covidReport.confirmed),
@@ -34,6 +36,7 @@ class TopList extends StatelessWidget {
           countryProgressColor: AppColors.green,
         ),
         TopCountryCard(
+          country: countriesCovid.elementAt(2),
           countryTitle: countriesCovid.elementAt(2).country.name,
           affectedValue:
               beautifyNumber(countriesCovid.elementAt(2).covidReport.confirmed),

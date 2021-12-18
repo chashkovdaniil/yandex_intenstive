@@ -1,11 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../configs/constants.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../core/domain/entities/country_covid_entity.dart';
 import '../../../../generated/codegen_loader.g.dart';
-import '../../../general/functions.dart';
 import 'rest_country_card.dart';
 
 class RestList extends StatelessWidget {
@@ -54,29 +52,10 @@ class RestList extends StatelessWidget {
     );
   }
 
-  static String _shorten(String str, int symbolsMax) => str.length > symbolsMax
-      ? str = str.substring(0, symbolsMax - 1) + '…'
-      : str;
 
   Widget _itemBuilder(BuildContext context, int index) {
     return RestCountryCard(
-      countryTitle: _shorten(
-        countriesCovid.elementAt(index + 3).country.name,
-        22,
-      ),
-      deathValue: beautifyNumber(
-        countriesCovid.elementAt(index + 3).covidReport.deaths,
-      ),
-      affectedValue: beautifyNumber(
-        countriesCovid.elementAt(index + 3).covidReport.confirmed,
-      ),
-      image: isoAlpha3Map[countriesCovid
-                  .elementAt(index + 3)
-                  .country
-                  .code
-                  .toUpperCase()]
-              ?.toLowerCase() ??
-          'fr',
+      country: countriesCovid.elementAt(index + 3),
     );
   }
 }

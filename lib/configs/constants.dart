@@ -4,8 +4,6 @@ import 'package:syncfusion_flutter_maps/maps.dart';
 
 import '../generated/codegen_loader.g.dart';
 import '../modules/map/presentation/helpers/model.dart';
-import '../modules/map/presentation/widgets/rest_country_card.dart';
-import '../modules/map/presentation/widgets/top_country_card.dart';
 import 'colors.dart';
 
 class StringValues {
@@ -312,93 +310,6 @@ class MockData {
           itemHoverColor: Colors.blue,
         ),
       );
-
-  static List<TopCountryCard> get topCountryList => <TopCountryCard>[
-        const TopCountryCard(
-          countryTitle: 'China',
-          affectedValue: '81.05k',
-          recoveredValue: '72.44k',
-          countryProgress: 0.26,
-          countryProgressColor: AppColors.primary,
-        ),
-        const TopCountryCard(
-          countryTitle: 'Italy',
-          affectedValue: '53.5k',
-          recoveredValue: '6.07k',
-          countryProgress: 0.17,
-          countryProgressColor: AppColors.green,
-        ),
-        const TopCountryCard(
-          countryTitle: 'USA',
-          affectedValue: '26.892',
-          recoveredValue: '178',
-          countryProgress: 0.09,
-          countryProgressColor: AppColors.blue,
-        ),
-      ];
-
-  static List<RestCountryCard> get restCountryList => <RestCountryCard>[
-        const RestCountryCard(
-          countryTitle: 'China',
-          deathValue: '81.05k',
-          affectedValue: '72.44k',
-          image: 'fr',
-        ),
-        const RestCountryCard(
-          countryTitle: 'Italy',
-          deathValue: '53.5k',
-          affectedValue: '6.07k',
-          image: 'kr',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'sk',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'cl',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'nl',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'be',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'at',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'no',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'no',
-        ),
-        const RestCountryCard(
-          countryTitle: 'USA',
-          deathValue: '26.892',
-          affectedValue: '178',
-          image: 'by',
-        ),
-      ];
 }
 
 class Assets {

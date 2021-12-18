@@ -168,10 +168,24 @@ class CovidNetworkDatasource implements CovidDatasource {
   @override
   Future<List<CovidReport>> statsTotal() async {
     try {
-      final data = List<CovidReport>.empty(growable: true);
-      for (var year = 2020; year <= DateTime.now().year; year++) {
-        data.addAll(await statsTotalByYear(year));
+      final data = <CovidReport>[];
+      var year = 2020;
+      var month = 1;
+      const yearEnd = 2021;
+      const monthEnd = 8;
+
+      while (year < yearEnd || month <= monthEnd) {
+        print("$year, $month");
+        data.add(await statsTotalByDate(date: DateTime(year, month)));
+        if (month == 12) {
+          ++year;
+          month = 1;
+        }
+        else {
+          ++month;
+        }
       }
+
       return data;
     } catch (err) {
       throw AppExceptions.noInternetConnection;

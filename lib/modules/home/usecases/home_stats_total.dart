@@ -19,7 +19,8 @@ class StatsTotal extends BaseUsecase<void> {
       var lastStatsCountries = await _repository.statsCountriesByDate();
       var statsTotalByYears = await _repository.statsTotal();
       var statsTotalByDate = await _repository.statsTotalByDate(
-        date: DateTime.now().subtract(const Duration(days: 2)),
+        date: DateTime(2021, 8),
+        // date: DateTime.now().subtract(const Duration(days: 2)),
       );
       var listWithIndexes = statsTotalByYears.asMap();
 

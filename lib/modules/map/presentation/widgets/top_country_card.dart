@@ -2,13 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:yandex_intensive/core/domain/entities/country_covid_entity.dart';
 
 import '../../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/app_routes.dart';
 import '../../../../configs/colors.dart';
 import '../../../../configs/text_styles.dart';
 import '../../../../configs/theme_provider.dart';
+import '../../../../core/domain/entities/country_covid_entity.dart';
+import '../../../general/functions.dart';
 import '../../../general/navigation_views.dart';
 import '../../../general/on_tap_opacity.dart';
 import 'custom_border.dart';
@@ -79,7 +80,7 @@ class _TopCountryCardState extends State<TopCountryCard> {
                               bottom: 6,
                             ),
                             child: Text(
-                              widget.countryTitle,
+                              widget.country.country.name,
                               textAlign: TextAlign.start,
                               style: TextStyles.titleCountry.copyWith(
                                 color: Theme.of(context).colorScheme.onSurface,
@@ -90,7 +91,9 @@ class _TopCountryCardState extends State<TopCountryCard> {
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
                               LocaleKeys.mapTopAffected.tr() +
-                                  widget.affectedValue,
+                                  beautifyNumber(
+                                    widget.country.covidReport.confirmed,
+                                  ),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),
@@ -100,7 +103,9 @@ class _TopCountryCardState extends State<TopCountryCard> {
                                 const EdgeInsets.only(left: 12, bottom: 4.0),
                             child: Text(
                               LocaleKeys.mapTopRecovered.tr() +
-                                  widget.recoveredValue,
+                                  beautifyNumber(
+                                    widget.country.covidReport.recovered,
+                                  ),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,
                             ),

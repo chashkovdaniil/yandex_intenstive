@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yandex_intensive/configs/constants.dart';
 
 import '../../../../../generated/codegen_loader.g.dart';
 import '../../../../configs/colors.dart';
@@ -55,7 +56,7 @@ class CountryDetailsCard extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            'icons/flags/png/ch.png',
+                            'icons/flags/png/${isoAlpha3Map[country.country.code.toUpperCase()]?.toLowerCase() ?? 'fr'}.png',
                             package: 'country_icons',
                             width: 50,
                           ),

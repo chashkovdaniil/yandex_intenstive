@@ -13,6 +13,7 @@ import 'core/domain/providers/shared_prefs.dart';
 import 'core/styles/app_theme.dart';
 import 'modules/bottom_navigation/bottom_navigation.dart';
 import 'modules/education/presentation/screens/education_screen.dart';
+import 'modules/general/push_notification_service.dart';
 import 'modules/map/presentation/screens/country_details_screen.dart';
 import 'modules/onboarding/onboarding.dart';
 import 'modules/search/presentation/search_screen.dart';
@@ -29,11 +30,11 @@ void main() async {
   await _sharedPrefs.init();
   await initHive();
 
-  // await PushNotificationService().setupInteractedMessage();
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  await PushNotificationService().setupInteractedMessage();
+  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await EasyLocalization.ensureInitialized();
   // await PushNotificationService().setupInteractedMessage();
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(
     EasyLocalization(
       useFallbackTranslations: true,

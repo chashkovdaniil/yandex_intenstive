@@ -65,6 +65,7 @@ class MyApp extends HookConsumerWidget {
       ),
       builder: (context) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,

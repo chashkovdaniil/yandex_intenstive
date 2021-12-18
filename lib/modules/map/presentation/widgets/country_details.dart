@@ -133,7 +133,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              beautifyNumber(country.covidReport.active) +
+                              beautifyNumber(country.covidReport.confirmed) +
                                   LocaleKeys.countryStatisticsInfectedCases
                                       .tr(),
                               textAlign: TextAlign.start,
@@ -168,7 +168,7 @@ class CountryDetailsCard extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              beautifyNumber(country.covidReport.deathsDiff) +
+                              beautifyNumber(country.covidReport.deaths) +
                                   LocaleKeys.countryStatisticsDeathCases.tr(),
                               textAlign: TextAlign.start,
                               style: TextStyles.infoCountry,

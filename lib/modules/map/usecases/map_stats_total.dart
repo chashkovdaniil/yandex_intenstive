@@ -13,7 +13,9 @@ class StatsMap extends BaseUsecase<void> {
 
   @override
   Future<void> call() async {
-    var lastStatsCountries = await _repository.statsCountriesByDate();
+    var lastStatsCountries = await _repository.statsCountriesByDate(
+      date: DateTime(2021, 8),
+    );
 
     manager.setData(
       countriesCovid: lastStatsCountries,

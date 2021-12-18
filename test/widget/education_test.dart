@@ -10,9 +10,20 @@ void main() {
   }
 
   testWidgets('Education Page smoke test', (WidgetTester tester) async {
-    await tester
-        .pumpWidget(createWidgetForTesting(child: const EducationPreview()));
+    const testKey = Key('testKey');
+
+    await tester.pumpWidget(
+      createWidgetForTesting(
+        child: const EducationPreview(
+          key: testKey,
+        ),
+      ),
+    );
 
     await tester.pumpAndSettle();
+
+    final keyFinder = find.byKey(testKey);
+    
+    expect(keyFinder, findsOneWidget);
   });
 }

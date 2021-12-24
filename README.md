@@ -17,7 +17,7 @@
   <li><strike>Использование списка</strike></li>
   <li><strike>Использование API</strike></li>
   <li><strike>Хранение данных локально</strike></li>
-  <li>Стабильность работы</li>
+  <li><strike>Стабильность работы</strike></li>
   <li><strike>Ввод текста</strike></li>
   <li><strike>Какие-то анимации</strike></li>
   <li>Без просадок fps</li>

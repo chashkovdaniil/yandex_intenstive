@@ -12,7 +12,7 @@
 ## Requirements
 
 <ul>
-  <li>Красивый дизайн</li>
+  <li><strike>Красивый дизайн</strike></li>
   <li><strike>2+ экрана, навигация 1.0</strike></li>
   <li><strike>Использование списка</strike></li>
   <li><strike>Использование API</strike></li>
